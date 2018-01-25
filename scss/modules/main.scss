@@ -1,0 +1,24 @@
+.wrapper {
+	width: $large;
+	min-height: 100vh;
+	margin: 0 auto;
+	padding-top: $spaceNav;
+	padding-left: $space;
+	padding-right: $space;
+	-webkit-transition: -webkit-transform $transitionSlower;
+	-webkit-transition-timing-function: linear;
+	transition: transform $transitionSlower;
+	transition-timing-function: linear;
+
+	@media screen and (max-width: $large) {
+		width: 100%;
+	}
+
+	@media screen and (max-width: $medium) {
+		padding-top: $spaceNavMedium;
+	}
+
+	@media screen and (max-width: $small) {
+		padding-top: $spaceNavMobile;
+	}
+}

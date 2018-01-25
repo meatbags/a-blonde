@@ -1,0 +1,63 @@
+.slick-slider {
+	padding-top: $space;
+	padding-bottom: $space / 2;
+}
+
+.slick-track {
+	height: 72vh;
+}
+
+.slick-slide {
+	transition: $transition;
+	outline: none !important;
+	padding: $space;
+	display: flex;
+	align-items: center;
+	filter: saturate(0%);
+	
+	img {
+		height: 100%;
+		width: auto;
+	}
+	
+	&.slick-active {
+		filter: saturate(100%);
+	}
+}
+
+.slick-next, .slick-previous {
+	display: none;
+}
+
+.slick-dots {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: $space / 2;
+	margin-bottom: $space / 2;
+	
+	li {
+		padding-left: $space / 2;
+		padding-right: $space / 2;
+		opacity: 1;
+		font-size: 110%;
+		
+		button {
+			border: none;
+			background: none;
+			outline: none !important;
+			visibility: hidden;
+			
+			&:before {
+				content: "\2022";
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+		
+		&.slick-active {
+			opacity: 0.5;
+		}
+	}
+}

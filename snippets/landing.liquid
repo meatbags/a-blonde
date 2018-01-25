@@ -1,0 +1,65 @@
+<div class="landing-page disabled">
+	<div class="landing-page__image">
+		<img onload="add(this);" src="{{ 'alabama_1.png' | file_url }}">
+		<img onload="add(this);" src="{{ 'frame_1.png' | file_url }}">
+		<img onload="add(this);" src="{{ 'frame_2.png' | file_url }}">
+		<img onload="add(this);" src="{{ 'frame_3.png' | file_url }}">
+		<img onload="add(this);" src="{{ 'frame_4.png' | file_url }}">
+		<img onload="add(this);" src="{{ 'frame_5.png' | file_url }}">
+		<img onload="add(this);" src="{{ 'frame_6.png' | file_url }}">
+	</div>
+	<div class="landing-page__prompt font-half">
+		Enter.
+	</div>
+</div>
+
+<video id='landing-video' playsinline preload="none" muted loop id="bgvid">
+	<source src="https://cdn.shopify.com/s/files/1/1950/6433/files/alabama_newvid_540p.webm?17724248169402448949" type="video/webm">
+	<source src="https://cdn.shopify.com/s/files/1/1950/6433/files/alabama_newvid_540p.mp4?17724248169402448949" type="video/mp4">
+</video>
+
+<div class='landing-background'></div>
+
+<script type="text/javascript">
+	var mainImage, frames, currentFrame, toLoad;
+
+	mainImage = $(".landing-page__image img:nth-child(1)");
+	frames = [];
+	currentFrame = 0;
+	toLoad = $(".landing-page__image img").length;
+
+	function add(elem) {
+		toLoad -= 1;
+		frames.push($(elem));
+	}
+
+	function animate() {
+		if ($(".landing-page").length > 0) {
+			if (frames.length > 0) {
+				var x, y;
+
+				x = Math.floor(Math.random() * 6 - 3);
+				y = Math.floor(Math.random() * 6 - 3);
+
+				$(".landing-page__image img").removeClass("active");
+				$(".landing-page__image img").css({
+					opacity: Math.random() * 0.5 + 0.5,
+					transform: "translate(" + x + "px, " + y + "px)"
+				});
+
+				if (Math.random() > 0.65) {
+					currentFrame = (currentFrame + 1) % frames.length;
+					frames[currentFrame].addClass("active");
+					$(".landing-page__image").css({width: Math.floor(Math.random() * 10 + 40) + "vh"});
+				} else {
+					mainImage.addClass("active");
+				}
+			}
+			setTimeout(function(){
+				animate();
+			}, 160);
+		}
+	}
+
+	animate();
+</script>

@@ -1,0 +1,8 @@
+<div class="collection">
+	<a href="{{ collection.url }}">
+		{{ collection.image.src | img_url: 'grande' | img_tag: collection_title }}
+		<div class='collection__name'>
+			<div class="collection__name__inner">{{ collection.title }}</div>
+		</div>
+	</a>
+</div>

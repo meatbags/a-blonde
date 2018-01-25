@@ -1,0 +1,45 @@
+
+<div class="menu-button">
+	<div class="menu-button__inner">+</div>
+</div>
+
+<div class="menu">
+	<div class="menu__inner">
+		<ul class="menu__inner__list">
+			<li class="menu__list__item">
+				<a href="/#collections/">Collections</a>
+			</li>
+			<li class="menu__list__item">
+				<a href="/pages/editorials/">Editorials</a>
+			</li>
+			{% if shop.customer_accounts_enabled %}
+				{% if customer %}
+			<li class="menu__list__item">
+				<a href="/account/">{{ 'layout.customer.account' | t }}</a> /
+        {{ 'layout.customer.log_out' | t | customer_logout_link }}
+			</li>
+				{% else %}
+			<li class="menu__list__item">
+				{{ 'layout.customer.log_in' | t | customer_login_link }} /
+        <a href='/account/register/'><span class="mobile-hide">create</span> account</a>
+			</li>
+				{% endif %}
+			{% endif %}
+			<li class="menu__list__item">
+				<a href="/cart">{{ 'layout.cart.title' | t }}
+					{% if cart.item_count > 0 %}
+						<span id="cart-items-info">
+						({{ cart.item_count }} items | {{ cart.total_price | money }})
+						</span>
+					{% endif %}
+				</a>
+			</li>
+			<li class="menu__list__itme">
+				<a href="/pages/about">About</a> /
+        <a href="/pages/contact">Contact</a>
+			</li>
+
+			{% include 'social-media' %}
+		</ul>
+	</div>
+</div>

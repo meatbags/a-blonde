@@ -1,0 +1,41 @@
+.social-media {
+	width: 100%;
+	
+	.social-media__list {
+		padding-bottom: $space;
+		width: 100%;
+		
+		.social-media__list__item {
+			display: inline-block;
+			font-size: $fontSizeFooter;
+			margin: 0;
+			padding: 0;
+			
+			a {
+				text-transform: lowercase;
+				color: $colour;
+				text-decoration: none;
+				
+				&:hover {
+					color: $colourAlt;
+				}
+			}
+			
+			@media screen and (max-width: $medium) {
+				font-size: $fontSizeFooterMobile;
+				display: block;
+			}
+		}
+	}
+}
+
+.payments-title {
+	color: $colour;
+}
+
+.footer {
+	width: 100%;
+	margin-bottom: $space * 3;
+	border-top: $space solid $colourSelected;
+	z-index: $indexFooter;
+}

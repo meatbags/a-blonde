@@ -1,0 +1,117 @@
+.cart-table {
+	width: 100%;
+	font-size: $fontSizeCart;
+	
+	.cart-table__row {
+		width: 100%;
+		display: -webkit-flex;
+		display: flex;
+		
+		.cart-table__row__cell {
+			padding-top: $space * 2;
+			padding-bottom: $space / 2;
+			padding-right: $space / 3;
+			
+			&.cell-third {
+				width: 33%;
+				
+				&:nth-child(3) {
+					text-align: right;
+				}
+			}
+			
+			&.cell-quarter {
+				width: 25%;
+			}
+			
+			&:nth-child(4) {
+				text-align: right;
+			}
+			
+			@media screen and (max-width: $small) {
+				&:nth-child(2) {
+					display: none;	
+				}
+				
+				&.cell-quarter {
+					width: 33.3%;
+				}
+			}
+		}
+		
+		&:nth-child(1) {
+			font-size: 120%;
+			border-bottom: $space / 2 solid $colourText;
+		}
+	}
+	
+	@media screen and (max-width: $medium) {
+		font-size: $fontSizeCartMobile;	
+	}
+}
+
+.cart-checkout {
+	text-align: right;
+	
+	.cart-checkout__preorder {
+		font-size: $fontSizeCart;	
+	}
+	
+	.cart-checkout__buttons {
+		button {
+			display: inline;
+			padding-left: $space;
+			padding-right: $space;
+		}
+	}
+	
+	.cart-prompt {
+		font-size: $fontSizeCart;
+		
+		@media screen and (max-width: $medium) {
+			font-size: $fontSizeCartMobile;	
+		}
+	}
+}
+
+// shopify auto classes
+
+.js-qty {
+	display: -webkit-flex;
+	display: flex;
+	width: 100%;
+	
+	button, input {
+		margin: 0;
+		padding: 0;
+		display: inline;
+		background: none;
+		padding-top: $space / 2;
+		padding-bottom: $space / 2;
+		
+		.visually-hidden {
+			display: none;	
+		}
+	}
+	
+	input {
+		width: 60%;
+		padding-left: $space / 2;
+	}
+	
+	button {
+		width: 20%;
+		
+		&:nth-child(1) {
+			border-right: none;
+		}
+		
+		&:nth-child(3) {
+			border-left: none;
+		}
+	}
+}
+
+.single-option-selector {
+	margin: 0;
+}

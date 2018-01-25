@@ -1,0 +1,38 @@
+{% if settings.footer_social_enable %}
+	<div class="social-media">
+		<div class="social-media__list">
+		{% if settings.social_twitter_link != blank %}
+			<div class="social-media__list__item">
+				<a target="_blank" href="{{ settings.social_twitter_link }}">twitter.</a>
+			</div>
+		{% endif %}
+		{% if settings.social_facebook_link != blank %}
+			<div class="social-media__list__item">
+				<a target="_blank" href="{{ settings.social_facebook_link }}">facebook.</a>
+			</div>
+		{% endif %}
+		{% if settings.social_instagram_link != blank %}
+			<div class="social-media__list__item">
+				<a target="_blank" href="{{ settings.social_instagram_link }}">instagram.</a>
+			</div>
+		{% endif %}
+		{% if settings.social_pinterest_link != blank %}
+			<div class="social-media__list__item">
+				<a target="_blank" href="{{ settings.social_pinterest_link }}">pinterest.</a>
+			</div>
+		{% endif %}
+		<div class='social-media__list__item mobile-hide'>
+			<a href='/pages/faq/'>info/FAQ.</a>
+		</div>	
+		{% if template == "collection" %}
+			<div class="social-media__list__item mobile-hide">
+				<a href="/#collections">back to collections.</a>
+			</div>
+		{% elsif template == "product" %}
+			<div class="social-media__list__item mobile-hide">
+				<a href="{% assign collection = product.collections | first %}{{ collection.url }}">back to collection.</a>
+			</div>
+		{% endif %}
+		</div>
+	</div>
+{% endif %}

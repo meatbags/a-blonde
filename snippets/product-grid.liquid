@@ -1,0 +1,19 @@
+<!-- product, image -->
+
+{% if collection.title == "Editorials" %}
+	{% assign promptMessage = '' %}
+{% else %}
+	{% assign promptMessage = '' %}
+{% endif %}
+
+<div class="product">
+	<a href="{{ product.url | within: collection }}">
+		<img src="{{ image.src | img_url: 'grande' }}" alt="{{ product.title }}">
+		<div class="product__name">
+			<div class="product__name__text">
+				{{ promptMessage }}
+			</div>
+		</div>
+		<div class="product__prompt font-half"></div>
+	</a>
+</div>

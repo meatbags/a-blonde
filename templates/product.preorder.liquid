@@ -1,0 +1,109 @@
+<!-- /templates/product.liquid -->
+<div itemscope itemtype="http://schema.org/Product">
+
+  	<meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  	<meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+
+  	{% assign current_variant = product.selected_or_first_available_variant %}
+
+	<div class="product-page">		
+		<div class="slick-slider">
+		{% for image in product.images %}
+			<div class="grid__item__inner">
+				<img src="{{ image.src | img_url: 'original' }}" alt="{{ image.alt | escape }}">
+			</div>
+		{% endfor %}
+		</div>
+		
+		<div class="product-description rte" itemprop="description">
+			<p>{{ product.description }}</p>
+		</div>
+		
+		<div class="product-page__orders" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+			<meta itemprop="priceCurrency" content="{{ shop.currency }}">
+			<link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+			
+			<form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+				
+				<div class="cart-table">
+					<div class="cart-table__row">
+						<div class="cart-table__row__cell cell-third">{{ product.options.first | escape }}</div>
+						<div class="cart-table__row__cell cell-third">{{ 'products.general.regular_price' | t }}</div>
+						<div class="cart-table__row__cell cell-third">{{ 'products.product.quantity' | t }}</div>
+					</div>
+					<div class="cart-table__row">
+						<div class="cart-table__row__cell cell-third">
+							<select name="id" id="productSelect" class="product-single__variants">
+							{% for variant in product.variants %}
+								{% if variant.available %}
+									<option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+								{% else %}
+									<option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+								{% endif %}
+							{% endfor %}
+							</select>
+						</div>
+						<div class="cart-table__row__cell cell-third">
+							<span id="ProductPrice" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">{{ current_variant.price | money }}</span>
+							{% if product.compare_at_price_max > product.price %}
+								<span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+								<p id="ComparePrice">
+									{{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
+								</p>
+							{% endif %}
+						</div>
+						<div class="cart-table__row__cell cell-third">
+							<input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+						</div>
+					</div>
+				</div>
+				
+				<br />
+				
+				<div class="cart-checkout">
+					<div class='cart-checkout__preorder'>
+						*Item/s currently available for pre-order.
+					</div>
+					
+					<div class="cart-checkout__buttons">
+						<button type="submit" name="add" id="AddToCart" class="btn">
+							<span id="AddToCartText">
+								{{ 'Pre-order' | json | remove: '"' }}
+							</span>
+						</button>
+					</div>
+					<div class="cart-prompt display-none">
+						Item/s added <a class="underline" href="/cart">View Cart</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% include 'social-media' %}
+
+{{ 'option_selection.js' | shopify_asset_url | script_tag }}
+
+<script>
+  var selectCallback = function(variant, selector) {
+    timber.productPage({
+      money_format: "{{ shop.money_format }}",
+      variant: variant,
+      selector: selector
+    });
+  };
+
+  jQuery(function($) {
+    new Shopify.OptionSelectors('productSelect', {
+      product: {{ product | json }},
+      onVariantSelected: selectCallback,
+      enableHistoryState: true
+    });
+
+    // Hide selectors if we only have 1 variant and its title contains 'Default'.
+    {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+      $('.selector-wrapper').hide();
+    {% endif %}
+  });
+</script>

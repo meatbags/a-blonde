@@ -1,0 +1,20 @@
+.loading-screen {
+	z-index: $indexLoading;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: $colourBackground;
+	opacity: 1.0;
+	display: -webkit-flex;
+	-webkit-align-items: center;
+	-webkit-justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	.loading-msg {
+		color: $colourAlt;	
+	}
+}

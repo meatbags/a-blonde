@@ -1,0 +1,56 @@
+.noselect {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.font-smaller {
+	font-size: $fontSizeSmaller;
+}
+
+.font-half {
+	font-size: $fontSizeHalf;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.mobile-hide {
+	@media screen and (max-width: $medium) {
+		display: none;
+	}
+}
+
+.capitalise {
+	text-transform: capitalize;
+}
+
+.hidden {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.inline {
+	display: inline;
+}
+
+.float-right {
+	float: right;
+}
+
+.page-break {
+	width: 100%;
+	border-bottom: $space solid $colour;
+}
+
+.display-none {
+	display: none;
+}
+
+.spacer {
+	width: 100%;
+	height: $space * 2;
+}

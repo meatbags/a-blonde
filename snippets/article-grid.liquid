@@ -1,0 +1,13 @@
+<!-- article -->
+
+<div class="product">
+	<a href="{{ article.url }}">
+		<img src="{{ article.image.src | img_url: 'grande' }}" alt="{{ article.title }}">
+		<div class="article__name">
+			<div class="product__name__text">
+				{{ article.title }}
+			</div>
+		</div>
+		<div class="product__prompt font-half"></div>
+	</a>
+</div>

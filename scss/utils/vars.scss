@@ -1,0 +1,53 @@
+// colours
+
+{% if settings.colour_custom == false %}
+	// defaults
+	$colour: #000000; //ff1f2f
+	$colourAlt: #ff9900;
+	$colourSelected: #000;
+	$colourBackground: #fff;
+	$colourText: #000;
+	$grey: #aaa;
+{% else %}
+	$colour: {{ settings.colour_primary }};
+	$colourAlt: {{ settings.colour_second }};
+	$colourSelected: {{ settings.colour_third }};
+	$colourBackground: {{ settings.colour_background }};
+	$colourText: {{ settings.colour_text }};
+	$grey: #aaa;
+{% endif %}
+
+// spacing
+
+$space: 10px;
+$spaceNav: 16.5vh;
+$spaceNavMedium: 21vh;
+$spaceNavMobile: 26.5vh;
+$spaceBorder: $space / 3;
+
+// height
+
+$indexNav: 50;
+$indexMenu: 40;
+$indexMenuButton: 60;
+$indexPrompt: 25;
+$indexLanding: 100;
+$indexLandingPrompt: 101;
+$indexLoading: 200;
+$indexAudio: 55;
+$indexFooter: 36;
+
+// transition
+
+$transition: 0.2s;
+$transitionNormal: 0.2s;
+$transitionSlow: 0.5s;
+$transitionSlower: 0.75s;
+
+// break points
+
+$small: 480px;
+$medium: 769px;
+$large: 1160px;
+
+// type
