@@ -2,9 +2,9 @@
 assets/ajax-cart.js.liquid:
   development: 2017-06-01T19:47:27+10:00   5089d437026dde38c1918ea91324d35a
 assets/alabama.js:
-  development: 2018-01-25T16:07:57+11:00   8ea5339b8af4dbfa47a8391549976aac
+  development: 2018-01-27T12:41:22+11:00   41419136e6213514abc0f622e6d3554d
 assets/alabama.scss.liquid:
-  development: 2018-01-25T16:11:42+11:00   b05f6924c50afdf669d6eed6c806625f
+  development: 2018-01-27T13:32:57+11:00   0bf46f0777375de86dc728d149fce914
 assets/fastclick.min.js:
   development: 2017-06-01T19:47:28+10:00   4c68290ccc4d503561895dff0821621f
 assets/gift-card.scss.liquid:
@@ -126,7 +126,7 @@ templates/article.liquid:
 templates/blog.liquid:
   development: 2017-07-26T01:06:35+10:00
 templates/cart.liquid:
-  development: 2017-08-09T17:18:53+10:00   cbf044ab6e88595c15b303e658c4b36f
+  development: 2018-01-27T13:33:23+11:00   a41ee2a19975debc199e87d5a475fb97
 templates/collection.liquid:
   development: 2017-06-23T20:46:56+10:00   7f2833371aafa39a8f0b68e41623faf7
 templates/customers/account.liquid:
@@ -158,7 +158,7 @@ templates/page.liquid:
 templates/password.liquid:
   development: 2017-08-25T18:54:51+10:00   10f9a07adaad2bd331feb2b9c9209115
 templates/product.liquid:
-  development: 2017-06-23T23:14:01+10:00   982bb523adcd2b41a03b537233501a50
+  development: 2018-01-27T13:21:34+11:00   aeb8de9a47b7625f97cb2ea0e9b92933
 templates/product.preorder.liquid:
   development: 2017-08-09T17:07:49+10:00   654eb29f69986c60ae940ee99a21d1f3
 templates/search.liquid:

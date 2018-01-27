@@ -61,15 +61,14 @@ var App = {
 		});
 
 		// slick sliders
-		$('.slick-slider').slick({
+		var $slider = $('.slick-slider').slick({
 			infinite: true,
-		  	slidesToShow: 1,
-		  	slidesToScroll: 1,
-			dots: true,
+		  slidesToShow: 1,
+		  slidesToScroll: 1,
+			dots: false,
 			arrows: false,
 			centerMode: true,
 			variableWidth: true,
-
 		  	responsive: [{
       			breakpoint: 960,
       			settings: {
@@ -79,6 +78,12 @@ var App = {
       			}
     		}]
 		});
+
+		$('.slick-slide').click(function() {
+			// go to slide
+
+			$slider.slick('slickGoTo', parseInt($(this).data('slickIndex')));
+	  });
 
 		// animated text
 		App.setupAnimatedText();
@@ -94,11 +99,12 @@ var App = {
 			// animate in text
 
 			var target = e.find('.collection__name__inner');
+			var breakKey = '_';
 
 			if (target.find('.letter').length < 1) {
 				// create spans
 
-				var html = target.html().replace(/ /g, '_').split('');
+				var html = target.html().replace(/ /g, breakKey).split('');
 				target.data('length', html.length);
 				target.html("<span class='letter'>" + html.join("</span><span class='letter'>") + "</span>");
 			}
@@ -113,17 +119,17 @@ var App = {
 
 			target.find('.letter').css({display: 'none'});
 			target.find('.letter').each(function(i, e) {
-				if ($(e).html() == '_') {
+				if ($(e).html() == breakKey) {
 					// show spaces, line-breaks immediately
 
 					if ((length > threshold.min && length < threshold.max) || (length >= threshold.max && i % 4 == 0)) {
-						$(e).html($(e).html().replace('_', '<br />'));
+						$(e).html($(e).html().replace(breakKey, '<br />'));
 					} else {
-						$(e).html($(e).html().replace('_', '&nbsp;'));
+						$(e).html($(e).html().replace(breakKey, '&nbsp;'));
 					}
 					$(e).css({display: 'inline'});
 				} else {
-					// cut in other letters
+					// cut in other letters randomly
 
 					var t = Math.floor(Math.random() * 50 * length);
 
@@ -132,19 +138,50 @@ var App = {
 					}, t);
 				}
 			});
-		};
+		}
 
-		App.textOut = function(e) {
+		// destop/ mobile versions
 
-		};
+		if (!App.isMobile) {
+			// desktop -- on mouse
 
-		$('.collection__name').on('mouseenter', function() {
-			App.textIn($(this));
-		});
+			$('.collection__name').on('mouseenter', function() {
+				App.textIn($(this));
+			});
+		} else {
+			// mobile -- on scroll
 
-		$('.collection__name').on('mouseleave', function() {
-			App.textOut($(this));
-		});
+			$(document).on('scroll', function() {
+				var docTop = $(document).scrollTop();
+				var y = docTop + window.innerHeight / 2;
+				var docBottom = docTop + window.innerHeight;
+
+				$('.collection__name').each(function(i, e) {
+					var top = $(e).offset().top;
+					var centre = top + $(e).outerHeight() / 2;
+					var bottom = top + $(e).outerHeight();
+
+					if ((y >= top && y <= bottom) || (centre >= docTop && centre <= docBottom)) {
+						// check flag
+
+						$parent = $(e).closest('.collection, .product');
+
+						if (!$parent.hasClass('scrolled')) {
+							$parent.addClass('scrolled');
+							App.textIn($(e));
+						}
+					} else {
+						// reset
+
+						$(e).closest('.collection, .product').removeClass('scrolled');
+					}
+				});
+			});
+
+			// fire once to initialise
+
+			$(document).scroll();
+		}
 	},
 
 	removeLoadingScreen: function() {

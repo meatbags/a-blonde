@@ -22,9 +22,6 @@
 // spacing
 
 $space: 10px;
-$spaceNav: 16.5vh;
-$spaceNavMedium: 21vh;
-$spaceNavMobile: 26.5vh;
 $spaceBorder: $space / 3;
 
 // height
@@ -80,8 +77,8 @@ $fontSizeFooter: 50%;
 $fontSizeFooterMobile: 44%;
 $fontSizeCart: 50%;
 $fontSizeCartMobile: 45%;
-$fontSizeFormLabel: 45%;
-$fontSizeFormInput: 45%;
+$fontSizeFormLabel: 65%;
+$fontSizeFormInput: 55%;
 $fontSizeSmaller: 65%;
 $fontSizeHalf: 50%;
 
@@ -108,6 +105,14 @@ $fontSizeHalf: 50%;
 .mobile-hide {
 	@media screen and (max-width: $medium) {
 		display: none;
+	}
+}
+
+.mobile-show {
+	display: none;
+
+	@media screen and (max-width: $medium) {
+		display: block;
 	}
 }
 
@@ -141,6 +146,7 @@ $fontSizeHalf: 50%;
 	width: 100%;
 	height: $space * 2;
 }
+
 /* Slider */
 
 .slick-slider {
@@ -240,7 +246,7 @@ $fontSizeHalf: 50%;
     display: none;
 }
 
-//@import "E:\Programs\XAMPP\htdocs\completed\alabama\alabama_theme\scss\utils\slick-theme";
+//@import "E:\Programs\XAMPP\htdocs\completed\alabama\alabama_theme\a-blonde\scss\utils\slick-theme";
 
 // styling
 
@@ -325,6 +331,9 @@ div, * {
 
 $top: $colour;
 $bottom: #1d0001;
+$spaceNav: 16.5vh;
+$spaceNavMedium: 18vh;
+$spaceNavMobile: 20vh;
 
 .nav {
 	@extend .noselect;
@@ -590,7 +599,7 @@ $bottom: #1d0001;
   font-size: $fontSize;
 
 	.columns__column {
-		min-height: 100vh;
+		min-height: 10vh;
 
 		.collection, .product {
 			position: relative;
@@ -707,7 +716,7 @@ $bottom: #1d0001;
 				}
 			}
 
-			&:hover, &:active {
+			&:hover, &:active, &.scrolled {
 				a {
 					img {
 						-webkit-filter: saturate(100%);
@@ -859,62 +868,112 @@ $bottom: #1d0001;
 .cart-table {
 	width: 100%;
 	font-size: $fontSizeCart;
-	
+
 	.cart-table__row {
 		width: 100%;
-		display: -webkit-flex;
 		display: flex;
-		
+
+		&.mobile-hide {
+			@media screen and (max-width: $medium) {
+				display: none;
+			}
+		}
+
+		&.mobile-show {
+			display: none;
+
+			@media screen and (max-width: $medium) {
+				display: block;
+			}
+		}
+
 		.cart-table__row__cell {
 			padding-top: $space * 2;
 			padding-bottom: $space / 2;
 			padding-right: $space / 3;
-			
+
+			&.cell-full {
+				width: 100%;
+			}
+
 			&.cell-third {
 				width: 33%;
-				
+
 				&:nth-child(3) {
 					text-align: right;
 				}
 			}
-			
+
 			&.cell-quarter {
 				width: 25%;
+
+				&:nth-child(2) {
+					text-align: center;
+				}
 			}
-			
+
 			&:nth-child(4) {
 				text-align: right;
 			}
-			
-			@media screen and (max-width: $small) {
-				&:nth-child(2) {
-					display: none;	
+		}
+
+		@media screen and (max-width: $small) {
+			flex-wrap: wrap;
+
+			.cart-table__row__cell {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: bold;
+
+				select, input, .selector-wrapper {
+					width: 100%;
 				}
-				
+
+				&:nth-child(1) {
+					width: 100%;
+				}
+
+				&:nth-child(2), &:nth-child(3), &:nth-child(4) {
+					width: 50%;
+					padding-top: $space;
+				}
+
 				&.cell-quarter {
-					width: 33.3%;
+					&:nth-child(1) {
+						display: flex;
+						justify-content: space-between;
+					}
+
+					&:nth-child(2) {
+						display: none;
+					}
 				}
 			}
 		}
-		
-		&:nth-child(1) {
+
+		&:nth-child(1), &.border-bottom {
 			font-size: 120%;
-			border-bottom: $space / 2 solid $colourText;
+			border-bottom: $space solid $colourText;
 		}
 	}
-	
+
 	@media screen and (max-width: $medium) {
-		font-size: $fontSizeCartMobile;	
+		font-size: $fontSizeCartMobile;
 	}
 }
 
 .cart-checkout {
 	text-align: right;
-	
+
 	.cart-checkout__preorder {
-		font-size: $fontSizeCart;	
+		font-size: $fontSizeCart;
 	}
-	
+
+	.cart-checkout__disclaimers {
+		line-height: 1;
+	}
+
 	.cart-checkout__buttons {
 		button {
 			display: inline;
@@ -922,12 +981,12 @@ $bottom: #1d0001;
 			padding-right: $space;
 		}
 	}
-	
+
 	.cart-prompt {
 		font-size: $fontSizeCart;
-		
+
 		@media screen and (max-width: $medium) {
-			font-size: $fontSizeCartMobile;	
+			font-size: $fontSizeCartMobile;
 		}
 	}
 }
@@ -938,7 +997,7 @@ $bottom: #1d0001;
 	display: -webkit-flex;
 	display: flex;
 	width: 100%;
-	
+
 	button, input {
 		margin: 0;
 		padding: 0;
@@ -946,33 +1005,38 @@ $bottom: #1d0001;
 		background: none;
 		padding-top: $space / 2;
 		padding-bottom: $space / 2;
-		
+
 		.visually-hidden {
-			display: none;	
+			display: none;
 		}
 	}
-	
+
 	input {
 		width: 60%;
 		padding-left: $space / 2;
 	}
-	
+
 	button {
 		width: 20%;
-		
+
 		&:nth-child(1) {
 			border-right: none;
 		}
-		
+
 		&:nth-child(3) {
 			border-left: none;
 		}
 	}
 }
 
+#CartSpecialInstructions {
+	border-top: $space solid $colourText;
+}
+
 .single-option-selector {
 	margin: 0;
 }
+
 .social-media {
 	width: 100%;
 	
@@ -1015,7 +1079,7 @@ $bottom: #1d0001;
 	z-index: $indexFooter;
 }
 
-
+//@import "E:\Programs\XAMPP\htdocs\completed\alabama\alabama_theme\a-blonde\scss\modules\scroll";
 .loading-screen {
 	z-index: $indexLoading;
 	position: fixed;
@@ -1237,6 +1301,11 @@ form {
 	font-family: $fontStack;
 }
 
+
+input {
+	width: 100%;
+}
+
 label {
 	display: block;
 	font-size: $fontSizeFormLabel;
@@ -1271,12 +1340,17 @@ select, button, input {
 	font-size: $fontSizeFormInput;
 	letter-spacing: 0;
 	outline: none !important;
-	background: #eee;
 }
 
 button {
 	border: $spaceBorder solid $colourText;
 	font-weight: bold;
+	cursor: pointer;
+	font-family: $fontStack;
+
+	&:hover {
+		background: none;
+	}
 }
 
 .js-qty {
@@ -1294,6 +1368,10 @@ input[type="submit"] {
 	outline: none !important;
 	font-family: $fontStack;
 	border: $spaceBorder solid $colourText;
+
+	&:hover {
+		background: none;
+	}
 }
 
 input[type="checkbox"] {
@@ -1305,15 +1383,6 @@ input[type="checkbox"] {
 	border: $spaceBorder solid black;
 	outline: none !important;
 	font-family: $fontStack;
-}
-
-button {
-	cursor: pointer;
-	font-family: $fontStack;
-}
-
-input {
-	width: 100%;
 }
 
 .jp-audio {
@@ -1474,13 +1543,23 @@ input {
 }
 */
 
+$sliderSize: 72.5vh;
+
+.slider-offset {
+	height: $sliderSize;
+}
+
 .slick-slider {
+	position: absolute;
+	left: 0;
+	width: 100%;
 	padding-top: $space;
 	padding-bottom: $space / 2;
+	cursor: crosshair;
 }
 
 .slick-track {
-	height: 72vh;
+	height: $sliderSize;
 }
 
 .slick-slide {
@@ -1490,12 +1569,12 @@ input {
 	display: flex;
 	align-items: center;
 	filter: saturate(0%);
-	
+
 	img {
 		height: 100%;
 		width: auto;
 	}
-	
+
 	&.slick-active {
 		filter: saturate(100%);
 	}
@@ -1503,39 +1582,6 @@ input {
 
 .slick-next, .slick-previous {
 	display: none;
-}
-
-.slick-dots {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	margin-top: $space / 2;
-	margin-bottom: $space / 2;
-	
-	li {
-		padding-left: $space / 2;
-		padding-right: $space / 2;
-		opacity: 1;
-		font-size: 110%;
-		
-		button {
-			border: none;
-			background: none;
-			outline: none !important;
-			visibility: hidden;
-			
-			&:before {
-				content: "\2022";
-				opacity: 1;
-				visibility: visible;
-			}
-		}
-		
-		&.slick-active {
-			opacity: 0.5;
-		}
-	}
 }
 
 iframe {

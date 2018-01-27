@@ -3,6 +3,11 @@ form {
 	font-family: $fontStack;
 }
 
+
+input {
+	width: 100%;
+}
+
 label {
 	display: block;
 	font-size: $fontSizeFormLabel;
@@ -37,12 +42,17 @@ select, button, input {
 	font-size: $fontSizeFormInput;
 	letter-spacing: 0;
 	outline: none !important;
-	background: #eee;
 }
 
 button {
 	border: $spaceBorder solid $colourText;
 	font-weight: bold;
+	cursor: pointer;
+	font-family: $fontStack;
+
+	&:hover {
+		background: none;
+	}
 }
 
 .js-qty {
@@ -60,6 +70,10 @@ input[type="submit"] {
 	outline: none !important;
 	font-family: $fontStack;
 	border: $spaceBorder solid $colourText;
+
+	&:hover {
+		background: none;
+	}
 }
 
 input[type="checkbox"] {
@@ -71,13 +85,4 @@ input[type="checkbox"] {
 	border: $spaceBorder solid black;
 	outline: none !important;
 	font-family: $fontStack;
-}
-
-button {
-	cursor: pointer;
-	font-family: $fontStack;
-}
-
-input {
-	width: 100%;
 }

@@ -6,7 +6,7 @@
   font-size: $fontSize;
 
 	.columns__column {
-		min-height: 100vh;
+		min-height: 10vh;
 
 		.collection, .product {
 			position: relative;
@@ -123,7 +123,7 @@
 				}
 			}
 
-			&:hover, &:active {
+			&:hover, &:active, &.scrolled {
 				a {
 					img {
 						-webkit-filter: saturate(100%);

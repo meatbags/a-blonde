@@ -1,5 +1,8 @@
 $top: $colour;
 $bottom: #1d0001;
+$spaceNav: 16.5vh;
+$spaceNavMedium: 18vh;
+$spaceNavMobile: 20vh;
 
 .nav {
 	@extend .noselect;
