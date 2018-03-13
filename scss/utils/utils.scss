@@ -23,6 +23,13 @@
 	padding-right: $space * $x;
 }
 
+@mixin pad($t, $l, $b, $r) {
+	padding-top: $space * $t;
+	padding-bottom: $space * $b;
+	padding-left: $space * $l;
+	padding-right: $space * $r;
+}
+
 .mobile-hide {
 	@media screen and (max-width: $medium) {
 		display: none;

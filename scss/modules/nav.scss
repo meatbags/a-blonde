@@ -13,11 +13,11 @@
 	font-size: $fontLarge;
 	font-weight: normal;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
 
 	.nav__inner {
 		@include pad-x(1);
-		width: calc(100% - ((100% - #{$large}) / 2));
+		width: $large;
 		height: 100%;
 		display: flex;
 		align-items: flex-end;
@@ -26,16 +26,7 @@
 		.nav__inner__title {
 			border-bottom: $space solid $white;
 			margin-bottom: $space;
-			transition: $transitionSlow;
-
-			a {
-				transition: $transitionSlow;
-			}
-
-			&:hover, &:active {
-				color: $colourAlt;
-				border-bottom: $space solid $colourAlt;
-			}
+			transition: border $transitionSlow;
 		}
 
 		.nav__inner__menu {
@@ -44,9 +35,8 @@
 			padding-bottom: $space / 2;
 
 			.nav-item {
-				@include pad-x(0.75);
+				padding-left: $space * 1.5;
 				cursor: pointer;
-				transition: $transitionSlow;
 
 				&.active, &:hover {
 					color: $colourAlt;
@@ -60,7 +50,7 @@
 	}
 
 	&.active {
-		transform: translateY(-85px) !important;
+		transform: translateY(-45px) !important;
 
 		.nav__inner {
 			.nav__inner__title {

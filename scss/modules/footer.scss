@@ -1,5 +1,6 @@
 .footer {
 	width: 100%;
+	height: $sizeFooter;
 	padding-bottom: $space * 4;
 	z-index: $indexFooter;
 	background: $colourNav;
@@ -16,7 +17,7 @@
 
 		.social-media {
 			width: 100%;
-			
+
 			.social-media__list {
 				color: $white;
 				width: 100%;

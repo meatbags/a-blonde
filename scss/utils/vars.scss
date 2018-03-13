@@ -1,5 +1,4 @@
 // colour
-
 $black: #000;
 $white: #fff;
 $colour: $black;
@@ -14,8 +13,8 @@ $colourNav: #808080;
 // size
 $space: 8px;
 $spaceBorder: $space / 3;
-$sizeNav: 140px;
-$sizeNavActive: 90px;
+$sizeNav: 100px;
+$sizeFooter: 50vh;
 
 // index
 $zNav: 50;
@@ -37,4 +36,4 @@ $transitionSlower: 0.75s;
 // breakpoints
 $small: 480px;
 $medium: 769px;
-$large: 1160px;
+$large: 1220px;
