@@ -1,18 +1,36 @@
 {
-  "name": "alabama_theme",
+  "name": "a-blonde",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "docs"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "gulp": "^3.9.1",
     "import-resolve": "^0.4.0"
   },
-  "dependencies": {
-    "ffmpeg": "0.0.4"
-  }
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "webpack": "^3.10.0",
+    "webpack-preset": "^0.2.0",
+    "webpack-preset-babel": "^0.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meatbags/a-blonde.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meatbags/a-blonde/issues"
+  },
+  "homepage": "https://github.com/meatbags/a-blonde#readme"
 }

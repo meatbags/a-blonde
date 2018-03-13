@@ -1,13 +1,8 @@
-<!doctype html>
-<!--
-
-by xavierburrow.com
-
--->
+<!DOCTYPE html>
+<!-- by xavierburrow.com -->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js freeze"> <!--<![endif]-->
-
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -22,7 +17,6 @@ by xavierburrow.com
 
 	<!-- style -->
 	{{ 'alabama.scss.css' | asset_url | stylesheet_tag }}
-	{% comment %}'timber.scss.css' | asset_url | stylesheet_tag{% endcomment %}
 
 	<script>
 		var shopifyAssetURL = '';
@@ -42,7 +36,6 @@ by xavierburrow.com
 </head>
 
 <body id="{{ page_title | handle }}">
-
 	{% if template == 'index' %}
 		{% include 'landing' %}
 		{% include 'loading' %}
@@ -51,12 +44,12 @@ by xavierburrow.com
 	{% endif %}
 	{% include 'nav' %}
 	{% include 'menu' %}
-
-	<div class="wrapper content">
-		{{ content_for_layout }}
-		{% include 'footer' %}
+	<div class='wrapper'>
+		<div class='content'>
+			{{ content_for_layout }}
+			{% include 'footer' %}
+		</div>
 	</div>
-
 	{% include 'scripts' %}
 </body>
 </html>

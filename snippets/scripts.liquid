@@ -1,6 +1,6 @@
 {{ 'fastclick.min.js' | asset_url | script_tag }}
 {{ 'timber.js' | asset_url | script_tag }}
-{{ 'alabama.js' | asset_url | script_tag }}
+{{ 'alabama.min.js' | asset_url | script_tag }}
 
 <script>
 	{% if resetPassword %}
@@ -36,7 +36,7 @@
 	jQuery(document.body).on('afterCartLoad.ajaxCart', function(evt, cart) {
 		// Bind to 'afterCartLoad.ajaxCart' to run any javascript after the cart has loaded in the DOM
 		$(".cart-prompt").removeClass("display-none");
-			
+
 		timber.RightDrawer.open();
 	});
 </script>

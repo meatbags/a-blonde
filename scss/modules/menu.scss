@@ -4,7 +4,7 @@
 
 	position: fixed;
 	right: calc(#{$space} + 0.5 * (100% - #{$large}));
-	bottom: 100vh - $spaceNav;
+	top: 80px;
 	top: auto !important;
 	z-index: $indexMenuButton;
 	border-bottom: $space solid $colourSelected;
@@ -16,14 +16,6 @@
 
 	@media screen and (max-width: $large) {
 		right: $space;
-	}
-
-	@media screen and (max-width: $medium) {
-		bottom: 100vh - $spaceNavMedium;
-	}
-
-	@media screen and (max-width: $small) {
-		bottom: 100vh - $spaceNavMobile;
 	}
 
 	.menu-button__inner {
@@ -73,7 +65,7 @@
 		margin: 0 auto;
 		height: 100%;
 		padding-left: $space / 2;
-		padding-top: $spaceNav;
+		padding-top: $sizeNav;
 
 		.menu__inner__list {
 			position: relative;
@@ -118,7 +110,7 @@
 		transform: translateY(-100vh);
 
 		.menu__inner {
-			padding-top: $spaceNavMedium;
+			padding-top: $sizeNav;
 
 			.menu__inner__list {
 				.social-media {
@@ -139,7 +131,7 @@
 		transform: translateY(-100vh);
 
 		.menu__inner {
-			padding-top: $spaceNavMobile;
+			padding-top: $sizeNav;
 		}
 	}
 

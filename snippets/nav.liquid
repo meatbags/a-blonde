@@ -1,45 +1,36 @@
 <div class="nav">
 	<div class="nav__inner">
 		<div class="nav__inner__title">
-			<a
-				{% if template == "index" %}
-			   		href="/"
-			   	{% elsif template == "collection" %}
-			   		href="/#collections"
-			    {% elsif template == "product" %}
-			   		{% for collection in product.collections %}
-			   		{% assign index = 0 %}
-			   		{% if index == 0 %}
-			   			href="{{ collection.url }}"
-			  		{% endif %}
-			   		{% assign index = index | plus:1 %}
-			   		{% endfor %}
-			    {% else %}
-			   		href="/#collections"
-			    {% endif %}>
-				{% if template == "index" %}
-					<div class="nav__inner__title-main">
-						Alabama
-					</div>
-					<div class="nav__inner__title-alt">
-						BLONDE
-					</div>
-				{% elsif template == "product" %}
+			{% if template == 'index' %}
+				<a href='/'>
+			{% elsif template == "collection" %}
+				<a href='/#collections'>
+			{% elsif template == "product" %}
+				{% for collection in product.collections %}
+					{% assign index = 0 %}
+					{% if index == 0 %}
+						<a href='{{ collection.url }}'>
+					{% endif %}
+					{% assign index = index | plus:1 %}
+				{% endfor %}
+			{% else %}
+				<a href='/#collections'>
+			{% endif %}
+			{% if template == "product" %}
 					<div class="nav__inner__title-main">{{ product.title }}</div>
-				{% elsif template == "collection" %}
+			{% elsif template == "collection" %}
 					<div class="nav__inner__title-main">{{ collection.title }}</div>
-				{% else %}
-					<div class="nav__inner__title-main">
-						Alabama
-					</div>
-					<div class="nav__inner__title-alt">
-						BLONDE
-					</div>
-				{% endif %}
-				<div class="nav__inner__hover-text">
-					Alabama BLONDE
-				</div>
+			{% else %}
+					<div class="nav__inner__title-main">Alabama BLONDE</div>
+			{% endif %}
 			</a>
+		</div>
+		<div class='nav__inner__menu'>
+			<!--
+			<div class='nav-item'>shop</div>-
+			<div class='nav-item'>cart</div>-
+			<div class='nav-item'>menu</div>
+			-->
 		</div>
 	</div>
 </div>

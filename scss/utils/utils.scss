@@ -6,16 +6,21 @@
 	user-select: none;
 }
 
-.font-smaller {
-	font-size: $fontSizeSmaller;
+@mixin pad-y($y) {
+	padding-top: $space * $y;
+	padding-bottom: $space * $y;
 }
 
-.font-half {
-	font-size: $fontSizeHalf;
+@mixin pad-x($x) {
+	padding-left: $space * $x;
+	padding-right: $space * $x;
 }
 
-.underline {
-	text-decoration: underline;
+@mixin pad-xy($x, $y) {
+	padding-top: $space * $y;
+	padding-bottom: $space * $y;
+	padding-left: $space * $x;
+	padding-right: $space * $x;
 }
 
 .mobile-hide {
@@ -30,10 +35,6 @@
 	@media screen and (max-width: $medium) {
 		display: block;
 	}
-}
-
-.capitalise {
-	text-transform: capitalize;
 }
 
 .hidden {

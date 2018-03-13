@@ -1,32 +1,23 @@
-// setup
+// colour
 
-// colours
+$black: #000;
+$white: #fff;
+$colour: $black;
+$colourAlt: #ff9900;
+$colourSelected: #000;
+$colourBackground: $white;
+$colourText: #000;
+$grey: #aaa;
+$colourNav: #808080;
 
-{% if settings.colour_custom == false %}
-	// defaults
-	$colour: #000000; //ff1f2f
-	$colourAlt: #ff9900;
-	$colourSelected: #000;
-	$colourBackground: #fff;
-	$colourText: #000;
-	$grey: #aaa;
-{% else %}
-	$colour: {{ settings.colour_primary }};
-	$colourAlt: {{ settings.colour_second }};
-	$colourSelected: {{ settings.colour_third }};
-	$colourBackground: {{ settings.colour_background }};
-	$colourText: {{ settings.colour_text }};
-	$grey: #aaa;
-{% endif %}
-
-// spacing
-
+// size
 $space: 10px;
 $spaceBorder: $space / 3;
+$sizeNav: 140px;
 
-// height
+// index
+$zNav: 50;
 
-$indexNav: 50;
 $indexMenu: 40;
 $indexMenuButton: 60;
 $indexPrompt: 25;
@@ -37,37 +28,27 @@ $indexAudio: 55;
 $indexFooter: 36;
 
 // transition
-
 $transition: 0.2s;
 $transitionNormal: 0.2s;
 $transitionSlow: 0.5s;
 $transitionSlower: 0.75s;
 
-// break points
-
+// breakpoints
 $small: 480px;
 $medium: 769px;
 $large: 1160px;
 
-// type
-
-// stack
-
 $fontStack: 'Playfair Display', sans-serif;
-
-// letter
-
 $letterSpacing: 1px;
+$lineHeight: 1.2;
 
-// sizing
-
-$fontSize: 26px;
-$fontLarge: 52px;
+// size
+$fontSize: 24px;
+$fontLarge: 40px;
 $fontMedium: 48px;
 $fontSmall: 32px;
 
-// relative sizing
-
+// relative
 $fontSizeH1: 80%;
 $fontSizeH2: 60%;
 $fontSizeP: 50%;
@@ -82,14 +63,7 @@ $fontSizeFormInput: 55%;
 $fontSizeSmaller: 65%;
 $fontSizeHalf: 50%;
 
-.noselect {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	-o-user-select: none;
-	user-select: none;
-}
-
+// type utils
 .font-smaller {
 	font-size: $fontSizeSmaller;
 }
@@ -100,6 +74,35 @@ $fontSizeHalf: 50%;
 
 .underline {
 	text-decoration: underline;
+}
+
+.capitalise {
+	text-transform: capitalize;
+}
+
+.noselect {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+@mixin pad-y($y) {
+	padding-top: $space * $y;
+	padding-bottom: $space * $y;
+}
+
+@mixin pad-x($x) {
+	padding-left: $space * $x;
+	padding-right: $space * $x;
+}
+
+@mixin pad-xy($x, $y) {
+	padding-top: $space * $y;
+	padding-bottom: $space * $y;
+	padding-left: $space * $x;
+	padding-right: $space * $x;
 }
 
 .mobile-hide {
@@ -114,10 +117,6 @@ $fontSizeHalf: 50%;
 	@media screen and (max-width: $medium) {
 		display: block;
 	}
-}
-
-.capitalise {
-	text-transform: capitalize;
 }
 
 .hidden {
@@ -163,6 +162,7 @@ $fontSizeHalf: 50%;
     touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
 }
+
 .slick-list {
     position: relative;
     overflow: hidden;
@@ -179,8 +179,8 @@ $fontSizeHalf: 50%;
         cursor: hand;
     }
 }
-.slick-slider .slick-track,
-.slick-slider .slick-list {
+
+.slick-slider .slick-track, .slick-slider .slick-list {
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
     -ms-transform: translate3d(0, 0, 0);
@@ -208,6 +208,7 @@ $fontSizeHalf: 50%;
         visibility: hidden;
     }
 }
+
 .slick-slide {
     float: left;
     height: 100%;
@@ -242,13 +243,11 @@ $fontSizeHalf: 50%;
         border: 1px solid transparent;
     }
 }
+
 .slick-arrow.slick-hidden {
     display: none;
 }
 
-//@import "E:\Programs\XAMPP\htdocs\completed\alabama\alabama_theme\a-blonde\scss\utils\slick-theme";
-
-// styling
 
 @font-face {
   font-family: 'icons';
@@ -329,81 +328,52 @@ div, * {
 	box-sizing: border-box;
 }
 
-$top: $colour;
-$bottom: #1d0001;
-$spaceNav: 16.5vh;
-$spaceNavMedium: 18vh;
-$spaceNavMobile: 20vh;
-
 .nav {
 	@extend .noselect;
-
+	position: fixed;
 	top: 0 !important;
 	left: 0;
-	position: fixed;
 	width: 100%;
-	height: $spaceNav;
+	height: $sizeNav;
 	padding: $space;
 	padding-bottom: 0;
-	background: $colourBackground;
-	z-index: $indexNav;
-	-webkit-transform: translateZ(0);
-	transform: translateZ(0);
-	font-size: $fontSizeNav;
+	color: $white;
+	background: $colourNav;
+	z-index: $zNav;
+	font-size: $fontLarge;
+	display: flex;
+	justify-content: center;
 
 	.nav__inner {
-		position: relative;
+		@include pad-x(1);
 		width: $large;
 		height: 100%;
-		margin: 0 auto;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
 
 		.nav__inner__title {
-			position: absolute;
-			bottom: 0;
-			left: $space;
-			border-bottom: $space solid $colourSelected;
+			border-bottom: $space solid $white;
 			margin-bottom: $space;
-
-			a {
-				color: $colour;
-
-				.nav__inner__title-main {
-					display: inline;
-				}
-
-				.nav__inner__title-alt {
-					display: inline;
-				}
-
-				.nav__inner__hover-text {
-					display: none;
-				}
-			}
+			font-weight: normal;
 
 			&:hover, &:active {
+				color: $colourAlt;
 				border-bottom: $space solid $colourAlt;
+			}
+		}
 
-				a {
-					color: $colourAlt;
-				}
+		.nav__inner__menu {
+			display: flex;
+
+			.nav-item {
+
 			}
 		}
 
 		@media screen and (max-width: $large) {
 			width: 100%;
-
-			.nav__inner__title {
-				left: 0;
-			}
 		}
-	}
-
-	@media screen and (max-width: $medium) {
-		height: $spaceNavMedium;
-	}
-
-	@media screen and (max-width: $small) {
-		height: $spaceNavMobile;
 	}
 }
 
@@ -413,7 +383,7 @@ $spaceNavMobile: 20vh;
 
 	position: fixed;
 	right: calc(#{$space} + 0.5 * (100% - #{$large}));
-	bottom: 100vh - $spaceNav;
+	top: 80px;
 	top: auto !important;
 	z-index: $indexMenuButton;
 	border-bottom: $space solid $colourSelected;
@@ -425,14 +395,6 @@ $spaceNavMobile: 20vh;
 
 	@media screen and (max-width: $large) {
 		right: $space;
-	}
-
-	@media screen and (max-width: $medium) {
-		bottom: 100vh - $spaceNavMedium;
-	}
-
-	@media screen and (max-width: $small) {
-		bottom: 100vh - $spaceNavMobile;
 	}
 
 	.menu-button__inner {
@@ -482,7 +444,7 @@ $spaceNavMobile: 20vh;
 		margin: 0 auto;
 		height: 100%;
 		padding-left: $space / 2;
-		padding-top: $spaceNav;
+		padding-top: $sizeNav;
 
 		.menu__inner__list {
 			position: relative;
@@ -527,7 +489,7 @@ $spaceNavMobile: 20vh;
 		transform: translateY(-100vh);
 
 		.menu__inner {
-			padding-top: $spaceNavMedium;
+			padding-top: $sizeNav;
 
 			.menu__inner__list {
 				.social-media {
@@ -548,7 +510,7 @@ $spaceNavMobile: 20vh;
 		transform: translateY(-100vh);
 
 		.menu__inner {
-			padding-top: $spaceNavMobile;
+			padding-top: $sizeNav;
 		}
 	}
 
@@ -567,27 +529,20 @@ $spaceNavMobile: 20vh;
 }
 
 .wrapper {
-	width: $large;
+	width: 100%;
 	min-height: 100vh;
-	margin: 0 auto;
-	padding-top: $spaceNav;
-	padding-left: $space;
-	padding-right: $space;
-	-webkit-transition: -webkit-transform $transitionSlower;
-	-webkit-transition-timing-function: linear;
-	transition: transform $transitionSlower;
-	transition-timing-function: linear;
+	display: flex;
+	justify-content: center;
+	padding-top: $sizeNav + $space;
 
-	@media screen and (max-width: $large) {
-		width: 100%;
-	}
+	.content {
+		width: $large;
+		padding-left: $space;
+		padding-right: $space;
 
-	@media screen and (max-width: $medium) {
-		padding-top: $spaceNavMedium;
-	}
-
-	@media screen and (max-width: $small) {
-		padding-top: $spaceNavMobile;
+		@media screen and (max-width: $large) {
+			width: 100%;
+		}
 	}
 }
 
@@ -1079,7 +1034,6 @@ $spaceNavMobile: 20vh;
 	z-index: $indexFooter;
 }
 
-//@import "E:\Programs\XAMPP\htdocs\completed\alabama\alabama_theme\a-blonde\scss\modules\scroll";
 .loading-screen {
 	z-index: $indexLoading;
 	position: fixed;
@@ -1426,123 +1380,6 @@ input[type="checkbox"] {
 	}
 }
 
-/*
-	.jp-type-single {
-		width: 100%;
-		padding: $space;
-
-		@media screen and (max-width: $large) {
-			width: 100%;
-		}
-
-		.jp-gui {
-			width: 100%;
-
-			.jp-row {
-				width: 100%;
-			}
-
-			.jp-controls {
-				display: inline;
-
-				.jp-play, .jp-pause, .jp-stop {
-					display: inline;
-					border: none;
-					background: none;
-
-					img {
-						width: 20px;
-						height: 20px;
-
-						&.active {
-							opacity: 0.5;
-						}
-					}
-
-					&:focus {
-						outline: 0;
-					}
-				}
-			}
-
-			.jp-volume-controls {
-				display: inline;
-				float: right;
-
-				.jp-mute {
-					display: inline-block;
-					border: none;
-					background: none;
-					text-transform: uppercase;
-					font-weight: bold;
-					padding-left: $space / 2;
-
-					&:focus {
-						outline: 0;
-					}
-				}
-				.jp-volume-bar {
-					display: inline-block;
-					width: 100px;
-					height: $space;
-					background: $grey;
-
-					.jp-volume-bar-value {
-						width: 100%;
-						height: 100%;
-						background: $colourSelected;
-					}
-				}
-			}
-
-			.jp-progress {
-				width: 100%;
-
-				.jp-seek-bar {
-					width: 100%;
-					height: $space;
-					background: $grey;
-
-					.jp-play-bar {
-						height: 100%;
-						background: $colourSelected;
-					}
-				}
-			}
-
-			.jp-time-holder {
-				.jp-current-time {
-
-				}
-				.jp-duration {
-
-				}
-				.jp-toggles {
-
-				}
-			}
-		}
-	}
-
-	&:hover, &.active {
-		.jp-type-single	{
-			//-webkit-transform: translateY(0);
-			//transform: translateY(0);
-		}
-	}
-
-	&.hover-disabled {
-		display: none;
-	}
-
-	&.jp-state-muted {
-		.jp-mute {
-			text-decoration: line-through;
-		}
-	}
-}
-*/
-
 $sliderSize: 72.5vh;
 
 .slider-offset {
@@ -1596,4 +1433,5 @@ iframe {
 		height: 50vh;
 	}
 }
+
 

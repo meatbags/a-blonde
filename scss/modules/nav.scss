@@ -1,77 +1,48 @@
-$top: $colour;
-$bottom: #1d0001;
-$spaceNav: 16.5vh;
-$spaceNavMedium: 18vh;
-$spaceNavMobile: 20vh;
-
 .nav {
 	@extend .noselect;
-
+	position: fixed;
 	top: 0 !important;
 	left: 0;
-	position: fixed;
 	width: 100%;
-	height: $spaceNav;
+	height: $sizeNav;
 	padding: $space;
 	padding-bottom: 0;
-	background: $colourBackground;
-	z-index: $indexNav;
-	-webkit-transform: translateZ(0);
-	transform: translateZ(0);
-	font-size: $fontSizeNav;
+	color: $white;
+	background: $colourNav;
+	z-index: $zNav;
+	font-size: $fontLarge;
+	display: flex;
+	justify-content: center;
 
 	.nav__inner {
-		position: relative;
+		@include pad-x(1);
 		width: $large;
 		height: 100%;
-		margin: 0 auto;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
 
 		.nav__inner__title {
-			position: absolute;
-			bottom: 0;
-			left: $space;
-			border-bottom: $space solid $colourSelected;
+			border-bottom: $space solid $white;
 			margin-bottom: $space;
-
-			a {
-				color: $colour;
-
-				.nav__inner__title-main {
-					display: inline;
-				}
-
-				.nav__inner__title-alt {
-					display: inline;
-				}
-
-				.nav__inner__hover-text {
-					display: none;
-				}
-			}
+			font-weight: normal;
 
 			&:hover, &:active {
+				color: $colourAlt;
 				border-bottom: $space solid $colourAlt;
+			}
+		}
 
-				a {
-					color: $colourAlt;
-				}
+		.nav__inner__menu {
+			display: flex;
+
+			.nav-item {
+
 			}
 		}
 
 		@media screen and (max-width: $large) {
 			width: 100%;
-
-			.nav__inner__title {
-				left: 0;
-			}
 		}
-	}
-
-	@media screen and (max-width: $medium) {
-		height: $spaceNavMedium;
-	}
-
-	@media screen and (max-width: $small) {
-		height: $spaceNavMobile;
 	}
 }

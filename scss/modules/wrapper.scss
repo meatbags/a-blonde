@@ -1,0 +1,17 @@
+.wrapper {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	padding-top: $sizeNav + $space;
+
+	.content {
+		width: $large;
+		padding-left: $space;
+		padding-right: $space;
+
+		@media screen and (max-width: $large) {
+			width: 100%;
+		}
+	}
+}
