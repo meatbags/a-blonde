@@ -116,11 +116,7 @@
 	}
 
 	.cart-prompt {
-		font-size: $fontSizeCart;
-
-		@media screen and (max-width: $medium) {
-			font-size: $fontSizeCartMobile;
-		}
+		font-size: $fontMedium;
 	}
 }
 

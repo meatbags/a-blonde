@@ -9,20 +9,3 @@ $fontSize: 20px;
 $fontMedium: 24px;
 $fontMediumLarge: 29px;
 $fontLarge: 32px;
-
-// type utils
-.font-smaller {
-	font-size: $fontSizeSmaller;
-}
-
-.font-half {
-	font-size: $fontSizeHalf;
-}
-
-.underline {
-	text-decoration: underline;
-}
-
-.capitalise {
-	text-transform: capitalize;
-}
