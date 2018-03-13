@@ -26,11 +26,14 @@
 			</a>
 		</div>
 		<div class='nav__inner__menu'>
-			<!--
-			<div class='nav-item'>shop</div>-
-			<div class='nav-item'>cart</div>-
-			<div class='nav-item'>menu</div>
-			-->
+
+			<div class='nav-item'>
+				<a href="/shop/">shop</a>
+			</div>
+			<div class='nav-item'>
+				<a href="/#collections/">cart{% if cart.item_count > 0 %}({{ cart.item_count }}){% endif %}</a>
+			</div>
+			<div class='nav-item menu-button'>menu</div>
 		</div>
 	</div>
 </div>

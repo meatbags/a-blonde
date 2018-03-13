@@ -11,12 +11,13 @@
 	background: $colourNav;
 	z-index: $zNav;
 	font-size: $fontLarge;
+	font-weight: normal;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 
 	.nav__inner {
 		@include pad-x(1);
-		width: $large;
+		width: calc(100% - ((100% - #{$large}) / 2));
 		height: 100%;
 		display: flex;
 		align-items: flex-end;
@@ -25,7 +26,6 @@
 		.nav__inner__title {
 			border-bottom: $space solid $white;
 			margin-bottom: $space;
-			font-weight: normal;
 
 			&:hover, &:active {
 				color: $colourAlt;
@@ -35,9 +35,17 @@
 
 		.nav__inner__menu {
 			display: flex;
+			font-size: $fontMedium;
+			padding-bottom: $space / 2;
 
 			.nav-item {
+				@include pad-x(0.5);
+				cursor: pointer;
+				text-transform: lowercase;
 
+				&.active, &:hover {
+					color: $colourAlt;
+				}
 			}
 		}
 

@@ -43,10 +43,10 @@ $letterSpacing: 1px;
 $lineHeight: 1.2;
 
 // size
-$fontSize: 24px;
-$fontLarge: 40px;
-$fontMedium: 48px;
-$fontSmall: 32px;
+$fontSmall: 16px;
+$fontSize: 22px;
+$fontMedium: 28px;
+$fontLarge: 38px;
 
 // relative
 $fontSizeH1: 80%;
@@ -341,12 +341,13 @@ div, * {
 	background: $colourNav;
 	z-index: $zNav;
 	font-size: $fontLarge;
+	font-weight: normal;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 
 	.nav__inner {
 		@include pad-x(1);
-		width: $large;
+		width: calc(100% - ((100% - #{$large}) / 2));
 		height: 100%;
 		display: flex;
 		align-items: flex-end;
@@ -355,7 +356,6 @@ div, * {
 		.nav__inner__title {
 			border-bottom: $space solid $white;
 			margin-bottom: $space;
-			font-weight: normal;
 
 			&:hover, &:active {
 				color: $colourAlt;
@@ -365,9 +365,17 @@ div, * {
 
 		.nav__inner__menu {
 			display: flex;
+			font-size: $fontMedium;
+			padding-bottom: $space / 2;
 
 			.nav-item {
+				@include pad-x(0.5);
+				cursor: pointer;
+				text-transform: lowercase;
 
+				&.active, &:hover {
+					color: $colourAlt;
+				}
 			}
 		}
 
@@ -377,52 +385,8 @@ div, * {
 	}
 }
 
-
-.menu-button {
-	@extend .noselect;
-
-	position: fixed;
-	right: calc(#{$space} + 0.5 * (100% - #{$large}));
-	top: 80px;
-	top: auto !important;
-	z-index: $indexMenuButton;
-	border-bottom: $space solid $colourSelected;
-	margin-bottom: $space;
-	-webkit-transform: translateZ(0);
-	transform: translateZ(0);
-	font-size: $fontSizeNav;
-	padding-top: $space * 2;
-
-	@media screen and (max-width: $large) {
-		right: $space;
-	}
-
-	.menu-button__inner {
-		-webkit-transition: -webkit-transform $transition;
-		transition: transform $transition;
-		cursor: pointer;
-		color: $colour;
-	}
-
-	&:hover, &:active {
-		//border-bottom: $space solid $colourAlt;
-
-		.menu-button__inner {
-			color: $colourAlt;
-		}
-	}
-
-	&.active {
-		.menu-button__inner {
-			-webkit-transform: rotate(45deg);
-			transform: rotate(45deg);
-		}
-	}
-}
-
 .menu {
 	@extend .noselect;
-
 	width: 100vw;
 	height: 100%;
 	background: $colourBackground;

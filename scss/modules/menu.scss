@@ -1,49 +1,5 @@
-
-.menu-button {
-	@extend .noselect;
-
-	position: fixed;
-	right: calc(#{$space} + 0.5 * (100% - #{$large}));
-	top: 80px;
-	top: auto !important;
-	z-index: $indexMenuButton;
-	border-bottom: $space solid $colourSelected;
-	margin-bottom: $space;
-	-webkit-transform: translateZ(0);
-	transform: translateZ(0);
-	font-size: $fontSizeNav;
-	padding-top: $space * 2;
-
-	@media screen and (max-width: $large) {
-		right: $space;
-	}
-
-	.menu-button__inner {
-		-webkit-transition: -webkit-transform $transition;
-		transition: transform $transition;
-		cursor: pointer;
-		color: $colour;
-	}
-
-	&:hover, &:active {
-		//border-bottom: $space solid $colourAlt;
-
-		.menu-button__inner {
-			color: $colourAlt;
-		}
-	}
-
-	&.active {
-		.menu-button__inner {
-			-webkit-transform: rotate(45deg);
-			transform: rotate(45deg);
-		}
-	}
-}
-
 .menu {
 	@extend .noselect;
-
 	width: 100vw;
 	height: 100%;
 	background: $colourBackground;
