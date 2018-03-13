@@ -10,21 +10,19 @@ input {
 
 label {
 	display: block;
-	font-size: $fontSizeFormLabel;
 	font-family: $fontStack;
 }
 
 textarea {
 	display: block;
 	font-family: $fontStack;
-	font-size: $fontSizeFormLabel;
 	margin-top: $space * 2;
 	margin-bottom: $space * 2;
 	padding: $space;
 	padding-top: $space / 2;
 	width: 100%;
 	border: $spaceBorder solid $colourText;
-	font-size: $fontSizeFormInput !important;
+	font-size: $fontMedium !important;
 	letter-spacing: 0;
 	outline: none !important;
 }
@@ -39,7 +37,6 @@ select, button, input {
 	padding-bottom: $space / 2;
 	border: none;
 	border-bottom: $spaceBorder solid $colourText;
-	font-size: $fontSizeFormInput;
 	letter-spacing: 0;
 	outline: none !important;
 }
@@ -66,7 +63,6 @@ input[type="submit"] {
 	padding-bottom: $space;
 	cursor: pointer;
 	font-size: 100%;
-	font-size: $fontSizeFormInput;
 	outline: none !important;
 	font-family: $fontStack;
 	border: $spaceBorder solid $colourText;

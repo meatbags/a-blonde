@@ -3,7 +3,7 @@ class Text {
     this.isMobile = isMobile;
     this.titleResizeThreshold = 20;
     this.formatTitles();
-    this.animatedText();
+    //this.animatedText();
   }
 
   formatTitles() {

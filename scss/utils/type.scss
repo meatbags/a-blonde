@@ -1,27 +1,14 @@
-$fontStack: 'Playfair Display', sans-serif;
+$fontStack: 'Playfair Display', serif;
+//$fontStack: 'Karla', sans-serif;
 $letterSpacing: 1px;
 $lineHeight: 1.2;
 
 // size
 $fontSmall: 16px;
-$fontSize: 22px;
-$fontMedium: 28px;
-$fontLarge: 38px;
-
-// relative
-$fontSizeH1: 80%;
-$fontSizeH2: 60%;
-$fontSizeP: 50%;
-$fontSizeNav: 100%;
-$fontSizeMenu: 100%;
-$fontSizeFooter: 50%;
-$fontSizeFooterMobile: 44%;
-$fontSizeCart: 50%;
-$fontSizeCartMobile: 45%;
-$fontSizeFormLabel: 65%;
-$fontSizeFormInput: 55%;
-$fontSizeSmaller: 65%;
-$fontSizeHalf: 50%;
+$fontSize: 20px;
+$fontMedium: 24px;
+$fontMediumLarge: 29px;
+$fontLarge: 32px;
 
 // type utils
 .font-smaller {

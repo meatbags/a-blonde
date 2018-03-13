@@ -1,11 +1,17 @@
 .jp-audio {
 	position: fixed;
-	bottom: 0;
-	left: 0;
+	bottom: $space * 1.5;
+	right: $space * 1.5;
 	z-index: $indexAudio;
-	font-size: $fontSizeMenu;
+	background: $colour;
+
+	&:hover {
+		background: $colourAlt;
+	}
 
 	.jp-pause, .jp-play {
+		padding-left: $space / 2;
+		padding-top: $space / 2;
 		border: none;
 		background: none;
 		padding: $space * 1.6;
@@ -13,7 +19,8 @@
 		margin: 0;
 		transition: $transition;
 		font-weight: bold;
-		font-size: 22px;
+		font-size: $fontSize;
+		color: $white;
 
 		img {
 			width: 20px;

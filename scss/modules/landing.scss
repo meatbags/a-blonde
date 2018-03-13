@@ -8,10 +8,8 @@
     100% { transform: rotate(360deg); }
 }
 
-
 $top : #1d0001;
 $bottom : #b20019;
-
 $zBackground: $indexLanding;
 $zVideo: $indexLanding + 1;
 $zLogo: $indexLanding + 2;
@@ -26,9 +24,6 @@ $zLogo: $indexLanding + 2;
   width: auto;
   height: auto;
   z-index: -100;
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -moz-transform: translateX(-50%) translateY(-50%);
-  -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
   background-size: cover;
 	z-index: $zVideo;
@@ -87,6 +82,7 @@ $zLogo: $indexLanding + 2;
 		cursor: pointer;
 		z-index: $indexLandingPrompt;
 		color: $colourBackground;
+    font-size: $fontLarge;
 
 		&:hover {
 			text-decoration: underline;

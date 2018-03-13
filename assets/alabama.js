@@ -199,12 +199,21 @@ var Menu = function () {
     $(document).on('scroll', function () {
       _this.onScroll();
     });
+    this.onScroll();
   }
 
   _createClass(Menu, [{
     key: 'onScroll',
     value: function onScroll() {
+      var y = $(document).scrollTop();
       $('.menu-button, .menu').removeClass('active');
+      if (y == 0) {
+        $('.nav').css({ transform: 'translateY(0px)' });
+      } else if (y <= 85) {
+        $('.nav').removeClass('active').css({ transform: 'translateY(' + -y + 'px)' });
+      } else {
+        $('.nav').addClass('active');
+      }
     }
   }, {
     key: 'toggleMenu',
@@ -365,7 +374,7 @@ var Text = function () {
 		this.isMobile = isMobile;
 		this.titleResizeThreshold = 20;
 		this.formatTitles();
-		this.animatedText();
+		//this.animatedText();
 	}
 
 	_createClass(Text, [{

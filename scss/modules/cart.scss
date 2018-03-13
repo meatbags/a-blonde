@@ -1,6 +1,6 @@
 .cart-table {
 	width: 100%;
-	font-size: $fontSizeCart;
+	font-size: $fontMedium;
 
 	.cart-table__row {
 		width: 100%;
@@ -92,7 +92,7 @@
 	}
 
 	@media screen and (max-width: $medium) {
-		font-size: $fontSizeCartMobile;
+		font-size: $fontMedium;
 	}
 }
 
@@ -100,7 +100,7 @@
 	text-align: right;
 
 	.cart-checkout__preorder {
-		font-size: $fontSizeCart;
+		font-size: $fontMedium;
 	}
 
 	.cart-checkout__disclaimers {

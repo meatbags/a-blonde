@@ -6,7 +6,7 @@
 	width: 100%;
 	height: $sizeNav;
 	padding: $space;
-	padding-bottom: 0;
+	padding-bottom: $space * 0.25;
 	color: $white;
 	background: $colourNav;
 	z-index: $zNav;
@@ -26,6 +26,11 @@
 		.nav__inner__title {
 			border-bottom: $space solid $white;
 			margin-bottom: $space;
+			transition: $transitionSlow;
+
+			a {
+				transition: $transitionSlow;
+			}
 
 			&:hover, &:active {
 				color: $colourAlt;
@@ -39,9 +44,9 @@
 			padding-bottom: $space / 2;
 
 			.nav-item {
-				@include pad-x(0.5);
+				@include pad-x(0.75);
 				cursor: pointer;
-				text-transform: lowercase;
+				transition: $transitionSlow;
 
 				&.active, &:hover {
 					color: $colourAlt;
@@ -51,6 +56,17 @@
 
 		@media screen and (max-width: $large) {
 			width: 100%;
+		}
+	}
+
+	&.active {
+		transform: translateY(-85px) !important;
+
+		.nav__inner {
+			.nav__inner__title {
+				margin-bottom: 0px;
+				border-bottom: 0px solid $colourNav;
+			}
 		}
 	}
 }

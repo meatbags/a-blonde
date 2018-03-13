@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<!-- by xavierburrow.com -->
+<!--
+	site by xavierburrow.com, github @meatbags
+-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js freeze"> <!--<![endif]-->
@@ -14,8 +16,7 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 	<meta name="theme-color" content="{{ settings.color_primary }}">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-
-	<!-- style -->
+	<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
 	{{ 'alabama.scss.css' | asset_url | stylesheet_tag }}
 
 	<script>
@@ -25,7 +26,6 @@
 		var audioTrackURLAlt = 'https://cdn.shopify.com/s/files/1/1950/6433/files/alabama_new_audio.mp3?17724248169402448949';
 	</script>
 
-	<!-- plugins & JS -->
 	{{ content_for_header }}
 	{% include 'oldIE-js' %}
 	{{ '//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' | script_tag }}
@@ -47,9 +47,9 @@
 	<div class='wrapper'>
 		<div class='content'>
 			{{ content_for_layout }}
-			{% include 'footer' %}
 		</div>
 	</div>
 	{% include 'scripts' %}
+	{% include 'footer' %}
 </body>
 </html>

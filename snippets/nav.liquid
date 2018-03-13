@@ -21,19 +21,19 @@
 			{% elsif template == "collection" %}
 					<div class="nav__inner__title-main">{{ collection.title }}</div>
 			{% else %}
-					<div class="nav__inner__title-main">Alabama BLONDE</div>
+					<div class="nav__inner__title-main">Alabama Blonde.</div>
 			{% endif %}
 			</a>
 		</div>
 		<div class='nav__inner__menu'>
 
 			<div class='nav-item'>
-				<a href="/shop/">shop</a>
+				<a href="/products">Shop.</a>
 			</div>
 			<div class='nav-item'>
-				<a href="/#collections/">cart{% if cart.item_count > 0 %}({{ cart.item_count }}){% endif %}</a>
+				<a href="/cart">Cart{% if cart.item_count > 0 %}&nbsp;({{ cart.item_count }}){% endif %}.</a>
 			</div>
-			<div class='nav-item menu-button'>menu</div>
+			<div class='nav-item menu-button'>Menu.</div>
 		</div>
 	</div>
 </div>

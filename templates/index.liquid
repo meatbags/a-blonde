@@ -3,7 +3,7 @@
 {% include 'audioplayer' %}
 
 <div class="columns">
-	{% for i in (0..2) %}	
+	{% for i in (0..2) %}
 	<div class="columns__column columns__column-third">
 		{% assign index = 0 %}
 		{% assign colNo = 1 %}
@@ -18,10 +18,10 @@
 		{% endfor %}
 	</div>
 	{% endfor %}
-	
+
 	<!-- medium screen -->
-	
-	{% for i in (0..1) %}	
+
+	{% for i in (0..1) %}
 	<div class="columns__column columns__column-half">
 		{% assign index = 0 %}
 		{% assign colNo = 1 %}
@@ -36,16 +36,13 @@
 		{% endfor %}
 	</div>
 	{% endfor %}
-	
+
 	<!-- small screen -->
-	
+
 	<div class="columns__column columns__column-single">
 		{% for link in linklists.all-collections.links %}
 		{% assign collection = link.object %}
 			{% include 'collection-grid' %}
 		{% endfor %}
 	</div>
-	
 </div>
-<br />
-{% include 'social-media' %}

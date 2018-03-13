@@ -3,7 +3,8 @@
 $black: #000;
 $white: #fff;
 $colour: $black;
-$colourAlt: #ff9900;
+$colourAlt: #87020e; //#ff9900;
+$colourDark: darken($colourAlt, 5%);
 $colourSelected: #000;
 $colourBackground: $white;
 $colourText: #000;
@@ -11,13 +12,13 @@ $grey: #aaa;
 $colourNav: #808080;
 
 // size
-$space: 10px;
+$space: 8px;
 $spaceBorder: $space / 3;
 $sizeNav: 140px;
+$sizeNavActive: 90px;
 
 // index
 $zNav: 50;
-
 $indexMenu: 40;
 $indexMenuButton: 60;
 $indexPrompt: 25;
@@ -28,8 +29,8 @@ $indexAudio: 55;
 $indexFooter: 36;
 
 // transition
-$transition: 0.2s;
-$transitionNormal: 0.2s;
+$transition: 0.25s;
+$transitionNormal: 0.25s;
 $transitionSlow: 0.5s;
 $transitionSlower: 0.75s;
 
@@ -38,30 +39,17 @@ $small: 480px;
 $medium: 769px;
 $large: 1160px;
 
-$fontStack: 'Playfair Display', sans-serif;
+$fontStack: 'Playfair Display', serif;
+//$fontStack: 'Karla', sans-serif;
 $letterSpacing: 1px;
 $lineHeight: 1.2;
 
 // size
 $fontSmall: 16px;
-$fontSize: 22px;
-$fontMedium: 28px;
-$fontLarge: 38px;
-
-// relative
-$fontSizeH1: 80%;
-$fontSizeH2: 60%;
-$fontSizeP: 50%;
-$fontSizeNav: 100%;
-$fontSizeMenu: 100%;
-$fontSizeFooter: 50%;
-$fontSizeFooterMobile: 44%;
-$fontSizeCart: 50%;
-$fontSizeCartMobile: 45%;
-$fontSizeFormLabel: 65%;
-$fontSizeFormInput: 55%;
-$fontSizeSmaller: 65%;
-$fontSizeHalf: 50%;
+$fontSize: 20px;
+$fontMedium: 24px;
+$fontMediumLarge: 29px;
+$fontLarge: 32px;
 
 // type utils
 .font-smaller {
@@ -263,7 +251,6 @@ $fontSizeHalf: 50%;
 body, html {
 	font-family: $fontStack;
 	font-size: $fontLarge;
-	font-weight: bold;
 	letter-spacing: $letterSpacing;
 	margin: 0;
 	padding: 0;
@@ -286,7 +273,7 @@ body, html {
 }
 
 p {
-	font-size: $fontSizeP;
+	font-size: $fontSize;
 
 	strong {
 		font-weight: bolder;
@@ -310,18 +297,17 @@ a {
 }
 
 h1 {
-	font-size: $fontSizeH1;
+	font-size: $fontMediumLarge;
 	font-weight: inherit;
 	margin: 0;
 	padding: 0;
 	text-transform: capitalize;
-	border-bottom: $space solid $colourText;
 	display: table;
 	margin-bottom: $space;
 }
 
 h2 {
-	font-size: $fontSizeH2;
+	font-size: $fontMedium;
 }
 
 div, * {
@@ -336,7 +322,7 @@ div, * {
 	width: 100%;
 	height: $sizeNav;
 	padding: $space;
-	padding-bottom: 0;
+	padding-bottom: $space * 0.25;
 	color: $white;
 	background: $colourNav;
 	z-index: $zNav;
@@ -356,6 +342,11 @@ div, * {
 		.nav__inner__title {
 			border-bottom: $space solid $white;
 			margin-bottom: $space;
+			transition: $transitionSlow;
+
+			a {
+				transition: $transitionSlow;
+			}
 
 			&:hover, &:active {
 				color: $colourAlt;
@@ -369,9 +360,9 @@ div, * {
 			padding-bottom: $space / 2;
 
 			.nav-item {
-				@include pad-x(0.5);
+				@include pad-x(0.75);
 				cursor: pointer;
-				text-transform: lowercase;
+				transition: $transitionSlow;
 
 				&.active, &:hover {
 					color: $colourAlt;
@@ -381,6 +372,17 @@ div, * {
 
 		@media screen and (max-width: $large) {
 			width: 100%;
+		}
+	}
+
+	&.active {
+		transform: translateY(-85px) !important;
+
+		.nav__inner {
+			.nav__inner__title {
+				margin-bottom: 0px;
+				border-bottom: 0px solid $colourNav;
+			}
 		}
 	}
 }
@@ -396,12 +398,13 @@ div, * {
 	pointer-events: none;
 	-webkit-transition: $transitionSlow;
 	transition: $transitionSlow;
-	-ms-transform: translateY(-90vh);
-	-webkit-transform: translateY(-90vh);
-	-moz-transform: translateY(-90vh);
-	transform: translateY(-90vh);
+	-ms-transform: translateY(-100vh);
+	-webkit-transform: translateY(-100vh);
+	-moz-transform: translateY(-100vh);
+	transform: translateY(-100vh);
 	z-index: $indexMenu;
-	font-size: $fontSizeMenu;
+	font-size: $fontMediumLarge;
+	opacity: 0;
 
 	.menu__inner {
 		width: $large;
@@ -516,6 +519,7 @@ div, * {
 	display: -webkit-flex;
 	display: flex;
   font-size: $fontSize;
+	@extend .noselect;
 
 	.columns__column {
 		min-height: 10vh;
@@ -545,20 +549,38 @@ div, * {
           left: 0;
           width: 100%;
           height: 100%;
-          background: rgba(0,0,0,0.5);
+          background: rgba($colourDark, 0.7);
           opacity: 0;
           transition: $transition;
           display: flex;
           justify-content: center;
           align-items: center;
 					overflow: visible;
+					padding: $space * 2;
 
           .collection__name__inner {
-            width: 85%;
-            text-transform: uppercase;
 						text-align: center;
 						white-space: normal;
 						color: white;
+						display: flex;
+						flex-direction: column;
+
+						.header {
+							font-size: $fontMediumLarge;
+							text-align: center;
+						}
+
+						.separator {
+							font-size: $fontSize;
+							padding-top: $space;
+							padding-bottom: $space;
+						}
+
+						.subheader {
+							font-size: $fontSize;
+							text-align: center;
+							text-transform: capitalize;
+						}
           }
         }
 
@@ -571,7 +593,6 @@ div, * {
 					opacity: 0;
 					width: 100%;
 					white-space: normal;
-					text-transform: uppercase;
 					padding: $space / 2;
 					padding-top: 0;
 					padding-bottom: 0;
@@ -638,8 +659,7 @@ div, * {
 			&:hover, &:active, &.scrolled {
 				a {
 					img {
-						-webkit-filter: saturate(100%);
-						filter: saturate(100%);
+						filter: saturate(0%) contrast(150%);
 					}
 
 					.collection__prompt, .collection__name, .product__prompt, .product__name, .article__name {
@@ -786,7 +806,7 @@ div, * {
 }
 .cart-table {
 	width: 100%;
-	font-size: $fontSizeCart;
+	font-size: $fontMedium;
 
 	.cart-table__row {
 		width: 100%;
@@ -878,7 +898,7 @@ div, * {
 	}
 
 	@media screen and (max-width: $medium) {
-		font-size: $fontSizeCartMobile;
+		font-size: $fontMedium;
 	}
 }
 
@@ -886,7 +906,7 @@ div, * {
 	text-align: right;
 
 	.cart-checkout__preorder {
-		font-size: $fontSizeCart;
+		font-size: $fontMedium;
 	}
 
 	.cart-checkout__disclaimers {
@@ -956,32 +976,42 @@ div, * {
 	margin: 0;
 }
 
-.social-media {
+.footer {
 	width: 100%;
-	
-	.social-media__list {
-		padding-bottom: $space;
-		width: 100%;
-		
-		.social-media__list__item {
-			display: inline-block;
-			font-size: $fontSizeFooter;
-			margin: 0;
-			padding: 0;
+	padding-bottom: $space * 4;
+	z-index: $indexFooter;
+	background: $colourNav;
+	display: flex;
+	justify-content: center;
+
+	.footer__inner {
+		width: $large;
+		padding: $space;
+
+		@media screen and (max-width: $large) {
+			width: 100%;
+		}
+
+		.social-media {
+			width: 100%;
 			
-			a {
-				text-transform: lowercase;
-				color: $colour;
-				text-decoration: none;
-				
-				&:hover {
-					color: $colourAlt;
+			.social-media__list {
+				color: $white;
+				width: 100%;
+				display: flex;
+
+				.social-media__list__item {
+					font-size: $fontSize;
+					padding-right: $space;
+
+					a {
+						text-decoration: none;
+
+						&:hover {
+							color: $colourAlt;
+						}
+					}
 				}
-			}
-			
-			@media screen and (max-width: $medium) {
-				font-size: $fontSizeFooterMobile;
-				display: block;
 			}
 		}
 	}
@@ -989,13 +1019,6 @@ div, * {
 
 .payments-title {
 	color: $colour;
-}
-
-.footer {
-	width: 100%;
-	margin-bottom: $space * 3;
-	border-top: $space solid $colourSelected;
-	z-index: $indexFooter;
 }
 
 .loading-screen {
@@ -1013,11 +1036,13 @@ div, * {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	
+
 	.loading-msg {
-		color: $colourAlt;	
+		font-weight: bold;
+		color: $colourAlt;
 	}
 }
+
 @keyframes rotatehue {
     0% { filter: hue-rotate(0deg); }
     100% { filter: hue-rotate(360deg); }
@@ -1028,10 +1053,8 @@ div, * {
     100% { transform: rotate(360deg); }
 }
 
-
 $top : #1d0001;
 $bottom : #b20019;
-
 $zBackground: $indexLanding;
 $zVideo: $indexLanding + 1;
 $zLogo: $indexLanding + 2;
@@ -1046,9 +1069,6 @@ $zLogo: $indexLanding + 2;
   width: auto;
   height: auto;
   z-index: -100;
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -moz-transform: translateX(-50%) translateY(-50%);
-  -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
   background-size: cover;
 	z-index: $zVideo;
@@ -1107,6 +1127,7 @@ $zLogo: $indexLanding + 2;
 		cursor: pointer;
 		z-index: $indexLandingPrompt;
 		color: $colourBackground;
+    font-size: $fontLarge;
 
 		&:hover {
 			text-decoration: underline;
@@ -1226,21 +1247,19 @@ input {
 
 label {
 	display: block;
-	font-size: $fontSizeFormLabel;
 	font-family: $fontStack;
 }
 
 textarea {
 	display: block;
 	font-family: $fontStack;
-	font-size: $fontSizeFormLabel;
 	margin-top: $space * 2;
 	margin-bottom: $space * 2;
 	padding: $space;
 	padding-top: $space / 2;
 	width: 100%;
 	border: $spaceBorder solid $colourText;
-	font-size: $fontSizeFormInput !important;
+	font-size: $fontMedium !important;
 	letter-spacing: 0;
 	outline: none !important;
 }
@@ -1255,7 +1274,6 @@ select, button, input {
 	padding-bottom: $space / 2;
 	border: none;
 	border-bottom: $spaceBorder solid $colourText;
-	font-size: $fontSizeFormInput;
 	letter-spacing: 0;
 	outline: none !important;
 }
@@ -1282,7 +1300,6 @@ input[type="submit"] {
 	padding-bottom: $space;
 	cursor: pointer;
 	font-size: 100%;
-	font-size: $fontSizeFormInput;
 	outline: none !important;
 	font-family: $fontStack;
 	border: $spaceBorder solid $colourText;
@@ -1305,12 +1322,18 @@ input[type="checkbox"] {
 
 .jp-audio {
 	position: fixed;
-	bottom: 0;
-	left: 0;
+	bottom: $space * 1.5;
+	right: $space * 1.5;
 	z-index: $indexAudio;
-	font-size: $fontSizeMenu;
+	background: $colour;
+
+	&:hover {
+		background: $colourAlt;
+	}
 
 	.jp-pause, .jp-play {
+		padding-left: $space / 2;
+		padding-top: $space / 2;
 		border: none;
 		background: none;
 		padding: $space * 1.6;
@@ -1318,7 +1341,8 @@ input[type="checkbox"] {
 		margin: 0;
 		transition: $transition;
 		font-weight: bold;
-		font-size: 22px;
+		font-size: $fontSize;
+		color: $white;
 
 		img {
 			width: 20px;

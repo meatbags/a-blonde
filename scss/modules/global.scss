@@ -12,7 +12,6 @@
 body, html {
 	font-family: $fontStack;
 	font-size: $fontLarge;
-	font-weight: bold;
 	letter-spacing: $letterSpacing;
 	margin: 0;
 	padding: 0;
@@ -35,7 +34,7 @@ body, html {
 }
 
 p {
-	font-size: $fontSizeP;
+	font-size: $fontSize;
 
 	strong {
 		font-weight: bolder;
@@ -59,18 +58,17 @@ a {
 }
 
 h1 {
-	font-size: $fontSizeH1;
+	font-size: $fontMediumLarge;
 	font-weight: inherit;
 	margin: 0;
 	padding: 0;
 	text-transform: capitalize;
-	border-bottom: $space solid $colourText;
 	display: table;
 	margin-bottom: $space;
 }
 
 h2 {
-	font-size: $fontSizeH2;
+	font-size: $fontMedium;
 }
 
 div, * {

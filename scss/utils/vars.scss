@@ -3,7 +3,8 @@
 $black: #000;
 $white: #fff;
 $colour: $black;
-$colourAlt: #ff9900;
+$colourAlt: #87020e; //#ff9900;
+$colourDark: darken($colourAlt, 5%);
 $colourSelected: #000;
 $colourBackground: $white;
 $colourText: #000;
@@ -11,13 +12,13 @@ $grey: #aaa;
 $colourNav: #808080;
 
 // size
-$space: 10px;
+$space: 8px;
 $spaceBorder: $space / 3;
 $sizeNav: 140px;
+$sizeNavActive: 90px;
 
 // index
 $zNav: 50;
-
 $indexMenu: 40;
 $indexMenuButton: 60;
 $indexPrompt: 25;
@@ -28,8 +29,8 @@ $indexAudio: 55;
 $indexFooter: 36;
 
 // transition
-$transition: 0.2s;
-$transitionNormal: 0.2s;
+$transition: 0.25s;
+$transitionNormal: 0.25s;
 $transitionSlow: 0.5s;
 $transitionSlower: 0.75s;
 

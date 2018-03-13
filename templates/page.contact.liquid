@@ -24,7 +24,7 @@
 	{% assign name_attr = 'contact.form.phone' | t | handle %}
 	<!--<label for="ContactFormPhone" class="hidden-label">{{ 'contact.form.phone' | t }}</label>-->
 	<input type="tel" id="ContactFormPhone" class="input-full" name="contact[{{ name_attr }}]" placeholder="{{ 'contact.form.phone' | t }}" pattern="[0-9\-]*" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
-	
+
 	<!--<label for="ContactFormMessage" class="hidden-label">{{ 'contact.form.message' | t }}</label>-->
 	<textarea rows="10" id="ContactFormMessage" class="input-full" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
 
@@ -33,4 +33,3 @@
   {% endform %}
 </div>
 <br />
-{% include 'social-media' %}

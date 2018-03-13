@@ -13,8 +13,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	
+
 	.loading-msg {
-		color: $colourAlt;	
+		font-weight: bold;
+		color: $colourAlt;
 	}
 }

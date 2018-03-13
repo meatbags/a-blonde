@@ -8,8 +8,8 @@
 		<img onload="add(this);" src="{{ 'frame_5.png' | file_url }}">
 		<img onload="add(this);" src="{{ 'frame_6.png' | file_url }}">
 	</div>
-	<div class="landing-page__prompt font-half">
-		Enter.
+	<div class="landing-page__prompt">
+		Enter &rarr;
 	</div>
 </div>
 
@@ -19,27 +19,23 @@
 </video>
 
 <div class='landing-background'></div>
-
 <script type="text/javascript">
-	var mainImage, frames, currentFrame, toLoad;
-
-	mainImage = $(".landing-page__image img:nth-child(1)");
-	frames = [];
-	currentFrame = 0;
-	toLoad = $(".landing-page__image img").length;
+	var mainImage = $(".landing-page__image img:nth-child(1)");
+	var frames = [];
+	var currentFrame = 0;
+	var toLoad = $(".landing-page__image img").length;
+	var frameInterval = 160;
 
 	function add(elem) {
-		toLoad -= 1;
+		toLoad--;
 		frames.push($(elem));
 	}
 
 	function animate() {
-		if ($(".landing-page").length > 0) {
-			if (frames.length > 0) {
-				var x, y;
-
-				x = Math.floor(Math.random() * 6 - 3);
-				y = Math.floor(Math.random() * 6 - 3);
+		if ($(".landing-page").length) {
+			if (frames.length) {
+				var x = Math.floor(Math.random() * 6 - 3);
+				var y = Math.floor(Math.random() * 6 - 3);
 
 				$(".landing-page__image img").removeClass("active");
 				$(".landing-page__image img").css({
@@ -57,7 +53,7 @@
 			}
 			setTimeout(function(){
 				animate();
-			}, 160);
+			}, frameInterval);
 		}
 	}
 
