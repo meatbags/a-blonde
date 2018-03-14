@@ -34,6 +34,9 @@ $small: 480px;
 $medium: 769px;
 $large: 1220px;
 
+// borders
+$border: 4px double $white;
+
 $fontStack: 'Playfair Display', serif;
 $fontStackSansSerif: 'Karla', sans-serif;
 $letterSpacing: 1px;
@@ -713,8 +716,15 @@ $bottom : #b20019;
 		color: $colourBackground;
     font-size: $fontLarge;
 
+		.landing-page__prompt__inner {
+			padding: $space;
+			border-bottom: 4px solid transparent;
+		}
+
 		&:hover {
-			text-decoration: underline;
+			.landing-page__prompt__inner {
+				border-bottom: $border;
+			}
 		}
 
 		@media screen and (max-width: $medium) {
@@ -1006,6 +1016,7 @@ iframe {
 	top: 0 !important;
 	left: 0;
 	background: rgba($white, 1);
+	background: linear-gradient($white, rgba($white, 0.75));
 	pointer-events: none;
 	transition: opacity $transitionSlow;
 	z-index: $zMenu;

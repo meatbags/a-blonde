@@ -6,7 +6,7 @@ assets/alabama.js:
 assets/alabama.min.js:
   development: 2018-03-14T16:55:41+11:00   5777673b13746b2dea25145ecdee229b
 assets/alabama.scss.liquid:
-  development: 2018-03-14T17:46:14+11:00   7e216ae9422ce272ba80630ce78b387f
+  development: 2018-03-14T18:36:03+11:00   9bae29477980950afe84b1f215b4dd2d
 assets/fastclick.min.js:
   development: 2017-06-01T19:47:28+10:00   4c68290ccc4d503561895dff0821621f
 assets/gift-card.scss.liquid:
@@ -52,7 +52,7 @@ config/settings_data.json:
 config/settings_schema.json:
   development: 2018-03-14T13:28:37+11:00   6f51c8cf649ac01691d369ad26a4cc1f
 layout/theme.liquid:
-  development: 2018-03-14T14:03:11+11:00   d98c208ac184a5fde58328a64fafdcd5
+  development: 2018-03-14T18:48:14+11:00   6853a630b523e442ed2a1300e9a87ee4
 locales/de.json:
   development: 2018-01-25T00:03:50+11:00   585899bd4424d43afa93b72083a5aa0e
 locales/en.default.json:
@@ -82,17 +82,17 @@ snippets/collection-sorting.liquid:
 snippets/comment.liquid:
   development: 2017-06-01T19:47:30+10:00   c766e42be8a74e05533d0e5a0e3a9ce3
 snippets/footer-cart.liquid:
-  development: 2018-03-14T17:43:21+11:00   5f18004dee0583280e2d71f935da2617
+  development: 2018-03-14T18:31:42+11:00   2ef50318911249f478f47d4bf4c249bb
 snippets/footer-social-media.liquid:
   development: 2018-03-14T17:12:09+11:00   ab7625b9da35123466210e9ef0969569
 snippets/footer.liquid:
-  development: 2018-03-14T17:40:30+11:00   b8177530c0ef8ae73930a95607fdf6db
+  development: 2018-03-14T18:31:56+11:00   19d92492c09f081adeb3585a38e47efd
 snippets/grid-item-collection.liquid:
   development: 2018-03-14T15:07:13+11:00   101b5f7b47a61f91b0c6c1186cf9a31c
 snippets/grid-item-product.liquid:
   development: 2018-03-14T14:23:37+11:00   d6fb5136d432081c204fad55252596f9
 snippets/landing.liquid:
-  development: 2018-03-14T17:04:09+11:00   fc0a552c8e6016598e25eeb8bef1be9f
+  development: 2018-03-14T18:34:42+11:00   b312e81bdba6788444ba6288511e2768
 snippets/loading.liquid:
   development: 2017-06-05T17:41:08+10:00   0743d34a44484539b66c9a68f8c398c5
 snippets/menu.liquid:

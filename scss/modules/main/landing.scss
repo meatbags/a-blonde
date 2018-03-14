@@ -70,8 +70,15 @@ $bottom : #b20019;
 		color: $colourBackground;
     font-size: $fontLarge;
 
+		.landing-page__prompt__inner {
+			padding: $space;
+			border-bottom: 4px solid transparent;
+		}
+
 		&:hover {
-			text-decoration: underline;
+			.landing-page__prompt__inner {
+				border-bottom: $border;
+			}
 		}
 
 		@media screen and (max-width: $medium) {
