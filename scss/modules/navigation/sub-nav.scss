@@ -1,0 +1,7 @@
+.sub-nav {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $sizeNav + $sizeSubNav;
+  background: lighten($colourNav, 25%);
+}

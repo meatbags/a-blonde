@@ -1,5 +1,5 @@
 .loading-screen {
-	z-index: $indexLoading;
+	z-index: $zLoadingScreen;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -13,7 +13,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	opacity: 0.5;
 
 	.loading-msg {
 		font-weight: bold;

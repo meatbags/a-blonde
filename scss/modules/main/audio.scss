@@ -2,7 +2,7 @@
 	position: fixed;
 	bottom: $space * 1.5;
 	right: $space * 1.5;
-	z-index: $indexAudio;
+	z-index: $zMenu + 1;
 	background: $colour;
 
 	&:hover {

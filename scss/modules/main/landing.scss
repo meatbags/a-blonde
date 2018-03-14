@@ -1,18 +1,5 @@
-@keyframes rotatehue {
-    0% { filter: hue-rotate(0deg); }
-    100% { filter: hue-rotate(360deg); }
-}
-
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
 $top : #1d0001;
 $bottom : #b20019;
-$zBackground: $indexLanding;
-$zVideo: $indexLanding + 1;
-$zLogo: $indexLanding + 2;
 
 #landing-video {
 	@extend .noselect;
@@ -23,10 +10,9 @@ $zLogo: $indexLanding + 2;
   min-height: 100%;
   width: auto;
   height: auto;
-  z-index: -100;
   transform: translateX(-50%) translateY(-50%);
   background-size: cover;
-	z-index: $zVideo;
+	z-index: $zLandingPage + 1;
 	opacity: 0.75;
 }
 
@@ -36,7 +22,7 @@ $zLogo: $indexLanding + 2;
 	top: 0 !important;
 	width: 100vw;
 	height: 100vh;
-	z-index: $zBackground;
+	z-index: $zLandingPage;
 	-webkit-transition: opacity $transitionSlow;
 	transition: opacity $transitionSlow;
 	display: -webkit-flex;
@@ -62,7 +48,7 @@ $zLogo: $indexLanding + 2;
 	top: 0 !important;
 	width: 100vw;
 	height: 100vh;
-	z-index: $zLogo;
+	z-index: $zLandingPage + 2;
 	-webkit-transition: opacity $transitionSlow;
 	transition: opacity $transitionSlow;
 	display: -webkit-flex;
@@ -80,7 +66,7 @@ $zLogo: $indexLanding + 2;
 		right: 0;
 		padding: $space * 12;
 		cursor: pointer;
-		z-index: $indexLandingPrompt;
+		z-index: $zLandingPage + 3;
 		color: $colourBackground;
     font-size: $fontLarge;
 
@@ -120,7 +106,7 @@ $zLogo: $indexLanding + 2;
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	z-index: $zLogo;
+	z-index: $zLandingPage + 3;
 	-webkit-transition: opacity $transitionSlow;
 	transition: opacity $transitionSlow;
 	display: -webkit-flex;
@@ -154,7 +140,7 @@ $zLogo: $indexLanding + 2;
 		bottom: 20vh;
 		right: 0;
 		cursor: pointer;
-		z-index: $indexLandingPrompt;
+		z-index: $zLandingPage + 3;
 		color: $colourBackground;
 
 		@media screen and (max-width: $medium) {
@@ -170,7 +156,7 @@ $zLogo: $indexLanding + 2;
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	z-index: $zBackground;
+	z-index: $zLandingPage;
 	-webkit-transition: opacity $transitionSlow;
 	transition: opacity $transitionSlow;
 	display: -webkit-flex;

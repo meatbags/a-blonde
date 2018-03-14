@@ -9,6 +9,7 @@ class App {
 		this.audio = new Module.Audio(this.isMobile);
 		this.sliders = new Module.Sliders();
 		this.landing = new Module.Landing();
+		this.insta = new Module.Insta();
 	}
 };
 

@@ -90,6 +90,7 @@ var App = function App() {
 	this.audio = new Module.Audio(this.isMobile);
 	this.sliders = new Module.Sliders();
 	this.landing = new Module.Landing();
+	this.insta = new Module.Insta();
 };
 
 ;
@@ -184,6 +185,18 @@ Object.keys(_sliders).forEach(function (key) {
   });
 });
 
+var _insta = __webpack_require__(8);
+
+Object.keys(_insta).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _insta[key];
+    }
+  });
+});
+
 /***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -211,6 +224,9 @@ var Menu = function () {
     $('.menu .list-item a').on('click', function () {
       _this.toggleMenu();
     });
+    $('.close-menu').on('click', function () {
+      _this.closeMenu();
+    });
     $(document).on('scroll', function () {
       _this.onScroll();
     });
@@ -225,11 +241,20 @@ var Menu = function () {
         this.toggleMenu();
       }
       if (y == 0) {
-        $('.nav').css({ transform: 'translateY(0px)' });
+        $('.nav').removeClass('active').css({ transform: 'translateY(0px)' });
+        $('.promo').removeClass('active');
       } else if (y <= 45) {
         $('.nav').removeClass('active').css({ transform: 'translateY(' + -y + 'px)' });
       } else {
+        $('.promo').addClass('active');
         $('.nav').addClass('active');
+      }
+    }
+  }, {
+    key: 'closeMenu',
+    value: function closeMenu() {
+      if ($('.menu').hasClass('active')) {
+        this.toggleMenu();
       }
     }
   }, {
@@ -671,6 +696,94 @@ var Sliders = function () {
 }();
 
 exports.Sliders = Sliders;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Insta = function () {
+  function Insta() {
+    _classCallCheck(this, Insta);
+
+    // ajax get instagram feed and inject it into doc
+    if (isHome) {
+      this.target = $('.grid-instagram__inner');
+      this.href = 'https://www.instagram.com/alabamablonde/';
+      /*
+      TODO: fix
+      $.ajax({
+        url: this.href,
+        type:'GET',
+      success: (data) => {
+          this.inject(data);
+      },
+      error: (jqXHR, textStatus, errorThrown) => {
+      console.warn(jqXHR, textStatus, errorThrown);
+      }
+      });
+      */
+    }
+  }
+
+  _createClass(Insta, [{
+    key: 'inject',
+    value: function inject(data) {
+      // inject pulled images into page
+      var body = '<div id="body-mock">' + data.replace(/^[\s\S]*<body.*?>|<\/body>[\s\S]*$/ig, '') + '</div>';
+      var $body = $(body);
+
+      // parse child nodes
+      for (var i = 0; i < $body[0].children.length; i += 1) {
+        var node = $body[0].children[i];
+
+        // parse node text
+        if (node.innerHTML.indexOf('window._sharedData') != -1) {
+          var text = node.innerHTML.split('=');
+          text.shift();
+
+          console.log(text);
+
+          text = text.join('=');
+
+          text = text.replace(/;/g, '');
+          var feed = JSON.parse(text);
+
+          console.log(feed);
+          /*
+          var images = feed.entry_data.ProfilePage[0].user.media.nodes;
+          images = images.map(item => item.thumbnail_src);
+          // add to doc
+          for (let j=0, len=images.length; j<len; ++j) {
+            this.target.append(
+              $('<div />', {class: 'grid__sixth responsive item'}).append(
+                $('<div />', {
+                  class: 'item__inner clickable',
+                  html: '<a target="_blank" href="${this.href}"><img src="${images[j]}" /></a>'
+                })
+              )
+            );
+          }
+          */
+        }
+      }
+    }
+  }]);
+
+  return Insta;
+}();
+
+exports.Insta = Insta;
 
 /***/ })
 /******/ ]);

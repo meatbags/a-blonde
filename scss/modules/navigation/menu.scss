@@ -8,7 +8,7 @@
 	background: rgba($white, 1);
 	pointer-events: none;
 	transition: opacity $transitionSlow;
-	z-index: $indexMenu;
+	z-index: $zMenu;
 	opacity: 0;
 	padding-top: $sizeNav;
 
@@ -48,7 +48,6 @@
 				width: 33.33%;
 				color: $colourAlt;
 				padding: $space / 2;
-				//padding-right: $space;
 				padding-left: $space;
 				transition: $transition;
 				text-align: right;
@@ -56,6 +55,10 @@
 				a {
 					display: flex;
 					justify-content: flex-end;
+				}
+
+				&.close-menu {
+					cursor: pointer;
 				}
 			}
 

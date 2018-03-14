@@ -22,6 +22,7 @@
 	<script>
 		var shopifyAssetURL = '';
 		var shopifyPageTitle = '{{ page_title }}';
+		var isHome = {% if template == 'index' %}true{% else %}false{% endif %};
 		var audioTrackURL = 'https://cdn.shopify.com/s/files/1/1950/6433/files/clothing_ad.mp3?1077135079105815845';
 		var audioTrackURLAlt = 'https://cdn.shopify.com/s/files/1/1950/6433/files/alabama_new_audio.mp3?17724248169402448949';
 	</script>
@@ -42,7 +43,6 @@
 		{% include 'loading' %}
 	{% endif %}
 	{% include 'nav' %}
-	{% include 'breadcrumb' %}
 	{% include 'menu' %}
 	<div class='wrapper'>
 		<div class='content'>

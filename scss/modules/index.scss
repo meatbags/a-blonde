@@ -1,14 +1,3 @@
-@import "./global";
-@import "./nav";
-@import "./menu";
-@import "./wrapper";
-@import "./collections_grid";
-@import "./product";
-@import "./cart";
-@import "./footer";
-@import "./loading";
-@import "./landing";
-@import "./forms";
-@import "./audio";
-@import "./slider";
-@import "./video";
+@import './main/index';
+@import './navigation/index';
+@import './shop/index';

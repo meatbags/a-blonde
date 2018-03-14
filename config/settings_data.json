@@ -4,6 +4,8 @@
     "Default": {
       "ajax_cart_method": "drawer",
       "cart_notes_enable": true,
+      "promo_url": "",
+      "promo_label": "",
       "color_body_bg": "#fff",
       "color_body_text": "#333333",
       "color_borders": "#e5e5e5",
@@ -16,14 +18,14 @@
       "logo_use_image": false,
       "social_facebook_link": "",
       "social_twitter_link": "",
-	  "social_instagram_link": "",
-	  "social_pinterest_link": "",
-	  "colour_primary": "#03ffff",
-	  "colour_second": "#ff9900",
-	  "colour_third": "#000000",
-	  "colour_background": "#ffffff",
-	  "colour_text": "#000000",
-	  "colour_custom": false
+  	  "social_instagram_link": "",
+  	  "social_pinterest_link": "",
+  	  "colour_primary": "#03ffff",
+  	  "colour_second": "#ff9900",
+  	  "colour_third": "#000000",
+  	  "colour_background": "#ffffff",
+  	  "colour_text": "#000000",
+  	  "colour_custom": false
     }
   }
 }

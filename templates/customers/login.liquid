@@ -54,7 +54,7 @@
 
 	  <label for="RecoverEmail" class="hidden-label">{{ 'customer.recover_password.email' | t }}</label>
 	  <input type="email" value="" name="email" id="RecoverEmail" class="input-full" placeholder="{{ 'customer.recover_password.email' | t }}" autocorrect="off" autocapitalize="off">
-		  
+
 	  <p>
 		<input type="submit" class="btn btn--full" value="{{ 'customer.recover_password.submit' | t }}">
 	  </p>
@@ -72,5 +72,3 @@
 	<input type="submit" class="btn" value="{{ 'customer.login.guest_continue' | t }}">
   {% endform %}
 {% endif %}
-
-{% include 'social-media' %}

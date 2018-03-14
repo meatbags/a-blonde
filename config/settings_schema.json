@@ -17,50 +17,20 @@
       }
     ]
   },
-	{
-		"name": "Colours",
-		"settings": [
-			{
-				"type": "header",
-				"content": "Change the default colours"
-			},
-			{
-        		"type": "checkbox",
-        		"id": "colour_custom",
-        		"label": "Use custom colour scheme"
-      		},
-			{
-				"type": "color",
-				"id": "colour_primary",
-				"label": "Primary Colour",
-				"default": "#03ffff"
-			},
-			{
-				"type": "color",
-				"id": "colour_second",
-				"label": "Secondary Colour",
-				"default": "#ff9900"
-			},
-			{
-				"type": "color",
-				"id": "colour_third",
-				"label": "Alt Colour",
-				"default": "#000000"
-			},
-			{
-				"type": "color",
-				"id": "colour_background",
-				"label": "Background Colour",
-				"default": "#ffffff"
-			},
-			{
-				"type": "color",
-				"id": "colour_text",
-				"label": "Text Colour",
-				"default": "#000000"
-			}
-		]
-	},
+  {
+    "name": "Promotional Bar",
+    "settings":[
+      {
+        "type": "text",
+        "id": "promo_label",
+        "label": "Promotional bar text"
+      },{
+        "type": "text",
+        "id": "promo_url",
+        "label": "Promotional bar URL"
+      }
+    ]
+  },
   {
     "name": "Header",
     "settings": [
@@ -80,27 +50,6 @@
         "max-width": 32,
         "max-height": 32,
         "info": "32 x 32px .png required"
-      }
-    ]
-  },
-  {
-    "name": "Footer",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "footer_social_enable",
-        "label": "Show social media icons"
-      },
-      {
-        "type": "checkbox",
-        "id": "footer_newsletter_enable",
-        "label": "Show newsletter field"
-      },
-      {
-        "type": "text",
-        "id": "newsletter_form_action",
-        "label": "MailChimp form action URL",
-        "info": "[Where do I find my MailChimp form action URL?](http:\/\/docs.shopify.com\/support\/configuration\/store-customization\/where-do-i-get-my-mailchimp-form-action)"
       }
     ]
   },

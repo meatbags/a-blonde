@@ -2,7 +2,7 @@
 $black: #000;
 $white: #fff;
 $colour: $black;
-$colourAlt: #87020e; //#ff9900;
+$colourAlt: #a8020e;
 $colourDark: darken($colourAlt, 5%);
 $colourSelected: #000;
 $colourBackground: $white;
@@ -14,18 +14,14 @@ $colourNav: #808080;
 $space: 8px;
 $spaceBorder: $space / 3;
 $sizeNav: 100px;
+$sizeSubNav: 50px;
 $sizeFooter: 50vh;
 
 // index
-$zNav: 50;
-$indexMenu: 40;
-$indexMenuButton: 60;
-$indexPrompt: 25;
-$indexLanding: 100;
-$indexLandingPrompt: 101;
-$indexLoading: 200;
-$indexAudio: 55;
-$indexFooter: 36;
+$zNav: 100;
+$zMenu: 50;
+$zLandingPage: 200;
+$zLoadingScreen: 300;
 
 // transition
 $transition: 0.25s;

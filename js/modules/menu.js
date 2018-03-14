@@ -2,6 +2,7 @@ class Menu {
   constructor() {
     $('.menu-button').on('click', () => { this.toggleMenu(); });
     $('.menu .list-item a').on('click', () => { this.toggleMenu(); });
+    $('.close-menu').on('click', () => { this.closeMenu(); });
     $(document).on('scroll', () => { this.onScroll(); });
     this.onScroll();
   }
@@ -12,11 +13,19 @@ class Menu {
       this.toggleMenu();
     }
     if (y == 0) {
-      $('.nav').css({transform: `translateY(0px)`});
+      $('.nav').removeClass('active').css({transform: `translateY(0px)`});
+      $('.promo').removeClass('active');
     } else if (y <= 45) {
       $('.nav').removeClass('active').css({transform: `translateY(${-y}px)`});
     } else {
+      $('.promo').addClass('active');
       $('.nav').addClass('active');
+    }
+  }
+
+  closeMenu() {
+    if ($('.menu').hasClass('active')) {
+      this.toggleMenu();
     }
   }
 

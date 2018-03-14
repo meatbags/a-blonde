@@ -1,0 +1,36 @@
+.promo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $white;
+  color: $colourAlt;
+  z-index: $zNav + 1;
+  transition: transform $transitionSlow;
+  overflow: hidden;
+
+  &:hover {
+    background-color: $colourAlt;
+    color: $white;
+  }
+
+  &.active {
+    .promo__inner {
+      transform: translateY(20px);
+    }
+  }
+
+  .promo__inner {
+    width: 100%;
+    font-family: $fontStackSansSerif;
+    font-size: $fontTiny;
+    transform: translateY(0);
+    transition: transform $transitionSlow;
+
+    a {
+      display: flex;
+      padding: $space * 0.25;
+      justify-content: center;
+    }
+  }
+}
