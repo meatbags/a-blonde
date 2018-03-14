@@ -8,18 +8,13 @@
 				<a href="/#collections/">Collections</a>
 			</div>
 		</div>
-		<!--
-		<div class='list-item separator'>
-			<div class='list-item__inner'>x</div>
-		</div>
-	  -->
 		<div class='list-item'>
 			<div class='list-item__inner'>
 				<a href="/cart">
 					{{ 'layout.cart.title' | t }}
 					{% if cart.item_count > 0 %}
 						<span id="cart-items-info">
-						&nbsp;({{ cart.item_count }} items | {{ cart.total_price | money }})
+							&nbsp;({{ cart.item_count }} {% if cart.item_count > 1 %}items{% else %}item{% endif %} | {{ cart.total_price | money }})
 						</span>
 					{% endif %}
 				</a>

@@ -1,6 +1,24 @@
 <div class='footer'>
   <div class='footer__inner'>
-    {% include 'social-media' %}
+    <div class='column'>
+      &dagger;<br /><br />
+      {% include 'footer-social-media' %}
+    </div>
+    <div class='column'>
+      &dagger;<br /><br />
+      <div class='list-item'><a href='/'>Home.</a></div>
+      <div class='list-item'><a href='/#collections'>Collections.</a></div>
+      <div class='list-item'><a href='/products'>Shop.</a></div>
+      <div class='list-item'><a href='/pages/about'>About.</a></div>
+    </div>
+    <div class='column'>
+      &dagger;<br /><br />
+      {% include 'footer-cart' %}
+    </div>
+    <div class='column'>
+      &dagger;<br /><br />
+      <div class='list-item'>Alabama Blonde<br />&copy; {{ 'now' | date: "%Y" }}</div>
+    </div>
   </div>
 </div>
 
@@ -9,4 +27,18 @@
   <div class='grid-instagram__inner'>
   </div>
 </div>
+
+<div class='social-media__list__item mobile-hide'>
+  <a href='/pages/faq/'>Information/ FAQ.</a>
+</div>
+
+{% if template == "collection" %}
+  <div class="social-media__list__item mobile-hide">
+    <a href="/#collections">Back to collections.</a>
+  </div>
+{% elsif template == "product" %}
+  <div class="social-media__list__item mobile-hide">
+    <a href="{% assign collection = product.collections | first %}{{ collection.url }}">Back to collection.</a>
+  </div>
+{% endif %}
 -->

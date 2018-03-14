@@ -218,6 +218,7 @@ var Menu = function () {
 
     _classCallCheck(this, Menu);
 
+    this.navThreshold = 55;
     $('.menu-button').on('click', function () {
       _this.toggleMenu();
     });
@@ -236,14 +237,17 @@ var Menu = function () {
   _createClass(Menu, [{
     key: 'onScroll',
     value: function onScroll() {
+      // close menu
       var y = $(document).scrollTop();
       if ($('.menu').hasClass('active')) {
         this.toggleMenu();
       }
+
+      // snap nav to top
       if (y == 0) {
         $('.nav').removeClass('active').css({ transform: 'translateY(0px)' });
         $('.promo').removeClass('active');
-      } else if (y <= 45) {
+      } else if (y <= this.navThreshold) {
         $('.nav').removeClass('active').css({ transform: 'translateY(' + -y + 'px)' });
       } else {
         $('.promo').addClass('active');
@@ -253,6 +257,7 @@ var Menu = function () {
   }, {
     key: 'closeMenu',
     value: function closeMenu() {
+      // force close
       if ($('.menu').hasClass('active')) {
         this.toggleMenu();
       }
@@ -260,8 +265,9 @@ var Menu = function () {
   }, {
     key: 'toggleMenu',
     value: function toggleMenu() {
+      // toggle menu state
       var y = $(document).scrollTop();
-      y = $('.nav').outerHeight() - (y <= 45 ? y : 45);
+      y = $('.nav').outerHeight() - (y <= this.navThreshold ? y : this.navThreshold);
       $('.menu').css({ paddingTop: y + 'px' });
       $('.menu-button, .menu').toggleClass('active');
 

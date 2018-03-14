@@ -1,0 +1,22 @@
+{% if settings.footer_social_enable %}
+		{% if settings.social_twitter_link != blank %}
+			<div class="list-item">
+				<a target="_blank" href="{{ settings.social_twitter_link }}">Twitter.</a>
+			</div>
+		{% endif %}
+		{% if settings.social_facebook_link != blank %}
+			<div class="list-item">
+				<a target="_blank" href="{{ settings.social_facebook_link }}">Facebook.</a>
+			</div>
+		{% endif %}
+		{% if settings.social_instagram_link != blank %}
+			<div class="list-item">
+				<a target="_blank" href="{{ settings.social_instagram_link }}">Instagram.</a>
+			</div>
+		{% endif %}
+		{% if settings.social_pinterest_link != blank %}
+			<div class="list-item">
+				<a target="_blank" href="{{ settings.social_pinterest_link }}">Pinterest.</a>
+			</div>
+		{% endif %}
+{% endif %}

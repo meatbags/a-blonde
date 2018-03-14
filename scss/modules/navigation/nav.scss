@@ -25,15 +25,28 @@
 
 		.nav__inner__title {
 			font-size: $fontMediumLarge;
-			border-bottom: $space solid $white;
+			border-style: double;
+			border-width: 4px;
+			border-color: $white;
+			margin-bottom: $space * 0.125;
+			cursor: pointer;
+
+			&:hover {
+				border-color: $colourDark;
+			}
+
+			a {
+				@include pad(1, 2, 1, 2);
+				display: flex;
+			}
 		}
 
 		.nav__inner__menu {
 			display: flex;
-			font-size: $fontMedium;
+			font-size: $fontSize;
 
 			.nav-item {
-				padding-left: $space * 1.5;
+				padding-left: $space * 2;
 				cursor: pointer;
 
 				&.active, &:hover {
@@ -48,12 +61,18 @@
 	}
 
 	&.active {
-		transform: translateY(-45px) !important;
+		transform: translateY(-55px) !important;
 		background-color: lighten($colourNav, 25%);
 
 		.nav__inner {
 			.nav__inner__title {
-				border-bottom: 0px solid $colourNav;
+				font-size: $fontMedium;
+				border: 0px solid $colourNav;
+				margin-bottom: 0;
+
+				a {
+					padding: 0;
+				}
 			}
 		}
 	}

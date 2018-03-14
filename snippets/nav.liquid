@@ -1,34 +1,19 @@
 <div class="nav">
 	<div class="nav__inner">
 		<div class="nav__inner__title">
-			{% if template == 'index' %}
-				<a href='/'>
-			{% elsif template == "collection" %}
-				<a href='/#collections'>
-			{% elsif template == "product" %}
-				{% for collection in product.collections %}
-					{% assign index = 0 %}
-					{% if index == 0 %}
-						<a href='{{ collection.url }}'>
-					{% endif %}
-					{% assign index = index | plus:1 %}
-				{% endfor %}
-			{% else %}
-				<a href='/#collections'>
-			{% endif %}
-			{% if template == "product" %}
-					<div class="nav__inner__title-main">{{ product.title }}</div>
-			{% elsif template == "collection" %}
-					<div class="nav__inner__title-main">{{ collection.title }}</div>
-			{% else %}
-					<div class="nav__inner__title-main">Alabama Blonde.</div>
-			{% endif %}
+			<a href='/{% unless template == 'index' %}#collections{% endunless %}'>
+				<div class="nav__inner__title-main">Alabama Blonde.</div>
 			</a>
 		</div>
 		<div class='nav__inner__menu'>
 			<div class='nav-item'>
 				<a href="/products">Shop.</a>
 			</div>
+			{% unless template == 'index' %}
+				<div class='nav-item'>
+					<a href='/#collections'>Collections.</a>
+				</div>
+			{% endunless %}
 			<div class='nav-item'>
 				<a href="/cart">Cart{% if cart.item_count > 0 %}&nbsp;({{ cart.item_count }}){% endif %}.</a>
 			</div>

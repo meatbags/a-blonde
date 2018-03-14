@@ -1,0 +1,19 @@
+<div class='list-item'>
+  <a href="/cart">
+    {{ 'layout.cart.title' | t }}
+    {% if cart.item_count > 0 %}
+      <span id="cart-items-info">
+        &nbsp;({{ cart.total_price | money }})
+      </span>
+    {% endif %}
+  </a>
+</div>
+<div class='list-item'>
+  {% if shop.customer_accounts_enabled %}
+    {% if customer %}
+      <a href="/account/">{{ 'layout.customer.account' | t }}</a>&nbsp;|&nbsp;{{ 'layout.customer.log_out' | t | customer_logout_link }}
+    {% else %}
+      {{ 'layout.customer.log_in' | t | customer_login_link }}
+    {% endif %}
+  {% endif %}
+</div>

@@ -1,8 +1,8 @@
 <h1>{{ page.title }}</h1>
 
 <div class="columns">
-	
-	{% for i in (0..2) %}	
+
+	{% for i in (0..2) %}
 	<div id="column-first" class="columns__column columns__column-third">
 		{% assign index = 0 %}
 		{% for article in blogs.editorials.articles %}
@@ -14,9 +14,9 @@
 		{% endfor %}
 	</div>
 	{% endfor %}
-	
+
 	<!-- medium screen -->
-	
+
 	{% for i in (0..1) %}
 	<div class="columns__column columns__column-half">
 		{% assign index = 0 %}
@@ -29,16 +29,14 @@
 		{% endfor %}
 	</div>
 	{% endfor %}
-	
+
 	<!-- small screen -->
-	
+
 	<div class="columns__column columns__column-single">
 		{% for article in blogs.editorials.articles %}
 			{% include 'article-grid' %}
 		{% endfor %}
 	</div>
-	
-</div>
 
+</div>
 <br />
-{% include 'social-media' %}

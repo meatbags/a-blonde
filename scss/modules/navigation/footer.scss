@@ -1,40 +1,45 @@
 .footer {
+	@include pad(4, 0, 8, 0);
 	width: 100%;
-	height: $sizeFooter;
-	padding-bottom: $space * 4;
+	font-size: $fontSmall;
+	color: $white;
 	background: $colourNav;
+	background: linear-gradient($colourNav, darken($colourNav, 20%));
 	display: flex;
 	justify-content: center;
+	margin-top: $space * 2;
 
 	.footer__inner {
 		width: $large;
 		padding: $space;
+		display: flex;
 
-		@media screen and (max-width: $large) {
-			width: 100%;
-		}
+		.column {
+			width: 25%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			padding: $space;
 
-		.social-media {
-			width: 100%;
+			&:nth-child(3) {
+				border-right: none;
+			}
 
-			.social-media__list {
-				color: $white;
-				width: 100%;
-				display: flex;
+			.list-item {
+				@include pad-y(0.25);
 
-				.social-media__list__item {
-					font-size: $fontSize;
-					padding-right: $space;
+				a {
+					display: flex;
 
-					a {
-						text-decoration: none;
-
-						&:hover {
-							color: $colourAlt;
-						}
+					&:hover {
+						color: $colourAlt;
 					}
 				}
 			}
+		}
+
+		@media screen and (max-width: $large) {
+			width: 100%;
 		}
 	}
 }

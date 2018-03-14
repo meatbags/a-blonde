@@ -8,14 +8,14 @@ $colourSelected: #000;
 $colourBackground: $white;
 $colourText: #000;
 $grey: #aaa;
-$colourNav: #808080;
+$colourNav: #808090;
 
 // size
 $space: 8px;
 $spaceBorder: $space / 3;
-$sizeNav: 100px;
+$sizeNav: 120px;
 $sizeSubNav: 50px;
-$sizeFooter: 50vh;
+//$sizeFooter: 40vh;
 
 // index
 $zNav: 100;
@@ -234,6 +234,11 @@ $fontLarge: 32px;
   font-style: normal;
 }
 
+div, * {
+  box-sizing: border-box;
+  //outline: 1px solid rgba(0,0,0,0.1);
+}
+
 body, html {
 	font-family: $fontStack;
 	font-size: $fontLarge;
@@ -290,10 +295,6 @@ h1 {
 
 h2 {
 	font-size: $fontMedium;
-}
-
-div, * {
-	box-sizing: border-box;
 }
 
 .jp-audio {
@@ -899,15 +900,28 @@ iframe {
 
 		.nav__inner__title {
 			font-size: $fontMediumLarge;
-			border-bottom: $space solid $white;
+			border-style: double;
+			border-width: 4px;
+			border-color: $white;
+			margin-bottom: $space * 0.125;
+			cursor: pointer;
+
+			&:hover {
+				border-color: $colourDark;
+			}
+
+			a {
+				@include pad(1, 2, 1, 2);
+				display: flex;
+			}
 		}
 
 		.nav__inner__menu {
 			display: flex;
-			font-size: $fontMedium;
+			font-size: $fontSize;
 
 			.nav-item {
-				padding-left: $space * 1.5;
+				padding-left: $space * 2;
 				cursor: pointer;
 
 				&.active, &:hover {
@@ -922,12 +936,18 @@ iframe {
 	}
 
 	&.active {
-		transform: translateY(-45px) !important;
+		transform: translateY(-55px) !important;
 		background-color: lighten($colourNav, 25%);
 
 		.nav__inner {
 			.nav__inner__title {
-				border-bottom: 0px solid $colourNav;
+				font-size: $fontMedium;
+				border: 0px solid $colourNav;
+				margin-bottom: 0;
+
+				a {
+					padding: 0;
+				}
 			}
 		}
 	}
@@ -1065,42 +1085,47 @@ iframe {
 }
 
 .footer {
+	@include pad(4, 0, 8, 0);
 	width: 100%;
-	height: $sizeFooter;
-	padding-bottom: $space * 4;
+	font-size: $fontSmall;
+	color: $white;
 	background: $colourNav;
+	background: linear-gradient($colourNav, darken($colourNav, 20%));
 	display: flex;
 	justify-content: center;
+	margin-top: $space * 2;
 
 	.footer__inner {
 		width: $large;
 		padding: $space;
+		display: flex;
 
-		@media screen and (max-width: $large) {
-			width: 100%;
-		}
+		.column {
+			width: 25%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			padding: $space;
 
-		.social-media {
-			width: 100%;
+			&:nth-child(3) {
+				border-right: none;
+			}
 
-			.social-media__list {
-				color: $white;
-				width: 100%;
-				display: flex;
+			.list-item {
+				@include pad-y(0.25);
 
-				.social-media__list__item {
-					font-size: $fontSize;
-					padding-right: $space;
+				a {
+					display: flex;
 
-					a {
-						text-decoration: none;
-
-						&:hover {
-							color: $colourAlt;
-						}
+					&:hover {
+						color: $colourAlt;
 					}
 				}
 			}
+		}
+
+		@media screen and (max-width: $large) {
+			width: 100%;
 		}
 	}
 }

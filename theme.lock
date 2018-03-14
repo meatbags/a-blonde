@@ -2,11 +2,11 @@
 assets/ajax-cart.js.liquid:
   development: 2017-06-01T19:47:27+10:00   5089d437026dde38c1918ea91324d35a
 assets/alabama.js:
-  development: 2018-03-14T15:15:47+11:00   0bf061e4014cccd935654d49d9d7e288
+  development: 2018-03-14T16:56:33+11:00   c87d3de62c38e501b71ed13b7e9efff5
 assets/alabama.min.js:
-  development: 2018-03-14T15:15:48+11:00   09215d9dd322c8a2810d10fd4a4a52b1
+  development: 2018-03-14T16:55:41+11:00   5777673b13746b2dea25145ecdee229b
 assets/alabama.scss.liquid:
-  development: 2018-03-14T15:10:13+11:00   bce95f885ac5121143962cbd1a74cd9e
+  development: 2018-03-14T17:46:14+11:00   7e216ae9422ce272ba80630ce78b387f
 assets/fastclick.min.js:
   development: 2017-06-01T19:47:28+10:00   4c68290ccc4d503561895dff0821621f
 assets/gift-card.scss.liquid:
@@ -81,24 +81,28 @@ snippets/collection-sorting.liquid:
   development: 2017-06-01T19:47:30+10:00   d369d2d4697110800946220909e8ecf8
 snippets/comment.liquid:
   development: 2017-06-01T19:47:30+10:00   c766e42be8a74e05533d0e5a0e3a9ce3
+snippets/footer-cart.liquid:
+  development: 2018-03-14T17:43:21+11:00   5f18004dee0583280e2d71f935da2617
+snippets/footer-social-media.liquid:
+  development: 2018-03-14T17:12:09+11:00   ab7625b9da35123466210e9ef0969569
 snippets/footer.liquid:
-  development: 2018-03-14T14:16:26+11:00   af8c663d22cd8916a1abf63bd79a3447
+  development: 2018-03-14T17:40:30+11:00   b8177530c0ef8ae73930a95607fdf6db
 snippets/grid-item-collection.liquid:
   development: 2018-03-14T15:07:13+11:00   101b5f7b47a61f91b0c6c1186cf9a31c
 snippets/grid-item-product.liquid:
   development: 2018-03-14T14:23:37+11:00   d6fb5136d432081c204fad55252596f9
 snippets/landing.liquid:
-  development: 2018-03-13T19:49:31+11:00   1f1c3dfb391e2f08b44dba49f7145755
+  development: 2018-03-14T17:04:09+11:00   fc0a552c8e6016598e25eeb8bef1be9f
 snippets/loading.liquid:
   development: 2017-06-05T17:41:08+10:00   0743d34a44484539b66c9a68f8c398c5
 snippets/menu.liquid:
-  development: 2018-03-14T14:31:48+11:00   8fbba1ff95f06ea29f315047e358e5f2
+  development: 2018-03-14T17:51:42+11:00   b5cf21a8be2045bf62494e8df57c1b78
 snippets/nav-promo.liquid:
   development: 2018-03-14T14:54:35+11:00   e5916469b2eee2c5a0703140caf5357d
 snippets/nav-subnav.liquid:
-  development: 2018-03-14T12:50:13+11:00   46838f1d37bdbfe89e797acc40c6222e
+  development: 2018-03-14T16:32:45+11:00   f9b2d6e748d77217351d57b81145cd5c
 snippets/nav.liquid:
-  development: 2018-03-14T13:33:12+11:00   a1dbc296574b7660a051d24499ebcfb9
+  development: 2018-03-14T17:53:51+11:00   942dbce2c0acae4e3c8af9dc80fd749f
 snippets/newsletter.liquid:
   development: 2017-06-01T22:56:11+10:00   30eee7e28fff09e9f6e6bc045d61f09b
 snippets/oldIE-js.liquid:
@@ -119,8 +123,6 @@ snippets/scripts.liquid:
   development: 2018-03-12T16:08:09+11:00   4e91772e7a1d2f660919b40ad3c321c4
 snippets/search-bar.liquid:
   development: 2017-06-01T20:36:14+10:00   783fe4a34fbacdc11bd9f9623d590f7d
-snippets/social-media.liquid:
-  development: 2018-03-13T20:45:16+11:00   78b16205af7b8c038e4e9366aea0cb7e
 snippets/social-meta-tags.liquid:
   development: 2017-06-01T19:47:30+10:00   e7c97d7cb76c7925dd144dfb7b188cac
 snippets/tags-article.liquid:
@@ -128,13 +130,13 @@ snippets/tags-article.liquid:
 templates/404.liquid:
   development: 2017-06-01T20:10:14+10:00   ab7610b6ee9e8c771ce7d4ba753314cd
 templates/article.liquid:
-  development: 2017-07-26T01:20:08+10:00   70ace368ce54b68bb7660c16435c230e
+  development: 2018-03-14T16:41:18+11:00   18a0df91bad572a76b00423da2f0d6b8
 templates/blog.liquid:
   development: 2017-07-26T01:06:35+10:00
 templates/cart.liquid:
   development: 2018-03-14T14:24:59+11:00   1f10db3e4006e3e548c275e92bcef891
 templates/collection.liquid:
-  development: 2017-06-23T20:46:56+10:00   7f2833371aafa39a8f0b68e41623faf7
+  development: 2018-03-14T16:45:15+11:00   eb4221535fd6f41aad6ae20cdd1b9ee3
 templates/customers/account.liquid:
   development: 2018-03-14T15:12:01+11:00   ae3fbdf35d1c9910077e792c5db20e24
 templates/customers/activate_account.liquid:
@@ -154,17 +156,17 @@ templates/gift_card.liquid:
 templates/index.liquid:
   development: 2018-03-14T14:24:43+11:00   f5d5925b691cb6bcc8f8b41d4fd5ac68
 templates/list-collections.liquid:
-  development: 2018-03-13T20:31:39+11:00   b153718bf6147dc399fb725ec31b3fee
+  development: 2018-03-14T16:34:06+11:00   4963364c167a24194883fc0013a29cd5
 templates/page.contact.liquid:
   development: 2018-03-13T21:55:07+11:00   dc1411590a43fcb7d23adc5631600f0a
 templates/page.editorials.liquid:
-  development: 2017-07-26T01:09:28+10:00   dfd00c9a7bcaaccc588b9f4fe1dbd449
+  development: 2018-03-14T16:41:55+11:00   a01f149c19d036454566356c135d89b9
 templates/page.liquid:
   development: 2018-03-13T21:55:16+11:00   b5bde5d2b1a2ac50096d0058eac91921
 templates/password.liquid:
   development: 2018-03-13T17:52:58+11:00   f03764c2f38007aaea69bd3ec7cfbb96
 templates/product.liquid:
-  development: 2018-01-27T13:21:34+11:00   aeb8de9a47b7625f97cb2ea0e9b92933
+  development: 2018-03-14T16:42:09+11:00   a4eadd7ae29f54326ce15748ae7bfc5e
 templates/product.preorder.liquid:
   development: 2017-08-09T17:07:49+10:00   654eb29f69986c60ae940ee99a21d1f3
 templates/search.liquid:
