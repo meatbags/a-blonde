@@ -1,0 +1,9 @@
+.page {
+  @include pad-x(1);
+  width: 75%;
+  margin: 0 auto;
+
+  @media screen and (max-width: $tablet) {
+    width: 100%;
+  }
+}

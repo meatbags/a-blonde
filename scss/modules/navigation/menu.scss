@@ -6,7 +6,7 @@
 	top: 0 !important;
 	left: 0;
 	background: rgba($white, 1);
-	background: linear-gradient($white, rgba($white, 0.75));
+	background: linear-gradient($white, rgba($white, 0.8));
 	pointer-events: none;
 	transition: opacity $transitionSlow;
 	z-index: $zMenu;
@@ -67,6 +67,19 @@
 				.list-item__inner {
 					opacity: 0.5;
 				}
+			}
+		}
+
+		.divider {
+			@include pad-y(0.5);
+			width: 100%;
+			height: 0;
+			display: flex;
+			justify-content: flex-end;
+
+			.divider__inner {
+				width: 50%;
+				border-top: 1px solid $colourDark;
 			}
 		}
 	}

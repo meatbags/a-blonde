@@ -1,15 +1,8 @@
 <!-- /templates/list-collections.liquid -->
 {% comment %}
   This page represents the /collections and /products pages.
-{% endcomment %}
-
-{% include 'breadcrumb' %}
-
-{% comment %}
   Loop through each collection, except 'frontpage'
 {% endcomment %}
-
-Products !
 
 {% for collection in collections %}
   {% unless collection.handle == 'frontpage' %}

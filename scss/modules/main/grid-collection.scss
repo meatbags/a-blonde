@@ -2,8 +2,8 @@
 	position: relative;
 	width: 100%;
 	margin-bottom: $space;
-	-webkit-transition: opacity $transitionSlow;
-	transition: opacity $transitionSlow;
+	-webkit-transition: opacity $transitionSlower;
+	transition: opacity $transitionSlower;
 
 	a {
     .collection__name {

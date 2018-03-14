@@ -7,9 +7,9 @@
 
 {% if cart.item_count > 0 %}
 
-<h1>CART</h1><br />
-
-<form action="/cart" method="post" novalidate class="cart table-wrap">
+<div class='page'>
+<br />
+<form class="cart table-wrap" action="/cart" method="post" novalidate>
 	<div class="cart-table">
 		<div class="cart-table__row mobile-show">
 			<div class='cart-table__row__cell cell-full'>
@@ -101,3 +101,4 @@
   <h1>CART</h1><br />
   <p>{{ 'cart.general.empty' | t }} Continue browsing <a href="/#collections" class="underline">here</a>.</p>
 {% endif %}
+</div>

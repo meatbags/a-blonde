@@ -1,3 +1,9 @@
+@keyframes anim {
+	0% { opacity: 0; }
+	50% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
 .loading-screen {
 	z-index: $zLoadingScreen;
 	position: fixed;
@@ -17,5 +23,14 @@
 	.loading-msg {
 		font-weight: bold;
 		color: $colourAlt;
+		animation-name: anim;
+		animation-duration: 1.0s;
+		animation-iteration-count: infinite;
+
+		img {
+			height: 80px;
+			width: auto;
+			filter: saturate(0%) brightness(50%);
+		}
 	}
 }

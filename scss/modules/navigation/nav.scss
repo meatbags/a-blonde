@@ -2,7 +2,7 @@
 	@extend .noselect;
 	@include pad(1, 1, 1, 1);
 	position: fixed;
-	top: 0 !important;
+	top: 0;
 	left: 0;
 	width: 100%;
 	height: $sizeNav;
@@ -25,9 +25,7 @@
 
 		.nav__inner__title {
 			font-size: $fontMediumLarge;
-			border-style: double;
-			border-width: 4px;
-			border-color: $white;
+			border-bottom: $border;
 			margin-bottom: $space * 0.125;
 			cursor: pointer;
 
@@ -36,7 +34,7 @@
 			}
 
 			a {
-				@include pad(1, 2, 1, 2);
+				@include pad(1, 0, 1, 0);
 				display: flex;
 			}
 		}
@@ -69,6 +67,7 @@
 				font-size: $fontMedium;
 				border: 0px solid $colourNav;
 				margin-bottom: 0;
+				background: none;
 
 				a {
 					padding: 0;

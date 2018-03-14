@@ -1,22 +1,27 @@
 <div class='sub-nav'>
-  {% if template == 'index' %}
-    <a href='/'>
-  {% elsif template == "collection" %}
-    <a href='/#collections'>
-  {% elsif template == "product" %}
-    {% for collection in product.collections %}
-      {% assign index = 0 %}
-      {% if index == 0 %}
-        <a href='{{ collection.url }}'>
+  <div class='sub-nav__inner'>
+    {% if template != 'index' %}
+      {% if template == "product" %}
+          {{ product.title }}.
+      {% elsif template == "collection" %}
+          {{ collection.title }}.
+      {% elsif template == "product" %}
+        {% for collection in product.collections %}
+          {% assign index = 0 %}
+          {% if index == 0 %}
+            <a href='{{ collection.url }}'>
+          {% endif %}
+          {% assign index = index | plus:1 %}
+        {% endfor %}
+      {% elsif template == 'list-collections' %}
+        Shop.
+      {% elsif template == 'cart' %}
+        Cart.
+      {% else %}
+        {{ page.title }}.
       {% endif %}
-      {% assign index = index | plus:1 %}
-    {% endfor %}
-  {% else %}
-    <a href='/#collections'>
-  {% endif %}
-  {% if template == "product" %}
-      <div class="nav__inner__title-main">{{ product.title }}</div>
-  {% elsif template == "collection" %}
-      <div class="nav__inner__title-main">{{ collection.title }}</div>
-  {% endif %}
+    {% else %}
+      <div class='list-item'>New Looks</div>||
+    {% endif %}
+  </div>
 </div>

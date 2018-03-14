@@ -1,6 +1,6 @@
 .cart-table {
-	width: 100%;
 	font-size: $fontMedium;
+	width: 100%;
 
 	.cart-table__row {
 		width: 100%;
@@ -89,10 +89,6 @@
 			font-size: 120%;
 			border-bottom: $space solid $colourText;
 		}
-	}
-
-	@media screen and (max-width: $medium) {
-		font-size: $fontMedium;
 	}
 }
 

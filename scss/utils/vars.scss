@@ -8,14 +8,16 @@ $colourSelected: #000;
 $colourBackground: $white;
 $colourText: #000;
 $grey: #aaa;
+$darkGrey: #444;
 $colourNav: #808090;
+$lightGrey: lighten($colourNav, 40%);
 
 // size
 $space: 8px;
 $spaceBorder: $space / 3;
 $sizeNav: 120px;
 $sizeSubNav: 50px;
-//$sizeFooter: 40vh;
+$sizeBreadcrumb: 35px;
 
 // index
 $zNav: 100;
@@ -32,6 +34,7 @@ $transitionSlower: 0.75s;
 // breakpoints
 $small: 480px;
 $medium: 769px;
+$tablet: 960px;
 $large: 1220px;
 
 // borders

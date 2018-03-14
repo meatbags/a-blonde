@@ -24,3 +24,6 @@
 
 {% include 'nav-promo' %}
 {% include 'nav-subnav' %}
+{% unless template == 'index' %}
+	{% include 'breadcrumb' %}
+{% endunless %}

@@ -1,25 +1,25 @@
-.sub-nav {
-  @extend .noselect;
-  top: 0;
-  left: 0;
+.breadcrumb {
   width: 100%;
-  height: $sizeNav + $sizeSubNav;
-  padding-top: $sizeNav;
-  background: lighten($colourNav, 25%);
+  height: $sizeBreadcrumb;
   display: flex;
   justify-content: center;
-  font-size: $fontSmall;
+  //background: $lightGrey;
   color: $darkGrey;
 
-  .sub-nav__inner {
+  .breadcrumb__inner {
     @include pad-x(2);
     width: $large;
-    height: 100%;
+    font-size: $fontSmall;
     display: flex;
     align-items: center;
 
     .list-item {
       padding-right: $space;
+      padding-left: $space;
+
+      &:nth-child(1) {
+        padding-left: 0;
+      }
     }
 
     @media screen and (max-width: $large) {

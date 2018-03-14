@@ -22,7 +22,7 @@ class Landing {
       $("html").addClass("freeze");
       $(".menu-button, .nav").addClass("hidden");
       $(".landing-page").removeClass("disabled");
-      $(".collection").addClass("hidden");
+      //$(".collection").addClass("hidden");
 
       //delete video on mobile
       if (this.isMobile) {
@@ -33,7 +33,18 @@ class Landing {
       }
     } else {
       $(".landing-page, .landing-background, #landing-video").remove();
+      this.showCollectionGrid();
     }
+  }
+
+  showCollectionGrid() {
+    $('.columns__column').each((i, e) => {
+      $(e).children('.collection.hidden').each((j, f) => {
+        setTimeout(() => {
+          $(f).removeClass("hidden");
+        }, (j * 3 + i) * 200);
+      });
+    });
   }
 
   removeLandingPage() {
@@ -54,12 +65,7 @@ class Landing {
 			}, (i + 1) * 200);
 		});
 
-		$(".collection.hidden").each((i, e) => {
-			setTimeout(() => {
-				$(e).removeClass("hidden");
-			}, 400 + Math.floor(Math.random() * 1000));
-		});
-
+    this.showCollectionGrid();
 		window.location.hash = "#collections";
   }
 

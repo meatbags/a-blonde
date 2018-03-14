@@ -583,7 +583,7 @@ var Landing = function () {
         $("html").addClass("freeze");
         $(".menu-button, .nav").addClass("hidden");
         $(".landing-page").removeClass("disabled");
-        $(".collection").addClass("hidden");
+        //$(".collection").addClass("hidden");
 
         //delete video on mobile
         if (this.isMobile) {
@@ -594,7 +594,19 @@ var Landing = function () {
         }
       } else {
         $(".landing-page, .landing-background, #landing-video").remove();
+        this.showCollectionGrid();
       }
+    }
+  }, {
+    key: "showCollectionGrid",
+    value: function showCollectionGrid() {
+      $('.columns__column').each(function (i, e) {
+        $(e).children('.collection.hidden').each(function (j, f) {
+          setTimeout(function () {
+            $(f).removeClass("hidden");
+          }, (j * 3 + i) * 200);
+        });
+      });
     }
   }, {
     key: "removeLandingPage",
@@ -616,12 +628,7 @@ var Landing = function () {
         }, (i + 1) * 200);
       });
 
-      $(".collection.hidden").each(function (i, e) {
-        setTimeout(function () {
-          $(e).removeClass("hidden");
-        }, 400 + Math.floor(Math.random() * 1000));
-      });
-
+      this.showCollectionGrid();
       window.location.hash = "#collections";
     }
   }, {
