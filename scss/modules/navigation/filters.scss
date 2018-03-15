@@ -22,6 +22,11 @@
         width: 100%;
         display: flex;
         padding-top: $space * 1.5;
+        transition: $transitionSlow;
+
+        &.hidden {
+          opacity: 0.25;
+        }
 
         .filter {
           @include pad(0.5, 1.5, 0.5, 1.5);
@@ -33,7 +38,12 @@
           font-family: $fontStackSansSerif;
           text-transform: uppercase;
 
-          &:hover, &.active {
+          &:hover {
+            background: lighten($colourNav, 25%);
+            color: $white;
+          }
+
+          &.active {
             background: $colourNav;
             color: $white;
           }

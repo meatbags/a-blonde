@@ -12,7 +12,7 @@
   color: $darkGrey;
 
   .sub-nav__inner {
-    @include pad-x(2);
+    @include pad(0, 2, 0, 1);
     width: $large;
     height: 100%;
     display: flex;
@@ -30,6 +30,16 @@
 
       &:nth-child(1) {
         padding-left: 0;
+      }
+    }
+
+    &.align-right {
+      justify-content: flex-end;
+
+      .list-item {
+        &:last-child {
+          padding-right: 0;
+        }
       }
     }
 

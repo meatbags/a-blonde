@@ -822,14 +822,112 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Filter = function Filter() {
-  _classCallCheck(this, Filter);
+var Filter = function () {
+  function Filter() {
+    _classCallCheck(this, Filter);
 
-  // product filter
-  console.log('Current filter', window.location.hash);
-};
+    // product filter
+    this.tags = [];
+    this.pathname = window.location.pathname;
+    if (this.pathname.indexOf('/all') != -1) {
+      this.highlightTags();
+    } else {
+      this.prefix = this.pathname;
+    }
+    this.events();
+    $('.filters-list').removeClass('hidden');
+  }
+
+  _createClass(Filter, [{
+    key: 'events',
+    value: function events() {
+      var _this = this;
+
+      $('.filter').on('click', function (e) {
+        $(e.currentTarget).toggleClass('active');
+        _this.parseTag($(e.currentTarget).data('tag'));
+      });
+      $('.clear-tags').on('click', function (e) {
+        _this.clearTags();
+      });
+    }
+  }, {
+    key: 'highlightTags',
+    value: function highlightTags() {
+      // get tags from URL and highlight on page
+      var p = this.pathname.split('/all/');
+
+      if (p.length > 1) {
+        var tagString = p[1];
+        this.tags = tagString.split('+');
+        this.prefix = p[0] + '/all';
+        this.sanitiseTags();
+        for (var i = 0; i < this.tags.length; i++) {
+          $('.tag-' + this.tags[i]).addClass('active');
+        }
+      } else {
+        // reset
+        this.prefix = this.pathname;
+      }
+    }
+  }, {
+    key: 'sanitiseTags',
+    value: function sanitiseTags() {
+      // remove naughty, dirty tags
+      for (var i = this.tags.length; i > -1; --i) {
+        if (this.tags[i] === '') {
+          this.tags.splice(i, 1);
+        }
+      }
+    }
+  }, {
+    key: 'parseTag',
+    value: function parseTag(tag) {
+      // add or remove tag from list, apply to url
+      var unique = true;
+      for (var i = 0; i < this.tags.length; ++i) {
+        if (this.tags[i] == tag) {
+          this.tags.splice(i, 1);
+          unique = false;
+          break;
+        }
+      }
+      if (unique) {
+        this.tags.push(tag);
+      }
+
+      // TODO -- refactor
+      if (unique) {
+        this.tags = [tag];
+      } else {
+        this.tags = [];
+      }
+
+      this.constructURL();
+    }
+  }, {
+    key: 'clearTags',
+    value: function clearTags() {
+      // remove all tag filters
+      this.tags = [];
+      this.constructURL();
+    }
+  }, {
+    key: 'constructURL',
+    value: function constructURL() {
+      // construct URL from tags, go there
+      var tagString = this.tags.join('+');
+      var href = window.location.origin + this.prefix + '/' + tagString;
+      window.location.href = href;
+    }
+  }]);
+
+  return Filter;
+}();
 
 exports.Filter = Filter;
 

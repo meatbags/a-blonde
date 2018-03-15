@@ -30,7 +30,7 @@
     {% if current_tags %}
       {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
       <div class='list-item'>
-        {{ collection.title | link_to: url }}
+        {{ 'Shop' | link_to: url }}
       </div>
       <span aria-hidden="true">/</span>
       <div class='list-item'>

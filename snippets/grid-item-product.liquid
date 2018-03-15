@@ -16,7 +16,10 @@
 			<a href="{{ product.url | within: collection }}">{{ product.title }}</a>
 		</div>
 		<div class='price'>
-			<span class='from'>from</span> {{ product.price | 'money' }}
+			{% if product.variants.size > 1 %}
+				<span class='from'>outfit</span>
+			{% endif %}
+			&nbsp;{{ product.price_max | 'money' }}
 		</div>
 	</div>
 </div>

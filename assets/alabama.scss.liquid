@@ -299,6 +299,20 @@ p {
 	}
 }
 
+.password {
+  position: fixed;
+  top: 0;
+  left: 50px;
+  z-index: 400;
+  width: 200px;
+  height: 200px;
+  display: flex;
+
+  button {
+    padding: 0;
+  }
+}
+
 h1 {
 	font-size: $fontMediumLarge;
 	font-weight: inherit;
@@ -544,7 +558,10 @@ h2 {
 
 		.name {
 			font-size: $fontSmall;
-			width: 60%;
+			width: 65%;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
 
 			&:hover {
 				opacity: 0.5;
@@ -554,7 +571,7 @@ h2 {
 		.price {
 			text-align: right;
 			font-size: $fontSmall;
-			width: 40%;
+			width: 35%;
 
 			.from {
 				font-size: 9px;
@@ -1047,7 +1064,7 @@ iframe {
   color: $darkGrey;
 
   .sub-nav__inner {
-    @include pad-x(2);
+    @include pad(0, 2, 0, 1);
     width: $large;
     height: 100%;
     display: flex;
@@ -1065,6 +1082,16 @@ iframe {
 
       &:nth-child(1) {
         padding-left: 0;
+      }
+    }
+
+    &.align-right {
+      justify-content: flex-end;
+
+      .list-item {
+        &:last-child {
+          padding-right: 0;
+        }
       }
     }
 
@@ -1136,6 +1163,11 @@ iframe {
         width: 100%;
         display: flex;
         padding-top: $space * 1.5;
+        transition: $transitionSlow;
+
+        &.hidden {
+          opacity: 0.25;
+        }
 
         .filter {
           @include pad(0.5, 1.5, 0.5, 1.5);
@@ -1147,7 +1179,12 @@ iframe {
           font-family: $fontStackSansSerif;
           text-transform: uppercase;
 
-          &:hover, &.active {
+          &:hover {
+            background: lighten($colourNav, 25%);
+            color: $white;
+          }
+
+          &.active {
             background: $colourNav;
             color: $white;
           }

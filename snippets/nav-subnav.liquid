@@ -1,9 +1,20 @@
 <div class='sub-nav'>
-  <div class='sub-nav__inner'>
+  <div class='sub-nav__inner {% if template == 'index' %}align-right{% endif %}'>
     {% if template != 'index' %}
       {% include 'breadcrumb' %}
     {% else %}
-      <div class='list-item'>New Looks</div>||
+      <div class='list-item'>
+        <a href='/collections/all/new'>New Looks</a>
+      </div>//
+      <div class='list-item'>
+        <a href='/collections/all/tops'>Tops</a>
+      </div>//
+      <div class='list-item'>
+        <a href='/collections/all/bottoms'>Bottoms</a>
+      </div>//
+      <div class='list-item'>
+        <a href='/collections/all/accessories'>Accessories</a>
+      </div>
     {% endif %}
   </div>
 </div>
