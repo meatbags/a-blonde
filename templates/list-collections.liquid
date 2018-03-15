@@ -4,6 +4,9 @@
   Loop through each collection, except 'frontpage'
 {% endcomment %}
 
+/templates/list-collections
+
+{% comment %}
 {% for collection in collections %}
   {% unless collection.handle == 'frontpage' %}
     {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
@@ -25,3 +28,4 @@
     {% unless forloop.last %}<hr>{% endunless %}
   {% endunless %}
 {% endfor %}
+{% endcomment %}

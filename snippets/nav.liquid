@@ -32,6 +32,6 @@
 
 {% include 'nav-promo' %}
 {% include 'nav-subnav' %}
-{% if template contains 'collection' && collection.handle == 'all' %}
+{% if template contains 'collection' and collection.handle == 'all' %}
 	{% include 'filters' %}
 {% endif %}

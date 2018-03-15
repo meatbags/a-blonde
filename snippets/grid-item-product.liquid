@@ -1,19 +1,22 @@
 <!-- product, image -->
 
-{% if collection.title == "Editorials" %}
-	{% assign promptMessage = '' %}
-{% else %}
-	{% assign promptMessage = '' %}
-{% endif %}
-
-<div class="product">
-	<a href="{{ product.url | within: collection }}">
-		<img src="{{ image.src | img_url: 'grande' }}" alt="{{ product.title }}">
-		<div class="product__name">
-			<div class="product__name__text">
-				{{ promptMessage }}
+<div class='product'>
+	<div class='product__image'>
+		<a href='{{ product.url | within: collection }}'>
+			<img src='{{ product.featured_image.src | img_url: 'grande' }}' alt='{{ product.title }}'>
+			<div class='product__prompt'>
+				<div class='popup'>
+					View.
+				</div>
 			</div>
+		</a>
+	</div>
+	<div class='product__info'>
+		<div class='name'>
+			<a href="{{ product.url | within: collection }}">{{ product.title }}</a>
 		</div>
-		<div class="product__prompt font-half">( ! )</div>
-	</a>
+		<div class='price'>
+			<span class='from'>from</span> {{ product.price | 'money' }}
+		</div>
+	</div>
 </div>

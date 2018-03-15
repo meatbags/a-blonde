@@ -1,57 +1,71 @@
-.collection, .product {
-	position: relative;
+.product {
 	width: 100%;
 	margin-bottom: $space;
 	-webkit-transition: opacity $transitionSlow;
 	transition: opacity $transitionSlow;
+	padding: $space;
 
-	a {
-		img {
-			display: block;
-			width: 100%;
-			height: auto;
-			-webkit-filter: saturate(0%);
-			filter: saturate(0%);
-			-webkit-transition: $transitionSlow;
-			transition: $transitionSlow;
-			margin: 0;
-		}
+	.product__image {
+		position: relative;
+		overflow: hidden;
 
-		.product__name {
-			@include pad(0, 0, 0.25, 0.5);
-			position: absolute;
-			pointer-events: none;
-			opacity: 0;
-			width: 100%;
-			white-space: normal;
-			letter-spacing: 1px;
-			transition: letter-spacing $transitionNormal;
-			word-break: normal;
-			top: auto;
-			bottom: 0;
-			text-align: right;
-			text-transform: none;
-			color: $colourAlt;
-
-			.product__name__text {
-
+		a {
+			img {
+				display: block;
+				width: 100%;
+				height: auto;
+				-webkit-transition: $transitionSlow;
+				transition: $transitionSlow;
+				margin: 0;
 			}
 
-			&.small {
-				font-size: 50%;
+			.product__prompt {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				pointer-events: none;
+				display: flex;
+				align-items: flex-end;
+				justify-content: flex-end;
+				opacity: 0;
+				transition: $transitionSlow;
+
+				.popup {
+					@include pad(0.5, 1, 0.5, 1);
+					font-size: $fontSmaller;
+					background: $white;
+					overflow: hidden;
+					margin: $space * 2;
+				}
+			}
+		}
+	}
+
+	.product__info {
+		@include pad(1, 0, 1, 0);
+		width: 100%;
+		display: flex;
+		color: $darkGrey;
+		//background: lighten($colourNav, 25%);
+
+		.name {
+			font-size: $fontSmall;
+			width: 60%;
+
+			&:hover {
+				opacity: 0.5;
 			}
 		}
 
-		.product__prompt {
-			word-break: normal;
-			top: auto;
-			bottom: 0;
+		.price {
 			text-align: right;
-			text-transform: none;
-			color: $colourAlt;
+			font-size: $fontSmall;
+			width: 40%;
 
-			&.small {
-				font-size: 50%;
+			.from {
+				font-size: 9px;
 			}
 		}
 	}
@@ -59,16 +73,12 @@
 	&:hover, &:active, &.scrolled {
 		a {
 			img {
-				filter: saturate(0%) contrast(150%);
-			}
-			
-			.product__prompt, .product__name, .article__name {
-				opacity: 1;
+				transform: scale(1.05, 1.05);
+				//filter: saturate(50%) contrast(125%);
 			}
 
-			.product__name {
-				padding-bottom: $space;
-				padding-right: $space * 2.25;
+			.product__prompt {
+				opacity: 1;
 			}
 		}
 	}
