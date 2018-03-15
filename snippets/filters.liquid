@@ -1,0 +1,14 @@
+
+
+<div class='filters'>
+  <div class='filters__inner'>
+    <div class='filters-title'>
+      Filter results:
+    </div>
+    <div class='filters-list'>
+      {% for tag in collection.tags %}
+        <div class='filter' data-tag='{{ tag | handle }}'>{{ tag }}{{ tag | handle }}</div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

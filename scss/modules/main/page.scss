@@ -3,6 +3,10 @@
   width: 75%;
   margin: 0 auto;
 
+  &.full {
+    width: 100%;
+  }
+
   @media screen and (max-width: $tablet) {
     width: 100%;
   }

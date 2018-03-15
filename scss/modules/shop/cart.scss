@@ -87,7 +87,7 @@
 
 		&:nth-child(1), &.border-bottom {
 			font-size: 120%;
-			border-bottom: $space solid $colourText;
+			border-bottom: $space/2 solid $colourText;
 		}
 	}
 }
@@ -155,7 +155,8 @@
 }
 
 #CartSpecialInstructions {
-	border-top: $space solid $colourText;
+	//border-top: $space/2 solid $colourText;
+	background: linear-gradient($white, lighten($colourNav, 30%));
 }
 
 .single-option-selector {

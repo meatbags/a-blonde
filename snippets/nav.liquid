@@ -6,9 +6,17 @@
 			</a>
 		</div>
 		<div class='nav__inner__menu'>
-			<div class='nav-item'>
-				<a href="/products">Shop.</a>
-			</div>
+			{% unless template contains 'collection' %}
+				<div class='nav-item'>
+					<a href="/collections/all">Shop.</a>
+				</div>
+			{% else %}
+				{% if collection.handle != 'all' %}
+					<div class='nav-item'>
+						<a href="/collections/all">Shop.</a>
+					</div>
+				{% endif %}
+			{% endunless %}
 			{% unless template == 'index' %}
 				<div class='nav-item'>
 					<a href='/#collections'>Collections.</a>
@@ -24,6 +32,6 @@
 
 {% include 'nav-promo' %}
 {% include 'nav-subnav' %}
-{% unless template == 'index' %}
-	{% include 'breadcrumb' %}
-{% endunless %}
+{% if template contains 'collection' && collection.handle == 'all' %}
+	{% include 'filters' %}
+{% endif %}

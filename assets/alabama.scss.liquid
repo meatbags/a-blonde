@@ -257,7 +257,7 @@ body, html {
 	background: $colourBackground;
 
 	&.freeze {
-		overflow: hidden;
+		//overflow: hidden;
 	}
 
 	@media screen and (max-width: $medium) {
@@ -593,7 +593,7 @@ textarea {
 	padding: $space;
 	padding-top: $space / 2;
 	width: 100%;
-	border: $spaceBorder solid $colourText;
+	border: 1px solid $colourText;
 	font-size: $fontMedium !important;
 	letter-spacing: 0;
 	outline: none !important;
@@ -608,7 +608,7 @@ select, button, input {
 	padding-top: $space / 2;
 	padding-bottom: $space / 2;
 	border: none;
-	border-bottom: $spaceBorder solid $colourText;
+	border-bottom: 1px solid $colourText;
 	letter-spacing: 0;
 	outline: none !important;
 }
@@ -913,6 +913,10 @@ iframe {
   width: 75%;
   margin: 0 auto;
 
+  &.full {
+    width: 100%;
+  }
+
   @media screen and (max-width: $tablet) {
     width: 100%;
   }
@@ -955,7 +959,7 @@ iframe {
 			}
 
 			a {
-				@include pad(1, 0, 1, 0);
+				@include pad(0.25, 0.5, 0.25, 0.5);
 				display: flex;
 			}
 		}
@@ -1020,6 +1024,17 @@ iframe {
 
     .list-item {
       padding-right: $space;
+      padding-left: $space;
+
+      a {
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+
+      &:nth-child(1) {
+        padding-left: 0;
+      }
     }
 
     @media screen and (max-width: $large) {
@@ -1066,27 +1081,39 @@ iframe {
   }
 }
 
-.breadcrumb {
+.filters {
+  @extend .noselect;
   width: 100%;
-  height: $sizeBreadcrumb;
   display: flex;
   justify-content: center;
-  //background: $lightGrey;
-  color: $darkGrey;
 
-  .breadcrumb__inner {
-    @include pad-x(2);
+  .filters__inner {
     width: $large;
-    font-size: $fontSmall;
+    padding: $space * 2;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    font-size: $fontSmall;
 
-    .list-item {
-      padding-right: $space;
-      padding-left: $space;
+    .filters-title {
 
-      &:nth-child(1) {
-        padding-left: 0;
+    }
+
+    .filters-list {
+      width: 100%;
+      display: flex;
+      padding-top: $space;
+
+      .filter {
+        @include pad(0.25, 1.5, 0.25, 1.5);
+        cursor: pointer;
+        border: 1px solid lighten($colourNav, 25%);
+        border-radius: 3px;
+        margin-right: $space * 1.5;
+
+        &:hover, &.active {
+          background: $colourNav;
+          color: $white;
+        }
       }
     }
 
@@ -1336,7 +1363,7 @@ iframe {
 
 		&:nth-child(1), &.border-bottom {
 			font-size: 120%;
-			border-bottom: $space solid $colourText;
+			border-bottom: $space/2 solid $colourText;
 		}
 	}
 }
@@ -1404,7 +1431,8 @@ iframe {
 }
 
 #CartSpecialInstructions {
-	border-top: $space solid $colourText;
+	//border-top: $space/2 solid $colourText;
+	background: linear-gradient($white, lighten($colourNav, 30%));
 }
 
 .single-option-selector {

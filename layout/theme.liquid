@@ -34,13 +34,14 @@
 	{{ 'jquery.jplayer.min.js' | asset_url | script_tag }}
 	{{ '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js' | script_tag }}
 	{% if template contains 'customers' %} {{ 'shopify_common.js' | shopify_asset_url | script_tag }} {% endif %}
+	<link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/1950/6433/files/Aicon.png?12048135497775234781" />
 </head>
 <body id="{{ page_title | handle }}">
 	{% if template == 'index' %}
 		{% include 'landing' %}
 		{% include 'loading' %}
 	{% elsif template == "collection" or template == "product" %}
-		
+
 	{% endif %}
 	{% include 'nav' %}
 	{% include 'menu' %}

@@ -7,6 +7,7 @@ class App {
 		this.menu = new Module.Menu();
 		this.text = new Module.Text(this.isMobile);
 		this.audio = new Module.Audio(this.isMobile);
+		this.filter = new Module.Filter();
 		this.sliders = new Module.Sliders();
 		this.landing = new Module.Landing();
 		this.insta = new Module.Insta();

@@ -21,7 +21,7 @@ textarea {
 	padding: $space;
 	padding-top: $space / 2;
 	width: 100%;
-	border: $spaceBorder solid $colourText;
+	border: 1px solid $colourText;
 	font-size: $fontMedium !important;
 	letter-spacing: 0;
 	outline: none !important;
@@ -36,7 +36,7 @@ select, button, input {
 	padding-top: $space / 2;
 	padding-bottom: $space / 2;
 	border: none;
-	border-bottom: $spaceBorder solid $colourText;
+	border-bottom: 1px solid $colourText;
 	letter-spacing: 0;
 	outline: none !important;
 }

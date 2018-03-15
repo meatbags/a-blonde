@@ -2,11 +2,11 @@
 assets/ajax-cart.js.liquid:
   development: 2017-06-01T19:47:27+10:00   5089d437026dde38c1918ea91324d35a
 assets/alabama.js:
-  development: 2018-03-14T22:20:14+11:00   ecc9eb43375ea3fa8a98b4d80721e082
+  development: 2018-03-15T17:20:31+11:00   97d4ae9d9777a0cb478f55607c452434
 assets/alabama.min.js:
-  development: 2018-03-14T22:20:15+11:00   976c1ce0c64fbc273788202eb6bdbaa2
+  development: 2018-03-15T17:20:31+11:00   534170cad3fb0d22e913e33ae5dc60ea
 assets/alabama.scss.liquid:
-  development: 2018-03-14T22:30:41+11:00   deb24c7d011cf75c5fb6197f5adaac6d
+  development: 2018-03-15T19:38:15+11:00   3124aacae7cd3a8dd3294d31129ce34c
 assets/fastclick.min.js:
   development: 2017-06-01T19:47:28+10:00   4c68290ccc4d503561895dff0821621f
 assets/gift-card.scss.liquid:
@@ -52,7 +52,7 @@ config/settings_data.json:
 config/settings_schema.json:
   development: 2018-03-14T13:28:37+11:00   6f51c8cf649ac01691d369ad26a4cc1f
 layout/theme.liquid:
-  development: 2018-03-14T18:48:14+11:00   6853a630b523e442ed2a1300e9a87ee4
+  development: 2018-03-15T17:49:08+11:00   675386b7053ffad0314b7156da01dd99
 locales/de.json:
   development: 2018-01-25T00:03:50+11:00   585899bd4424d43afa93b72083a5aa0e
 locales/en.default.json:
@@ -74,13 +74,15 @@ snippets/audioplayer.liquid:
 snippets/blog-sidebar.liquid:
   development: 2017-06-01T19:47:30+10:00   ae3891e372509ded7074e50b2a97f438
 snippets/breadcrumb.liquid:
-  development: 2018-03-14T21:37:35+11:00   659f0da49394e54715bfccb23d539071
+  development: 2018-03-15T19:14:50+11:00   a8f441ef55221750cc83293187863e50
 snippets/collection-sidebar.liquid:
   development: 2017-06-01T19:47:30+10:00   b53274904cf2b47ce2fb4c3e6d632bb3
 snippets/collection-sorting.liquid:
   development: 2017-06-01T19:47:30+10:00   d369d2d4697110800946220909e8ecf8
 snippets/comment.liquid:
   development: 2017-06-01T19:47:30+10:00   c766e42be8a74e05533d0e5a0e3a9ce3
+snippets/filters.liquid:
+  development: 2018-03-15T18:02:27+11:00   312d04e2670df02682cac96ba4611c73
 snippets/footer-cart.liquid:
   development: 2018-03-14T18:31:42+11:00   2ef50318911249f478f47d4bf4c249bb
 snippets/footer-social-media.liquid:
@@ -96,13 +98,13 @@ snippets/landing.liquid:
 snippets/loading.liquid:
   development: 2018-03-14T22:09:00+11:00   a5b6689dd76106bf1da639d75d2fe613
 snippets/menu.liquid:
-  development: 2018-03-14T20:11:34+11:00   b5cf21a8be2045bf62494e8df57c1b78
+  development: 2018-03-15T17:21:50+11:00   3a0dd4086aba8bc9b23e86c92f8b4096
 snippets/nav-promo.liquid:
   development: 2018-03-14T14:54:35+11:00   e5916469b2eee2c5a0703140caf5357d
 snippets/nav-subnav.liquid:
-  development: 2018-03-14T20:33:03+11:00   6236143f8523944c3adc51b28a52ed0d
+  development: 2018-03-15T16:41:48+11:00   0410862afd33befd0befe125dc48ad44
 snippets/nav.liquid:
-  development: 2018-03-14T20:19:42+11:00   24166929505b48f3f2b65eaf852be008
+  development: 2018-03-15T17:49:15+11:00   58bdb8f1fbf77095d4ec8066c3da7737
 snippets/newsletter.liquid:
   development: 2017-06-01T22:56:11+10:00   30eee7e28fff09e9f6e6bc045d61f09b
 snippets/oldIE-js.liquid:
@@ -128,15 +130,15 @@ snippets/social-meta-tags.liquid:
 snippets/tags-article.liquid:
   development: 2017-06-01T19:47:30+10:00   52bc59a44a51be2f1745559c2ba514a2
 templates/404.liquid:
-  development: 2017-06-01T20:10:14+10:00   ab7610b6ee9e8c771ce7d4ba753314cd
+  development: 2018-03-15T19:26:52+11:00   082349e1dccc4e01c11d76e253368144
 templates/article.liquid:
   development: 2018-03-14T16:41:18+11:00   18a0df91bad572a76b00423da2f0d6b8
 templates/blog.liquid:
   development: 2017-07-26T01:06:35+10:00
 templates/cart.liquid:
-  development: 2018-03-14T21:44:03+11:00   665d71f3af4ea6c39857b77851358229
+  development: 2018-03-15T19:37:21+11:00   97853890961e3ce9f0324053b48a11b9
 templates/collection.liquid:
-  development: 2018-03-14T16:45:15+11:00   eb4221535fd6f41aad6ae20cdd1b9ee3
+  development: 2018-03-15T17:19:01+11:00   3c9cc1ada75e3a6baf48d04a57a7792e
 templates/customers/account.liquid:
   development: 2018-03-14T15:12:01+11:00   ae3fbdf35d1c9910077e792c5db20e24
 templates/customers/activate_account.liquid:
@@ -156,7 +158,7 @@ templates/gift_card.liquid:
 templates/index.liquid:
   development: 2018-03-14T14:24:43+11:00   f5d5925b691cb6bcc8f8b41d4fd5ac68
 templates/list-collections.liquid:
-  development: 2018-03-14T21:28:35+11:00   039b8ecad196d785fb2e612a06cd88d9
+  development: 2018-03-15T17:40:36+11:00   039b8ecad196d785fb2e612a06cd88d9
 templates/page.contact.liquid:
   development: 2018-03-14T21:40:12+11:00   da5b049a116d89005f6156ad8acd856b
 templates/page.editorials.liquid:

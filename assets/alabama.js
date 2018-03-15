@@ -88,6 +88,7 @@ var App = function App() {
 	this.menu = new Module.Menu();
 	this.text = new Module.Text(this.isMobile);
 	this.audio = new Module.Audio(this.isMobile);
+	this.filter = new Module.Filter();
 	this.sliders = new Module.Sliders();
 	this.landing = new Module.Landing();
 	this.insta = new Module.Insta();
@@ -193,6 +194,18 @@ Object.keys(_insta).forEach(function (key) {
     enumerable: true,
     get: function get() {
       return _insta[key];
+    }
+  });
+});
+
+var _filter = __webpack_require__(9);
+
+Object.keys(_filter).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _filter[key];
     }
   });
 });
@@ -797,6 +810,28 @@ var Insta = function () {
 }();
 
 exports.Insta = Insta;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Filter = function Filter() {
+  _classCallCheck(this, Filter);
+
+  // product filter
+  console.log('Current filter', window.location.hash);
+};
+
+exports.Filter = Filter;
 
 /***/ })
 /******/ ]);
