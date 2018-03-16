@@ -1,93 +1,88 @@
 <!-- /templates/product.liquid -->
-<div itemscope itemtype="http://schema.org/Product">
+<div class='page'>
+  <div itemscope itemtype="http://schema.org/Product">
+    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+    <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+    {% assign current_variant = product.selected_or_first_available_variant %}
 
-  	<meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
-  	<meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+  	<div class='product-page'>
+      <div class='product-page__gallery'>
+        {% assign i = 0 %}
+        {% for image in product.images %}
+    			<div class='list-item gallery-button {% if i == 0 %}active{% endif %}' data-target='.image-{{ i }}'>
+    				<img src='{{ image.src | img_url: '100x' }}" alt="{{ image.alt | escape }}'>
+    			</div>
+          {% assign i = i | plus: 1 %}
+    		{% endfor %}
+      </div>
 
-  	{% assign current_variant = product.selected_or_first_available_variant %}
+      <div class='product-page__image'>
+        <div class='product-page__image__inner'>
+          {% assign i = 0 %}
+          {% for image in product.images %}
+      			<div class='list-item image-{{ i }} {% if i == 0 %}active{% endif %}'>
+      				<img src='{{ image.src | img_url: '500x' }}" alt="{{ image.alt | escape }}'>
+      			</div>
+            {% assign i = i | plus: 1 %}
+          {% endfor %}
+        </div>
+      </div>
 
-	<div class="product-page">
-		<div class="slick-slider">
-  		{% for image in product.images %}
-  			<div class="grid__item__inner">
-  				<img src="{{ image.src | img_url: 'original' }}" alt="{{ image.alt | escape }}">
-  			</div>
-  		{% endfor %}
-		</div>
-    <div class='slider-offset'>
-      <!-- push content down to make room for slick-slider (css = absolute) -->
-    </div>
+      <div class='product-page__info'>
+        <div class='name'>
+          {{ product.title }}
+        </div>
+        <div class='description'>
+          {{ product.description }}
+        </div>
+        &dagger;
+        <div class="product-page__orders" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+    			<meta itemprop="priceCurrency" content="{{ shop.currency }}">
+    			<link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
 
-		<div class="product-description rte" itemprop="description">
-			<p>{{ product.description }}</p>
-		</div>
-
-		<h1>Place Order</h1>
-		<div class="product-page__orders" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-			<meta itemprop="priceCurrency" content="{{ shop.currency }}">
-			<link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
-
-			<form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-				<div class="cart-table">
-          <div class="cart-table__row mobile-show">
-            <div class="cart-table__row__cell cell-full">
-              Item / Price / Qty.
+          <form class='cart-form' action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+            <div class='cart-price'>
+  						<span id="ProductPrice" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+                {{ current_variant.price | money }}
+              </span>
             </div>
-          </div>
-          <div class="cart-table__row mobile-hide border-bottom">
-            <div class="cart-table__row__cell cell-full">
-              Item / Price / Quantity
+
+            <div class='cart-variant-select'>
+              <select dir="rtl" name="id" id="productSelect" class="product-single__variants">
+    						{% for variant in product.variants %}
+    							{% if variant.available %}
+    								<option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+    							{% else %}
+    								<option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+    							{% endif %}
+    						{% endfor %}
+  						</select>
             </div>
-          </div>
-          <!--
-					<div class="mobile-hide cart-table__row">
-						<div class="cart-table__row__cell cell-third">{{ product.options.first | escape }}</div>
-						<div class="cart-table__row__cell cell-third">{{ 'products.general.regular_price' | t }}</div>
-						<div class="cart-table__row__cell cell-third">{{ 'products.product.quantity' | t }}</div>
-					</div>
-          -->
-					<div class="cart-table__row">
-						<div class="cart-table__row__cell cell-third">
-							<select name="id" id="productSelect" class="product-single__variants">
-							{% for variant in product.variants %}
-								{% if variant.available %}
-									<option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
-								{% else %}
-									<option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
-								{% endif %}
-							{% endfor %}
-							</select>
-						</div>
-						<div class="cart-table__row__cell cell-third">
-							<span id="ProductPrice" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">{{ current_variant.price | money }}</span>
-							{% if product.compare_at_price_max > product.price %}
-								<span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
-								<p id="ComparePrice">
-									{{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
-								</p>
-							{% endif %}
-						</div>
-						<div class="cart-table__row__cell cell-third">
-							<input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
-						</div>
-					</div>
-				</div>
 
-				<br />
+						{% if product.compare_at_price_max > product.price %}
+							<span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+							<p id="ComparePrice">
+								{{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
+							</p>
+						{% endif %}
+            <div class='display-none'>
+              <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+            </div>
 
-				<div class="cart-checkout">
-					<div class="cart-checkout__buttons">
-						<button type="submit" name="add" id="AddToCart" class="btn">
-							<span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
-						</button>
-					</div>
-					<div class="cart-prompt display-none">
-						Item/s added <a class="underline" href="/cart">View Cart</a>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
+  					<div class="cart-add">
+  						<button type="submit" name="add" id="AddToCart" class="btn">
+  							<span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>.
+  						</button>
+  					</div>
+  					<div class="cart-prompt display-none">
+  						Item/s added <a class="underline" href="/cart">View Cart</a>
+  					</div>
+    			</form>
+
+    		</div> <!-- /product-page__orders -->
+      </div>
+  	</div>
+  </div>
 </div>
 
 {{ 'option_selection.js' | shopify_asset_url | script_tag }}

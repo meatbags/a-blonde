@@ -89,7 +89,7 @@ var App = function App() {
 	this.text = new Module.Text(this.isMobile);
 	this.audio = new Module.Audio(this.isMobile);
 	this.filter = new Module.Filter();
-	this.sliders = new Module.Sliders();
+	this.sliders = new Module.Gallery();
 	this.landing = new Module.Landing();
 	this.insta = new Module.Insta();
 };
@@ -174,14 +174,14 @@ Object.keys(_landing).forEach(function (key) {
   });
 });
 
-var _sliders = __webpack_require__(7);
+var _gallery = __webpack_require__(7);
 
-Object.keys(_sliders).forEach(function (key) {
+Object.keys(_gallery).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _sliders[key];
+      return _gallery[key];
     }
   });
 });
@@ -647,13 +647,13 @@ var Landing = function () {
   }, {
     key: "video",
     value: function video() {
-      // get video frames
+      // get collection video iframes
       if ($("iframe").length > 0) {
         $("iframe").each(function (i, e) {
           if ($(e).attr("src").indexOf("vimeo") != -1) {
-            $(e).remove();
-            $(".wrthiser").prepend($(e));
-            $(e).css({ width: "100%" });
+            //$(e).remove();
+            //$(".wrthiser").prepend($(e));
+            //$(e).css({ width: "100%" });
           }
         });
       }
@@ -676,52 +676,23 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Sliders = function () {
-  function Sliders() {
-    _classCallCheck(this, Sliders);
+var Gallery = function Gallery() {
+  _classCallCheck(this, Gallery);
 
-    // slick sliders
-    this.createSliders();
-  }
+  // image galleries
+  $('.gallery-button').on('click', function (e) {
+    $('.gallery-button.active').removeClass('active');
+    var $e = $(e.currentTarget);
+    $e.addClass('active');
+    var target = $e.data('target');
+    $('.product-page__image__inner .list-item.active').removeClass('active');
+    $(target).addClass('active');
+  });
+};
 
-  _createClass(Sliders, [{
-    key: 'createSliders',
-    value: function createSliders() {
-      var _this = this;
-
-      var $SS = $('.slick-slider').slick({
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: false,
-        arrows: false,
-        centerMode: true,
-        variableWidth: true,
-        responsive: [{
-          breakpoint: 960,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: true
-          }
-        }]
-      });
-
-      // force move to slide
-      $('.slick-slide').click(function () {
-        $SS.slick('slickGoTo', parseInt($(_this).data('slickIndex')));
-      });
-    }
-  }]);
-
-  return Sliders;
-}();
-
-exports.Sliders = Sliders;
+exports.Gallery = Gallery;
 
 /***/ }),
 /* 8 */

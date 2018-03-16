@@ -11,12 +11,14 @@
     font-size: $fontSmall;
     color: $darkGrey;
 
-    .half {
-      width: 50%;
+    .container {
+      width: 100%;
       display: flex;
       flex-direction: column;
 
-      .filters-title {}
+      .filters-title {
+
+      }
 
       .filters-list {
         width: 100%;
@@ -57,6 +59,19 @@
 
     @media screen and (max-width: $large) {
       width: 100%;
+    }
+
+    @media screen and (max-width: $mobile) {
+      .container {
+        .filters-list {
+          flex-wrap: wrap;
+
+          .filter {
+            margin-right: $space * 0.5;
+            margin-bottom: $space;
+          }
+        }
+      }
     }
   }
 }

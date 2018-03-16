@@ -56,6 +56,26 @@
 		@media screen and (max-width: $large) {
 			width: 100%;
 		}
+
+		@media screen and (max-width: $mobile) {
+			@include pad-x(0);
+
+			.nav__inner__title {
+				font-size: $fontMedium;
+
+				a {
+					@include pad(0.25, 0, 0.25, 0);
+				}
+			}
+
+			.nav__inner__menu {
+				font-size: $fontSmall;
+
+				.nav-item {
+					padding-left: $space;
+				}
+			}
+		}
 	}
 
 	&.active {

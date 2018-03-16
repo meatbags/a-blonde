@@ -9,12 +9,12 @@
   </div>
 
   {% if template == 'cart' %}
-    <span aria-hidden="true">/</span>
+    <span aria-hidden="true">//</span>
     <div class='list-item'>Cart</div>
 
   {% elsif template contains 'product' %}
     {% if collection %}
-      <span aria-hidden="true">/</span>
+      <span aria-hidden="true">//</span>
       {% if collection.handle %}
         {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
         <div class='list-item'>
@@ -22,39 +22,35 @@
         </div>
       {% endif %}
     {% endif %}
-    <span aria-hidden="true">/</span>
+    <span aria-hidden="true">//</span>
     <div class='list-item'>{{ product.title }}</div>
 
   {% elsif template contains 'collection' and collection.handle %}
-    <span aria-hidden="true">/</span>
+    <span aria-hidden="true">//</span>
     {% if current_tags %}
       {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
       <div class='list-item'>
         {{ 'Shop' | link_to: url }}
       </div>
-      <span aria-hidden="true">/</span>
+      <span aria-hidden="true">//</span>
       <div class='list-item'>
         {{ current_tags | join: " + " }}
       </div>
     {% else %}
       {% if collection.handle == 'all' %}
-        <div class='list-item'>
-          Shop
-        </div>
+        <div class='list-item'>Shop</div>
       {% else %}
-        <div class='list-item'>
-          {{ collection.title }}
-        </div>
+        <div class='list-item'>{{ collection.title }}</div>
       {% endif %}
     {% endif %}
 
   {% elsif template == 'blog' %}
-    <span aria-hidden="true">/</span>
+    <span aria-hidden="true">//</span>
     {% if current_tags %}
       <div class='list-item'>
         {{ blog.title | link_to: blog.url }}
       </div>
-      <span aria-hidden="true">/</span>
+      <span aria-hidden="true">//</span>
       <span>{{ current_tags | join: " + " }}</span>
     {% else %}
       <div class='list-item'>
@@ -63,29 +59,29 @@
     {% endif %}
 
   {% elsif template == 'article' %}
-    <span aria-hidden="true">/</span>
+    <span aria-hidden="true">//</span>
     <div class='list-item'>
       {{ blog.title | link_to: blog.url }}
     </div>
-    <span aria-hidden="true">/</span>
+    <span aria-hidden="true">//</span>
     <div class='list-item'>
       <span>{{ article.title }}</span>
     </div>
 
   {% elsif template contains 'page' %}
-    <span aria-hidden="true">/</span>
+    <span aria-hidden="true">//</span>
     <div class='list-item'>
       <span>{{ page.title }}</span>
     </div>
 
   {% elsif template == 'list-collections' %}
-    <span aria-hidden="true">/</span>
+    <span aria-hidden="true">//</span>
     <div class='list-item'>
       <span>Shop</span>
     </div>
 
   {% else %}
-    <span aria-hidden="true">/</span>
+    <span aria-hidden="true">//</span>
     <div class='list-item'>
       <span>{{ page_title }}</span>
     </div>

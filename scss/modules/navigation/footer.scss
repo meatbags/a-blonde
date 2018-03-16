@@ -8,6 +8,11 @@
 	display: flex;
 	justify-content: center;
 	margin-top: $space * 2;
+	z-index: $zFooter;
+
+	@media screen and (max-width: $mobile) {
+		font-size: $fontSmaller;
+	}
 
 	.footer__inner {
 		width: $large;
@@ -37,7 +42,7 @@
 				}
 			}
 		}
-		
+
 		@media screen and (max-width: $large) {
 			width: 100%;
 		}

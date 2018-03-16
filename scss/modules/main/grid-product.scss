@@ -48,7 +48,6 @@
 		width: 100%;
 		display: flex;
 		color: $darkGrey;
-		//background: lighten($colourNav, 25%);
 
 		.name {
 			font-size: $fontSmall;
@@ -71,13 +70,32 @@
 				font-size: 9px;
 			}
 		}
+
+		@media screen and (max-width: $mobile) {
+			flex-wrap: wrap;
+
+			.name {
+				width: 100%;
+				font-size: $fontSmaller;
+			}
+
+			.price {
+				width: 100%;
+				font-size: $fontSmaller;
+				text-align: left;
+			}
+		}
+	}
+
+	@media screen and (max-width: $mobile) {
+		padding: $space / 4;
 	}
 
 	&:hover, &:active, &.scrolled {
 		a {
 			img {
+				-webkit-transform: scale(1.05, 1.05);
 				transform: scale(1.05, 1.05);
-				//filter: saturate(50%) contrast(125%);
 			}
 
 			.product__prompt {

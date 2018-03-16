@@ -18,11 +18,11 @@
 				{% endif %}
 			{% endunless %}
 			{% unless template == 'index' %}
-				<div class='nav-item'>
+				<div class='nav-item mobile-hide'>
 					<a href='/#collections'>Collections.</a>
 				</div>
 			{% endunless %}
-			<div class='nav-item'>
+			<div class='nav-item mobile-hide'>
 				<a href="/cart">Cart{% if cart.item_count > 0 %}&nbsp;({{ cart.item_count }}){% endif %}.</a>
 			</div>
 			<div class='nav-item menu-button'>Menu.</div>

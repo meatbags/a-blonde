@@ -30,6 +30,7 @@
 		img {
 			height: 80px;
 			width: auto;
+			-webkit-filter: saturate(0%) brightness(50%);
 			filter: saturate(0%) brightness(50%);
 		}
 	}

@@ -44,6 +44,21 @@
 					padding-top: $space;
 					padding-bottom: $space;
 				}
+
+				@media screen and (max-width: $mobile) {
+					.item-header {
+						text-align: right;
+						font-size: $fontSize;
+					}
+
+					.item-type {
+						font-size: $fontSmall;
+					}
+
+					.item-separator {
+						font-size: $fontSmall;
+					}
+				}
       }
     }
 
@@ -60,6 +75,7 @@
 
 		&:hover, &:active, &.scrolled {
 			img {
+				-webkit-filter: saturate(0%) contrast(150%);
 				filter: saturate(0%) contrast(150%);
 			}
 

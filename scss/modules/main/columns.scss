@@ -40,8 +40,18 @@
 			padding-left: $space / 2;
 		}
 
-		@media screen and (max-width: $medium - 1) and (min-width: $small) {
+		@media screen and (max-width: $medium - 1) {
+			//and (min-width: $small)
 			display: block;
+		}
+
+		@media screen and (max-width: $mobile) {
+			&:nth-child(4) {
+				padding-right: $space / 3;
+			}
+			&:nth-child(5) {
+				padding-left: $space / 3;
+			}
 		}
 	}
 
@@ -50,7 +60,7 @@
 		display: none;
 
 		@media screen and (max-width: $small - 1) {
-			display: block;
+			//display: block;
 		}
 	}
 }

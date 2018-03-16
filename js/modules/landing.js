@@ -70,13 +70,13 @@ class Landing {
   }
 
   video() {
-    // get video frames
+    // get collection video iframes
     if ($("iframe").length > 0) {
       $("iframe").each((i, e) => {
         if ($(e).attr("src").indexOf("vimeo") != -1) {
-          $(e).remove();
-          $(".wrthiser").prepend($(e));
-          $(e).css({ width: "100%" });
+          //$(e).remove();
+          //$(".wrthiser").prepend($(e));
+          //$(e).css({ width: "100%" });
         }
       });
     }

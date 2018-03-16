@@ -1,162 +1,273 @@
-.cart-table {
-	font-size: $fontMedium;
+.cart {
 	width: 100%;
+	display: flex;
+	padding-top: $space * 2;
+	padding-bottom: $space * 4;
+	font-size: $fontSize;
 
-	.cart-table__row {
-		width: 100%;
-		display: flex;
+	.cart-products {
+		width: 62%;
+		padding-right: $space * 2;
 
-		&.mobile-hide {
-			@media screen and (max-width: $medium) {
-				display: none;
-			}
+		.cart-products-title {
+			width: 100%;
+			border-bottom: 1px solid black;
+			padding-bottom: $space;
+			padding-top: $space * 3;
 		}
 
-		&.mobile-show {
-			display: none;
+		.cart-item {
+			@include pad-y(4);
+			padding-right: $space;
+			width: 100%;
+			display: flex;
 
-			@media screen and (max-width: $medium) {
-				display: block;
+			.cart-item__image {
+				width: 20%;
+
+				img {
+					max-width: 100%;
+				}
+			}
+
+			.cart-item__info {
+				width: 80%;
+
+				.cart-item-title {
+					width: 100%;
+					display: flex;
+
+					.title {
+						width: 70%;
+
+						a {
+							&:hover {
+								opacity: 0.5;
+							}
+						}
+
+						.variant {
+							font-size: 80%;
+							color: $darkGrey;
+						}
+					}
+
+					.remove {
+						width: 30%;
+						padding-top: $space * 0.5;
+						text-align: right;
+						font-size: $fontSmall;
+
+						&:hover {
+							opacity: 0.5;
+						}
+					}
+				}
+
+				.cart-item-price {
+					display: flex;
+					flex-wrap: wrap;
+					padding-top: $space * 2;
+
+					.single-price {
+						display: inline-block;
+						font-size: $fontSmall;
+						padding-right: $space;
+					}
+
+					.item-qty {
+						display: inline-block;
+						@include pad(0, 0, 0, 1.5);
+						width: 100px;
+
+						.js-qty {
+							display: flex;
+							width: 100%;
+
+							button {
+								width: 20px;
+								border: none;
+								border-radius: 0;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+							}
+
+							input {
+								width: 40px;
+								text-align: right;
+								border: none;
+								border-radius: 0;
+								padding-right: $space / 2;
+								background: #eee;
+							}
+						}
+					}
+
+					.total-price {
+						width: 100%;
+						padding-top: $space / 2;
+					}
+				}
 			}
 		}
+	}
 
-		.cart-table__row__cell {
-			padding-top: $space * 2;
-			padding-bottom: $space / 2;
-			padding-right: $space / 3;
+	.cart-checkout {
+		width: 38%;
+		padding: $space;
+		text-align: right;
+		font-size: $fontSize;
 
-			&.cell-full {
+		.checkout {
+			padding: $space * 2;
+			background-color: lighten($colourNav, 40%);
+
+			.checkout-title {
 				width: 100%;
+				border-bottom: 1px solid black;
+				padding-bottom: $space;
 			}
 
-			&.cell-third {
-				width: 33%;
+			p {
+				font-size: inherit;
+			}
 
-				&:nth-child(3) {
-					text-align: right;
+			.checkout-subtotal {
+				padding-top: $space * 3;
+				padding-bottom: $space;
+			}
+
+			.checkout-buttons {
+				@include pad-y(2);
+				width: 100%;
+				display: flex;
+				justify-content: flex-end;
+				align-items: flex-start;
+
+				button {
+					border-radius: 0;
+					padding: $space;
+					font-family: $fontStack;
+					font-size: $fontSize;
+					font-weight: normal;
+					margin-right: $space / 2;
+				}
+
+				.update-cart {
+					@include pad(0.5, 1.5, 0.5, 1.5);
+					border: 1px solid $darkGrey;
+					font-size: $fontSmaller + 1px;
+				}
+
+				.checkout-cart {
+					border: $borderBlack;
+					@include pad(1, 2, 1, 2);
 				}
 			}
 
-			&.cell-quarter {
-				width: 25%;
+			.disclaimers {
+				width: 100%;
+				font-size: $fontTiny;
+			}
 
-				&:nth-child(2) {
-					text-align: center;
+			.instructions {
+				@include pad(1, 3, 3, 0);
+				width: 100%;
+
+				.title {
+					font-size: $fontSmall;
+					padding-bottom: $space;
+					text-decoration: underline;
+				}
+
+				textarea {
+					width: 100%;
+					font-size: $fontTiny;
 				}
 			}
 
-			&:nth-child(4) {
-				text-align: right;
+			.payments {
+				font-size: $fontSmaller;
 			}
 		}
+	}
 
-		@media screen and (max-width: $small) {
-			flex-wrap: wrap;
+	@media screen and (max-width: $mobile) {
+		flex-wrap: wrap;
 
-			.cart-table__row__cell {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				font-weight: bold;
+		.cart-products {
+			width: 100%;
+			padding-right: 0;
 
-				select, input, .selector-wrapper {
-					width: 100%;
-				}
-
-				&:nth-child(1) {
-					width: 100%;
-				}
-
-				&:nth-child(2), &:nth-child(3), &:nth-child(4) {
-					width: 50%;
+			.cart-item {
+				.cart-item__image {
+					width: 23%;
 					padding-top: $space;
 				}
 
-				&.cell-quarter {
-					&:nth-child(1) {
-						display: flex;
-						justify-content: space-between;
+				.cart-item__info {
+					width: 77%;
+					padding-left: $space * 2;
+
+					.cart-item-title {
+						font-size: $fontSmall;
+
+						.remove {
+							padding: $space * 0.25;
+							font-size: $fontMedium;
+						}
 					}
 
-					&:nth-child(2) {
-						display: none;
+					.cart-item-price {
+						.total-price {
+							font-size: $fontSmall;
+						}
 					}
 				}
 			}
 		}
 
-		&:nth-child(1), &.border-bottom {
-			font-size: 120%;
-			border-bottom: $space/2 solid $colourText;
+		.cart-checkout {
+			width: 100%;
+			padding: 0;
+			text-align: left;
+
+			.checkout {
+				.checkout-buttons {
+					align-items: flex-start;
+					justify-content: flex-start;
+					flex-direction: column;
+
+					.update-cart {
+						@include pad(0.5, 2, 0.5, 2);
+					}
+
+					.checkout-cart {
+						margin-top: $space;
+					}
+				}
+
+				.instructions {
+					@include pad(1, 0, 3, 0);
+				}
+			}
 		}
-	}
-}
-
-.cart-checkout {
-	text-align: right;
-
-	.cart-checkout__preorder {
-		font-size: $fontMedium;
-	}
-
-	.cart-checkout__disclaimers {
-		line-height: 1;
-	}
-
-	.cart-checkout__buttons {
-		button {
-			display: inline;
-			padding-left: $space;
-			padding-right: $space;
-		}
-	}
-
-	.cart-prompt {
-		font-size: $fontMedium;
 	}
 }
 
 // shopify auto classes
 
 .js-qty {
-	display: -webkit-flex;
-	display: flex;
-	width: 100%;
-
 	button, input {
-		margin: 0;
-		padding: 0;
-		display: inline;
-		background: none;
-		padding-top: $space / 2;
-		padding-bottom: $space / 2;
-
 		.visually-hidden {
 			display: none;
-		}
-	}
-
-	input {
-		width: 60%;
-		padding-left: $space / 2;
-	}
-
-	button {
-		width: 20%;
-
-		&:nth-child(1) {
-			border-right: none;
-		}
-
-		&:nth-child(3) {
-			border-left: none;
 		}
 	}
 }
 
 #CartSpecialInstructions {
 	//border-top: $space/2 solid $colourText;
-	background: linear-gradient($white, lighten($colourNav, 30%));
 }
 
 .single-option-selector {
