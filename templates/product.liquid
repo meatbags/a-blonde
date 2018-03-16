@@ -10,7 +10,7 @@
         {% assign i = 0 %}
         {% for image in product.images %}
     			<div class='list-item gallery-button {% if i == 0 %}active{% endif %}' data-target='.image-{{ i }}'>
-    				<img src='{{ image.src | img_url: '100x' }}" alt="{{ image.alt | escape }}'>
+    				<img src="{{ image.src | img_url: '100x' }}">
     			</div>
           {% assign i = i | plus: 1 %}
     		{% endfor %}
@@ -21,7 +21,7 @@
           {% assign i = 0 %}
           {% for image in product.images %}
       			<div class='list-item image-{{ i }} {% if i == 0 %}active{% endif %}'>
-      				<img src='{{ image.src | img_url: '500x' }}" alt="{{ image.alt | escape }}'>
+      				<img src="{{ image.src | img_url: '500x' }}" alt="{{ image.alt | escape }}">
       			</div>
             {% assign i = i | plus: 1 %}
           {% endfor %}
