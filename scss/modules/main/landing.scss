@@ -86,6 +86,8 @@ $bottom : #b20019;
 		}
 
 		@media screen and (max-width: $medium) {
+			font-size: $fontMedium;
+			
 			.landing-page__prompt__inner {
 				border-bottom: $border;
 			}

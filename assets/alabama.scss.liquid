@@ -789,6 +789,8 @@ $bottom : #b20019;
 		}
 
 		@media screen and (max-width: $medium) {
+			font-size: $fontMedium;
+			
 			.landing-page__prompt__inner {
 				border-bottom: $border;
 			}
@@ -1773,6 +1775,10 @@ iframe {
 
 				.instructions {
 					@include pad(1, 0, 2.5, 0);
+				}
+
+				.payments {
+					justify-content: flex-start;
 				}
 			}
 		}
