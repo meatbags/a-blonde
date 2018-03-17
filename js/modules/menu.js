@@ -1,19 +1,23 @@
 class Menu {
-  constructor() {
+  constructor(isMobile) {
     this.navThreshold = 55;
     $('.menu-button').on('click', () => { this.toggleMenu(); });
     $('.menu .list-item a').on('click', () => { this.toggleMenu(); });
     $('.close-menu').on('click', () => { this.closeMenu(); });
-    $(document).on('scroll', () => { this.onScroll(); });
+
+    this.$doc = $(document);
+    if (!isMobile) {
+      $(document).on('scroll', () => { this.onScroll(); });
+    } else {
+      $(document).on('scroll', () => { this.mobileScroll(); });
+    }
     this.onScroll();
   }
 
   onScroll() {
     // close menu
     var y = $(document).scrollTop();
-    if ($('.menu').hasClass('active')) {
-      this.toggleMenu();
-    }
+    this.closeMenu();
 
     // snap nav to top
     if (y == 0) {
@@ -24,6 +28,20 @@ class Menu {
     } else {
       $('.promo').addClass('active');
       $('.nav').addClass('active');
+    }
+  }
+
+  mobileScroll() {
+    // close menu
+    this.closeMenu();
+
+    // snap nav immediately on mobile
+    if (this.$doc.scrollTop() > this.navThreshold) {
+      $('.promo').addClass('active');
+      $('.nav').addClass('active');
+    } else {
+      $('.nav').removeClass('active').css({transform: `translateY(0px)`});
+      $('.promo').removeClass('active');
     }
   }
 

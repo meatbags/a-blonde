@@ -21,6 +21,7 @@
     .list-item {
       padding-right: $space;
       padding-left: $space;
+      text-overflow: ellipsis;
 
       a {
         &:hover {
@@ -45,6 +46,20 @@
 
     @media screen and (max-width: $large) {
       width: 100%;
+    }
+  }
+
+  @media screen and (max-width: $mobile) {
+    font-size: $fontSmaller;
+    height: $sizeNav + $sizeSubNav * 0.75;
+
+    .sub-nav__inner {
+      @include pad(0, 2, 0, 1);
+
+      .list-item {
+        padding-right: $space * 0.5;
+        padding-left: $space * 0.5;
+      }
     }
   }
 }

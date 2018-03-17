@@ -1,11 +1,17 @@
 {% unless shop.enabled_payment_types == empty %}
-	{% assign payment_icons_available = 'amazon_payments,american_express,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,maestro,master,paypal,visa' | split: ',' %}
-
-	<span class="font-half"><span class="payments-title">{{ 'layout.footer.accepted_payments' | t }}:</span>
+	<div class='payments'>
+		{% assign payment_icons_available = 'amazon_payments,american_express,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,maestro,master,paypal,visa' | split: ',' %}
 		{% for type in shop.enabled_payment_types %}
 			{% if payment_icons_available contains type %}
-				{{ type | replace: '_',' '}}.
+				<div class='payment-type'>
+					<img src="{{ type | payment_type_img_url }}" />
+				</div>
 			{% endif %}
 		{% endfor %}
-	</span>
+	</div>
 {% endunless %}
+
+{% comment %}
+<span class="payments-title">{{ 'layout.footer.accepted_payments' | t }}:</span>
+{{ type | replace: '_',' '}}.
+{% endcomment %}

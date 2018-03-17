@@ -10,6 +10,8 @@ class Filter {
     }
     this.events();
     $('.filters-list').removeClass('hidden');
+    // show tax notice
+    $('.tax-notice').removeClass('hidden');
   }
 
   events() {

@@ -78,7 +78,12 @@
 		}
 	}
 
+	@media screen and (max-width: $mobile) {
+		position: absolute;
+	}
+
 	&.active {
+		position: fixed;
 		transform: translateY(-55px) !important;
 		background-color: lighten($colourNav, 25%);
 

@@ -9,7 +9,7 @@
       <div class='product-page__gallery'>
         {% assign i = 0 %}
         {% for image in product.images %}
-    			<div class='list-item gallery-button {% if i == 0 %}active{% endif %}' data-target='.image-{{ i }}'>
+    			<div class='list-item gallery-button image-id-{{ image.id }} {% if i == 0 %}active{% endif %}' data-target='.image-{{ i }}'>
     				<img src="{{ image.src | img_url: '100x' }}">
     			</div>
           {% assign i = i | plus: 1 %}
@@ -45,15 +45,16 @@
   						<span id="ProductPrice" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
                 {{ current_variant.price | money }}
               </span>
+              <span class='tax-notice'>ex. TAX</span>
             </div>
 
             <div class='cart-variant-select'>
               <select dir="rtl" name="id" id="productSelect" class="product-single__variants">
     						{% for variant in product.variants %}
     							{% if variant.available %}
-    								<option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+    								<option data-img='{% unless variant.image == blank %}{{ variant.image.id }}{% endunless %}' {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
     							{% else %}
-    								<option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+    								<option data-img='{% unless variant.image == blank %}{{ variant.image.id }}{% endunless %}' disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
     							{% endif %}
     						{% endfor %}
   						</select>

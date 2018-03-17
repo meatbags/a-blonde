@@ -100,6 +100,10 @@ $fontLarge: 32px;
 
 	@media screen and (max-width: $medium) {
 		display: block;
+
+		&.mobile-inline {
+			display: inline;
+		}
 	}
 }
 
@@ -583,12 +587,21 @@ h2 {
 		}
 
 		.price {
+			position: relative;
 			text-align: right;
 			font-size: $fontSmall;
 			width: 35%;
 
-			.from {
+			.from{
 				font-size: 9px;
+			}
+
+			.tax-notice {
+				font-size: 9px;
+				position: absolute;
+				right: 0;
+				top: 0;
+				padding-top: $space * 2.5;
 			}
 		}
 
@@ -818,7 +831,7 @@ $bottom : #b20019;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: $fontMedium;
+	font-size: $fontSize;
 	font-weight: normal;
 
 	.password-page__image {
@@ -847,7 +860,7 @@ $bottom : #b20019;
 	right: 0;
 	z-index: $zLandingPage + 3;
 	color: $white;
-	font-size: $fontMedium;
+	font-size: $fontSize;
 	display: flex;
 	justify-content: center;
 
@@ -874,6 +887,12 @@ $bottom : #b20019;
 
 	@media screen and (max-width: $medium) {
 		padding: $space * 4;
+	}
+
+	@media screen and (max-width: $mobile) {
+		.password-page__message__inner {
+			width: 95%;
+		}
 	}
 }
 
@@ -1107,7 +1126,12 @@ iframe {
 		}
 	}
 
+	@media screen and (max-width: $mobile) {
+		position: absolute;
+	}
+
 	&.active {
+		position: fixed;
 		transform: translateY(-55px) !important;
 		background-color: lighten($colourNav, 25%);
 
@@ -1149,6 +1173,7 @@ iframe {
     .list-item {
       padding-right: $space;
       padding-left: $space;
+      text-overflow: ellipsis;
 
       a {
         &:hover {
@@ -1173,6 +1198,20 @@ iframe {
 
     @media screen and (max-width: $large) {
       width: 100%;
+    }
+  }
+
+  @media screen and (max-width: $mobile) {
+    font-size: $fontSmaller;
+    height: $sizeNav + $sizeSubNav * 0.75;
+
+    .sub-nav__inner {
+      @include pad(0, 2, 0, 1);
+
+      .list-item {
+        padding-right: $space * 0.5;
+        padding-left: $space * 0.5;
+      }
     }
   }
 }
@@ -1403,10 +1442,6 @@ iframe {
 	margin-top: $space * 2;
 	z-index: $zFooter;
 
-	@media screen and (max-width: $mobile) {
-		font-size: $fontSmaller;
-	}
-
 	.footer__inner {
 		width: $large;
 		padding: $space;
@@ -1438,6 +1473,18 @@ iframe {
 
 		@media screen and (max-width: $large) {
 			width: 100%;
+		}
+	}
+
+	@media screen and (max-width: $mobile) {
+		font-size: $fontSmaller;
+
+		.footer__inner {
+			padding: $space / 2;
+
+			.column {
+				padding: $space / 2;
+			}
 		}
 	}
 }
@@ -1556,6 +1603,10 @@ iframe {
 					.total-price {
 						width: 100%;
 						padding-top: $space / 2;
+
+						.tax-notice {
+							font-size: $fontTiny;
+						}
 					}
 				}
 			}
@@ -1585,14 +1636,18 @@ iframe {
 			.checkout-subtotal {
 				padding-top: $space * 3;
 				padding-bottom: $space;
+
+				.tax-notice {
+					font-size: $fontTiny;
+				}
 			}
 
 			.checkout-buttons {
-				@include pad-y(2);
+				@include pad(0.5, 0, 1.5, 0);
 				width: 100%;
 				display: flex;
-				justify-content: flex-end;
-				align-items: flex-start;
+				flex-direction: column;
+				align-items: flex-end;
 
 				button {
 					border-radius: 0;
@@ -1604,9 +1659,16 @@ iframe {
 				}
 
 				.update-cart {
-					@include pad(0.5, 1.5, 0.5, 1.5);
-					border: 1px solid $darkGrey;
+					@include pad(0, 0.0, 0.5, 0.0);
+					border: none;
+					text-decoration: underline;
 					font-size: $fontSmaller + 1px;
+					margin-bottom: $space / 2;
+					background: none;
+
+					&:hover {
+						opacity: 0.5;
+					}
 				}
 
 				.checkout-cart {
@@ -1621,13 +1683,14 @@ iframe {
 			}
 
 			.instructions {
-				@include pad(1, 3, 3, 0);
+				@include pad(1, 3, 1.5, 0);
 				width: 100%;
 
 				.title {
 					font-size: $fontSmall;
 					padding-bottom: $space;
-					text-decoration: underline;
+					font-style: italic;
+					//text-decoration: underline;
 				}
 
 				textarea {
@@ -1638,6 +1701,17 @@ iframe {
 
 			.payments {
 				font-size: $fontSmaller;
+				font-style: italic;
+				display: flex;
+				justify-content: flex-end;
+
+				.payment-type {
+					img {
+						width: 28px;
+						filter: saturate(50%);
+						padding-right: $space / 2;
+					}
+				}
 			}
 		}
 	}
@@ -1689,7 +1763,7 @@ iframe {
 					flex-direction: column;
 
 					.update-cart {
-						@include pad(0.5, 2, 0.5, 2);
+						@include pad(0.5, 0, 0.5, 0);
 					}
 
 					.checkout-cart {
@@ -1698,7 +1772,7 @@ iframe {
 				}
 
 				.instructions {
-					@include pad(1, 0, 3, 0);
+					@include pad(1, 0, 2.5, 0);
 				}
 			}
 		}
@@ -1825,6 +1899,7 @@ iframe {
 					select {
 						width: 100%;
 						border: 1px solid black;
+						border-radius: 0;
 						font-size: $fontSmall;
 						font-family: $fontStackSansSerif;
 						text-align-last: right;
@@ -1840,6 +1915,10 @@ iframe {
 					width: 100%;
 					text-align: right;
 					font-size: $fontSize;
+
+					.tax-notice {
+						font-size: $fontTiny;
+					}
 				}
 
 				.cart-add {

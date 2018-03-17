@@ -2,7 +2,7 @@
 {% comment %}
   For info on test orders:
     - General http://docs.shopify.com/manual/your-store/orders/test-orders
-    - Shopify Payments - http://docs.shopify.com/manual/more/shopify-payments/testing-shopify-payments
+    - Shopify Payments http://docs.shopify.com/manual/more/shopify-payments/testing-shopify-payments
 {% endcomment %}
 
 {% if cart.item_count > 0 %}
@@ -43,6 +43,7 @@
 									{% for discount in item.discounts %}
 										<br><span class="cart-item__discount">{{ discount.title }}</span>
 					        {% endfor %}
+									<span class='tax-notice'>ex. TAX</span>
 								</div>
 							</div>
 						</div>
@@ -53,17 +54,31 @@
 			<div class='cart-checkout'>
 				<div class='checkout'>
 					<div class='checkout-title'>Checkout.</div>
-					<div class='checkout-subtotal'>{{ 'cart.general.subtotal' | t }}&nbsp;{{ cart.total_price | money }}</div>
-					<div class='checkout-buttons'>
-						<button type="submit" name="update" class="btn--secondary update-cart">{{ 'cart.general.update' | t }}</button>
-						<button type="submit" name="checkout" class="btn checkout-cart">{{ 'cart.general.checkout' | t }}</button>
+
+					<div class='checkout-subtotal'>
+						{{ 'cart.general.subtotal' | t }}&nbsp;{{ cart.total_price | money }}
+						<span class='tax-notice'>ex. TAX</span>
 					</div>
+
 					<p class='disclaimers'>
-						<em>*{{ 'cart.general.shipping_at_checkout' | t }}<br />
-							*Items are made-to-order<br /> & ship in 3-4 weeks.<br />
+						<em>*{{ 'cart.general.shipping_at_checkout' | t }}.<br />
+							*Items are made-to-order & ship in 3-4 weeks.<br />
 							*Pre-order items ship in 6 weeks.
 						</em>
 					</p>
+
+					{% if settings.cart_notes_enable %}
+						<div class='instructions'>
+							<label class='title' for="CartSpecialInstructions">Special instructions.</label>
+							<textarea name="note" class="input-full" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+						</div>
+					{% endif %}
+
+					<div class='checkout-buttons'>
+						<button type="submit" name="update" class="btn--secondary update-cart">{{ 'cart.general.update' | t }}</button>
+						<button type="submit" name="checkout" class="btn checkout-cart">{{ 'cart.general.checkout' | t }}.</button>
+					</div>
+
 					{% if cart.total_discounts > 0 %}
 					{% assign savings = cart.total_discounts | money %}
 					<p>
@@ -72,17 +87,8 @@
 						</span>
 					</p>
 					{% endif %}
-					<p></p>
 
-					{% if settings.cart_notes_enable %}
-						<div class='instructions'>
-							<label class='title' for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
-							<textarea name="note" class="input-full" id="CartSpecialInstructions">{{ cart.note }}</textarea>
-						</div>
-					{% endif %}
-					<div class='payments'>
-						{% include 'payments' %}
-					</div>
+					{% include 'payments' %}
 				</div>
 			</div>
 		</form>

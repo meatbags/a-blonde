@@ -85,7 +85,7 @@ var App = function App() {
 	_classCallCheck(this, App);
 
 	this.isMobile = window.mobileCheck();
-	this.menu = new Module.Menu();
+	this.menu = new Module.Menu(this.isMobile);
 	this.text = new Module.Text(this.isMobile);
 	this.audio = new Module.Audio(this.isMobile);
 	this.filter = new Module.Filter();
@@ -226,7 +226,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Menu = function () {
-  function Menu() {
+  function Menu(isMobile) {
     var _this = this;
 
     _classCallCheck(this, Menu);
@@ -241,9 +241,17 @@ var Menu = function () {
     $('.close-menu').on('click', function () {
       _this.closeMenu();
     });
-    $(document).on('scroll', function () {
-      _this.onScroll();
-    });
+
+    this.$doc = $(document);
+    if (!isMobile) {
+      $(document).on('scroll', function () {
+        _this.onScroll();
+      });
+    } else {
+      $(document).on('scroll', function () {
+        _this.mobileScroll();
+      });
+    }
     this.onScroll();
   }
 
@@ -252,9 +260,7 @@ var Menu = function () {
     value: function onScroll() {
       // close menu
       var y = $(document).scrollTop();
-      if ($('.menu').hasClass('active')) {
-        this.toggleMenu();
-      }
+      this.closeMenu();
 
       // snap nav to top
       if (y == 0) {
@@ -265,6 +271,21 @@ var Menu = function () {
       } else {
         $('.promo').addClass('active');
         $('.nav').addClass('active');
+      }
+    }
+  }, {
+    key: 'mobileScroll',
+    value: function mobileScroll() {
+      // close menu
+      this.closeMenu();
+
+      // snap nav immediately on mobile
+      if (this.$doc.scrollTop() > this.navThreshold) {
+        $('.promo').addClass('active');
+        $('.nav').addClass('active');
+      } else {
+        $('.nav').removeClass('active').css({ transform: 'translateY(0px)' });
+        $('.promo').removeClass('active');
       }
     }
   }, {
@@ -676,21 +697,46 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Gallery = function Gallery() {
-  _classCallCheck(this, Gallery);
+var Gallery = function () {
+  function Gallery() {
+    _classCallCheck(this, Gallery);
 
-  // image galleries
-  $('.gallery-button').on('click', function (e) {
-    $('.gallery-button.active').removeClass('active');
-    var $e = $(e.currentTarget);
-    $e.addClass('active');
-    var target = $e.data('target');
-    $('.product-page__image__inner .list-item.active').removeClass('active');
-    $(target).addClass('active');
-  });
-};
+    // image galleries, product page events
+    if ($('.gallery-button').length) {
+      this.events();
+    }
+  }
+
+  _createClass(Gallery, [{
+    key: 'events',
+    value: function events() {
+      // hook up
+      $('.gallery-button').on('click', function (e) {
+        $('.gallery-button.active').removeClass('active');
+        var $e = $(e.currentTarget);
+        $e.addClass('active');
+        var target = $e.data('target');
+        $('.product-page__image__inner .list-item.active').removeClass('active');
+        $(target).addClass('active');
+      });
+
+      $('select').change(function (e) {
+        //var $e = $(e.currentTarget);
+        var $ref = $('#productSelect').find('option:selected');
+        var id = $ref.data('img');
+        if (id != '') {
+          $('.image-id-' + id).click();
+        }
+      });
+    }
+  }]);
+
+  return Gallery;
+}();
 
 exports.Gallery = Gallery;
 
@@ -811,6 +857,8 @@ var Filter = function () {
     }
     this.events();
     $('.filters-list').removeClass('hidden');
+    // show tax notice
+    $('.tax-notice').removeClass('hidden');
   }
 
   _createClass(Filter, [{

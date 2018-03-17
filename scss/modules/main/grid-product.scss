@@ -62,12 +62,21 @@
 		}
 
 		.price {
+			position: relative;
 			text-align: right;
 			font-size: $fontSmall;
 			width: 35%;
 
-			.from {
+			.from{
 				font-size: 9px;
+			}
+
+			.tax-notice {
+				font-size: 9px;
+				position: absolute;
+				right: 0;
+				top: 0;
+				padding-top: $space * 2.5;
 			}
 		}
 

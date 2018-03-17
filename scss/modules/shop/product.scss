@@ -100,6 +100,7 @@
 					select {
 						width: 100%;
 						border: 1px solid black;
+						border-radius: 0;
 						font-size: $fontSmall;
 						font-family: $fontStackSansSerif;
 						text-align-last: right;
@@ -115,6 +116,10 @@
 					width: 100%;
 					text-align: right;
 					font-size: $fontSize;
+
+					.tax-notice {
+						font-size: $fontTiny;
+					}
 				}
 
 				.cart-add {

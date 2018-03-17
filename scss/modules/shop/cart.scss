@@ -107,6 +107,10 @@
 					.total-price {
 						width: 100%;
 						padding-top: $space / 2;
+
+						.tax-notice {
+							font-size: $fontTiny;
+						}
 					}
 				}
 			}
@@ -136,14 +140,18 @@
 			.checkout-subtotal {
 				padding-top: $space * 3;
 				padding-bottom: $space;
+
+				.tax-notice {
+					font-size: $fontTiny;
+				}
 			}
 
 			.checkout-buttons {
-				@include pad-y(2);
+				@include pad(0.5, 0, 1.5, 0);
 				width: 100%;
 				display: flex;
-				justify-content: flex-end;
-				align-items: flex-start;
+				flex-direction: column;
+				align-items: flex-end;
 
 				button {
 					border-radius: 0;
@@ -155,9 +163,16 @@
 				}
 
 				.update-cart {
-					@include pad(0.5, 1.5, 0.5, 1.5);
-					border: 1px solid $darkGrey;
+					@include pad(0, 0.0, 0.5, 0.0);
+					border: none;
+					text-decoration: underline;
 					font-size: $fontSmaller + 1px;
+					margin-bottom: $space / 2;
+					background: none;
+
+					&:hover {
+						opacity: 0.5;
+					}
 				}
 
 				.checkout-cart {
@@ -172,13 +187,14 @@
 			}
 
 			.instructions {
-				@include pad(1, 3, 3, 0);
+				@include pad(1, 3, 1.5, 0);
 				width: 100%;
 
 				.title {
 					font-size: $fontSmall;
 					padding-bottom: $space;
-					text-decoration: underline;
+					font-style: italic;
+					//text-decoration: underline;
 				}
 
 				textarea {
@@ -189,6 +205,17 @@
 
 			.payments {
 				font-size: $fontSmaller;
+				font-style: italic;
+				display: flex;
+				justify-content: flex-end;
+
+				.payment-type {
+					img {
+						width: 28px;
+						filter: saturate(50%);
+						padding-right: $space / 2;
+					}
+				}
 			}
 		}
 	}
@@ -240,7 +267,7 @@
 					flex-direction: column;
 
 					.update-cart {
-						@include pad(0.5, 2, 0.5, 2);
+						@include pad(0.5, 0, 0.5, 0);
 					}
 
 					.checkout-cart {
@@ -249,7 +276,7 @@
 				}
 
 				.instructions {
-					@include pad(1, 0, 3, 0);
+					@include pad(1, 0, 2.5, 0);
 				}
 			}
 		}

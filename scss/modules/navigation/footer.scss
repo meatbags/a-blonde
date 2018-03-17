@@ -10,10 +10,6 @@
 	margin-top: $space * 2;
 	z-index: $zFooter;
 
-	@media screen and (max-width: $mobile) {
-		font-size: $fontSmaller;
-	}
-
 	.footer__inner {
 		width: $large;
 		padding: $space;
@@ -45,6 +41,18 @@
 
 		@media screen and (max-width: $large) {
 			width: 100%;
+		}
+	}
+
+	@media screen and (max-width: $mobile) {
+		font-size: $fontSmaller;
+
+		.footer__inner {
+			padding: $space / 2;
+
+			.column {
+				padding: $space / 2;
+			}
 		}
 	}
 }

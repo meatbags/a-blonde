@@ -41,6 +41,10 @@
 
 	@media screen and (max-width: $medium) {
 		display: block;
+
+		&.mobile-inline {
+			display: inline;
+		}
 	}
 }
 
