@@ -66,40 +66,55 @@
 
 				.cart-item-price {
 					display: flex;
-					flex-wrap: wrap;
+					flex-direction: column;
+					align-items: flex-start;
 					padding-top: $space * 2;
 
-					.single-price {
-						display: inline-block;
-						font-size: $fontSmall;
-						padding-right: $space;
-					}
+					.variable-price {
+						display: flex;
+						padding-bottom: $space;
+						border-bottom: 1px solid black;
 
-					.item-qty {
-						display: inline-block;
-						@include pad(0, 0, 0, 1.5);
-						width: 100px;
+						.single-price {
+							font-size: $fontSmall;
+							padding-right: $space;
+						}
 
-						.js-qty {
-							display: flex;
-							width: 100%;
+						.item-qty {
+							@include pad(0, 0, 0, 1.5);
+							width: 65px;
 
-							button {
-								width: 20px;
-								border: none;
-								border-radius: 0;
+							.js-qty {
 								display: flex;
-								align-items: center;
-								justify-content: center;
-							}
+								width: 100%;
 
-							input {
-								width: 40px;
-								text-align: right;
-								border: none;
-								border-radius: 0;
-								padding-right: $space / 2;
-								background: #eee;
+								button {
+									width: 20px;
+									border: none;
+									border-radius: 0;
+									display: flex;
+									align-items: center;
+									justify-content: center;
+									background: #eeeeee;
+
+									&:hover {
+										opacity: 0.5;
+									}
+								}
+
+								input {
+									width: 25px;
+									text-align: right;
+									border: none;
+									border-radius: 0;
+									padding-right: $space / 2;
+									padding-bottom: $space / 3;
+									background: #efefef;
+
+									&:hover {
+										opacity: 0.5;
+									}
+								}
 							}
 						}
 					}

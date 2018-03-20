@@ -953,7 +953,7 @@ $bottom : #b20019;
 		animation-name: anim;
 		animation-duration: 1.0s;
 		animation-iteration-count: infinite;
-
+		
 		img {
 			height: 80px;
 			width: auto;
@@ -1170,6 +1170,7 @@ iframe {
     width: $large;
     height: 100%;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 
     .list-item {
@@ -1213,6 +1214,17 @@ iframe {
       .list-item {
         padding-right: $space * 0.5;
         padding-left: $space * 0.5;
+
+        &:nth-child(3) {
+          white-space: nowrap;
+          max-width: 100px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+
+        &:last-child {
+          max-width: 100%;
+        }
       }
     }
   }
@@ -1564,40 +1576,55 @@ iframe {
 
 				.cart-item-price {
 					display: flex;
-					flex-wrap: wrap;
+					flex-direction: column;
+					align-items: flex-start;
 					padding-top: $space * 2;
 
-					.single-price {
-						display: inline-block;
-						font-size: $fontSmall;
-						padding-right: $space;
-					}
+					.variable-price {
+						display: flex;
+						padding-bottom: $space;
+						border-bottom: 1px solid black;
 
-					.item-qty {
-						display: inline-block;
-						@include pad(0, 0, 0, 1.5);
-						width: 100px;
+						.single-price {
+							font-size: $fontSmall;
+							padding-right: $space;
+						}
 
-						.js-qty {
-							display: flex;
-							width: 100%;
+						.item-qty {
+							@include pad(0, 0, 0, 1.5);
+							width: 65px;
 
-							button {
-								width: 20px;
-								border: none;
-								border-radius: 0;
+							.js-qty {
 								display: flex;
-								align-items: center;
-								justify-content: center;
-							}
+								width: 100%;
 
-							input {
-								width: 40px;
-								text-align: right;
-								border: none;
-								border-radius: 0;
-								padding-right: $space / 2;
-								background: #eee;
+								button {
+									width: 20px;
+									border: none;
+									border-radius: 0;
+									display: flex;
+									align-items: center;
+									justify-content: center;
+									background: #eeeeee;
+
+									&:hover {
+										opacity: 0.5;
+									}
+								}
+
+								input {
+									width: 25px;
+									text-align: right;
+									border: none;
+									border-radius: 0;
+									padding-right: $space / 2;
+									padding-bottom: $space / 3;
+									background: #efefef;
+
+									&:hover {
+										opacity: 0.5;
+									}
+								}
 							}
 						}
 					}
@@ -1875,7 +1902,6 @@ iframe {
 		text-align: right;
 
 		.name {
-			//font-weight: bold;
 			padding-bottom: $space * 2;
 			border-bottom: 1px solid black;
 			text-align: right;
@@ -1961,12 +1987,15 @@ iframe {
 		flex-wrap: wrap;
 
 		.product-page__gallery {
-			width: 15%;
+			width: 12.5%;
+			padding: $space * 0.5;
+			padding-top: $space * 5;
 		}
 
 		.product-page__image {
-			width: 85%;
+			width: 87.5%;
 			min-height: 65vh;
+			padding: $space;
 		}
 
 		.product-page__info {

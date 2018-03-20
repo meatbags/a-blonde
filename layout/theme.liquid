@@ -18,7 +18,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
 	{{ 'alabama.scss.css' | asset_url | stylesheet_tag }}
-
 	<script>
 		var shopifyAssetURL = '';
 		var shopifyPageTitle = '{{ page_title }}';
@@ -26,7 +25,6 @@
 		var audioTrackURL = 'https://cdn.shopify.com/s/files/1/1950/6433/files/clothing_ad.mp3?1077135079105815845';
 		var audioTrackURLAlt = 'https://cdn.shopify.com/s/files/1/1950/6433/files/alabama_new_audio.mp3?17724248169402448949';
 	</script>
-
 	{{ content_for_header }}
 	{% include 'oldIE-js' %}
 	{{ '//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' | script_tag }}
@@ -40,8 +38,6 @@
 	{% if template == 'index' %}
 		{% include 'landing' %}
 		{% include 'loading' %}
-	{% elsif template == "collection" or template == "product" %}
-
 	{% endif %}
 	{% include 'nav' %}
 	{% include 'menu' %}

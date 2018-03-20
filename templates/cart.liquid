@@ -34,9 +34,11 @@
 								</div>
 							</div>
 							<div class='cart-item-price'>
-								<div class='single-price' data-label="{{ 'cart.label.price' | t }}">{{ item.price | money }}&nbsp;&times;</div>
-								<div class='item-qty' data-label="{{ 'cart.label.quantity' | t }}">
-									<input type="number" name="updates[]" id="updates_{{ item.key }}" data-id="{{ item.key }}" value="{{ item.quantity }}" min="0">
+								<div class='variable-price'>
+									<div class='single-price' data-label="{{ 'cart.label.price' | t }}">{{ item.price | money }}&nbsp;&times;</div>
+									<div class='item-qty' data-label="{{ 'cart.label.quantity' | t }}">
+										<input type="number" name="updates[]" id="updates_{{ item.key }}" data-id="{{ item.key }}" value="{{ item.quantity }}" min="0">
+									</div>
 								</div>
 								<div class='total-price' data-label="{{ 'cart.label.total' | t }}">
 									Total: {{ item.line_price | money }}

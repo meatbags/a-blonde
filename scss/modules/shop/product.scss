@@ -70,7 +70,6 @@
 		text-align: right;
 
 		.name {
-			//font-weight: bold;
 			padding-bottom: $space * 2;
 			border-bottom: 1px solid black;
 			text-align: right;
@@ -156,12 +155,15 @@
 		flex-wrap: wrap;
 
 		.product-page__gallery {
-			width: 15%;
+			width: 12.5%;
+			padding: $space * 0.5;
+			padding-top: $space * 5;
 		}
 
 		.product-page__image {
-			width: 85%;
+			width: 87.5%;
 			min-height: 65vh;
+			padding: $space;
 		}
 
 		.product-page__info {

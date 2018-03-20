@@ -5,7 +5,10 @@
 
 {% unless template == 'index' %}
   <div class='list-item'>
-    <a href="/#collections" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+    <a href="/#collections" title="{{ 'general.breadcrumbs.home_link_title' | t }}">
+      <span class='mobile-hide'>{{ 'general.breadcrumbs.home' | t }}</span>
+      <span class='mobile-show'>H</span>
+    </a>
   </div>
 
   {% if template == 'cart' %}
