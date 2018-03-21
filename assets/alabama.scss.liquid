@@ -1874,6 +1874,7 @@ iframe {
 
 			.list-item {
 				position: relative;
+				pointer-events: none;
 
 				img {
 					position: absolute;
@@ -1884,8 +1885,9 @@ iframe {
 					opacity: 0;
 					transition: $transitionSlow;
 				}
-
+				
 				&.active {
+					pointer-events: all;
 					img {
 						opacity: 1;
 					}
