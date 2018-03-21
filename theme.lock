@@ -6,7 +6,7 @@ assets/alabama.js:
 assets/alabama.min.js:
   development: 2018-03-17T15:06:55+11:00   839073cb2a9ac4e5ac445ce8a12a16a9
 assets/alabama.scss.liquid:
-  development: 2018-03-20T14:36:53+11:00   26038218cb22ae8ba3ee70eac80f9471
+  development: 2018-03-21T13:12:54+11:00   77532542ef7add7ec585be01922f07c7
 assets/fastclick.min.js:
   development: 2017-06-01T19:47:28+10:00   4c68290ccc4d503561895dff0821621f
 assets/gift-card.scss.liquid:
@@ -52,7 +52,7 @@ config/settings_data.json:
 config/settings_schema.json:
   development: 2018-03-14T13:28:37+11:00   6f51c8cf649ac01691d369ad26a4cc1f
 layout/theme.liquid:
-  development: 2018-03-15T17:49:08+11:00   675386b7053ffad0314b7156da01dd99
+  development: 2018-03-21T12:03:39+11:00   91a76dbd3eb51a4348335b04b83fe44a
 locales/de.json:
   development: 2018-01-25T00:03:50+11:00   585899bd4424d43afa93b72083a5aa0e
 locales/en.default.json:
@@ -126,7 +126,7 @@ snippets/scripts.liquid:
 snippets/search-bar.liquid:
   development: 2017-06-01T20:36:14+10:00   783fe4a34fbacdc11bd9f9623d590f7d
 snippets/social-meta-tags.liquid:
-  development: 2017-06-01T19:47:30+10:00   e7c97d7cb76c7925dd144dfb7b188cac
+  development: 2018-03-21T12:13:14+11:00   65070a2231aff0ef07e25d7b93248844
 snippets/tags-article.liquid:
   development: 2017-06-01T19:47:30+10:00   52bc59a44a51be2f1745559c2ba514a2
 templates/404.liquid:
@@ -152,7 +152,7 @@ templates/customers/order.liquid:
 templates/customers/register.liquid:
   development: 2018-03-14T15:12:07+11:00   ad708c4e63894a5eabf016b454ea2eab
 templates/customers/reset_password.liquid:
-  development: 2017-06-11T20:18:54+10:00   85d4c269c093ba070782fd7fc5dd7058
+  development: 2018-03-21T13:10:58+11:00   dbda1b5b9455a55089b7e309d1c1f470
 templates/gift_card.liquid:
   development: 2017-06-01T19:47:30+10:00   c1ae0f8232e003fac57213d1353e513c
 templates/index.liquid:

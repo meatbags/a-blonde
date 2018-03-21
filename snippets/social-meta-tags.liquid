@@ -2,12 +2,15 @@
 {% comment %}
   Open graph tags
 {% endcomment %}
+
 {% if template == 'index' %}
   <meta property="og:type" content="website">
-  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:title" content="{{ shop.name }}">
   <meta property="og:description" content="{{ page_description }}">
+  <meta property="og:image" content="https://cdn.shopify.com/s/files/1/1950/6433/files/coven1.jpg?16409603781001145695">
 {% elsif template contains 'product' %}
   <meta property="og:type" content="product">
+  <meta property="og:description" content="{{ product.description | strip_html | truncatewords:20 | escape }}" />
   <meta property="og:title" content="{{ product.title | strip_html | escape }}">
   {% for image in product.images reversed limit:3 %}
     <meta property="og:image" content="http:{{ image | img_url: 'grande' }}">

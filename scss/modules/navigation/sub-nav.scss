@@ -23,6 +23,7 @@
       padding-right: $space;
       padding-left: $space;
       text-overflow: ellipsis;
+      text-transform: capitalize;
 
       a {
         &:hover {
