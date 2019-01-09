@@ -1,37 +1,35 @@
 var path = require('path');
 var webpack = require('webpack');
-var dir = './js/';
-var output = './assets';
+var appName = 'monty';
+var pathJS = './js/app.js';
+var pathSCSS = './style/main.js';
+var pathOutput = 'build';
+
+// JS
+var MinifyPlugin = require("babel-minify-webpack-plugin");
 
 module.exports = {
-  entry: {
-    'alabama': dir + 'app.js',
-    'alabama.min': dir + 'app.js'
-  },
+  entry: {'app.min': pathJS},
   output: {
-    library: 'stk',
+    library: appName,
     libraryTarget: 'var',
-    path: path.resolve(__dirname, output),
+    path: path.resolve(__dirname, pathOutput),
     filename: '[name].js'
   },
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015']
-        }
+    rules: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: {
+        loader: "babel-loader"
       }
-    ]
+    }]
+  },
+  resolve: {
+    extensions: ['*', '.js']
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      include: /\.min\.js$/,
-      minimize: true
-    })
+    new MinifyPlugin({}, {comments: false})
   ],
-  stats: {
-      colors: true
-  }
+  stats: {colors: true, warnings: false}
 };

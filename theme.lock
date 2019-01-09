@@ -92,7 +92,7 @@ snippets/footer.liquid:
 snippets/grid-item-collection.liquid:
   development: 2018-03-14T22:19:40+11:00   4090e059d9c6609ac7712b5e4efb4c4a
 snippets/grid-item-product.liquid:
-  development: 2018-03-17T14:42:04+11:00   25200892e26edc8d8301aba9b12379ef
+  development: 2018-04-15T12:04:29+10:00   858c14ac4d9af4ba3dc64a75bed8ba92
 snippets/landing.liquid:
   development: 2018-03-14T18:34:42+11:00   b312e81bdba6788444ba6288511e2768
 snippets/loading.liquid:
