@@ -11,12 +11,12 @@
 
 div, * {
   box-sizing: border-box;
-  //outline: 1px solid rgba(0,0,0,0.1);
+  outline: 1px solid rgba($black, 0.2);
 }
 
 body, html {
 	font-family: $fontStack;
-	font-size: $fontLarge;
+	font-size: $fontSize;
 	letter-spacing: $letterSpacing;
 	margin: 0;
 	padding: 0;

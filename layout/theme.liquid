@@ -1,52 +1,52 @@
 <!DOCTYPE html>
-<!--
-   site by xavierburrow.com, github @meatbags
--->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html class='no-js {% if template == 'index' %}freeze{% endif %}'> <!--<![endif]-->
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	{% if settings.favicon_enable %}<link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />{% endif %}
-	<title>{{ page_title }}</title>
-	{% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
-	{% include 'social-meta-tags' %}
-	<link rel="canonical" href="{{ canonical_url }}">
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-	<meta name="theme-color" content="{{ settings.color_primary }}">
-	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
-	{{ 'alabama.scss.css' | asset_url | stylesheet_tag }}
-	<script>
-		var shopifyAssetURL = '';
-		var shopifyPageTitle = '{{ page_title }}';
-		var isHome = {% if template == 'index' %}true{% else %}false{% endif %};
-		var audioTrackURL = 'https://cdn.shopify.com/s/files/1/1950/6433/files/clothing_ad.mp3?1077135079105815845';
-		var audioTrackURLAlt = 'https://cdn.shopify.com/s/files/1/1950/6433/files/alabama_new_audio.mp3?17724248169402448949';
-	</script>
-	{{ content_for_header }}
-	{% include 'oldIE-js' %}
-	{{ '//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' | script_tag }}
-	{{ 'modernizr.min.js' | asset_url | script_tag }}
-	{{ 'jquery.jplayer.min.js' | asset_url | script_tag }}
-	{{ '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js' | script_tag }}
-	{% if template contains 'customers' %} {{ 'shopify_common.js' | shopify_asset_url | script_tag }} {% endif %}
-	<link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/1950/6433/files/Aicon.png?12048135497775234781" />
-</head>
-<body id="{{ page_title | handle }}">
-	{% if template == 'index' %}
-		{% include 'landing' %}
-		{% include 'loading' %}
-	{% endif %}
-	{% include 'nav' %}
-	{% include 'menu' %}
-	<div class='wrapper'>
-		<div class='content'>
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class='no-js {% if template == 'index' %}freeze{% endif %}'>
+<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		{% if settings.favicon_enable %}<link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />{% endif %}
+		<title>{{ page_title }}</title>
+		{% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
+		{% include 'social-meta-tags' %}
+		<link rel="canonical" href="{{ canonical_url }}">
+		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+		<meta name="theme-color" content="{{ settings.color_primary }}">
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+		{% include 'oldIE-js' %}
+
+		<script>
+			var shopifyAssetURL = '';
+			var shopifyPageTitle = '{{ page_title }}';
+			var isHome = {% if template == 'index' %}true{% else %}false{% endif %};
+			var audioTrackURL = 'https://cdn.shopify.com/s/files/1/1950/6433/files/clothing_ad.mp3?1077135079105815845';
+			var audioTrackURLAlt = 'https://cdn.shopify.com/s/files/1/1950/6433/files/alabama_new_audio.mp3?17724248169402448949';
+		</script>
+
+		{{ 'alabama.scss.css' | asset_url | stylesheet_tag }}
+		{{ content_for_header }}
+		{{ '//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' | script_tag }}
+		{{ 'modernizr.min.js' | asset_url | script_tag }}
+		{{ 'jquery.jplayer.min.js' | asset_url | script_tag }}
+		{% if template contains 'customers' %} {{ 'shopify_common.js' | shopify_asset_url | script_tag }} {% endif %}
+		<link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/1950/6433/files/Aicon.png?12048135497775234781" />
+	</head>
+	<body id="{{ page_title | handle }}">
+		{% if template == 'index' %}
+			{% if settings.disable_landing_page_video == false %}
+				{% include 'index_landing-video' %}
+			{% endif %}
+			{% include 'index_loading-screen' %}
+		{% endif %}
+		{% include 'global_nav' %}
+		<div class='wrapper'>
 			{{ content_for_layout }}
 		</div>
-	</div>
-	{% include 'scripts' %}
-	{% include 'footer' %}
-</body>
+		{% include 'global_scripts' %}
+		{% include 'global_footer' %}
+	</body>
 </html>

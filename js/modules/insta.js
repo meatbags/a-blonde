@@ -1,3 +1,8 @@
+/**
+ ** insta.js
+ ** - handle the instagram feed
+ **/
+
 class Insta {
   constructor() {
     // ajax get instagram feed and inject it into doc

@@ -1,3 +1,8 @@
+/**
+ ** text.js
+ ** - initialise and animate the alabama blonde text logo
+ **/
+
 class Text {
   constructor(isMobile) {
     this.isMobile = isMobile;

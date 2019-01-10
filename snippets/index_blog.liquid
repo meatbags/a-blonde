@@ -1,0 +1,18 @@
+<div class='index-blog'>
+  <div class='index-blog__inner'>
+    {% assign index = 0 %}
+    {% for article in blogs.events.articles %}
+      {% if index < 3 %}
+        <div class="index-blog__item">
+          <div class='index-blog__image'>
+            <img src="{{ article.image.src | img_url: 'grande' }}" alt="{{ article.title }}">
+          </div>
+          <div class='index-blog__title'>
+            <a href="{{ article.url }}">{{ article.title }}</a>
+          </div>
+        </div>
+        {% assign index = index | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

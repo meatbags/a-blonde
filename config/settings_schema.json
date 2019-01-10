@@ -6,18 +6,32 @@
       {
         "type": "header",
         "content": "Alabama Blonde"
-      },
-      {
+      }, {
         "type": "paragraph",
         "content": "v1.0"
-      },
-      {
+      }, {
         "type": "paragraph",
         "content": "Custom shopify theme for AlabamaBlonde.com by -> xavier-burrow.com"
       }
     ]
   },
   {
+    "name": "Front Page",
+    "settings": [{
+      "type": "checkbox",
+      "id": "disable_landing_page_video",
+      "default": false,
+      "label": "Disable Landing Page Video"
+    }, {
+      "type": "image_picker",
+      "id": "index_featured_image",
+      "label": "Front Page Featured Image"
+    }, {
+      "type": "image_picker",
+      "id": "index_about_image",
+      "label": "Front Page About Image"
+    }]
+  }, {
     "name": "Promotional Bar",
     "settings":[
       {

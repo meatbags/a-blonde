@@ -1,0 +1,18 @@
+<div class='index-video'>
+  <div class='index-video__inner'>
+    {% assign index = 0 %}
+    {% for article in blogs.video.articles %}
+      {% if index < 3 %}
+        <div class="index-video__item">
+          <div class='index-video__image'>
+            <img src="{{ article.image.src | img_url: 'grande' }}" alt="{{ article.title }}">
+          </div>
+          <div class='index-video__title'>
+            <a href="{{ article.url }}">{{ article.title }}</a>
+          </div>
+        </div>
+        {% assign index = index | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

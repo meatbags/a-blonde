@@ -1,6 +1,10 @@
+/**
+ ** filter.js
+ ** - client-side product filtering
+ **/
+
 class Filter {
   constructor() {
-    // product filter
     this.tags = [];
     this.pathname = window.location.pathname;
     if (this.pathname.indexOf('/all') != -1) {

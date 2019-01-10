@@ -2,14 +2,14 @@ var path = require('path');
 var webpack = require('webpack');
 var appName = 'monty';
 var pathJS = './js/app.js';
-var pathSCSS = './style/main.js';
-var pathOutput = 'build';
+var pathSCSS = './js/app.js';
+var pathOutput = 'assets';
 
 // JS
 var MinifyPlugin = require("babel-minify-webpack-plugin");
 
-module.exports = {
-  entry: {'app.min': pathJS},
+module.exports = [{
+  entry: {'alabama.min': pathJS},
   output: {
     library: appName,
     libraryTarget: 'var',
@@ -25,11 +25,7 @@ module.exports = {
       }
     }]
   },
-  resolve: {
-    extensions: ['*', '.js']
-  },
-  plugins: [
-    new MinifyPlugin({}, {comments: false})
-  ],
+  resolve: {extensions: ['*', '.js']},
+  plugins: [new MinifyPlugin({}, {comments: false})],
   stats: {colors: true, warnings: false}
-};
+}];

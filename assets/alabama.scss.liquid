@@ -2,7 +2,7 @@
 $black: #000;
 $white: #fff;
 $colour: $black;
-$colourAlt: #a8020e;
+$colourAlt: #b8020e;
 $colourDark: darken($colourAlt, 5%);
 $colourSelected: #000;
 $colourBackground: $white;
@@ -18,10 +18,13 @@ $spaceBorder: $space / 3;
 $sizeNav: 120px;
 $sizeSubNav: 50px;
 $sizeBreadcrumb: 35px;
+$siteWidth: 1220px;
+$navHeight: 120px;
 
 // index
-$zNav: 100;
-$zFooter: 10;
+$indexNav: 100;
+$indexPromo: 101;
+$indexFooter: 10;
 $zMenu: 50;
 $zLandingPage: 200;
 $zLoadingScreen: 300;
@@ -37,23 +40,23 @@ $small: 480px;
 $mobile: 700px;
 $medium: 769px;
 $tablet: 960px;
-$large: 1220px;
+$large: $siteWidth;
 
 // borders
 $border: 4px double $white;
 $borderBlack: 4px double $black;
 
-$fontStack: 'Playfair Display', serif;
+$fontStack: 'Karla', serif;
 $fontStackSansSerif: 'Karla', sans-serif;
 $letterSpacing: 1px;
 $lineHeight: 1.2;
 
-// size
+// sizing
 $fontTiny: 12px;
 $fontSmaller: 13px;
-$fontSmall: 16px;
-$fontSize: 20px;
-$fontMedium: 24px;
+$fontSmall: 14px;
+$fontSize: 16px;
+$fontMedium: 20px;
 $fontMediumLarge: 29px;
 $fontLarge: 32px;
 
@@ -63,6 +66,13 @@ $fontLarge: 32px;
 	-ms-user-select: none;
 	-o-user-select: none;
 	user-select: none;
+}
+
+@mixin padding($x, $y) {
+	padding-top: $space * $y;
+	padding-bottom: $space * $y;
+	padding-left: $space * $x;
+	padding-right: $space * $x;
 }
 
 @mixin pad-y($y) {
@@ -134,189 +144,7 @@ $fontLarge: 32px;
 	height: $space * 2;
 }
 
-/* Slider */
-
-.slick-slider {
-    position: relative;
-    display: block;
-    box-sizing: border-box;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -ms-touch-action: pan-y;
-    touch-action: pan-y;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.slick-list {
-    position: relative;
-    overflow: hidden;
-    display: block;
-    margin: 0;
-    padding: 0;
-
-    &:focus {
-        outline: none;
-    }
-
-    &.dragging {
-        cursor: pointer;
-        cursor: hand;
-    }
-}
-
-.slick-slider .slick-track, .slick-slider .slick-list {
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-}
-
-.slick-track {
-    position: relative;
-    left: 0;
-    top: 0;
-    display: block;
-
-    &:before,
-    &:after {
-        content: "";
-        display: table;
-    }
-
-    &:after {
-        clear: both;
-    }
-
-    .slick-loading & {
-        visibility: hidden;
-    }
-}
-
-.slick-slide {
-    float: left;
-    height: 100%;
-    min-height: 1px;
-    [dir="rtl"] & {
-        float: right;
-    }
-    img {
-        display: block;
-    }
-    &.slick-loading img {
-        display: none;
-    }
-
-    display: none;
-
-    &.dragging img {
-        pointer-events: none;
-    }
-
-    .slick-initialized & {
-        display: block;
-    }
-
-    .slick-loading & {
-        visibility: hidden;
-    }
-
-    .slick-vertical & {
-        display: block;
-        height: auto;
-        border: 1px solid transparent;
-    }
-}
-
-.slick-arrow.slick-hidden {
-    display: none;
-}
-
-
-@font-face {
-  font-family: 'icons';
-  src: url('{{ "icons.eot" | asset_url }}');
-  src: url('{{ "icons.eot" | asset_url }}#iefix') format("embedded-opentype"),
-       url('{{ "icons.woff" | asset_url }}') format("woff"),
-       url('{{ "icons.ttf" | asset_url }}') format("truetype"),
-       url('{{ "icons.svg" | asset_url }}#timber-icons') format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-div, * {
-  box-sizing: border-box;
-  //outline: 1px solid rgba(0,0,0,0.1);
-}
-
-body, html {
-	font-family: $fontStack;
-	font-size: $fontLarge;
-	letter-spacing: $letterSpacing;
-	margin: 0;
-	padding: 0;
-	color: $colourText;
-	overflow-x: hidden;
-	padding-top: 0 !important;
-	background: $colourBackground;
-
-	&.freeze {
-		//overflow: hidden;
-	}
-
-	@media screen and (max-width: $medium) {
-		font-size: $fontMedium;
-	}
-
-	@media screen and (max-width: $small) {
-		font-size: $fontSmall;
-	}
-}
-
-ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-a {
-	color: inherit;
-	text-decoration: none;
-}
-
-p {
-	font-size: $fontSize;
-
-  a {
-    text-decoration: underline;
-
-    &:hover {
-      color: $colourAlt;
-    }
-  }
-
-	strong {
-		font-weight: bolder;
-	}
-}
-
-h1 {
-	font-size: $fontMediumLarge;
-	font-weight: inherit;
-	margin: 0;
-	padding: 0;
-	text-transform: capitalize;
-	display: table;
-	margin-bottom: $space;
-}
-
-h2 {
-	font-size: $fontMedium;
-}
+//@import "X:\xampp\htdocs\github\a-blonde\scss\utils\slick";
 
 .jp-audio {
 	position: fixed;
@@ -366,73 +194,7 @@ h2 {
 	}
 }
 
-.columns {
-	width: 100%;
-	display: -webkit-flex;
-	display: flex;
-  font-size: $fontSize;
-	@extend .noselect;
-
-	.columns__column {
-		min-height: 10vh;
-	}
-
-	.columns__column-third {
-		width: 33.33%;
-		display: none;
-
-		&:nth-child(1) {
-			padding-right: $space * 0.66;
-		}
-		&:nth-child(2) {
-			padding-left: $space * 0.33;
-			padding-right: $space * 0.33;
-		}
-		&:nth-child(3) {
-			padding-left: $space * 0.66;
-		}
-
-		@media screen and (min-width: $medium) {
-			display: block;
-		}
-	}
-
-	.columns__column-half {
-		width: 50%;
-		display: none;
-
-		&:nth-child(4) {
-			padding-right: $space / 2;
-		}
-		&:nth-child(5) {
-			padding-left: $space / 2;
-		}
-
-		@media screen and (max-width: $medium - 1) {
-			//and (min-width: $small)
-			display: block;
-		}
-
-		@media screen and (max-width: $mobile) {
-			&:nth-child(4) {
-				padding-right: $space / 3;
-			}
-			&:nth-child(5) {
-				padding-left: $space / 3;
-			}
-		}
-	}
-
-	.columns__column-single {
-		width: 100%;
-		display: none;
-
-		@media screen and (max-width: $small - 1) {
-			//display: block;
-		}
-	}
-}
-
+//@import 'X:\xampp\htdocs\github\a-blonde\scss\modules\main\columns';
 .collection {
 	position: relative;
 	width: 100%;
@@ -639,12 +401,6 @@ h2 {
 	}
 }
 
-.grid-instagram {
-  .grid-instagram__inner {
-    
-  }
-}
-
 label {
 	display: block;
 	font-family: $fontStack;
@@ -701,8 +457,390 @@ input[type="checkbox"] {
 	font-family: $fontStack;
 }
 
-$top : #1d0001;
-$bottom : #b20019;
+//@import 'X:\xampp\htdocs\github\a-blonde\scss\modules\main\password';
+iframe {
+	width: 100%;
+	height: 65vh;
+
+	@media (max-width: $large) {
+		height: 55vh;
+	}
+
+	@media (max-width: $medium) {
+		height: 50vh;
+	}
+}
+
+//@import 'X:\xampp\htdocs\github\a-blonde\scss\modules\main\wrapper';
+.page {
+  @include pad-x(1);
+  width: 80%;
+  margin: 0 auto;
+
+  &.full {
+    width: 100%;
+  }
+
+  &.credits {
+    padding-top: $space * 4;
+    padding-bottom: $space * 6;
+  }
+
+  &.snap {
+    margin: 0;
+  }
+
+  &.thin {
+    width: 75%;
+
+    .video-wrapper {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+
+      iframe {
+        width: 100%;
+        background: $black;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media screen and (max-width: $tablet) {
+    width: 100%;
+
+    &.thin {
+      width: 80%;
+    }
+  }
+
+  @media screen and (max-width: $mobile) {
+    &.thin {
+      width: 100%;
+    }
+  }
+}
+
+
+@font-face {
+  font-family: 'icons';
+  src: url('{{ "icons.eot" | asset_url }}');
+  src: url('{{ "icons.eot" | asset_url }}#iefix') format("embedded-opentype"),
+       url('{{ "icons.woff" | asset_url }}') format("woff"),
+       url('{{ "icons.ttf" | asset_url }}') format("truetype"),
+       url('{{ "icons.svg" | asset_url }}#timber-icons') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+div, * {
+  box-sizing: border-box;
+  outline: 1px solid rgba($black, 0.2);
+}
+
+body, html {
+	font-family: $fontStack;
+	font-size: $fontSize;
+	letter-spacing: $letterSpacing;
+	margin: 0;
+	padding: 0;
+	color: $colourText;
+	overflow-x: hidden;
+	padding-top: 0 !important;
+	background: $colourBackground;
+
+	&.freeze {
+		//overflow: hidden;
+	}
+
+	@media screen and (max-width: $medium) {
+		font-size: $fontMedium;
+	}
+
+	@media screen and (max-width: $small) {
+		font-size: $fontSmall;
+	}
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+p {
+	font-size: $fontSize;
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      color: $colourAlt;
+    }
+  }
+
+	strong {
+		font-weight: bolder;
+	}
+}
+
+h1 {
+	font-size: $fontMediumLarge;
+	font-weight: inherit;
+	margin: 0;
+	padding: 0;
+	text-transform: capitalize;
+	display: table;
+	margin-bottom: $space;
+}
+
+h2 {
+	font-size: $fontMedium;
+}
+
+.wrapper {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: $space;
+
+	.content {
+		width: $large;
+		padding-left: $space;
+		padding-right: $space;
+
+		@media screen and (max-width: $large) {
+			width: 100%;
+		}
+	}
+}
+
+.nav {
+  @extend .noselect;
+  position: fixed;
+  background: $colourNav;
+  width: 100%;
+  height: $navHeight;
+  display: flex;
+  justify-content: flex-end;
+  font-size: $fontSize;
+  color: $white;
+  //text-transform: uppercase;
+  z-index: $indexNav;
+
+  &.nav--index {
+    //background: black;
+  }
+
+  .nav__inner {
+    width: 100%;
+    height: 100%;
+    padding-left: calc(calc(100% - #{$siteWidth}) / 2);
+    display: flex;
+    justify-content: flex-start;
+
+    .nav__logo, .nav__main, .nav__side {
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .nav__main {
+      padding-left: $space * 2;
+    }
+
+    .nav__logo {
+      padding-bottom: $space / 2;
+      font-size: $fontLarge;
+
+      .nav__title {
+        white-space: nowrap;
+        border-bottom: 3px double $white;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .nav__side {
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .nav__item {
+      @include padding(1, 0.5);
+    }
+
+    a:hover {
+      color: $colourAlt;
+    }
+
+    a:active {
+      color: $black;
+    }
+  }
+
+  &.active {
+		transform: translateY(-50px) !important;
+		background-color: lighten($colourNav, 25%);
+  }
+
+  @media screen and (max-width: $siteWidth) {
+    justify-content: flex-start;
+
+    .nav__inner {
+      width: 100%;
+      padding-left: 0;
+    }
+  }
+}
+
+.footer {
+	@include pad(4, 0, 8, 0);
+	width: 100%;
+	font-size: $fontSmall;
+	color: $white;
+	background: $colourNav;
+	background: linear-gradient($colourNav, darken($colourNav, 20%));
+	display: flex;
+	justify-content: center;
+	margin-top: $space * 2;
+	z-index: $indexFooter;
+
+	.footer__inner {
+		width: $large;
+		padding: $space;
+		display: flex;
+
+		.column {
+			width: 25%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			padding: $space;
+
+			&:nth-child(3) {
+				border-right: none;
+			}
+
+			.list-item {
+				@include pad-y(0.25);
+
+				a {
+					display: flex;
+
+					&:hover {
+						color: $colourAlt;
+					}
+				}
+			}
+		}
+
+		@media screen and (max-width: $large) {
+			width: 100%;
+		}
+	}
+
+	@media screen and (max-width: $mobile) {
+		font-size: $fontSmaller;
+
+		.footer__inner {
+			padding: $space / 2;
+
+			.column {
+				padding: $space / 2;
+			}
+		}
+	}
+}
+
+.payments-title {
+	color: $colour;
+}
+
+.columns {
+	width: 100%;
+	display: -webkit-flex;
+	display: flex;
+  font-size: $fontSize;
+	@extend .noselect;
+
+	.columns__column {
+		min-height: 10vh;
+	}
+
+	.columns__column-third {
+		width: 33.33%;
+		display: none;
+
+		&:nth-child(1) {
+			padding-right: $space * 0.66;
+		}
+		&:nth-child(2) {
+			padding-left: $space * 0.33;
+			padding-right: $space * 0.33;
+		}
+		&:nth-child(3) {
+			padding-left: $space * 0.66;
+		}
+
+		@media screen and (min-width: $medium) {
+			display: block;
+		}
+	}
+
+	.columns__column-half {
+		width: 50%;
+		display: none;
+
+		&:nth-child(4) {
+			padding-right: $space / 2;
+		}
+		&:nth-child(5) {
+			padding-left: $space / 2;
+		}
+
+		@media screen and (max-width: $medium - 1) {
+			//and (min-width: $small)
+			display: block;
+		}
+
+		@media screen and (max-width: $mobile) {
+			&:nth-child(4) {
+				padding-right: $space / 3;
+			}
+			&:nth-child(5) {
+				padding-left: $space / 3;
+			}
+		}
+	}
+
+	.columns__column-single {
+		width: 100%;
+		display: none;
+
+		@media screen and (max-width: $small - 1) {
+			//display: block;
+		}
+	}
+}
+
+
+$top: #1d0001;
+$bottom: #b20019;
 
 #landing-video {
 	@extend .noselect;
@@ -790,7 +928,7 @@ $bottom : #b20019;
 
 		@media screen and (max-width: $medium) {
 			font-size: $fontMedium;
-			
+
 			.landing-page__prompt__inner {
 				border-bottom: $border;
 			}
@@ -817,114 +955,6 @@ $bottom : #b20019;
 	}
 }
 
-.password-page {
-	pointer-events: none;
-	position: fixed;
-	top: 0 !important;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	z-index: $zLandingPage + 3;
-	-webkit-transition: opacity $transitionSlow;
-	transition: opacity $transitionSlow;
-	display: -webkit-flex;
-	-webkit-align-items: center;
-	-webkit-justify-content: center;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: $fontSize;
-	font-weight: normal;
-
-	.password-page__image {
-		width: 50vh;
-		cursor: pointer;
-
-		img {
-			width: 100%;
-			height: auto;
-			display: none;
-
-			&.active {
-				display: inline;
-			}
-		}
-	}
-}
-
-.password-page__message {
-	pointer-events: all;
-	position: fixed;
-	text-align: center;
-	width: 100%;
-	color: $colourBackground;
-	bottom: 40vh;
-	right: 0;
-	z-index: $zLandingPage + 3;
-	color: $white;
-	font-size: $fontSize;
-	display: flex;
-	justify-content: center;
-
-	.password-page__message__inner {
-		width: 50%;
-
-		.password {
-			width: 100%;
-			display: flex;
-			justify-content: center;
-			color: $white;
-
-			#login_form {
-				label {
-					margin-bottom: $space;
-				}
-
-				input[type='submit'] {
-					display: none;
-				}
-			}
-		}
-	}
-
-	@media screen and (max-width: $medium) {
-		padding: $space * 4;
-	}
-
-	@media screen and (max-width: $mobile) {
-		.password-page__message__inner {
-			width: 95%;
-		}
-	}
-}
-
-.password-background {
-	pointer-events: none;
-	position: fixed;
-	top: 0 !important;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	z-index: $zLandingPage;
-	-webkit-transition: opacity $transitionSlow;
-	transition: opacity $transitionSlow;
-	display: -webkit-flex;
-	-webkit-align-items: center;
-	-webkit-justify-content: center;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: black;
-
-	&.mobile {
-		background: $colourAlt;
-		background: -webkit-linear-gradient($top, $bottom);
-		background: -o-linear-gradient($top, $bottom);
-		background: -moz-linear-gradient($top, $bottom);
-		background: linear-gradient($top, $bottom);
-	}
-}
-
 @keyframes anim {
 	0% { opacity: 0; }
 	50% { opacity: 1; }
@@ -946,6 +976,7 @@ $bottom : #b20019;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	display: none;
 
 	.loading-msg {
 		font-weight: bold;
@@ -953,7 +984,7 @@ $bottom : #b20019;
 		animation-name: anim;
 		animation-duration: 1.0s;
 		animation-iteration-count: infinite;
-		
+
 		img {
 			height: 80px;
 			width: auto;
@@ -963,195 +994,97 @@ $bottom : #b20019;
 	}
 }
 
-iframe {
-	width: 100%;
-	height: 65vh;
+.index-featured {
+  //margin-top: $navHeight;
+  width: 100%;
+  height: 85vh;
+  position: relative;
 
-	@media (max-width: $large) {
-		height: 55vh;
-	}
-
-	@media (max-width: $medium) {
-		height: 50vh;
-	}
-}
-
-.wrapper {
-	width: 100%;
-	min-height: 100vh;
-	display: flex;
-	justify-content: center;
-	padding-top: $space;
-	
-	.content {
-		width: $large;
-		padding-left: $space;
-		padding-right: $space;
-
-		@media screen and (max-width: $large) {
-			width: 100%;
-		}
-	}
-}
-
-.page {
-  @include pad-x(1);
-  width: 80%;
-  margin: 0 auto;
-
-  &.full {
+  .index-featured__background-image {
     width: 100%;
-  }
-
-  &.credits {
-    padding-top: $space * 4;
-    padding-bottom: $space * 6;
-  }
-
-  &.snap {
-    margin: 0;
-  }
-
-  &.thin {
-    width: 75%;
-
-    .video-wrapper {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-
-      iframe {
-        width: 100%;
-        background: $black;
-      }
-    }
+    height: 100%;
 
     img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
+      object-position: top right;
     }
   }
 
-  @media screen and (max-width: $tablet) {
+  .index-featured__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: $space * 2;
+
+    .title {
+      font-size: $fontLarge;
+      font-weight: bold;
+      border-bottom: 3px double $black;
+    }
+
+    .link {
+      padding-top: $space / 2;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.index-about {
+}
+
+.index-blog {
+  width: 100%;
+
+  .index-blog__inner {
     width: 100%;
+    display: flex;
 
-    &.thin {
-      width: 80%;
-    }
-  }
+    .index-blog__item {
+      width: 33.33%;
+      height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
-  @media screen and (max-width: $mobile) {
-    &.thin {
-      width: 100%;
+      .index-blog__image {
+        width: 100%;
+        flex: 2;
+        padding: $space * 2;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-position: left top;
+          object-fit: cover;
+        }
+      }
+
+      .index-blog__title {
+        width: 100%;
+        height: 30px;
+        padding-bottom: $space;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        a {
+          text-decoration: underline;
+        }
+      }
     }
   }
 }
 
 
-.nav {
-	@extend .noselect;
-	@include pad(1, 1, 1, 1);
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: $sizeNav;
-	color: $white;
-	background-color: $colourNav;
-	font-weight: normal;
-	display: flex;
-	justify-content: center;
-	transition: background-color $transitionSlow, color $transitionSlow;
-	z-index: $zNav;
-  transform: translate3d(0, 0, 0);
 
-	.nav__inner {
-		@include pad-x(1);
-		width: $large;
-		height: 100%;
-		display: flex;
-		align-items: flex-end;
-		justify-content: space-between;
 
-		.nav__inner__title {
-			font-size: $fontMediumLarge;
-			border-bottom: $border;
-			margin-bottom: $space * 0.125;
-			cursor: pointer;
 
-			&:hover {
-				border-color: $colourDark;
-			}
 
-			a {
-				@include pad(0.25, 0.5, 0.25, 0.5);
-				display: flex;
-			}
-		}
 
-		.nav__inner__menu {
-			display: flex;
-			font-size: $fontSize;
-
-			.nav-item {
-				padding-left: $space * 2;
-				cursor: pointer;
-
-				&.active, &:hover {
-					color: $colourAlt;
-				}
-			}
-		}
-
-		@media screen and (max-width: $large) {
-			width: 100%;
-		}
-
-		@media screen and (max-width: $mobile) {
-			@include pad-x(0);
-
-			.nav__inner__title {
-				font-size: $fontMedium;
-
-				a {
-					@include pad(0.25, 0, 0.25, 0);
-				}
-			}
-
-			.nav__inner__menu {
-				font-size: $fontSmall;
-
-				.nav-item {
-					padding-left: $space;
-				}
-			}
-		}
-	}
-
-	@media screen and (max-width: $mobile) {
-		position: absolute;
-	}
-
-	&.active {
-		position: fixed;
-		transform: translateY(-55px) !important;
-		background-color: lighten($colourNav, 25%);
-
-		.nav__inner {
-			.nav__inner__title {
-				font-size: $fontMedium;
-				border: 0px solid $colourNav;
-				margin-bottom: 0;
-				background: none;
-
-				a {
-					padding: 0;
-				}
-			}
-		}
-	}
-}
-
+//@import 'X:\xampp\htdocs\github\a-blonde\scss\modules\navigation\nav';
 .sub-nav {
   @extend .noselect;
   top: 0;
@@ -1239,7 +1172,7 @@ iframe {
   width: 100%;
   background-color: $white;
   color: $colourAlt;
-  z-index: $zNav + 1;
+  z-index: $indexPromo;
   transition: transform $transitionSlow, background-color $transition;
   overflow: hidden;
 
@@ -1347,167 +1280,7 @@ iframe {
   }
 }
 
-.menu {
-	@extend .noselect;
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0 !important;
-	left: 0;
-	background: rgba($white, 1);
-	background: linear-gradient($white, rgba($white, 0.8));
-	pointer-events: none;
-	transition: opacity $transitionSlow;
-	z-index: $zMenu;
-	opacity: 0;
-	padding-top: $sizeNav;
-
-	&.active {
-		opacity: 1;
-		pointer-events: all;
-
-		.menu__inner .menu__inner__list .social-media {
-			opacity: 1;
-		}
-	}
-
-	.menu__inner {
-		@include pad-y(1);
-		width: $large;
-		margin: 0 auto;
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		padding: $space;
-
-		.list-item {
-			font-size: $fontMedium;
-			width: 100%;
-			opacity: 0;
-			transform: translateX(-50px);
-			transition: $transitionSlow;
-			display: flex;
-			justify-content: flex-end;
-
-			&.active {
-				opacity: 1;
-				transform: translateX(0px);
-			}
-
-			.list-item__inner {
-				width: 33.33%;
-				color: $colourAlt;
-				padding: $space / 2;
-				padding-left: $space;
-				transition: $transition;
-				text-align: right;
-
-				a {
-					display: flex;
-					justify-content: flex-end;
-				}
-
-				&.close-menu {
-					cursor: pointer;
-				}
-
-				@media screen and (max-width: $mobile) {
-					width: 100%;
-				}
-			}
-
-			&:hover {
-				.list-item__inner {
-					opacity: 0.5;
-				}
-			}
-		}
-
-		.divider {
-			@include pad-y(0.5);
-			width: 100%;
-			height: 0;
-			display: flex;
-			justify-content: flex-end;
-
-			.divider__inner {
-				width: 50%;
-				border-top: 1px solid $colourDark;
-			}
-		}
-	}
-
-	@media screen and (max-width: $large) {
-		.menu__inner {
-			width: 100%;
-			padding-left: $space;
-		}
-	}
-}
-
-.footer {
-	@include pad(4, 0, 8, 0);
-	width: 100%;
-	font-size: $fontSmall;
-	color: $white;
-	background: $colourNav;
-	background: linear-gradient($colourNav, darken($colourNav, 20%));
-	display: flex;
-	justify-content: center;
-	margin-top: $space * 2;
-	z-index: $zFooter;
-
-	.footer__inner {
-		width: $large;
-		padding: $space;
-		display: flex;
-
-		.column {
-			width: 25%;
-			height: 100%;
-			display: flex;
-			flex-direction: column;
-			padding: $space;
-
-			&:nth-child(3) {
-				border-right: none;
-			}
-
-			.list-item {
-				@include pad-y(0.25);
-
-				a {
-					display: flex;
-
-					&:hover {
-						color: $colourAlt;
-					}
-				}
-			}
-		}
-
-		@media screen and (max-width: $large) {
-			width: 100%;
-		}
-	}
-
-	@media screen and (max-width: $mobile) {
-		font-size: $fontSmaller;
-
-		.footer__inner {
-			padding: $space / 2;
-
-			.column {
-				padding: $space / 2;
-			}
-		}
-	}
-}
-
-.payments-title {
-	color: $colour;
-}
-
+//@import 'X:\xampp\htdocs\github\a-blonde\scss\modules\navigation\menu';
 
 .cart {
 	width: 100%;
@@ -2007,46 +1780,6 @@ iframe {
 	}
 }
 
-$sliderSize: 72.5vh;
-
-.slider-offset {
-	height: $sliderSize;
-}
-
-.slick-slider {
-	position: absolute;
-	left: 0;
-	width: 100%;
-	padding-top: $space;
-	padding-bottom: $space / 2;
-	cursor: crosshair;
-}
-
-.slick-track {
-	height: $sliderSize;
-}
-
-.slick-slide {
-	transition: $transition;
-	outline: none !important;
-	padding: $space;
-	display: flex;
-	align-items: center;
-	filter: saturate(0%);
-
-	img {
-		height: 100%;
-		width: auto;
-	}
-
-	&.slick-active {
-		filter: saturate(100%);
-	}
-}
-
-.slick-next, .slick-previous {
-	display: none;
-}
-
+//@import 'X:\xampp\htdocs\github\a-blonde\scss\modules\shop\slider';
 
 

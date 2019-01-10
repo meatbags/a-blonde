@@ -1,3 +1,8 @@
+/**
+ ** audio.js
+ ** - initialise audio player
+ **/
+
 class Audio {
   constructor(isMobile) {
     this.isMobile = isMobile;

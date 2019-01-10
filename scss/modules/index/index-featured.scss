@@ -1,0 +1,36 @@
+.index-featured {
+  //margin-top: $navHeight;
+  width: 100%;
+  height: 85vh;
+  position: relative;
+
+  .index-featured__background-image {
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top right;
+    }
+  }
+
+  .index-featured__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: $space * 2;
+
+    .title {
+      font-size: $fontLarge;
+      font-weight: bold;
+      border-bottom: 3px double $black;
+    }
+
+    .link {
+      padding-top: $space / 2;
+      text-transform: uppercase;
+    }
+  }
+}

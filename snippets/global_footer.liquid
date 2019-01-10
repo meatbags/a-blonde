@@ -1,0 +1,69 @@
+<div class='footer'>
+  <div class='footer__inner'>
+    <div class='column'>
+      &dagger;<br /><br />
+
+      <!-- SOCIAL MEDIA -->
+      {% if settings.footer_social_enable %}
+      		<div class='list-item'><a href='mailto:blonde.alabama@gmail.com'>Email.</a></div>
+      		{% if settings.social_twitter_link != blank %}
+      			<div class="list-item">
+      				<a target="_blank" href="{{ settings.social_twitter_link }}">Twitter.</a>
+      			</div>
+      		{% endif %}
+      		{% if settings.social_facebook_link != blank %}
+      			<div class="list-item">
+      				<a target="_blank" href="{{ settings.social_facebook_link }}">Facebook.</a>
+      			</div>
+      		{% endif %}
+      		{% if settings.social_instagram_link != blank %}
+      			<div class="list-item">
+      				<a target="_blank" href="{{ settings.social_instagram_link }}">Instagram.</a>
+      			</div>
+      		{% endif %}
+      		{% if settings.social_pinterest_link != blank %}
+      			<div class="list-item">
+      				<a target="_blank" href="{{ settings.social_pinterest_link }}">Pinterest.</a>
+      			</div>
+      		{% endif %}
+      {% endif %}
+    </div>
+    <div class='column'>
+      &dagger;<br /><br />
+      <div class='list-item'><a href='/'>Home.</a></div>
+      <div class='list-item'><a href='/'>Latest Video.</a></div>
+      <div class='list-item'><a href='/#collections'>Collections.</a></div>
+      <div class='list-item'><a href='/pages/about'>About.</a></div>
+    </div>
+    <div class='column'>
+      &dagger;<br /><br />
+
+      <!-- CART -->
+      <div class='list-item'><a href='/collections/all'>Shop.</a></div>
+      <div class='list-item'>
+        <a href="/cart">
+          {{ 'layout.cart.title' | t }}.
+          {% if cart.item_count > 0 %}
+            <span id="cart-items-info">
+              &nbsp;({{ cart.total_price | money }})
+            </span>
+          {% endif %}
+        </a>
+      </div>
+      <div class='list-item'>
+        {% if shop.customer_accounts_enabled %}
+          {% if customer %}
+            <a href="/account/">{{ 'layout.customer.account' | t }}.</a>&nbsp;|&nbsp;{{ 'layout.customer.log_out' | t | customer_logout_link }}
+          {% else %}
+            {{ 'layout.customer.log_in' | t | customer_login_link }}
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+    <div class='column'>
+      &dagger;<br /><br />
+      <div class='list-item'>&copy; {{ 'now' | date: "%Y" }} Alabama Blonde</div>
+      <div class='list-item'><a href='http://www.xavierburrow.com' target='_blank'>Site design by Xb.</a></div>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,13 @@
 	user-select: none;
 }
 
+@mixin padding($x, $y) {
+	padding-top: $space * $y;
+	padding-bottom: $space * $y;
+	padding-left: $space * $x;
+	padding-right: $space * $x;
+}
+
 @mixin pad-y($y) {
 	padding-top: $space * $y;
 	padding-bottom: $space * $y;

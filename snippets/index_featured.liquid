@@ -1,0 +1,15 @@
+{% comment %}
+  Featured section on home page.
+{% endcomment %}
+
+<div class='index-featured'>
+  <div class='index-featured__background-image'>
+    <img src='{{ settings.index_featured_image | img_url: "master" }}' alt=''/>
+  </div>
+  <div class='index-featured__content'>
+    <a href='/'>
+      <div class='title'>Collection Title</div>
+      <div class='link'>View Collection</div>
+    </a>
+  </div>
+</div>

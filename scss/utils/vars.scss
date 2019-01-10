@@ -2,7 +2,7 @@
 $black: #000;
 $white: #fff;
 $colour: $black;
-$colourAlt: #a8020e;
+$colourAlt: #b8020e;
 $colourDark: darken($colourAlt, 5%);
 $colourSelected: #000;
 $colourBackground: $white;
@@ -18,10 +18,13 @@ $spaceBorder: $space / 3;
 $sizeNav: 120px;
 $sizeSubNav: 50px;
 $sizeBreadcrumb: 35px;
+$siteWidth: 1220px;
+$navHeight: 120px;
 
 // index
-$zNav: 100;
-$zFooter: 10;
+$indexNav: 100;
+$indexPromo: 101;
+$indexFooter: 10;
 $zMenu: 50;
 $zLandingPage: 200;
 $zLoadingScreen: 300;
@@ -37,7 +40,7 @@ $small: 480px;
 $mobile: 700px;
 $medium: 769px;
 $tablet: 960px;
-$large: 1220px;
+$large: $siteWidth;
 
 // borders
 $border: 4px double $white;

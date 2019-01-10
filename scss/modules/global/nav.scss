@@ -1,0 +1,81 @@
+.nav {
+  @extend .noselect;
+  position: fixed;
+  background: $colourNav;
+  width: 100%;
+  height: $navHeight;
+  display: flex;
+  justify-content: flex-end;
+  font-size: $fontSize;
+  color: $white;
+  //text-transform: uppercase;
+  z-index: $indexNav;
+
+  &.nav--index {
+    //background: black;
+  }
+
+  .nav__inner {
+    width: 100%;
+    height: 100%;
+    padding-left: calc(calc(100% - #{$siteWidth}) / 2);
+    display: flex;
+    justify-content: flex-start;
+
+    .nav__logo, .nav__main, .nav__side {
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .nav__main {
+      padding-left: $space * 2;
+    }
+
+    .nav__logo {
+      padding-bottom: $space / 2;
+      font-size: $fontLarge;
+
+      .nav__title {
+        white-space: nowrap;
+        border-bottom: 3px double $white;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .nav__side {
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .nav__item {
+      @include padding(1, 0.5);
+    }
+
+    a:hover {
+      color: $colourAlt;
+    }
+
+    a:active {
+      color: $black;
+    }
+  }
+
+  &.active {
+		transform: translateY(-50px) !important;
+		background-color: lighten($colourNav, 25%);
+  }
+
+  @media screen and (max-width: $siteWidth) {
+    justify-content: flex-start;
+
+    .nav__inner {
+      width: 100%;
+      padding-left: 0;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+<div class="columns">
+	{% for i in (0..2) %}
+	<div class="columns__column columns__column-third">
+		{% assign index = 0 %}
+		{% assign colNo = 1 %}
+		{% for link in linklists.all-collections.links %}
+		{% assign collection = link.object %}
+			{% assign test = index | minus:i | modulo:3 %}
+			{% if test == 0 %}
+				{% include 'grid-item-collection' %}
+			{% endif %}
+			{% assign index = index | plus: 1 %}
+			{% assign colNo = colNo | plus: 1 %}
+		{% endfor %}
+	</div>
+	{% endfor %}
+
+	<!-- medium screen -->
+
+	{% for i in (0..1) %}
+	<div class="columns__column columns__column-half">
+		{% assign index = 0 %}
+		{% assign colNo = 1 %}
+		{% for link in linklists.all-collections.links %}
+		{% assign collection = link.object %}
+			{% assign test = index | minus:i | modulo:2 %}
+			{% if test == 0 %}
+				{% include 'grid-item-collection' %}
+			{% endif %}
+			{% assign index = index | plus: 1 %}
+			{% assign colNo = colNo | plus: 1 %}
+		{% endfor %}
+	</div>
+	{% endfor %}
+
+	<!-- small screen -->
+
+	<div class="columns__column columns__column-single">
+		{% for link in linklists.all-collections.links %}
+		{% assign collection = link.object %}
+			{% include 'grid-item-collection' %}
+		{% endfor %}
+	</div>
+</div>

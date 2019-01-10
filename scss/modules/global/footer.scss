@@ -8,7 +8,7 @@
 	display: flex;
 	justify-content: center;
 	margin-top: $space * 2;
-	z-index: $zFooter;
+	z-index: $indexFooter;
 
 	.footer__inner {
 		width: $large;

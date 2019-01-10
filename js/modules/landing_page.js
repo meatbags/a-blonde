@@ -1,16 +1,21 @@
-class Landing {
+/**
+ ** landing_page.js
+ ** - logic for the landing page
+ **/
+
+class LandingPage {
   constructor() {
-    // landing page
-    if ($(".landing-page").length) {
+    if (document.querySelector('.landing-page')) {
       this.initLandingPage();
-		}
+    } else {
+      this.removeLandingPage();
+    }
 
     this.video();
     this.removeLoadingScreen();
   }
 
   removeLoadingScreen() {
-    // rm loading
     $(".loading-screen").remove();
 		$("html").removeClass("freeze");
   }
@@ -37,16 +42,6 @@ class Landing {
     }
   }
 
-  showCollectionGrid() {
-    $('.columns__column').each((i, e) => {
-      $(e).children('.collection.hidden').each((j, f) => {
-        setTimeout(() => {
-          $(f).removeClass("hidden");
-        }, (j * 3 + i) * 200);
-      });
-    });
-  }
-
   removeLandingPage() {
     var $targets = $('.landing-page, .landing-background, #landing-video');
 
@@ -69,6 +64,16 @@ class Landing {
 		window.location.hash = "#collections";
   }
 
+  showCollectionGrid() {
+    $('.columns__column').each((i, e) => {
+      $(e).children('.collection.hidden').each((j, f) => {
+        setTimeout(() => {
+          $(f).removeClass("hidden");
+        }, (j * 3 + i) * 200);
+      });
+    });
+  }
+
   video() {
     // get collection video iframes
     if ($("iframe").length > 0) {
@@ -83,4 +88,4 @@ class Landing {
   }
 }
 
-export { Landing };
+export { LandingPage };

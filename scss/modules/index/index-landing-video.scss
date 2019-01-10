@@ -1,5 +1,5 @@
-$top : #1d0001;
-$bottom : #b20019;
+$top: #1d0001;
+$bottom: #b20019;
 
 #landing-video {
 	@extend .noselect;
@@ -87,7 +87,7 @@ $bottom : #b20019;
 
 		@media screen and (max-width: $medium) {
 			font-size: $fontMedium;
-			
+
 			.landing-page__prompt__inner {
 				border-bottom: $border;
 			}

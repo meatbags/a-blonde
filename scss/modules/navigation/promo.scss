@@ -6,7 +6,7 @@
   width: 100%;
   background-color: $white;
   color: $colourAlt;
-  z-index: $zNav + 1;
+  z-index: $indexPromo;
   transition: transform $transitionSlow, background-color $transition;
   overflow: hidden;
 

@@ -1,6 +1,10 @@
+/**
+ ** gallery.js
+ ** - build image galleries and handle product page events
+ **/
+
 class Gallery {
   constructor() {
-    // image galleries, product page events
     if ($('.gallery-button').length) {
       this.events();
     }

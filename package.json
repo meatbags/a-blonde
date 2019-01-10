@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
+  "main": "gulpfile.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pack": "webpack --mode production",
+    "watch": "webpack --mode development --watch"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -15,6 +17,8 @@
     "babel-loader": "^8.0.4",
     "babel-minify-webpack-plugin": "^0.3.1",
     "css-loader": "^2.1.0",
+    "gulp": "^4.0.0",
+    "import-resolve": "^0.4.0",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.1.2"
   },

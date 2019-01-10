@@ -5,102 +5,104 @@
     - Shopify Payments http://docs.shopify.com/manual/more/shopify-payments/testing-shopify-payments
 {% endcomment %}
 
-{% if cart.item_count > 0 %}
-	<div class='page'>
-		<form class='cart table-wrap' action="/cart" method="post" novalidate>
-			<div class='cart-products'>
-				<div class='cart-products-title'>Cart.</div>
-				{% for item in cart.items %}
-					<div class='cart-item'>
-						<div class='cart-item__image'>
-							<img src='{{ item.image.src | img_url: '80x' }}'>
-						</div>
-						<div class='cart-item__info'>
-							<div class='cart-item-title' data-label="{{ 'customer.order.product' | t }}">
-								<div class='title'>
-									<a href="{{ item.url }}">{{ item.product.title }}</a>
-									{% unless item.variant.title contains 'Default' %}
-										<br /><span class='variant'>({{ item.variant.title }})</span>
-					        {% endunless %}
-									{% if settings.cart_vendor_enable %}
-										<br />{{ item.vendor }}
-					        {% endif %}
-								</div>
-								<div class='remove'>
-									<a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove">
-										<span class="font-smaller underline mobile-hide">Remove &oslash;</span>
-										<span class="font-smaller mobile-show">&times;</span>
-					        </a>
-								</div>
+<div class='content'>
+	{% if cart.item_count > 0 %}
+		<div class='page'>
+			<form class='cart table-wrap' action="/cart" method="post" novalidate>
+				<div class='cart-products'>
+					<div class='cart-products-title'>Cart.</div>
+					{% for item in cart.items %}
+						<div class='cart-item'>
+							<div class='cart-item__image'>
+								<img src='{{ item.image.src | img_url: '80x' }}'>
 							</div>
-							<div class='cart-item-price'>
-								<div class='variable-price'>
-									<div class='single-price' data-label="{{ 'cart.label.price' | t }}">{{ item.price | money }}&nbsp;&times;</div>
-									<div class='item-qty' data-label="{{ 'cart.label.quantity' | t }}">
-										<input type="number" name="updates[]" id="updates_{{ item.key }}" data-id="{{ item.key }}" value="{{ item.quantity }}" min="0">
+							<div class='cart-item__info'>
+								<div class='cart-item-title' data-label="{{ 'customer.order.product' | t }}">
+									<div class='title'>
+										<a href="{{ item.url }}">{{ item.product.title }}</a>
+										{% unless item.variant.title contains 'Default' %}
+											<br /><span class='variant'>({{ item.variant.title }})</span>
+						        {% endunless %}
+										{% if settings.cart_vendor_enable %}
+											<br />{{ item.vendor }}
+						        {% endif %}
+									</div>
+									<div class='remove'>
+										<a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove">
+											<span class="font-smaller underline mobile-hide">Remove &oslash;</span>
+											<span class="font-smaller mobile-show">&times;</span>
+						        </a>
 									</div>
 								</div>
-								<div class='total-price' data-label="{{ 'cart.label.total' | t }}">
-									Total: {{ item.line_price | money }}
-									{% for discount in item.discounts %}
-										<br><span class="cart-item__discount">{{ discount.title }}</span>
-					        {% endfor %}
-									<span class='tax-notice'>ex. TAX</span>
+								<div class='cart-item-price'>
+									<div class='variable-price'>
+										<div class='single-price' data-label="{{ 'cart.label.price' | t }}">{{ item.price | money }}&nbsp;&times;</div>
+										<div class='item-qty' data-label="{{ 'cart.label.quantity' | t }}">
+											<input type="number" name="updates[]" id="updates_{{ item.key }}" data-id="{{ item.key }}" value="{{ item.quantity }}" min="0">
+										</div>
+									</div>
+									<div class='total-price' data-label="{{ 'cart.label.total' | t }}">
+										Total: {{ item.line_price | money }}
+										{% for discount in item.discounts %}
+											<br><span class="cart-item__discount">{{ discount.title }}</span>
+						        {% endfor %}
+										<span class='tax-notice'>ex. TAX</span>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				{% endfor %}
-			</div>
-
-			<div class='cart-checkout'>
-				<div class='checkout'>
-					<div class='checkout-title'>Checkout.</div>
-
-					<div class='checkout-subtotal'>
-						{{ 'cart.general.subtotal' | t }}&nbsp;{{ cart.total_price | money }}
-						<span class='tax-notice'>ex. TAX</span>
-					</div>
-
-					<p class='disclaimers'>
-						<em>*{{ 'cart.general.shipping_at_checkout' | t }}.<br />
-							*Items are made-to-order & ship in 3-4 weeks.<br />
-							*Pre-order items ship in 6 weeks.
-						</em>
-					</p>
-
-					{% if settings.cart_notes_enable %}
-						<div class='instructions'>
-							<label class='title' for="CartSpecialInstructions">Special instructions.</label>
-							<textarea name="note" class="input-full" id="CartSpecialInstructions">{{ cart.note }}</textarea>
-						</div>
-					{% endif %}
-
-					<div class='checkout-buttons'>
-						<button type="submit" name="update" class="btn--secondary update-cart">{{ 'cart.general.update' | t }}</button>
-						<button type="submit" name="checkout" class="btn checkout-cart">{{ 'cart.general.checkout' | t }}.</button>
-					</div>
-
-					{% if cart.total_discounts > 0 %}
-					{% assign savings = cart.total_discounts | money %}
-					<p>
-						<span class="cart-subtotal__savings">
-							<em>{{ 'cart.general.savings_html' | t: price: savings }}</em>
-						</span>
-					</p>
-					{% endif %}
-
-					{% include 'payments' %}
+					{% endfor %}
 				</div>
-			</div>
-		</form>
 
-	</div> <!-- /.page -->
-{% else %}
-  {% comment %} cart empty {% endcomment %}
-	<div class='page full'>
-  	<p>
-			{{ 'cart.general.empty' | t }} Continue browsing <a href="/collections/all" class="underline">here.</a>
-		</p>
-	</div>
-{% endif %}
+				<div class='cart-checkout'>
+					<div class='checkout'>
+						<div class='checkout-title'>Checkout.</div>
+
+						<div class='checkout-subtotal'>
+							{{ 'cart.general.subtotal' | t }}&nbsp;{{ cart.total_price | money }}
+							<span class='tax-notice'>ex. TAX</span>
+						</div>
+
+						<p class='disclaimers'>
+							<em>*{{ 'cart.general.shipping_at_checkout' | t }}.<br />
+								*Items are made-to-order & ship in 3-4 weeks.<br />
+								*Pre-order items ship in 6 weeks.
+							</em>
+						</p>
+
+						{% if settings.cart_notes_enable %}
+							<div class='instructions'>
+								<label class='title' for="CartSpecialInstructions">Special instructions.</label>
+								<textarea name="note" class="input-full" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+							</div>
+						{% endif %}
+
+						<div class='checkout-buttons'>
+							<button type="submit" name="update" class="btn--secondary update-cart">{{ 'cart.general.update' | t }}</button>
+							<button type="submit" name="checkout" class="btn checkout-cart">{{ 'cart.general.checkout' | t }}.</button>
+						</div>
+
+						{% if cart.total_discounts > 0 %}
+						{% assign savings = cart.total_discounts | money %}
+						<p>
+							<span class="cart-subtotal__savings">
+								<em>{{ 'cart.general.savings_html' | t: price: savings }}</em>
+							</span>
+						</p>
+						{% endif %}
+
+						{% include 'payments' %}
+					</div>
+				</div>
+			</form>
+
+		</div> <!-- /.page -->
+	{% else %}
+	  {% comment %} cart empty {% endcomment %}
+		<div class='page full'>
+	  	<p>
+				{{ 'cart.general.empty' | t }} Continue browsing <a href="/collections/all" class="underline">here.</a>
+			</p>
+		</div>
+	{% endif %}
+</div>
