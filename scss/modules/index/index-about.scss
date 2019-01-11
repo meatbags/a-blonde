@@ -1,2 +1,78 @@
 .index-about {
+  display: flex;
+  width: 100%;
+  height: 80vh;
+  margin-bottom: $space * 6;
+
+  .index-about__left {
+    width: 55%;
+    height: 100%;
+    padding-left: $space * 2;
+    padding-right: $space * 2;
+
+    .index-about__inner {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      border-bottom: $borderBlack;
+      //border-left: 1px solid $black;
+
+      .index-about__content {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: relative;
+        padding-bottom: $space * 6;
+        text-align: right;
+
+        .index-about__title {
+          font-weight: bold;
+          font-size: $fontHuge;
+          font-family: $fontStackCursive;
+          padding: $space;
+
+          .red {
+            color: $red;
+          }
+        }
+        
+        .index-about__text {
+          padding-bottom: $space * 4;
+        }
+
+        .index-about__logo {
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          img {
+            width: 40px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+  .index-about__right {
+    width: 45%;
+    height: 100%;
+
+    .index-about__image {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      padding-right: $space * 2;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
 }

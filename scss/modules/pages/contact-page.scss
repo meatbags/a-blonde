@@ -1,0 +1,11 @@
+.contact-page {
+  .contact-form {
+    input, textarea {
+      margin-bottom: $space;
+    }
+
+    textarea {
+      width: 100%;
+    }
+  }
+}

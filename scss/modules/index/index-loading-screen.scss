@@ -23,7 +23,8 @@
 
 	.loading-msg {
 		font-weight: bold;
-		color: $colourAlt;
+		color: $white;
+		font-family: $fontStackCursive;
 		animation-name: anim;
 		animation-duration: 1.0s;
 		animation-iteration-count: infinite;

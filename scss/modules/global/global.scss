@@ -11,7 +11,7 @@
 
 div, * {
   box-sizing: border-box;
-  outline: 1px solid rgba($black, 0.2);
+  //outline: 1px solid rgba($black, 0.2);
 }
 
 body, html {
@@ -23,7 +23,6 @@ body, html {
 	color: $colourText;
 	overflow-x: hidden;
 	padding-top: 0 !important;
-	background: $colourBackground;
 
 	&.freeze {
 		//overflow: hidden;
@@ -47,6 +46,14 @@ ul {
 a {
 	color: inherit;
 	text-decoration: none;
+
+  &:hover {
+    color: $colourHover;
+  }
+
+  &:active {
+    color: $colourActive;
+  }
 }
 
 p {
@@ -54,10 +61,6 @@ p {
 
   a {
     text-decoration: underline;
-
-    &:hover {
-      color: $colourAlt;
-    }
   }
 
 	strong {

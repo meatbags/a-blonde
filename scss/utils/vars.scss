@@ -1,25 +1,28 @@
 // colour
-$black: #000;
+$black: #080808;
 $white: #fff;
-$colour: $black;
-$colourAlt: #b8020e;
+$colour: red;
+$colourHover: magenta;
+$colourActive: yellow;
+$colourAlt: $black;
+$red: #a8020e;
 $colourDark: darken($colourAlt, 5%);
 $colourSelected: #000;
 $colourBackground: $white;
 $colourText: #000;
 $grey: #aaa;
 $darkGrey: #444;
-$colourNav: #808090;
+$colourNav: #222;
 $lightGrey: lighten($colourNav, 40%);
 
 // size
 $space: 8px;
 $spaceBorder: $space / 3;
-$sizeNav: 120px;
 $sizeSubNav: 50px;
 $sizeBreadcrumb: 35px;
-$siteWidth: 1220px;
-$navHeight: 120px;
+$siteWidth: 1160px;
+$navHeight: 74px;
+$navThreshold: 32px;
 
 // index
 $indexNav: 100;
@@ -28,6 +31,7 @@ $indexFooter: 10;
 $zMenu: 50;
 $zLandingPage: 200;
 $zLoadingScreen: 300;
+$indexPassword: 999;
 
 // transition
 $transition: 0.25s;

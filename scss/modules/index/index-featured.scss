@@ -1,36 +1,73 @@
 .index-featured {
   //margin-top: $navHeight;
   width: 100%;
-  height: 85vh;
+  height: 90vh;
   position: relative;
+  margin-top: $navHeight - 1px;
 
   .index-featured__background-image {
     width: 100%;
     height: 100%;
+    padding: $space * 2;
+    position: relative;
+
+    .gradient-overlay {
+      position: absolute;
+      width: calc(100% - #{$space} * 4);
+      height: 200px;
+      bottom: $space * 2;
+      left: $space * 2;
+      background: linear-gradient(0deg, $black, rgba($black, 0));
+    }
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top right;
+      object-position: center top;
     }
   }
 
-  .index-featured__content {
+  .index-featured__wrapper {
     position: absolute;
     bottom: 0;
     left: 0;
-    padding: $space * 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
-    .title {
-      font-size: $fontLarge;
-      font-weight: bold;
-      border-bottom: 3px double $black;
-    }
+    .index-featured__inner {
+      width: $siteWidth;
 
-    .link {
-      padding-top: $space / 2;
-      text-transform: uppercase;
+      .index-featured__content {
+        padding-bottom: $space * 4;
+        display: inline-block;
+        color: $white;
+
+        .title {
+          font-size: $fontLarge;
+          font-family: $fontStackCursive;
+          border-bottom: $borderBlack;
+          border-color: $white;
+        }
+
+        .link {
+          padding-top: $space / 2;
+          text-transform: uppercase;
+        }
+
+        &:hover {
+          color: $colourHover;
+
+          .title {
+            border-color: $colourHover;
+          }
+        }
+      }
+
+      @media screen and (max-width: $siteWidth) {
+        width: 100%;
+      }
     }
   }
 }

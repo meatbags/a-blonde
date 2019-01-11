@@ -1,13 +1,144 @@
-<!-- index layout -->
+{% comment %} FEATURED {% endcomment %}
+<div class='index-featured'>
+  <div class='index-featured__background-image'>
+    <img src='{{ settings.index_featured_image | img_url: "master" }}' alt=''/>
+    <div class='gradient-overlay'></div>
+  </div>
+  <div class='index-featured__wrapper'>
+    <div class='index-featured__inner'>
+      <div class='index-featured__content'>
+        <a href='{{ collections[settings.index_featured_collection].url }}'>
+          <div class='title'>{{ collections[settings.index_featured_collection].title }}</div>
+          <div class='link'>&larr; View Collection</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
-{% include 'index_featured' %}
+{% comment %} ABOUT {% endcomment %}
+<div class='index-about'>
+  <div class='index-about__left'>
+    <div class='index-about__inner'>
+      <div class='index-about__content'>
+        <div class='index-about__title'>Alabama &dagger; Blonde</div>
+        <div class='index-about__text'>
+          {{ settings.index_about_text }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='index-about__right'>
+    <div class='index-about__image'>
+      <img src='{{ settings.index_about_image | img_url: "master" }}' alt=''/>
+    </div>
+  </div>
+</div>
+
 <div class='content'>
-	{% include 'index_about' %}
-	{% include 'index_blog' %}
-	{% include 'index_video' %}
-	{% include 'index_editorials' %}
-	{% include 'index_instagram' %}
-	{% include 'index_newsletter' %}
+  {% comment %} LATEST BLOG.EVENTS POSTS (3) {% endcomment %}
+  <div class='index-row'>
+    <div class='index-row__heading'>
+      Upcoming Events/ Blog
+    </div>
+    <div class='index-row__subheading'>
+      <a href='/'>See all blog posts</a>
+    </div>
+    <div class='index-row__inner'>
+      {% assign index = 0 %}
+      {% for article in blogs.events.articles %}
+        {% if index < 3 %}
+          <div class="index-row__item">
+            <a href="{{ article.url }}">
+              <div class='index-row__image'>
+                <img src="{{ article.image.src | img_url: 'grande' }}" alt="{{ article.title }}" />
+              </div>
+              <div class='index-row__content'>
+                <div class='index-row__title'>
+                  {{ article.title }}
+                </div>
+                <div class='index-row__excerpt'>
+                  {{ article.excerpt }}
+                </div>
+              </div>
+            </a>
+          </div>
+          {% assign index = index | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  {% comment %} LATEST BLOG.VIDEO POSTS (2) {% endcomment %}
+  <div class='index-row'>
+    <div class='index-row__heading'>
+      Recent Videos
+    </div>
+    <div class='index-row__subheading'>
+      <a href='/'>See all videos</a>
+    </div>
+    <div class='index-row__inner'>
+      {% assign index = 0 %}
+      {% for article in blogs.video.articles %}
+        {% if index < 2 %}
+          <div class="index-row__item index-row__item--half">
+            <a href="{{ article.url }}">
+              <div class='index-row__image'>
+                <div class='index-row__prompt'>
+                  <svg width='30' height='30'>
+                    <polygon points='0,0 25,15 0,30' style='fill:white;' />
+                  </svg>
+                </div>
+                <img src="{{ article.image.src | img_url: 'grande' }}" alt="{{ article.title }}" />
+              </div>
+              <div class='index-row__content'>
+                <div class='index-row__title'>
+                  {{ article.title }}
+                </div>
+              </div>
+            </a>
+          </div>
+          {% assign index = index | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  {% comment %} LATEST BLOG.EDITORIALS POSTS (3) {% endcomment %}
+  <div class='index-row'>
+    <div class='index-row__heading'>
+      Editorials
+    </div>
+    <div class='index-row__subheading'>
+      <a href='/'>See all editorials</a>
+    </div>
+    <div class='index-row__inner'>
+      {% assign index = 0 %}
+      {% for article in blogs.editorials.articles %}
+        {% if index < 3 %}
+          <div class="index-row__item">
+            <a href="{{ article.url }}">
+              <div class='index-row__image'>
+                <img src="{{ article.image.src | img_url: 'grande' }}" alt="{{ article.title }}" />
+              </div>
+              <div class='index-row__content'>
+                <div class='index-row__title'>
+                  {{ article.title }}
+                </div>
+                <div class='index-row__excerpt'>
+                  {{ article.excerpt }}
+                </div>
+              </div>
+            </a>
+          </div>
+          {% assign index = index | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+	{% include 'widget_instagram' %}
+	{% include 'widget_newsletter' %}
 </div>
 
 <!-- widgets -->

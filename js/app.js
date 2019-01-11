@@ -9,8 +9,7 @@ class App {
 		this.audio = new Module.Audio(this.isMobile);
 		this.filter = new Module.Filter();
 		this.sliders = new Module.Gallery();
-		this.landing = new Module.LandingPage();
-		this.insta = new Module.Insta();
+		this.pageIndex = new Module.PageIndex();
 	}
 };
 

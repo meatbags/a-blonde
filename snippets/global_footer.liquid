@@ -1,9 +1,9 @@
 <div class='footer'>
   <div class='footer__inner'>
     <div class='column'>
-      &dagger;<br /><br />
+      &dagger;
 
-      <!-- SOCIAL MEDIA -->
+      {% comment %} SOCIAL MEDIA LINKS {% endcomment %}
       {% if settings.footer_social_enable %}
       		<div class='list-item'><a href='mailto:blonde.alabama@gmail.com'>Email.</a></div>
       		{% if settings.social_twitter_link != blank %}
@@ -28,17 +28,19 @@
       		{% endif %}
       {% endif %}
     </div>
+
+    {% comment %} PAGE LINKS {% endcomment %}
     <div class='column'>
-      &dagger;<br /><br />
+      &dagger;
       <div class='list-item'><a href='/'>Home.</a></div>
       <div class='list-item'><a href='/'>Latest Video.</a></div>
       <div class='list-item'><a href='/#collections'>Collections.</a></div>
       <div class='list-item'><a href='/pages/about'>About.</a></div>
     </div>
     <div class='column'>
-      &dagger;<br /><br />
+      &dagger;
 
-      <!-- CART -->
+      {% comment %} SHOP LINKS {% endcomment %}
       <div class='list-item'><a href='/collections/all'>Shop.</a></div>
       <div class='list-item'>
         <a href="/cart">
@@ -60,10 +62,12 @@
         {% endif %}
       </div>
     </div>
+
+    {% comment %} COPYRIGHT {% endcomment %}
     <div class='column'>
-      &dagger;<br /><br />
+      &dagger;
       <div class='list-item'>&copy; {{ 'now' | date: "%Y" }} Alabama Blonde</div>
-      <div class='list-item'><a href='http://www.xavierburrow.com' target='_blank'>Site design by Xb.</a></div>
+      <div class='list-item'><a href='http://www.xavierburrow.com' target='_blank'>Site design &rarr; xb</a></div>
     </div>
   </div>
 </div>

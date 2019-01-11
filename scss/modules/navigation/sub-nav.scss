@@ -3,8 +3,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: $sizeNav + $sizeSubNav;
-  padding-top: $sizeNav;
+  height: $navHeight + $sizeSubNav;
+  padding-top: $navHeight;
   background: lighten($colourNav, 25%);
   display: flex;
   justify-content: center;
@@ -53,7 +53,7 @@
 
   @media screen and (max-width: $mobile) {
     font-size: $fontSmaller;
-    height: $sizeNav + $sizeSubNav * 0.75;
+    height: $navHeight + $sizeSubNav * 0.75;
 
     .sub-nav__inner {
       @include pad(0, 2, 0, 1);

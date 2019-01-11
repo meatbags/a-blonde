@@ -4,12 +4,11 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding-top: $space;
 
 	.content {
 		width: $large;
-		padding-left: $space;
-		padding-right: $space;
+		display: flex;
+		flex-direction: column;
 
 		@media screen and (max-width: $large) {
 			width: 100%;

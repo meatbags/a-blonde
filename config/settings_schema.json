@@ -14,8 +14,7 @@
         "content": "Custom shopify theme for AlabamaBlonde.com by -> xavier-burrow.com"
       }
     ]
-  },
-  {
+  }, {
     "name": "Front Page",
     "settings": [{
       "type": "checkbox",
@@ -25,11 +24,20 @@
     }, {
       "type": "image_picker",
       "id": "index_featured_image",
-      "label": "Front Page Featured Image"
+      "label": "Featured Collection Image",
+      "info": "Suggested dimensions 1920 x 1080"
+    }, {
+      "type": "collection",
+      "id": "index_featured_collection",
+      "label": "Featured Collection"
+    }, {
+      "type": "textarea",
+      "id": "index_about_text",
+      "label": "Landing Page About Text"
     }, {
       "type": "image_picker",
       "id": "index_about_image",
-      "label": "Front Page About Image"
+      "label": "Landing Page About Image"
     }]
   }, {
     "name": "Promotional Bar",
@@ -44,30 +52,7 @@
         "label": "Promotional bar URL"
       }
     ]
-  },
-  {
-    "name": "Header",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Favicon"
-      },
-      {
-        "type": "checkbox",
-        "id": "favicon_enable",
-        "label": "Use custom icon"
-      },
-      {
-        "type": "image",
-        "id": "favicon.png",
-        "label": "Icon",
-        "max-width": 32,
-        "max-height": 32,
-        "info": "32 x 32px .png required"
-      }
-    ]
-  },
-  {
+  }, {
     "name": "Cart page",
     "settings": [
       {
@@ -96,8 +81,7 @@
         ]
       }
     ]
-  },
-  {
+  }, {
     "name": "Social media",
     "settings": [
       {
