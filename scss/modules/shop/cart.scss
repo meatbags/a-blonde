@@ -48,7 +48,7 @@
 
 						.variant {
 							font-size: 80%;
-							color: $darkGrey;
+							color: $colourText;
 						}
 					}
 
@@ -313,7 +313,7 @@
 }
 
 #CartSpecialInstructions {
-	//border-top: $space/2 solid $colourText;
+	border-top: $space/2 solid $colourText;
 }
 
 .single-option-selector {

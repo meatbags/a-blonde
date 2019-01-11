@@ -10,25 +10,30 @@
 			<div class='nav__title'>
 				<a href='/'>Alabama <span class='nav__dagger'>&dagger;</span> Blonde</a>
 			</div>
-			<!--<img src='{{ 'alabama-blonde_logo_small_10e1bfd7-61fc-47ab-85ac-0ca717d607fe.png' | file_url }}' alt='Alabama Blonde Logo'/>-->
 		</div>
 		<div class='nav__main'>
 			<div class='nav__item'><a href='/#home'>Home<div class='nav__slider'></div></a></div>
 			<div class='nav__item'><a href='/pages/about'>About&nbsp;<div class='dropdown-hint'></div><div class='nav__slider'></div></a></div>
-			<div class='nav__item'><a href='/blogs/blog'>Blog<div class='nav__slider'></div></a></div>
+			<div class='nav__item'><a href='/pages/blogs'>Blog<div class='nav__slider'></div></a></div>
 			<div class='nav__item'><a href='/pages/editorials'>Editorial<div class='nav__slider'></div></a></div>
-			<div class='nav__item'><a href='/collections/all'>Shop&nbsp;<div class='dropdown-hint'></div><div class='nav__slider'></div></a></div>
+			<div class='nav__item'><a href='/collections/'>Shop&nbsp;<div class='dropdown-hint'></div><div class='nav__slider'></div></a></div>
 			<div class='nav__item'><a href='/pages/contact'>Contact<div class='nav__slider'></div></a></div>
+			<div class='nav__item nav__item--icon'>
+				<a href='https://www.instagram.com/alabamablonde' target='_blank'>
+					{{ 'insta.png' | asset_url | img_tag }}
+				</a>
+			</div>
+			<div class='nav__item nav__item--icon'>
+				<a href='/cart/'>
+					{{ 'shopping-cart.png' | asset_url | img_tag }}
+				</a>
+			</div>
 		</div>
-	</div>
-	<div class='nav__side'>
-		<div class='nav__item'><a href='https://www.instagram.com/alabamablonde' target='_blank'>Insta<div class='nav__slider'></div></a></div>
-		<div class='nav__item'><a href='/cart/'>Cart<div class='nav__slider'></div></a></div>
 	</div>
 </div>
 
 {% unless template == 'index' %}
-	{% include 'global_sub-nav' %}
+	{% include 'breadcrumb' %}
 {% endunless %}
 {% if template contains 'collection' and collection.handle == 'all' %}
 	{% include 'collection_filters' %}

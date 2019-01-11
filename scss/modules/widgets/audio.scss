@@ -3,10 +3,10 @@
 	bottom: $space * 2;
 	right: $space * 4;
 	z-index: $zMenu + 1;
-	background: $colour;
+	background: $colourNav;
 
 	&:hover {
-		background: $colourAlt;
+		background: $colourHover;
 	}
 
 	.jp-pause, .jp-play {

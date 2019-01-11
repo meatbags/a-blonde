@@ -41,6 +41,7 @@
             height: 100%;
             object-position: left top;
             object-fit: cover;
+            transition: transform $transitionSlow, filter $transitionSlow;
           }
 
           .index-row__prompt {
@@ -74,6 +75,11 @@
         }
 
         &:hover {
+          .index-row__image img {
+            transform: scale(1.05, 1.05);
+            filter: grayscale(50%) contrast(150%);
+          }
+
           .index-row__prompt {
             opacity: 1;
           }

@@ -25,7 +25,8 @@
         flex-direction: column;
         justify-content: flex-end;
         position: relative;
-        padding-bottom: $space * 6;
+        padding-right: $space * 3;
+        padding-bottom: $space * 2;
         text-align: right;
 
         .index-about__title {
@@ -38,7 +39,7 @@
             color: $red;
           }
         }
-        
+
         .index-about__text {
           padding-bottom: $space * 4;
         }

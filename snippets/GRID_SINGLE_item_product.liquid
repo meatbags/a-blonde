@@ -1,5 +1,4 @@
-<!-- product, image -->
-
+{% comment %} SINGLE PRODUCT GRID ITEM {% endcomment %}
 <div class='product'>
 	<div class='product__image'>
 		<a href='{{ product.url | within: collection }}'>
@@ -15,7 +14,6 @@
 		<div class='name'>
 			<a href="{{ product.url | within: collection }}">{{ product.title }}</a>
 		</div>
-		
 		<div class='price'>
 			<span class='from mobile-show mobile-inline'>{% if product.variants.size > 1 %}full look, {% endif %}ex. tax</span>
 			{{ product.price_max | 'money' }}

@@ -34,7 +34,7 @@ $bottom: #b20019;
 	background: black;
 
 	&.mobile {
-		background: $colourAlt;
+		background: $black;
 		background: -webkit-linear-gradient($top, $bottom);
 		background: -o-linear-gradient($top, $bottom);
 		background: -moz-linear-gradient($top, $bottom);
@@ -61,13 +61,11 @@ $bottom: #b20019;
 	.landing-page__prompt {
 		@extend .noselect;
 		position: fixed;
-		color: $colourBackground;
 		bottom: 0;
 		right: 0;
 		padding: $space * 12;
 		cursor: pointer;
 		z-index: $zLandingPage + 3;
-		color: $colourBackground;
     font-size: $fontLarge;
 
 		.landing-page__prompt__inner {

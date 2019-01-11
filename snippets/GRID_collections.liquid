@@ -7,7 +7,7 @@
 		{% assign collection = link.object %}
 			{% assign test = index | minus:i | modulo:3 %}
 			{% if test == 0 %}
-				{% include 'grid-item-collection' %}
+				{% include 'GRID_SINGLE_item_collection' %}
 			{% endif %}
 			{% assign index = index | plus: 1 %}
 			{% assign colNo = colNo | plus: 1 %}
@@ -15,8 +15,7 @@
 	</div>
 	{% endfor %}
 
-	<!-- medium screen -->
-
+	{% comment %} MEDIUM SCREEN {% endcomment %}
 	{% for i in (0..1) %}
 	<div class="columns__column columns__column-half">
 		{% assign index = 0 %}
@@ -25,7 +24,7 @@
 		{% assign collection = link.object %}
 			{% assign test = index | minus:i | modulo:2 %}
 			{% if test == 0 %}
-				{% include 'grid-item-collection' %}
+				{% include 'GRID_SINGLE_item_collection' %}
 			{% endif %}
 			{% assign index = index | plus: 1 %}
 			{% assign colNo = colNo | plus: 1 %}
@@ -33,12 +32,11 @@
 	</div>
 	{% endfor %}
 
-	<!-- small screen -->
-
+	{% comment %} SMALL SCREEN {% endcomment %}
 	<div class="columns__column columns__column-single">
 		{% for link in linklists.all-collections.links %}
 		{% assign collection = link.object %}
-			{% include 'grid-item-collection' %}
+			{% include 'GRID_SINGLE_item_collection' %}
 		{% endfor %}
 	</div>
 </div>

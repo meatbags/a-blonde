@@ -21,7 +21,7 @@
   <div class='index-about__left'>
     <div class='index-about__inner'>
       <div class='index-about__content'>
-        <div class='index-about__title'>Alabama &dagger; Blonde</div>
+        <div class='index-about__title'>Al<span class='red'>a</span>bama &dagger; <span class='red'>B</span>londe</div>
         <div class='index-about__text'>
           {{ settings.index_about_text }}
         </div>
@@ -35,14 +35,14 @@
   </div>
 </div>
 
-<div class='content'>
+<div class='content content--index'>
   {% comment %} LATEST BLOG.EVENTS POSTS (3) {% endcomment %}
   <div class='index-row'>
     <div class='index-row__heading'>
       Upcoming Events/ Blog
     </div>
     <div class='index-row__subheading'>
-      <a href='/'>See all blog posts</a>
+      <a href='/pages/blogs/'>See all blog posts</a>
     </div>
     <div class='index-row__inner'>
       {% assign index = 0 %}
@@ -75,7 +75,7 @@
       Recent Videos
     </div>
     <div class='index-row__subheading'>
-      <a href='/'>See all videos</a>
+      <a href='/pages/videos/'>See all videos</a>
     </div>
     <div class='index-row__inner'>
       {% assign index = 0 %}
@@ -110,7 +110,7 @@
       Editorials
     </div>
     <div class='index-row__subheading'>
-      <a href='/'>See all editorials</a>
+      <a href='/pages/editorials/'>See all editorials</a>
     </div>
     <div class='index-row__inner'>
       {% assign index = 0 %}
@@ -139,6 +139,9 @@
 
 	{% include 'widget_instagram' %}
 	{% include 'widget_newsletter' %}
+  <div class='index-logo'>
+    <img src='{{ 'alabama-blonde-logo-black.png?11421832030146112697' | file_url }}' alt='Alabama Blonde Logo'/>
+  </div>
 </div>
 
 <!-- widgets -->

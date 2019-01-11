@@ -1,18 +1,17 @@
-.sub-nav {
+.breadcrumb {
   @extend .noselect;
   top: 0;
   left: 0;
   width: 100%;
   height: $navHeight + $sizeSubNav;
   padding-top: $navHeight;
-  background: lighten($colourNav, 25%);
+  background: $colourBreadcrumb;
   display: flex;
   justify-content: center;
   font-size: $fontSmall;
-  color: $darkGrey;
+  color: $colourBreadcrumbText;
 
-  .sub-nav__inner {
-    @include pad(0, 2, 0, 1);
+  .breadcrumb__inner {
     width: $large;
     height: 100%;
     display: flex;

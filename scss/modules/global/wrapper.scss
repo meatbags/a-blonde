@@ -9,6 +9,11 @@
 		width: $large;
 		display: flex;
 		flex-direction: column;
+		padding-top: $space * 2;
+
+		&.content--index {
+			padding-top: 0;
+		}
 
 		@media screen and (max-width: $large) {
 			width: 100%;

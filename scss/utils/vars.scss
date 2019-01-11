@@ -1,19 +1,13 @@
 // colour
 $black: #080808;
 $white: #fff;
-$colour: red;
+$red: #a8020e;
 $colourHover: magenta;
 $colourActive: yellow;
-$colourAlt: $black;
-$red: #a8020e;
-$colourDark: darken($colourAlt, 5%);
-$colourSelected: #000;
-$colourBackground: $white;
-$colourText: #000;
-$grey: #aaa;
-$darkGrey: #444;
-$colourNav: #222;
-$lightGrey: lighten($colourNav, 40%);
+$colourNav: #1c1c1c;
+$colourBreadcrumb: #aaa;
+$colourBreadcrumbText: #444;
+$colourText: $black;
 
 // size
 $space: 8px;

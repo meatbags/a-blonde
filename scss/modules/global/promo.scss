@@ -5,14 +5,14 @@
   left: 0;
   width: 100%;
   background-color: $white;
-  color: $colourAlt;
+  color: $black;
   z-index: $indexPromo;
   transition: transform $transitionSlow, background-color $transition;
   overflow: hidden;
 
   &:hover {
-    background-color: $colourAlt;
-    color: $white;
+    background-color: $black;
+    color: $colourHover;
   }
 
   &.active {

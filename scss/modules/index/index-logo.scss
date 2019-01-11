@@ -1,0 +1,11 @@
+.index-logo {
+  @include padding(0, 4);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  img {
+    height: 200px;
+    width: auto;
+  }
+}

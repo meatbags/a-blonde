@@ -2,11 +2,14 @@ var path = require('path');
 var webpack = require('webpack');
 var appName = 'monty';
 var pathJS = './js/app.js';
-var pathSCSS = './js/app.js';
+var pathSCSS = './scss/main.js';
 var pathOutput = 'assets';
 
 // JS
 var MinifyPlugin = require("babel-minify-webpack-plugin");
+
+// SASS testing
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = [{
   entry: {'alabama.min': pathJS},
@@ -27,5 +30,35 @@ module.exports = [{
   },
   resolve: {extensions: ['*', '.js']},
   plugins: [new MinifyPlugin({}, {comments: false})],
+  stats: {colors: true, warnings: false}
+}, {
+  entry: {'style.webpack': pathSCSS},
+  output: {
+    path: path.resolve(__dirname, pathOutput),
+    filename: '[name].js'
+  },
+  module: {
+    rules: [{
+      test: /\.scss$/,
+      use: [
+        {
+          loader: MiniCssExtractPlugin.loader,
+          options: {}
+        }, {
+          loader: 'css-loader',
+          options: {importLoaders: 2, sourceMap: true}
+        }, {
+          loader: 'sass-loader',
+          options: {sourceMap: true}
+        }
+      ]
+    }]
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "./style.css",
+      allChunks: true
+    })
+  ],
   stats: {colors: true, warnings: false}
 }];

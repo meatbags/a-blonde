@@ -2,7 +2,6 @@
   "name": "a-blonde",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.js",
   "main": "gulpfile.js",
   "directories": {
     "doc": "docs"
@@ -20,7 +19,14 @@
     "gulp": "^4.0.0",
     "import-resolve": "^0.4.0",
     "webpack": "^4.28.3",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.1.1"
   },
   "author": "",
   "license": "ISC"

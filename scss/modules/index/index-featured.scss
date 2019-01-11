@@ -1,7 +1,6 @@
 .index-featured {
-  //margin-top: $navHeight;
   width: 100%;
-  height: 90vh;
+  height: 85vh;
   position: relative;
   margin-top: $navHeight - 1px;
 
@@ -40,7 +39,8 @@
       width: $siteWidth;
 
       .index-featured__content {
-        padding-bottom: $space * 4;
+        max-width: 300px;
+        padding-bottom: $space * 6;
         display: inline-block;
         color: $white;
 
@@ -49,6 +49,7 @@
           font-family: $fontStackCursive;
           border-bottom: $borderBlack;
           border-color: $white;
+          padding-bottom: $space;
         }
 
         .link {

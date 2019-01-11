@@ -1,7 +1,6 @@
 .product {
 	width: 100%;
 	margin-bottom: $space;
-	-webkit-transition: opacity $transitionSlow;
 	transition: opacity $transitionSlow;
 	padding: $space;
 
@@ -47,7 +46,7 @@
 		@include pad(1, 0, 1, 0);
 		width: 100%;
 		display: flex;
-		color: $darkGrey;
+		color: $colourText;
 
 		.name {
 			font-size: $fontSmall;
@@ -103,7 +102,6 @@
 	&:hover, &:active, &.scrolled {
 		a {
 			img {
-				-webkit-transform: scale(1.05, 1.05);
 				transform: scale(1.05, 1.05);
 			}
 

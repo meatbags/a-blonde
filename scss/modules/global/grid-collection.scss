@@ -2,6 +2,7 @@
 	position: relative;
 	width: 100%;
 	margin-bottom: $space;
+	padding: $space;
 	-webkit-transition: opacity $transitionSlower;
 	transition: opacity $transitionSlower;
 
@@ -12,8 +13,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-			background: $colourDark; // fallback
-      background: linear-gradient(rgba($colourDark, 0.0), rgba($colourDark, 0.75));
+			background: $black; // fallback
+      background: linear-gradient(rgba($black, 0.0), rgba($black, 0.75));
       opacity: 0;
       transition: $transition;
       display: flex;
@@ -68,17 +69,13 @@
 			display: block;
 			width: 100%;
 			height: auto;
-			-webkit-filter: saturate(0%);
-			filter: saturate(0%);
-			-webkit-transition: $transitionSlow;
 			transition: $transitionSlow;
 			margin: 0;
 		}
 
 		&:hover, &:active, &.scrolled {
 			img {
-				-webkit-filter: saturate(0%) contrast(150%);
-				filter: saturate(0%) contrast(150%);
+				filter: saturate(50%) contrast(150%);
 			}
 
 			.collection__name {

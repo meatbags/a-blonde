@@ -1,9 +1,20 @@
 @import './global';
 @import './wrapper';
+
+// navigation
+@import './promo';
 @import './nav';
+@import './breadcrumb';
+@import './filters';
 @import './footer';
+
+// structure
 @import './columns';
+@import './grid-item-generic';
+@import './grid-collection';
+@import './grid-product';
+
+// common
 @import './forms';
-@import './background';
-@import './divider';
 @import './iframe';
+@import './divider';
