@@ -81,5 +81,17 @@
 
   @media screen and (max-width: $mobile) {
     height: 420px;
+
+    .index-featured__background-image .gradient-overlay {
+      height: 230px;
+    }
+
+    .index-featured__wrapper .index-featured__inner .index-featured__content {
+      margin-bottom: $space * 3;
+
+      .title {
+        font-size: $fontLargeMobile;
+      }
+    }
   }
 }

@@ -67,8 +67,9 @@
 			font-size: $fontSize;
 			width: 35%;
 
-			.from{
+			.from {
 				font-size: 9px;
+				letter-spacing: 0.5px;
 			}
 
 			.tax-notice {
@@ -77,6 +78,7 @@
 				right: 0;
 				top: 0;
 				padding-top: $space * 2.5;
+				letter-spacing: 0.5px;
 			}
 		}
 

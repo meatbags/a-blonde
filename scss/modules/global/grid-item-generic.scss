@@ -79,6 +79,16 @@
       display: flex;
       @include padding(0, 1);
 
+      &.grid-item__lower--collection-mobile {
+        display: none;
+
+        @media screen and (max-width: $mobile) {
+          display: flex;
+          @include padding(0, 0.5);
+          font-size: $fontSmall;
+        }
+      }
+
       a {
         flex: 1;
         display: flex;
@@ -88,13 +98,11 @@
           font-size: $fontSmall;
           letter-spacing: normal;
           text-transform: uppercase;
-          text-align: right;
           text-decoration: underline;
           opacity: 0.6;
         }
 
         .grid-item__title {
-          text-align: right;
           //text-decoration: underline;
         }
       }
