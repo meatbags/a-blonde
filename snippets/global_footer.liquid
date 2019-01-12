@@ -1,5 +1,5 @@
 <div class='footer'>
-  <div class='footer__inner mobile-hide'>
+  <div class='footer__inner'>
     {% comment %} SOCIAL MEDIA LINKS {% endcomment %}
     <div class='column'>
       &dagger;
@@ -32,9 +32,8 @@
     <div class='column'>
       &dagger;
       <div class='list-item'><a href='/'>Home.</a></div>
-      <div class='list-item'><a href='/'>Latest Video.</a></div>
-      <div class='list-item'><a href='/#collections'>Collections.</a></div>
-      <div class='list-item'><a href='/pages/about'>About.</a></div>
+      <div class='list-item'><a href='/collections/'>Collections.</a></div>
+      <div class='list-item'><a href='/pages/about/'>About.</a></div>
     </div>
 
     {% comment %} SHOP LINKS {% endcomment %}
@@ -51,15 +50,16 @@
           {% endif %}
         </a>
       </div>
-      <div class='list-item'>
-        {% if shop.customer_accounts_enabled %}
-          {% if customer %}
-            <a href="/account/">{{ 'layout.customer.account' | t }}.</a>&nbsp;|&nbsp;{{ 'layout.customer.log_out' | t | customer_logout_link }}
-          {% else %}
-            {{ 'layout.customer.log_in' | t | customer_login_link }}
-          {% endif %}
+      {% if shop.customer_accounts_enabled %}
+        <div class='list-item'>
+        {% if customer %}
+          <a href="/account/">{{ 'layout.customer.account' | t }}.</a>&nbsp;|&nbsp;{{ 'layout.customer.log_out' | t | customer_logout_link }}
+        {% else %}
+          {{ 'layout.customer.log_in' | t | customer_login_link }}
         {% endif %}
-      </div>
+        </div>
+      {% endif %}
+      <div class='list-item'><a href='/blogs/video/'>Videos.</a></div>
     </div>
 
     {% comment %} COPYRIGHT {% endcomment %}
@@ -68,6 +68,31 @@
       <div class='list-item'>&copy; {{ 'now' | date: "%Y" }} Alabama Blonde</div>
       <div class='list-item'><a href='https://www.duendeco.com/' target='_blank'>MGMT &rarr; Duende Co</a></div>
       <div class='list-item'><a href='http://www.xavierburrow.com' target='_blank'>Site &rarr; xb</a></div>
+    </div>
+  </div>
+  <div class='footer__inner footer__inner--mobile'>
+    <div class='column'>
+      &dagger;
+      <div class='list-item'><a href='/'>Home</a></div>
+      <div class='list-item'>
+        <a href="/cart">
+          {{ 'layout.cart.title' | t }}
+          {% if cart.item_count > 0 %}
+            <span id="cart-items-info">
+              &nbsp;({{ cart.total_price | money }})
+            </span>
+          {% endif %}
+        </a>
+      </div>
+      <div class='list-item'><a href='/collections/'>Collections</a></div>
+      <div class='list-item'><a href='/collections/all'>Shop</a></div>
+    </div>
+
+    <div class='column'>
+      &dagger;
+      <div class='list-item'><a href='https://www.duendeco.com/' target='_blank'>MGMT / Duende Co</a></div>
+      <div class='list-item'><a href='http://www.xavierburrow.com' target='_blank'>Site / XB</a></div>
+      <div class='list-item'>Alabama Blonde<br />&copy; {{ 'now' | date: "%Y" }}</div>
     </div>
   </div>
 </div>

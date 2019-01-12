@@ -1,7 +1,7 @@
 .grid-item {
   width: 100%;
   margin-bottom: $space;
-  padding: $space;
+  @include padding(0, 1);
 
   .grid-item__inner {
     width: 100%;
@@ -49,6 +49,10 @@
             font-size: $fontLarge;
             font-family: $fontStackCursive;
             text-align: right;
+
+            @media screen and (max-width: $mobile) {
+              font-size: $fontSize;
+            }
           }
 
           .grid-item__subtitle {
@@ -83,10 +87,15 @@
         .grid-item__date {
           font-size: $fontSmall;
           letter-spacing: normal;
+          text-transform: uppercase;
+          text-align: right;
+          text-decoration: underline;
+          opacity: 0.6;
         }
 
         .grid-item__title {
-          text-decoration: underline;
+          text-align: right;
+          //text-decoration: underline;
         }
       }
     }

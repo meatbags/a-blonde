@@ -12,8 +12,8 @@
   }
 
   .cart-item {
-    @include pad-y(4);
-    padding-right: $space;
+    @include padding(1, 1);
+    @include margin(0, 3);
     width: 100%;
     display: flex;
 
@@ -34,7 +34,7 @@
 
         .title {
           width: 70%;
-          text-decoration: underline;
+          font-weight: bold;
 
           a {
             &:hover {
@@ -44,7 +44,7 @@
 
           .variant {
             font-size: 80%;
-            color: $colourText;
+            font-weight: normal;
           }
         }
 
@@ -54,11 +54,6 @@
           text-align: right;
           font-size: $fontSmall;
           text-decoration: underline;
-
-          &:hover {
-            opacity: 0.5;
-            text-decoration: line-through;
-          }
         }
       }
 
@@ -79,7 +74,7 @@
           }
 
           .item-qty {
-            @include pad(0, 0, 0, 1.5);
+            padding-right: $space * 1.5;
             width: 65px;
 
             .js-qty {
@@ -127,16 +122,18 @@
         }
       }
     }
+
+    &:nth-child(2n - 1) {
+      background: #eee;
+    }
   }
 
   @media screen and (max-width: $mobile) {
 		width: 100%;
-		padding-right: 0;
 
 		.cart-item {
 			.cart-item__image {
 				width: 23%;
-				padding-top: $space;
 			}
 
 			.cart-item__info {

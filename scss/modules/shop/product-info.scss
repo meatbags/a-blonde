@@ -50,7 +50,7 @@
         width: 100%;
 
         #AddToCart {
-          @include pad(1.5, 2, 1.5, 2);
+          @include padding(2, 1.5);
           font-size: $fontSize;
           border: $borderBlack;
           font-weight: normal;
@@ -72,5 +72,12 @@
 
   @media screen and (max-width: $mobile) {
     width: 100%;
+    min-height: 0;
+    padding-left: 0;
+
+    .product-page__description {
+      padding-top: $space;
+      padding-bottom: $space;
+    }
 	}
 }

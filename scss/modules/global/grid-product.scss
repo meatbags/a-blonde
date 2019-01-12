@@ -2,7 +2,7 @@
 	width: 100%;
 	margin-bottom: $space;
 	transition: opacity $transitionSlow;
-	padding: $space;
+	@include padding(0, 1);
 
 	.product__image {
 		position: relative;
@@ -32,7 +32,7 @@
 				//transition: $transitionSlow;
 
 				.popup {
-					@include pad(0.5, 1, 0.5, 1);
+					@include padding(1, 0.5);
 					font-size: $fontSmall;
 					background: $white;
 					overflow: hidden;
@@ -43,17 +43,18 @@
 	}
 
 	.product__info {
-		@include pad(1, 0, 1, 0);
+		@include padding(0, 1);
 		width: 100%;
 		display: flex;
 		color: $colourText;
 
 		.name {
-			font-size: $fontSmall;
+			font-size: $fontSize;
 			width: 65%;
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
+			//letter-spacing: normal;
 
 			&:hover {
 				opacity: 0.5;
@@ -63,7 +64,7 @@
 		.price {
 			position: relative;
 			text-align: right;
-			font-size: $fontSmall;
+			font-size: $fontSize;
 			width: 35%;
 
 			.from{

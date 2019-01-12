@@ -1,5 +1,6 @@
 .footer {
-	@include pad(4, 0, 8, 0);
+	padding-top: $space * 4;
+	padding-bottom: $space * 8;
 	width: 100%;
 	font-size: $fontSmall;
 	color: $white;
@@ -15,6 +16,10 @@
 		padding: $space;
 		display: flex;
 
+		&.footer__inner--mobile {
+			display: none;
+		}
+
 		.column {
 			width: 25%;
 			height: 100%;
@@ -27,7 +32,7 @@
 			}
 
 			.list-item {
-				@include pad-y(0.25);
+				@include padding(0, 0.25);
 
 				a {
 					display: flex;
@@ -41,6 +46,18 @@
 
 		@media screen and (max-width: $siteWidth) {
 			width: 100%;
+		}
+
+		@media screen and (max-width: $mobile) {
+			display: none;
+
+			&.footer__inner--mobile {
+				display: flex;
+			}
+
+			.column {
+				width: 50%;
+			}
 		}
 	}
 }

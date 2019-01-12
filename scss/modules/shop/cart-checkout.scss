@@ -74,7 +74,7 @@
 
       .checkout-cart {
         border: $borderBlack;
-        @include pad(1, 2, 1, 2);
+        @include padding(2, 1);
       }
     }
 
@@ -110,7 +110,7 @@
 				flex-direction: column;
 
 				.update-cart {
-					@include pad(0.5, 0, 0.5, 0);
+					@include padding(0, 0.5);
 				}
 
 				.checkout-cart {
@@ -119,7 +119,8 @@
 			}
 
 			.instructions {
-				@include pad(1, 0, 2.5, 0);
+        padding-top: $space;
+        padding-bottom: $space * 2.5;
 			}
 
 			.payments {

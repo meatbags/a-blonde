@@ -14,5 +14,12 @@
 		border-bottom: $borderBlack;
 	}
 
-	@media screen and (max-width: $mobile) {}
+	@media screen and (max-width: $mobile) {
+		padding-top: $space;
+
+		.product-page__title {
+			font-size: $fontLargeMobile;
+			letter-spacing: normal;
+		}
+	}
 }

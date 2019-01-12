@@ -1,17 +1,25 @@
 .page--contact {
-  .contact-form {
-    input, textarea {
-      margin-bottom: $space;
-    }
+}
 
-    textarea {
-      width: 50%;
-    }
+.contact-form {
+  input, textarea {
+    margin-bottom: $space;
+    border-radius: 0;
+    border: $borderSingle;
+    font-family: $fontStack;
+    padding-left: $space / 2;
   }
 
-  @media screen and (max-width: $siteWidth) {
-    textarea {
+  textarea {
+    width: 50%;
+    border-radius: 0;
+
+    @media screen and (max-width: $siteWidth) {
       width: 100%;
     }
   }
+}
+
+.form-success {
+  text-decoration: underline;
 }

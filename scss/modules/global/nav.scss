@@ -44,12 +44,13 @@
 
         .nav__dagger {
           display: inline-block;
-          transition: $transition;
+          transition: transform $transition;
         }
 
         &:hover {
           .nav__dagger {
-            transform: translateY(-5px);
+            //transform: translateY(-5px);
+            transform: rotate(45deg);
           }
         }
       }
@@ -67,12 +68,45 @@
 
     .nav__mobile {
       display: none;
-      align-items: flex-end; 
+      align-items: flex-end;
+      padding-left: $space * 2;
+      padding-bottom: $space / 2;
+      cursor: pointer;
 
       .nav__hamburger {
-        width: 32px;
-        height: 32px;
-        background: red;
+        width: 26px;
+        height: 23px;
+
+        .bar {
+          width: 100%;
+          background: $white;
+          height: 3px;
+          margin-bottom: 7px;
+          transform-origin: 13px 1.5px;
+          transition: $transition;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      &.active {
+        .nav__hamburger {
+          .bar {
+            &:first-child {
+              transform: translateY(10px) rotate(45deg);
+            }
+
+            &:nth-child(2) {
+              opacity: 0;
+            }
+
+            &:last-child {
+              transform: translateY(-10px) rotate(-45deg);
+            }
+          }
+        }
       }
     }
   }
@@ -80,7 +114,7 @@
   .nav__item {
     @include padding(1, 0);
     line-height: 1;
-    //text-transform: uppercase;
+    text-transform: uppercase;
     position: relative;
 
     a {
@@ -126,21 +160,11 @@
         height: auto;
         transform: translateY(1px);
       }
-
-      a:hover {
-        opacity: 0.5;
-      }
     }
   }
 
   @media screen and (max-width: $mobile) {
     position: absolute; // changes to fixed &.active
-
-    .nav__inner {
-      .nav__mobile {
-        display: flex;
-      }
-    }
   }
 
   &.active {
@@ -153,11 +177,23 @@
     }
   }
 
+  @media screen and (max-width: $tablet) {
+    .nav__inner {
+      .nav__mobile {
+        display: flex;
+      }
+    }
+  }
+
   @media screen and (max-width: $siteWidth + $space * 8) {
     .nav__inner {
       width: 100%;
       padding-left: $space * 2;
-      padding-right: $space * 2;
+      padding-right: $space; // give some space to hamburger
+
+      .nav__mobile {
+        padding-right: $space;
+      }
     }
   }
 }

@@ -9,10 +9,13 @@ $colourNavActive: $black;
 $colourBreadcrumb: #ddd;
 $colourBreadcrumbText: #444;
 $colourText: $black;
+$colourMobileMenu: rgba($black, 0.9);
 
 // gradients/ backgrounds
 $backgroundCartForm: linear-gradient(to right, $colourBreadcrumb, lighten($colourBreadcrumb, 25%));
 $backgroundCustom: repeating-linear-gradient(-45deg, $black, $black 1px, rgba($black, 0) 1px, rgba($black, 0) 8px);
+$backgroundCustomAlt: repeating-linear-gradient(-45deg, rgba($white, 0), rgba($white, 0.05) 32px);
+$backgroundImage1: url("https://cdn.shopify.com/s/files/1/1950/6433/files/crosshatch64.png?17626610360363650453");
 
 // size
 $space: 8px;
@@ -32,9 +35,10 @@ $indexNav: 100;
 $indexNavDropdown: 90;
 $indexPromo: 101;
 $indexFooter: 10;
-$zMenu: 50;
-$zLandingPage: 200;
-$zLoadingScreen: 300;
+$indexMobileMenu: 90;
+$indexAudioIcon: 95;
+$indexLandingPage: 200;
+$indexLoadingScreen: 300;
 $indexPassword: 999;
 
 // transition
@@ -48,3 +52,4 @@ $border: 4px double $white;
 $borderBlack: 4px double $black;
 $borderSingle: 1px solid $black;
 $borderDouble: $borderBlack;
+$borderBlock: $space*2 solid $black;

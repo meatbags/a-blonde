@@ -9,7 +9,7 @@
       <div class='index-featured__content'>
         <a href='{{ collections[settings.index_featured_collection].url }}'>
           <div class='title'>{{ collections[settings.index_featured_collection].title }}</div>
-          <div class='link'>&larr; View Collection</div>
+          <div class='link'>&#9769; View Collection &#9769;</div>
         </a>
       </div>
     </div>
@@ -34,16 +34,23 @@
       <img src='{{ settings.index_about_image | img_url: "master" }}' alt=''/>
     </div>
   </div>
+  <div class='index-about__mobile'>
+    &#10016;
+    Al<span class='red'>a</span>bama <span class='red'>B</span>londe
+    {{ settings.index_about_text }}
+  </div>
 </div>
 
 <div class='content content--index'>
   {% comment %} LATEST BLOGS.BLOG POSTS (3) {% endcomment %}
   <div class='index-row'>
     <div class='index-row__heading'>
-      Upcoming Events/ Blog
-    </div>
-    <div class='index-row__subheading'>
-      <a href='/blogs/blog/'>See all blog posts</a>
+      <div class='heading'>
+        Events/ Blog
+      </div>
+      <div class='subheading'>
+        <a href='/blogs/blog/'>&#9769; Browse all &#9769;</a>
+      </div>
     </div>
     <div class='index-row__inner'>
       {% assign index = 0 %}
@@ -71,12 +78,14 @@
   </div>
 
   {% comment %} LATEST BLOG.VIDEO POSTS (2) {% endcomment %}
-  <div class='index-row'>
+  <div class='index-row index-row--alt'>
     <div class='index-row__heading'>
-      Recent Videos
-    </div>
-    <div class='index-row__subheading'>
-      <a href='/blogs/video/'>See all videos</a>
+      <div class='heading'>
+        Videos
+      </div>
+      <div class='subheading'>
+        <a href='/blogs/video/'>&#9769; See all videos &#9769;</a>
+      </div>
     </div>
     <div class='index-row__inner'>
       {% assign index = 0 %}
@@ -96,6 +105,9 @@
                 <div class='index-row__title'>
                   {{ article.title }}
                 </div>
+                <div class='index-row__excerpt'>
+                  {{ article.excerpt }}
+                </div>
               </div>
             </a>
           </div>
@@ -108,10 +120,12 @@
   {% comment %} LATEST BLOG.EDITORIALS POSTS (3) {% endcomment %}
   <div class='index-row'>
     <div class='index-row__heading'>
-      Editorials
-    </div>
-    <div class='index-row__subheading'>
-      <a href='/blogs/editorials/'>See all editorials</a>
+      <div class='heading'>
+        Editorials
+      </div>
+      <div class='subheading'>
+        <a href='/blogs/editorials/'>&#9769; Browse all editorials &#9769;</a>
+      </div>
     </div>
     <div class='index-row__inner'>
       {% assign index = 0 %}

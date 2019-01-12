@@ -13,28 +13,11 @@
 	padding-right: $space * $x;
 }
 
-@mixin pad-y($y) {
-	padding-top: $space * $y;
-	padding-bottom: $space * $y;
-}
-
-@mixin pad-x($x) {
-	padding-left: $space * $x;
-	padding-right: $space * $x;
-}
-
-@mixin pad-xy($x, $y) {
-	padding-top: $space * $y;
-	padding-bottom: $space * $y;
-	padding-left: $space * $x;
-	padding-right: $space * $x;
-}
-
-@mixin pad($t, $l, $b, $r) {
-	padding-top: $space * $t;
-	padding-bottom: $space * $b;
-	padding-left: $space * $l;
-	padding-right: $space * $r;
+@mixin margin($x, $y) {
+	margin-top: $space * $y;
+	margin-bottom: $space * $y;
+	margin-left: $space * $x;
+	margin-right: $space * $x;
 }
 
 .tablet-hide {

@@ -11,7 +11,10 @@ class NavBar {
       nav: document.querySelector('.nav'),
       promo: document.querySelector('.promo'),
       items: document.querySelectorAll('.nav__item'),
-      dropdowns: document.querySelectorAll('.nav-dropdown')
+      dropdowns: document.querySelectorAll('.nav-dropdown'),
+      mobileMenuButton: document.querySelector('#mobile-menu-button'),
+      closeMenuButton: document.querySelector('#close-mobile-menu'),
+      mobileMenu: document.querySelector('#mobile-menu')
     };
 
     // bind events
@@ -25,6 +28,20 @@ class NavBar {
       el.addEventListener('mouseleave', evt => {
         evt.currentTarget.classList.remove('active');
       });
+    });
+    this.target.mobileMenuButton.addEventListener('touchstart', evt => {
+      evt.preventDefault();
+      this.toggleMenu();
+    });
+    this.target.mobileMenuButton.addEventListener('mousedown', evt => {
+      this.toggleMenu();
+    });
+    this.target.closeMenuButton.addEventListener('touchstart', evt => {
+      evt.preventDefault();
+      this.toggleMenu();
+    });
+    this.target.closeMenuButton.addEventListener('mousedown', evt => {
+      this.toggleMenu();
     });
 
     // init scroll
@@ -59,6 +76,7 @@ class NavBar {
     // slide nav up and then snap
     if (y < 1) {
       this.target.nav.classList.remove('active');
+      this.target.mobileMenu.classList.remove('menu-active');
       if (!this.isMobile) {
         this.target.nav.style.transform = `translateY(0px)`;
       }
@@ -67,14 +85,25 @@ class NavBar {
       }
     } else if (y <= this.navThreshold) {
       this.target.nav.classList.remove('active');
+      this.target.mobileMenu.classList.remove('menu-active');
       if (!this.isMobile) {
         this.target.nav.style.transform = `translateY(${-y}px)`;
       }
     } else {
       this.target.nav.classList.add('active');
+      this.target.mobileMenu.classList.add('menu-active');
       if (this.target.promo) {
         this.target.promo.classList.add('active');
       }
+    }
+  }
+
+  toggleMenu() {
+    this.target.mobileMenuButton.classList.toggle('active');
+    if (this.target.mobileMenuButton.classList.contains('active')) {
+      this.target.mobileMenu.classList.add('active');
+    } else {
+      this.target.mobileMenu.classList.remove('active');
     }
   }
 }
