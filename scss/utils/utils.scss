@@ -37,16 +37,34 @@
 	padding-right: $space * $r;
 }
 
+.tablet-hide {
+	@media screen and (max-width: $tablet) {
+		display: none !important;
+	}
+}
+
+.tablet-show {
+	display: none;
+
+	@media screen and (max-width: $tablet) {
+		display: block;
+
+		&.mobile-inline {
+			display: inline;
+		}
+	}
+}
+
 .mobile-hide {
-	@media screen and (max-width: $medium) {
-		display: none;
+	@media screen and (max-width: $mobile) {
+		display: none !important;
 	}
 }
 
 .mobile-show {
 	display: none;
 
-	@media screen and (max-width: $medium) {
+	@media screen and (max-width: $mobile) {
 		display: block;
 
 		&.mobile-inline {

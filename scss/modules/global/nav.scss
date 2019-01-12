@@ -20,7 +20,7 @@
     height: 100%;
     display: flex;
     justify-content: space-between;
-    padding-bottom: $space / 2;
+    padding-bottom: $space;
 
     .nav__main {
       height: 100%;
@@ -33,7 +33,6 @@
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      padding-bottom: $space / 2;
       font-size: $fontLarge;
       line-height: $fontLarge - 3px;
 
@@ -59,11 +58,27 @@
         width: 100%;
         height: auto;
       }
+
+      @media screen and (max-width: $mobile) {
+        font-size: $fontLargeMobile;
+        letter-spacing: normal;
+      }
+    }
+
+    .nav__mobile {
+      display: none;
+      align-items: flex-end; 
+
+      .nav__hamburger {
+        width: 32px;
+        height: 32px;
+        background: red;
+      }
     }
   }
 
   .nav__item {
-    @include padding(1, 0.5);
+    @include padding(1, 0);
     line-height: 1;
     //text-transform: uppercase;
     position: relative;
@@ -87,7 +102,7 @@
         height: 6px;
         border-bottom: 1px solid $white;
         border-right: 1px solid $white;
-        transform: translate(0px, -2px) rotate(45deg);
+        transform: translate(0px, -3px) rotate(45deg);
       }
 
       &:hover {
@@ -103,12 +118,13 @@
     }
 
     &.nav__item--icon {
-      @include padding(0.5, 0.5);
-      padding-bottom: $space / 2 - 1px;
+      padding-left: $space / 2;
+      padding-right: 0;
 
       img {
         width: 20px;
         height: auto;
+        transform: translateY(1px);
       }
 
       a:hover {
@@ -117,16 +133,27 @@
     }
   }
 
+  @media screen and (max-width: $mobile) {
+    position: absolute; // changes to fixed &.active
+
+    .nav__inner {
+      .nav__mobile {
+        display: flex;
+      }
+    }
+  }
+
   &.active {
 		transform: translateY(-$navThreshold) !important;
-		background: darken($colourNav, 20%);
+		background: $colourNavActive;
+    position: fixed;
 
     .nav__title {
       color: $red;
     }
   }
 
-  @media screen and (max-width: $siteWidth) {
+  @media screen and (max-width: $siteWidth + $space * 8) {
     .nav__inner {
       width: 100%;
       padding-left: $space * 2;

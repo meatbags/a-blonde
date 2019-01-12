@@ -1,3 +1,6 @@
-<div class='index-instagram'>
-  [instagram feed loads here]
-</div>
+
+{% if settings.enable_instagram_feed %}
+  <div class='index-instagram'>
+    [instagram feed loads here]
+  </div>
+{% endif %}

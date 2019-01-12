@@ -29,11 +29,11 @@
 				align-items: flex-end;
 				justify-content: flex-end;
 				opacity: 0;
-				transition: $transitionSlow;
+				//transition: $transitionSlow;
 
 				.popup {
 					@include pad(0.5, 1, 0.5, 1);
-					font-size: $fontSmaller;
+					font-size: $fontSmall;
 					background: $white;
 					overflow: hidden;
 					margin: $space * 2;
@@ -84,12 +84,12 @@
 
 			.name {
 				width: 100%;
-				font-size: $fontSmaller;
+				font-size: $fontSmall;
 			}
 
 			.price {
 				width: 100%;
-				font-size: $fontSmaller;
+				font-size: $fontSmall;
 				text-align: left;
 			}
 		}

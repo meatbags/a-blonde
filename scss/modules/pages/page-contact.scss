@@ -1,9 +1,15 @@
-.contact-page {
+.page--contact {
   .contact-form {
     input, textarea {
       margin-bottom: $space;
     }
 
+    textarea {
+      width: 50%;
+    }
+  }
+
+  @media screen and (max-width: $siteWidth) {
     textarea {
       width: 100%;
     }

@@ -13,7 +13,7 @@
 			</div>
 		{% endfor %}
 
-		<!-- medium -->
+		{% comment %} MEDIUM SCREEN {% endcomment %}
 		{% for i in (0..1) %}
 			<div class="columns__column columns__column-half">
 				{% assign index = 0 %}
@@ -26,18 +26,5 @@
 				{% endfor %}
 			</div>
 		{% endfor %}
-
-		<!-- small/ mobile screen -->
-		<div class="columns__column columns__column-single">
-			{% for product in collection.products %}
-				{% include 'GRID_SINGLE_item_product' %}
-			{% endfor %}
-		</div>
-	</div>
-{% endif %}
-
-{% if collection.description != blank %}
-	<div class='page thin credits'>
-		<p>{{ collection.description }}</p>
 	</div>
 {% endif %}

@@ -1,0 +1,130 @@
+.cart-checkout {
+  width: 38%;
+  padding: $space;
+  font-size: $fontSize;
+
+  .checkout {
+    padding: $space * 2;
+    background: $backgroundCartForm;
+    border: $borderSingle;
+
+    .checkout-title {
+      width: 100%;
+      font-size: $fontLarge;
+      border-bottom: 1px solid black;
+      padding-bottom: $space;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: inherit;
+    }
+
+    .checkout-subtotal {
+      padding-top: $space * 3;
+      padding-bottom: $space;
+
+      .tax-notice {
+        font-size: $fontSmall;
+      }
+    }
+
+    .instructions {
+      @include padding(0, 1);
+      padding-right: $space * 3;
+      width: 100%;
+
+      .title {
+        font-size: $fontSmall;
+        padding-bottom: $space;
+        font-style: italic;
+      }
+
+      textarea {
+        width: 100%;
+        font-size: $fontSmall;
+      }
+    }
+
+    .checkout-buttons {
+      @include padding(0, 1);
+      width: 100%;
+
+      button {
+        border-radius: 0;
+        padding: $space;
+        font-family: $fontStack;
+        font-size: $fontSize;
+        font-weight: normal;
+      }
+
+      .update-cart {
+        padding-bottom: $space / 2;
+        border: none;
+        text-decoration: underline;
+        font-size: $fontSmall;
+        margin-bottom: $space / 2;
+        background: none;
+        padding-left: 0;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+
+      .checkout-cart {
+        border: $borderBlack;
+        @include pad(1, 2, 1, 2);
+      }
+    }
+
+    .disclaimers {
+      width: 100%;
+      font-size: $fontSmall;
+    }
+
+    .payments {
+      font-size: $fontSmall;
+      font-style: italic;
+      display: flex;
+
+      .payment-type {
+        img {
+          width: 28px;
+          filter: saturate(50%);
+          padding-right: $space / 2;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $mobile) {
+		width: 100%;
+		padding: 0;
+		text-align: left;
+
+		.checkout {
+			.checkout-buttons {
+				align-items: flex-start;
+				justify-content: flex-start;
+				flex-direction: column;
+
+				.update-cart {
+					@include pad(0.5, 0, 0.5, 0);
+				}
+
+				.checkout-cart {
+					margin-top: $space;
+				}
+			}
+
+			.instructions {
+				@include pad(1, 0, 2.5, 0);
+			}
+
+			.payments {
+				justify-content: flex-start;
+			}
+		}
+  }
+}

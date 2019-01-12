@@ -1,3 +1,11 @@
 <div class='content'>
+	{% comment %} PRODUCT COLUMNS {% endcomment %}
 	{% include 'GRID_collection_products' %}
+
+	{% comment %} COLLECTION DESCRIPTION {% endcomment %}
+	{% if collection.description != blank %}
+		<div class='page credits'>
+			<p>{{ collection.description }}</p>
+		</div>
+	{% endif %}
 </div>

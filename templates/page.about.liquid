@@ -1,0 +1,21 @@
+{% comment %}
+  ~/pages/about
+  ~/pages/brand
+{% endcomment %}
+
+<div class='page--about__banner'>
+  {% if page.handle == 'about' %}
+    <img src='{{ settings.about_page_image | img_url: "master" }}' alt=''/>
+  {% else %}
+    <img src='{{ settings.brand_page_image | img_url: "master" }}' alt=''/>
+  {% endif %}
+</div>
+<div class='content'>
+	<div class='page page--about'>
+    <h1 class='page--about__title'>{{ page.title }}</h1>
+    <div class='page--about__info'>
+      {{ page.published_at | date: "%a, %b %d, %y" }}
+    </div>
+		{{ page.content }}
+	</div>
+</div>

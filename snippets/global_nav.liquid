@@ -11,13 +11,13 @@
 				<a href='/'>Alabama <span class='nav__dagger'>&dagger;</span> Blonde</a>
 			</div>
 		</div>
-		<div class='nav__main'>
+		<div class='nav__main tablet-hide'>
 			<div class='nav__item'><a href='/#home'>Home<div class='nav__slider'></div></a></div>
-			<div class='nav__item'><a href='/pages/about'>About&nbsp;<div class='dropdown-hint'></div><div class='nav__slider'></div></a></div>
-			<div class='nav__item'><a href='/pages/blogs'>Blog<div class='nav__slider'></div></a></div>
-			<div class='nav__item'><a href='/pages/editorials'>Editorial<div class='nav__slider'></div></a></div>
-			<div class='nav__item'><a href='/collections/'>Shop&nbsp;<div class='dropdown-hint'></div><div class='nav__slider'></div></a></div>
-			<div class='nav__item'><a href='/pages/contact'>Contact<div class='nav__slider'></div></a></div>
+			<div class='nav__item' data-target='#dropdown-about'><a href='/pages/about/'>About&nbsp;<div class='dropdown-hint'></div><div class='nav__slider'></div></a></div>
+			<div class='nav__item'><a href='/blogs/blog/'>Blog<div class='nav__slider'></div></a></div>
+			<div class='nav__item'><a href='/blogs/editorials/'>Editorial<div class='nav__slider'></div></a></div>
+			<div class='nav__item' data-target='#dropdown-shop'><a href='/collections/'>Shop&nbsp;<div class='dropdown-hint'></div><div class='nav__slider'></div></a></div>
+			<div class='nav__item'><a href='/pages/contact/'>Contact<div class='nav__slider'></div></a></div>
 			<div class='nav__item nav__item--icon'>
 				<a href='https://www.instagram.com/alabamablonde' target='_blank'>
 					{{ 'insta.png' | asset_url | img_tag }}
@@ -29,10 +29,26 @@
 				</a>
 			</div>
 		</div>
+		<div class='nav__mobile'>
+			<div class='nav__hamburger'></div>
+		</div>
 	</div>
 </div>
 
-{% unless template == 'index' %}
+<div id='dropdown-about' class='nav-dropdown'>
+	<div class='nav-dropdown__inner'>
+		<div class='nav-dropdown__item'><a href='/pages/about/'>About</a></div>
+		<div class='nav-dropdown__item'><a href='/pages/brand/'>Brand</a></div>
+	</div>
+</div>
+<div id='dropdown-shop' class='nav-dropdown'>
+	<div class='nav-dropdown__inner'>
+		<div class='nav-dropdown__item'><a href='/collections/'>Collections</a></div>
+		<div class='nav-dropdown__item'><a href='/pages/bespoke/'>Bespoke</a></div>
+	</div>
+</div>
+
+{% unless template == 'index' or template == 'page.about' %}
 	{% include 'breadcrumb' %}
 {% endunless %}
 {% if template contains 'collection' and collection.handle == 'all' %}

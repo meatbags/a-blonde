@@ -23,8 +23,7 @@
 
   .promo__inner {
     width: 100%;
-    font-family: $fontStackSansSerif;
-    font-size: $fontTiny;
+    font-size: $fontSmall;
     transform: translateY(0);
     transition: transform $transitionSlow;
 

@@ -6,7 +6,7 @@
 	align-items: center;
 
 	.content {
-		width: $large;
+		width: $siteWidth;
 		display: flex;
 		flex-direction: column;
 		padding-top: $space * 2;
@@ -15,8 +15,10 @@
 			padding-top: 0;
 		}
 
-		@media screen and (max-width: $large) {
+		@media screen and (max-width: $siteWidth) {
+	   	@include padding(2, 0);
+			padding-top: $space * 2;
 			width: 100%;
-		}
+	  }
 	}
 }

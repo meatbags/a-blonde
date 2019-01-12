@@ -18,6 +18,7 @@ body, html {
 	font-family: $fontStack;
 	font-size: $fontSize;
 	letter-spacing: $letterSpacing;
+  line-height: $lineHeight;
 	margin: 0;
 	padding: 0;
 	color: $colourText;
@@ -26,14 +27,6 @@ body, html {
 
 	&.freeze {
 		//overflow: hidden;
-	}
-
-	@media screen and (max-width: $medium) {
-		font-size: $fontMedium;
-	}
-
-	@media screen and (max-width: $small) {
-		font-size: $fontSmall;
 	}
 }
 
@@ -80,5 +73,5 @@ h1 {
 }
 
 h2 {
-	font-size: $fontMedium;
+	font-size: $fontSize;
 }

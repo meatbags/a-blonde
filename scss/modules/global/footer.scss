@@ -11,7 +11,7 @@
 	z-index: $indexFooter;
 
 	.footer__inner {
-		width: $large;
+		width: $siteWidth;
 		padding: $space;
 		display: flex;
 
@@ -39,20 +39,8 @@
 			}
 		}
 
-		@media screen and (max-width: $large) {
+		@media screen and (max-width: $siteWidth) {
 			width: 100%;
-		}
-	}
-
-	@media screen and (max-width: $mobile) {
-		font-size: $fontSmaller;
-
-		.footer__inner {
-			padding: $space / 2;
-
-			.column {
-				padding: $space / 2;
-			}
 		}
 	}
 }

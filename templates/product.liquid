@@ -1,13 +1,19 @@
 <!-- /templates/product.liquid -->
 
 <div class='content'>
-  <div class='page'>
+  <div class='page page--product'>
     <div itemscope itemtype="http://schema.org/Product">
       <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
       <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
       {% assign current_variant = product.selected_or_first_available_variant %}
 
     	<div class='product-page'>
+        {% comment %} PRODUCT TITLE {% endcomment %}
+        <div class='product-page__title'>
+          {{ product.title }}
+        </div>
+
+        {% comment %} IMAGE SELECTOR {% endcomment %}
         <div class='product-page__gallery'>
           {% assign i = 0 %}
           {% for image in product.images %}
@@ -18,6 +24,7 @@
       		{% endfor %}
         </div>
 
+        {% comment %} IMAGE {% endcomment %}
         <div class='product-page__image'>
           <div class='product-page__image__inner'>
             {% assign i = 0 %}
@@ -30,14 +37,13 @@
           </div>
         </div>
 
+        {% comment %} PRODUCT INFORMATION {% endcomment %}
         <div class='product-page__info'>
-          <div class='name'>
-            {{ product.title }}
-          </div>
-          <div class='description'>
+          <div class='product-page__description'>
             {{ product.description }}
           </div>
-          &dagger;
+
+          {% comment %} ORDER FORM {% endcomment %}
           <div class="product-page__orders" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
       			<meta itemprop="priceCurrency" content="{{ shop.currency }}">
       			<link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
@@ -81,7 +87,6 @@
     						Item/s added <a class="underline" href="/cart">View Cart</a>
     					</div>
       			</form>
-
       		</div> <!-- /product-page__orders -->
         </div>
     	</div>
@@ -89,7 +94,6 @@
   </div>
 
   {{ 'option_selection.js' | shopify_asset_url | script_tag }}
-
   <script>
     var selectCallback = function(variant, selector) {
       timber.productPage({

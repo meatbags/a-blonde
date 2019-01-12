@@ -66,7 +66,9 @@ $bottom: #b20019;
 		padding: $space * 12;
 		cursor: pointer;
 		z-index: $zLandingPage + 3;
-    font-size: $fontLarge;
+		color: $white;
+		font-size: $fontLarge;
+		font-family: $fontStackCursive;
 
 		.landing-page__prompt__inner {
 			padding: $space;
@@ -74,21 +76,15 @@ $bottom: #b20019;
 		}
 
 		&:hover {
-			.landing-page__prompt__inner {
-				border-bottom: $border;
-			}
+			color: $colourHover;
 		}
 
-		@media screen and (max-width: $medium) {
+		&:active {
+			color: $colourActive;
+		}
+
+		@media screen and (max-width: $tablet) {
 			padding: $space * 4;
-		}
-
-		@media screen and (max-width: $medium) {
-			font-size: $fontMedium;
-
-			.landing-page__prompt__inner {
-				border-bottom: $border;
-			}
 		}
 	}
 

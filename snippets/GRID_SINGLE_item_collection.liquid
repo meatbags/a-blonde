@@ -1,16 +1,18 @@
 {% comment %} SINGLE COLLECTION GRID ITEM {% endcomment %}
 <div class='grid-item'>
 	<div class='grid-item__inner'>
-		<a href="{{ collection.url }}">
-			<div class='grid-item__image'>
-				{{ collection.image.src | img_url: 'grande' | img_tag: collection_title }}
-			</div>
-			<div class='grid-item__prompt'>
-				<div class='grid-item__content'>
-					<div class='grid-item__title'>{{ collection.title }}</div>
-					<div class='grid-item__subtitle'>&dagger;</div>
+		<div class='grid-item__upper'>
+			<a href="{{ collection.url }}">
+				<div class='grid-item__image'>
+					{{ collection.image.src | img_url: 'grande' | img_tag: collection_title }}
 				</div>
-			</div>
-		</a>
+				<div class='grid-item__prompt'>
+					<div class='grid-item__content'>
+						<div class='grid-item__title'>{{ collection.title }}</div>
+						<div class='grid-item__subtitle'>&dagger;</div>
+					</div>
+				</div>
+			</a>
+		</div>
 	</div>
 </div>

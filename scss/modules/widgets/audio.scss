@@ -36,12 +36,7 @@
 		text-decoration: line-through;
 	}
 
-	@media screen and (max-width: $large) {
-		left: auto;
-		right: 0;
-	}
-
-	@media screen and (max-width: $medium) {
+	@media screen and (max-width: $tablet) {
 		display: none;
 	}
 }

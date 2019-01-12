@@ -53,6 +53,19 @@
       }
     ]
   }, {
+      "name": "About/ Brand Page",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "about_page_image",
+          "label": "About Page Banner Image"
+        }, {
+          "type": "image_picker",
+          "id": "brand_page_image",
+          "label": "Brand Page Banner Image"
+        }
+      ]
+  }, {
     "name": "Cart page",
     "settings": [
       {
@@ -83,26 +96,26 @@
     ]
   }, {
     "name": "Social media",
-    "settings": [
-      {
+    "settings": [{
+        "type": "checkbox",
+        "id": "enable_instagram_feed",
+        "label": "Enable Instagram Feed"
+      }, {
         "type": "text",
         "id": "social_twitter_link",
         "label": "Twitter URL",
         "info": "https:\/\/twitter.com\/shopify"
-      },
-      {
+      }, {
         "type": "text",
         "id": "social_facebook_link",
         "label": "Facebook URL",
         "info": "https:\/\/www.facebook.com\/shopify"
-      },
-	  {
+      }, {
         "type": "text",
         "id": "social_instagram_link",
         "label": "Instagram URL",
         "info": "https:\/\/instagram.com\/shopify"
-      },
-	  {
+      }, {
         "type": "text",
         "id": "social_pinterest_link",
         "label": "Pinterest URL",

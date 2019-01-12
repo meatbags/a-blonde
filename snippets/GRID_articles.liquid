@@ -3,11 +3,10 @@
 	<div class="columns__column columns__column-third">
 		{% assign index = 0 %}
 		{% assign colNo = 1 %}
-		{% for link in linklists.all-collections.links %}
-		{% assign collection = link.object %}
+		{% for article in blog.articles %}
 			{% assign test = index | minus:i | modulo:3 %}
 			{% if test == 0 %}
-				{% include 'GRID_SINGLE_item_collection' %}
+				{% include 'GRID_SINGLE_article' %}
 			{% endif %}
 			{% assign index = index | plus: 1 %}
 			{% assign colNo = colNo | plus: 1 %}
@@ -20,11 +19,10 @@
 	<div class="columns__column columns__column-half">
 		{% assign index = 0 %}
 		{% assign colNo = 1 %}
-		{% for link in linklists.all-collections.links %}
-		{% assign collection = link.object %}
+		{% for article in blog.articles %}
 			{% assign test = index | minus:i | modulo:2 %}
 			{% if test == 0 %}
-				{% include 'GRID_SINGLE_item_collection' %}
+				{% include 'GRID_SINGLE_article' %}
 			{% endif %}
 			{% assign index = index | plus: 1 %}
 			{% assign colNo = colNo | plus: 1 %}

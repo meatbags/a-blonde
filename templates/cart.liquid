@@ -10,7 +10,7 @@
 		<div class='page'>
 			<form class='cart table-wrap' action="/cart" method="post" novalidate>
 				<div class='cart-products'>
-					<div class='cart-products-title'>Cart.</div>
+					<div class='cart-products-title'>Cart</div>
 					{% for item in cart.items %}
 						<div class='cart-item'>
 							<div class='cart-item__image'>
@@ -29,7 +29,7 @@
 									</div>
 									<div class='remove'>
 										<a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove">
-											<span class="font-smaller underline mobile-hide">Remove &oslash;</span>
+											<span class="font-smaller underline mobile-hide">Remove</span>
 											<span class="font-smaller mobile-show">&times;</span>
 						        </a>
 									</div>
@@ -56,7 +56,7 @@
 
 				<div class='cart-checkout'>
 					<div class='checkout'>
-						<div class='checkout-title'>Checkout.</div>
+						<div class='checkout-title'>Checkout</div>
 
 						<div class='checkout-subtotal'>
 							{{ 'cart.general.subtotal' | t }}&nbsp;{{ cart.total_price | money }}

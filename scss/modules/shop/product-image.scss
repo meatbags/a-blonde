@@ -1,0 +1,39 @@
+.product-page__image {
+  width: 55%;
+  @include padding(1, 0);
+
+  .product-page__image__inner {
+    width: 100%;
+    overflow: visible;
+    position: relative;
+
+    .list-item {
+      position: relative;
+      pointer-events: none;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        opacity: 0;
+        //transition: $transitionSlow;
+      }
+
+      &.active {
+        pointer-events: all;
+
+        img {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $mobile) {
+    width: 87.5%;
+    min-height: 65vh;
+    padding: $space;
+  }
+}

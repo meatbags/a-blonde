@@ -8,21 +8,24 @@
   background: $colourBreadcrumb;
   display: flex;
   justify-content: center;
-  font-size: $fontSmall;
+  font-size: $fontSize;
   color: $colourBreadcrumbText;
 
   .breadcrumb__inner {
-    width: $large;
+    width: $siteWidth;
     height: 100%;
     display: flex;
-    flex-wrap: wrap;
+    //flex-wrap: wrap;
     align-items: center;
+    overflow: hidden;
 
     .list-item {
       padding-right: $space;
       padding-left: $space;
+      overflow: hidden;
       text-overflow: ellipsis;
       text-transform: capitalize;
+      white-space: nowrap;
 
       a {
         &:hover {
@@ -44,33 +47,24 @@
         }
       }
     }
+  }
 
-    @media screen and (max-width: $large) {
+  @media screen and (max-width: $siteWidth) {
+    .breadcrumb__inner {
       width: 100%;
+      @include padding(2, 0);
     }
   }
 
   @media screen and (max-width: $mobile) {
-    font-size: $fontSmaller;
+    font-size: $fontSmall;
     height: $navHeight + $sizeSubNav * 0.75;
 
-    .sub-nav__inner {
-      @include pad(0, 2, 0, 1);
-
+    .breadcrumb__inner {
       .list-item {
         padding-right: $space * 0.5;
         padding-left: $space * 0.5;
-
-        &:nth-child(3) {
-          white-space: nowrap;
-          max-width: 100px;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
-
-        &:last-child {
-          max-width: 100%;
-        }
+        max-width: 200px;
       }
     }
   }

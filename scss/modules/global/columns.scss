@@ -24,7 +24,7 @@
 			padding-left: $space * 0.66;
 		}
 
-		@media screen and (min-width: $medium) {
+		@media screen and (min-width: $tablet) {
 			display: block;
 		}
 	}
@@ -40,8 +40,7 @@
 			padding-left: $space / 2;
 		}
 
-		@media screen and (max-width: $medium - 1) {
-			//and (min-width: $small)
+		@media screen and (max-width: $tablet - 1) {
 			display: block;
 		}
 
@@ -52,15 +51,6 @@
 			&:nth-child(5) {
 				padding-left: $space / 3;
 			}
-		}
-	}
-
-	.columns__column-single {
-		width: 100%;
-		display: none;
-
-		@media screen and (max-width: $small - 1) {
-			//display: block;
 		}
 	}
 }

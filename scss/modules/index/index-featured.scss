@@ -39,26 +39,29 @@
       width: $siteWidth;
 
       .index-featured__content {
-        max-width: 300px;
-        padding-bottom: $space * 6;
+        max-width: 320px;
+        margin-bottom: $space * 6;
         display: inline-block;
+        border-color: $white;
+        @include padding(0, 1);
         color: $white;
 
         .title {
           font-size: $fontLarge;
           font-family: $fontStackCursive;
-          border-bottom: $borderBlack;
+          border-bottom: $borderSingle;
           border-color: $white;
           padding-bottom: $space;
         }
 
         .link {
-          padding-top: $space / 2;
+          padding-top: $space;
           text-transform: uppercase;
         }
 
         &:hover {
           color: $colourHover;
+          border-color: $colourHover;
 
           .title {
             border-color: $colourHover;
@@ -66,9 +69,17 @@
         }
       }
 
-      @media screen and (max-width: $siteWidth) {
+      @media screen and (max-width: $siteWidth + $space * 8) {
         width: 100%;
+
+        .index-featured__content {
+          padding-left: $space * 4;
+        }
       }
     }
+  }
+
+  @media screen and (max-width: $mobile) {
+    height: 75vh;
   }
 }

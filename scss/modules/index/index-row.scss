@@ -6,6 +6,9 @@
     padding-top: $space;
     font-size: $fontLarge;
     font-family: $fontStackCursive;
+    font-weight: bold;
+    //text-transform: uppercase;
+    //text-decoration: underline;
   }
 
   .index-row__subheading {
@@ -47,7 +50,6 @@
           .index-row__prompt {
             position: absolute;
             opacity: 0;
-            padding: $space;
             top: 0;
             left: 0;
             width: 100%;
@@ -56,6 +58,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            pointer-events: none;
+            z-index: 10;
 
             svg {}
           }
@@ -75,13 +79,15 @@
         }
 
         &:hover {
-          .index-row__image img {
-            transform: scale(1.05, 1.05);
-            filter: grayscale(50%) contrast(150%);
-          }
+          .index-row__image {
+            .index-row__prompt {
+              opacity: 1;
+            }
 
-          .index-row__prompt {
-            opacity: 1;
+            img {
+              //transform: scale(1.05, 1.05);
+              filter: grayscale(50%) contrast(150%);
+            }
           }
         }
       }

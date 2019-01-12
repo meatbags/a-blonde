@@ -1,0 +1,39 @@
+.widget-newsletter {
+  @include padding(0, 6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .widget-newsletter__logo {
+    padding-bottom: $space * 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    img {
+      height: 200px;
+      width: auto;
+    }
+  }
+
+  .widget-newsletter__heading {
+    padding-bottom: $space;
+    text-transform: uppercase;
+  }
+
+  .widget-newsletter__form {
+    display: flex;
+
+    input[type=email] {
+      padding: $space;
+    }
+
+    button {
+      padding: $space;
+      margin-left: $space / 2;
+      border: $borderSingle;
+      outline: none;
+      font-weight: normal;
+    }
+  }
+}

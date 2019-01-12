@@ -4,22 +4,32 @@ $white: #fff;
 $red: #a8020e;
 $colourHover: magenta;
 $colourActive: yellow;
-$colourNav: #1c1c1c;
-$colourBreadcrumb: #aaa;
+$colourNav: $black;
+$colourNavActive: $black;
+$colourBreadcrumb: #ddd;
 $colourBreadcrumbText: #444;
 $colourText: $black;
+
+// gradients/ backgrounds
+$backgroundCartForm: linear-gradient(to right, $colourBreadcrumb, lighten($colourBreadcrumb, 25%));
+$backgroundCustom: repeating-linear-gradient(-45deg, $black, $black 1px, rgba($black, 0) 1px, rgba($black, 0) 8px);
 
 // size
 $space: 8px;
 $spaceBorder: $space / 3;
 $sizeSubNav: 50px;
 $sizeBreadcrumb: 35px;
-$siteWidth: 1160px;
-$navHeight: 74px;
+$navHeight: 90px;
 $navThreshold: 32px;
+
+// breakpoints
+$siteWidth: 1160px;
+$mobile: 700px;
+$tablet: 900px;
 
 // index
 $indexNav: 100;
+$indexNavDropdown: 90;
 $indexPromo: 101;
 $indexFooter: 10;
 $zMenu: 50;
@@ -33,13 +43,8 @@ $transitionNormal: 0.25s;
 $transitionSlow: 0.5s;
 $transitionSlower: 0.75s;
 
-// breakpoints
-$small: 480px;
-$mobile: 700px;
-$medium: 769px;
-$tablet: 960px;
-$large: $siteWidth;
-
 // borders
 $border: 4px double $white;
 $borderBlack: 4px double $black;
+$borderSingle: 1px solid $black;
+$borderDouble: $borderBlack;

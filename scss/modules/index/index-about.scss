@@ -14,9 +14,10 @@
       height: 100%;
       width: 100%;
       display: flex;
+      flex-direction: column;
       justify-content: flex-end;
-      border-bottom: $borderBlack;
-      //border-left: 1px solid $black;
+      align-items: flex-end;
+      //border-bottom: $borderBlack;
 
       .index-about__content {
         width: 80%;
@@ -25,35 +26,28 @@
         flex-direction: column;
         justify-content: flex-end;
         position: relative;
-        padding-right: $space * 3;
-        padding-bottom: $space * 2;
+        //padding-right: $space * 3;
+        padding-bottom: $space * 5;
         text-align: right;
 
         .index-about__title {
           font-weight: bold;
           font-size: $fontHuge;
           font-family: $fontStackCursive;
-          padding: $space;
+          padding-bottom: $space;
 
           .red {
             color: $red;
           }
         }
 
-        .index-about__text {
-          padding-bottom: $space * 4;
-        }
+        .index-about__text {}
+      }
 
-        .index-about__logo {
-          position: absolute;
-          top: 0;
-          left: 0;
-
-          img {
-            width: 40px;
-            height: auto;
-          }
-        }
+      .index-about__banner {
+        height: 80px;
+        width: 100%;
+        background: $backgroundCustom;
       }
     }
   }
@@ -73,6 +67,48 @@
         height: 100%;
         object-fit: cover;
         object-position: center;
+      }
+    }
+  }
+
+  @media screen and (max-width: $tablet) {
+    height: 60vh;
+  }
+
+  @media screen and (max-width: $mobile) {
+    flex-direction: column-reverse;
+    height: auto;
+
+    .index-about__right {
+      display: none;
+    }
+
+    .index-about__left {
+      width: 100%;
+
+      .index-about__inner {
+        .index-about__content {
+          width: 100%;
+          align-items: flex-end;
+          padding-bottom: $space * 4;
+          padding-top: $space * 4;
+
+          .index-about__title {
+            width: 100%;
+            font-size: $fontHugeMobile;
+            line-height: 1;
+            text-align: center;
+          }
+
+          .index-about__text {
+            width: 100%;
+            text-align: left;
+          }
+        }
+
+        .index-about__banner {
+          height: 20px;
+        }
       }
     }
   }

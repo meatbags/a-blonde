@@ -1,0 +1,32 @@
+.nav-dropdown {
+  position: fixed;
+  background: $white;
+  @include padding(2, 2);
+  z-index: $indexNavDropdown;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform $transition;
+  transform: translateY(-$space * 2);
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+
+  .nav-dropdown__inner {
+    @include padding(1.5, 1);
+    //padding-right: $space;
+    border: $borderSingle;
+
+    .nav-dropdown__item {
+      text-align: right;
+      text-decoration: underline;
+      padding-bottom: $space / 2;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
