@@ -1,0 +1,14 @@
+<div id='filter-sidebar' class='sidebar active'>
+  <div class='sidebar-title'>&#9769; Filter &#9769;</div>
+  <div class='sidebar-item'><a href='/collections/all/tops'>Tops</a></div>
+  <div class='sidebar-item'><a href='/collections/all/bottoms'>Bottoms</a></div>
+  <div class='sidebar-item'><a href='/collections/all/accessories'>Accessories</a></div>
+	{% for link in linklists.all-collections.links %}
+		{% assign collection = link.object %}
+		<div class='sidebar-item'>
+			<a href="{{ collection.url }}">
+				{{ collection.title }}
+			</a>
+		</div>
+	{% endfor %}
+</div>

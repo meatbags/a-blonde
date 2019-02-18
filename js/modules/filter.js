@@ -1,95 +1,63 @@
-/**
- ** filter.js
- ** - client-side product filtering
- **/
+/** Handle filter menu activation. */
 
 class Filter {
   constructor() {
-    this.tags = [];
-    this.pathname = window.location.pathname;
-    if (this.pathname.indexOf('/all') != -1) {
-      this.highlightTags();
-    } else {
-      this.prefix = this.pathname;
-    }
-    this.events();
-    $('.filters-list').removeClass('hidden');
-    // show tax notice
-    $('.tax-notice').removeClass('hidden');
-  }
-
-  events() {
-    $('.filter').on('click', (e) => {
-      $(e.currentTarget).toggleClass('active');
-      this.parseTag($(e.currentTarget).data('tag'));
-    });
-    $('.clear-tags').on('click', (e) => {
-      this.clearTags();
-    });
-  }
-
-  highlightTags() {
-    // get tags from URL and highlight on page
-    var p = this.pathname.split('/all/');
-
-    if (p.length > 1) {
-      var tagString = p[1];
-      this.tags = tagString.split('+');
-      this.prefix = p[0] + '/all';
-      this.sanitiseTags();
-      for (var i=0; i<this.tags.length; i++) {
-        $('.tag-' + this.tags[i]).addClass('active');
-      }
-    } else {
-      // reset
-      this.prefix = this.pathname;
+    this.target = document.querySelector('#filter-sidebar');
+    if (this.target) {
+      this.init();
     }
   }
 
-  sanitiseTags() {
-    // remove naughty, dirty tags
-    for (var i=this.tags.length; i>-1; --i) {
-      if (this.tags[i] === '') {
-        this.tags.splice(i, 1);
+  init() {
+    // set active sidebar
+    const href = window.location.href.replace(/\//g, '');
+    const pathname = window.location.pathname.replace(/\//g, '');
+    const items = this.target.querySelectorAll('.sidebar-item');
+    for (let i=0, lim=items.length; i<lim; ++i) {
+      const el = items[i];
+      const a = el.querySelector('a');
+      if (a && a.href) {
+        const match = a.href.replace(/\//g, '');
+        if (match == href || match == pathname) {
+          el.classList.add('active');
+          break;
+        }
       }
     }
-  }
 
-  parseTag(tag) {
-    // add or remove tag from list, apply to url
-    var unique = true;
-    for (var i=0; i<this.tags.length; ++i) {
-      if (this.tags[i] == tag) {
-        this.tags.splice(i, 1);
-        unique = false;
-        break;
+    // set active select filter
+    this.selectTarget = document.querySelector('#filter-select');
+    if (this.selectTarget) {
+      for (let i=0, lim=this.selectTarget.options.length; i<lim; ++i) {
+        const el = this.selectTarget.options[i];
+        if (el.value) {
+          const match = el.value.replace(/\//g, '');
+          if (match == href || match == pathname) {
+            this.selectTarget.value = el.value;
+            break;
+          }
+        }
       }
-    }
-    if (unique) {
-      this.tags.push(tag);
+
+      // listen for change
+      this.selectTarget.onchange = () => {
+        window.location.href = this.selectTarget.value;
+      };
     }
 
-    // TODO -- refactor
-    if (unique) {
-      this.tags = [tag];
+    // hide/show if off/on window
+    this.visibleThreshold = 4;
+    window.addEventListener('resize', () => { this.resize(); });
+    this.resize();
+  }
+
+  resize() {
+    const rect = this.target.getBoundingClientRect();
+    if (rect.left > this.visibleThreshold) {
+      this.target.classList.add('active');
     } else {
-      this.tags = [];
+      this.target.classList.remove('active');
     }
-
-    this.constructURL();
-  }
-
-  clearTags() {
-    // remove all tag filters
-    this.tags = [];
-    this.constructURL();
-  }
-
-  constructURL() {
-    // construct URL from tags, go there
-    var tagString = this.tags.join('+');
-    var href = window.location.origin + this.prefix + '/' + tagString;
-    window.location.href = href;
   }
 }
 

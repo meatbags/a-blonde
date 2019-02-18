@@ -24,12 +24,12 @@
     }, {
       "type": "image_picker",
       "id": "index_featured_image",
-      "label": "Featured Collection Image",
+      "label": "Featured Image",
       "info": "Suggested dimensions 1920 x 1080"
     }, {
-      "type": "collection",
-      "id": "index_featured_collection",
-      "label": "Featured Collection"
+      "type": "url",
+      "id": "index_featured_url",
+      "label": "Feature Image URL"
     }, {
       "type": "textarea",
       "id": "index_about_text",

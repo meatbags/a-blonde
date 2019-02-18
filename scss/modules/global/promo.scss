@@ -11,8 +11,9 @@
   overflow: hidden;
 
   &:hover {
-    background-color: $black;
+    //background-color: $black;
     color: $colourHover;
+    text-decoration: underline;
   }
 
   &.active {

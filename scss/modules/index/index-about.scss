@@ -41,7 +41,13 @@
           }
         }
 
-        .index-about__text {}
+        .index-about__text {
+          a {
+            font-size: $fontSmall;
+            text-transform: uppercase;
+            text-decoration: underline;
+          }
+        }
       }
 
       .index-about__banner {

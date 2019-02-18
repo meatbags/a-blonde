@@ -7,10 +7,11 @@
 
 	.content {
 		width: $siteWidth;
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		padding-top: $space * 2;
-
+		
 		&.content--index {
 			padding-top: 0;
 		}

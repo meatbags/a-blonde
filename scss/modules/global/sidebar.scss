@@ -1,0 +1,49 @@
+.sidebar {
+  position: absolute;
+  top: $space * 3;
+  right: $siteWidth + $space * 2;
+  width: $sizeSidebar;
+  background-color: $colourBreadcrumb;
+  display: flex;
+  flex-direction: column;
+  @include padding(1, 0.5);
+  padding-bottom: $space;
+  user-select: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $transition;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .sidebar-title {
+    padding-bottom: $space / 4;
+    margin-bottom: $space / 4;
+    border-bottom: $borderSingle;
+    text-transform: uppercase;
+  }
+
+  .sidebar-item {
+    @include padding(0, 0.25);
+    width: 100%;
+    letter-spacing: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    &.active {
+      color: $colourHover;
+      text-decoration: underline;
+    }
+  }
+
+  @media screen and (max-width: $tablet) {
+    display: none;
+  }
+}

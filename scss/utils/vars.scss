@@ -2,8 +2,8 @@
 $black: #080808;
 $white: #fff;
 $red: #a8020e;
-$colourHover: magenta;
-$colourActive: yellow;
+$colourHover: #f00;
+$colourActive: pink;
 $colourNav: $black;
 $colourNavActive: $black;
 $colourBreadcrumb: #ddd;
@@ -24,6 +24,7 @@ $sizeSubNav: 50px;
 $sizeBreadcrumb: 35px;
 $navHeight: 90px;
 $navThreshold: 32px;
+$sizeSidebar: 220px;
 
 // breakpoints
 $siteWidth: 1160px;

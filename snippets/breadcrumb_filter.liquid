@@ -1,0 +1,12 @@
+<div class='breadcrumb-filter'>
+  <select id='filter-select'>
+    <option value=''>Filter</option>
+    <option value='/collections/all/tops'>Tops</option>
+    <option value='/collections/all/bottoms'>Bottoms</option>
+    <option value='/collections/all/accessories'>Accessories</option>
+  	{% for link in linklists.all-collections.links %}
+  		{% assign collection = link.object %}
+  		<option value='{{ collection.url }}'>{{ collection.title }}</option>
+  	{% endfor %}
+  </select>
+</div>

@@ -1,9 +1,12 @@
 {% comment %} FEATURED {% endcomment %}
 <div class='index-featured'>
   <div class='index-featured__background-image'>
+    <a href='{{ settings.index_featured_url }}'>
     <img src='{{ settings.index_featured_image | img_url: "master" }}' alt=''/>
-    <div class='gradient-overlay'></div>
+    </a>
+    <!-- <div class='gradient-overlay'></div> -->
   </div>
+  {% comment %}
   <div class='index-featured__wrapper'>
     <div class='index-featured__inner'>
       <div class='index-featured__content'>
@@ -14,6 +17,7 @@
       </div>
     </div>
   </div>
+  {% endcomment %}
 </div>
 
 {% comment %} ABOUT {% endcomment %}
@@ -24,6 +28,8 @@
         <div class='index-about__title'>Al<span class='red'>a</span>bama &dagger; <span class='red'>B</span>londe</div>
         <div class='index-about__text'>
           {{ settings.index_about_text }}
+          <br /><br />
+          <a href='/pages/about/'>Read more</a>
         </div>
       </div>
       <div class='index-about__banner'></div>
@@ -38,6 +44,7 @@
     &#10016;
     Al<span class='red'>a</span>bama <span class='red'>B</span>londe
     {{ settings.index_about_text }}
+    <a href='/pages/about/'>More</a>
   </div>
 </div>
 
@@ -46,10 +53,10 @@
   <div class='index-row'>
     <div class='index-row__heading'>
       <div class='heading'>
-        Events/ Blog
+        Blog
       </div>
       <div class='subheading'>
-        <a href='/blogs/blog/'>&#9769; Browse all &#9769;</a>
+        <a href='/blogs/blog/'>&#9769; Read more &#9769;</a>
       </div>
     </div>
     <div class='index-row__inner'>
@@ -84,7 +91,7 @@
         Videos
       </div>
       <div class='subheading'>
-        <a href='/blogs/video/'>&#9769; See all videos &#9769;</a>
+        <a href='/blogs/video/'>&#9769; See more &#9769;</a>
       </div>
     </div>
     <div class='index-row__inner'>
@@ -124,7 +131,7 @@
         Editorials
       </div>
       <div class='subheading'>
-        <a href='/blogs/editorials/'>&#9769; Browse all editorials &#9769;</a>
+        <a href='/blogs/editorials/'>&#9769; Read more &#9769;</a>
       </div>
     </div>
     <div class='index-row__inner'>
