@@ -38,22 +38,6 @@
       }
     }
 
-    .breadcrumb-filter {
-      flex: 1;
-      display: flex;
-      justify-content: flex-end;
-
-      select {
-        width: 120px;
-        border-radius: 3px;
-        background-color: $colourBreadcrumb;
-        direction: rtl;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        @include padding(0.5, 0);
-      }
-    }
-
     &.align-right {
       justify-content: flex-end;
 

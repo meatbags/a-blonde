@@ -1,0 +1,72 @@
+.breadcrumb-filter {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+
+  .filter-title {
+    @include padding(1, 0);
+    border: $borderSingleGrey;
+    color: $colourBreadcrumbText;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    .arrow {
+      border: solid black;
+      border-width: 0 1px 1px 0;
+      display: inline-block;
+      padding: 2px;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    }
+  }
+
+  select {
+    display: none;
+  }
+}
+
+.filter-dropdown {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: $indexFilterDropdown;
+  background: $colourBreadcrumb;
+  color: $colourBreadcrumbText;
+  opacity: 0;
+  pointer-events: none;
+  width: $sizeFilterDropdown;
+  border: $borderSingleGrey;
+  @include padding(2, 1);
+  border-radius: 3px;
+  box-shadow: $dropShadow;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .dropdown-item {
+    width: 100%;
+    letter-spacing: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: right;
+    border-bottom: $borderSingleGrey;
+    font-size: $fontMedium;
+    @include padding(0, 0.25);
+
+    &:hover {
+      color: $colourHover;
+      border-bottom-color: $colourHover;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

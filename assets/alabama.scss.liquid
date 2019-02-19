@@ -16,6 +16,7 @@ $backgroundCartForm: linear-gradient(to right, $colourBreadcrumb, lighten($colou
 $backgroundCustom: repeating-linear-gradient(-45deg, $black, $black 1px, rgba($black, 0) 1px, rgba($black, 0) 8px);
 $backgroundCustomAlt: repeating-linear-gradient(-45deg, rgba($white, 0), rgba($white, 0.05) 32px);
 $backgroundImage1: url("https://cdn.shopify.com/s/files/1/1950/6433/files/crosshatch64.png?17626610360363650453");
+$dropShadow: 5px 5px 10px rgba($black, 0.5);
 
 // size
 $space: 8px;
@@ -25,6 +26,7 @@ $sizeBreadcrumb: 35px;
 $navHeight: 90px;
 $navThreshold: 32px;
 $sizeSidebar: 220px;
+$sizeFilterDropdown: 300px;
 
 // breakpoints
 $siteWidth: 1160px;
@@ -33,6 +35,7 @@ $tablet: 900px;
 
 // index
 $indexNav: 100;
+$indexFilterDropdown: 80;
 $indexNavDropdown: 90;
 $indexPromo: 101;
 $indexFooter: 10;
@@ -52,6 +55,7 @@ $transitionSlower: 0.75s;
 $border: 4px double $white;
 $borderBlack: 4px double $black;
 $borderSingle: 1px solid $black;
+$borderSingleGrey: 1px solid rgba($black, 0.4);
 $borderDouble: $borderBlack;
 $borderBlock: $space*2 solid $black;
 
@@ -62,6 +66,7 @@ $letterSpacing: 1px; //normal;
 
 // sizing
 $fontSmall: 11px;
+$fontMedium: 13px;
 $fontSize: 14px;
 $fontMobileMenu: 18px;
 $fontLarge: 28px;
@@ -249,13 +254,17 @@ h2 {
 	flex-direction: column;
 	align-items: center;
 
+	&.disabled {
+		pointer-events: none;
+	}
+
 	.content {
 		width: $siteWidth;
 		position: relative;
 		display: flex;
 		flex-direction: column;
 		padding-top: $space * 2;
-		
+
 		&.content--index {
 			padding-top: 0;
 		}
@@ -672,22 +681,6 @@ h2 {
       }
     }
 
-    .breadcrumb-filter {
-      flex: 1;
-      display: flex;
-      justify-content: flex-end;
-
-      select {
-        width: 120px;
-        border-radius: 3px;
-        background-color: $colourBreadcrumb;
-        direction: rtl;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        @include padding(0.5, 0);
-      }
-    }
-
     &.align-right {
       justify-content: flex-end;
 
@@ -721,6 +714,79 @@ h2 {
       span {
         display: none;
       }
+    }
+  }
+}
+
+.breadcrumb-filter {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+
+  .filter-title {
+    @include padding(1, 0);
+    border: $borderSingleGrey;
+    color: $colourBreadcrumbText;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    .arrow {
+      border: solid black;
+      border-width: 0 1px 1px 0;
+      display: inline-block;
+      padding: 2px;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    }
+  }
+
+  select {
+    display: none;
+  }
+}
+
+.filter-dropdown {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: $indexFilterDropdown;
+  background: $colourBreadcrumb;
+  color: $colourBreadcrumbText;
+  opacity: 0;
+  pointer-events: none;
+  width: $sizeFilterDropdown;
+  border: $borderSingleGrey;
+  @include padding(2, 1);
+  border-radius: 3px;
+  box-shadow: $dropShadow;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .dropdown-item {
+    width: 100%;
+    letter-spacing: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: right;
+    border-bottom: $borderSingleGrey;
+    font-size: $fontMedium;
+    @include padding(0, 0.25);
+
+    &:hover {
+      color: $colourHover;
+      border-bottom-color: $colourHover;
+    }
+
+    &:last-child {
+      border-bottom: none;
     }
   }
 }
@@ -1252,6 +1318,7 @@ h2 {
   right: $siteWidth + $space * 2;
   width: $sizeSidebar;
   background-color: $colourBreadcrumb;
+  border: $borderSingleGrey;
   display: flex;
   flex-direction: column;
   @include padding(1, 0.5);
@@ -1260,6 +1327,7 @@ h2 {
   opacity: 0;
   pointer-events: none;
   transition: opacity $transition;
+  box-shadow: $dropShadow;
 
   &.active {
     opacity: 1;
@@ -1267,27 +1335,42 @@ h2 {
   }
 
   .sidebar-title {
+    font-size: $fontSmall;
     padding-bottom: $space / 4;
     margin-bottom: $space / 4;
-    border-bottom: $borderSingle;
-    text-transform: uppercase;
+    //border-bottom: $borderSingle;
+    //text-transform: uppercase;
   }
 
   .sidebar-item {
-    @include padding(0, 0.25);
+    padding-top: $space / 2;
+    border-bottom: $borderSingleGrey;
     width: 100%;
     letter-spacing: normal;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    font-size: $fontMedium;
+    //white-space: nowrap;
+    //text-overflow: ellipsis;
+    //overflow: hidden;
+    cursor: pointer;
 
-    a:hover {
-      text-decoration: underline;
+    a {
+      display: flex;
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      //white-space: nowrap;
+      //text-overflow: ellipsis;
+      //overflow: hidden;
     }
 
-    &.active {
+    &.active, &:hover {
       color: $colourHover;
-      text-decoration: underline;
+      border-bottom-color: $colourHover;
+      //text-decoration: underline;
+    }
+
+    &:last-child {
+      border-bottom: none;
     }
   }
 
@@ -2519,6 +2602,12 @@ $bottom: #b20019;
 .page {
   width: 100%;
   margin: 0 auto;
+
+  p {
+    img {
+      max-width: 100%;
+    }
+  }
 
   &.full {
     width: 100%;

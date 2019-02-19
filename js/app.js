@@ -7,7 +7,7 @@ class App {
 		this.navBar = new Module.NavBar(this.isMobile);
 		this.text = new Module.Text(this.isMobile);
 		this.audio = new Module.Audio(this.isMobile);
-		this.filter = new Module.Filter();
+		this.filter = new Module.Filter(this.isMobile);
 		this.sliders = new Module.Gallery();
 		this.pageIndex = new Module.PageIndex();
 	}

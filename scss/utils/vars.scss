@@ -16,6 +16,7 @@ $backgroundCartForm: linear-gradient(to right, $colourBreadcrumb, lighten($colou
 $backgroundCustom: repeating-linear-gradient(-45deg, $black, $black 1px, rgba($black, 0) 1px, rgba($black, 0) 8px);
 $backgroundCustomAlt: repeating-linear-gradient(-45deg, rgba($white, 0), rgba($white, 0.05) 32px);
 $backgroundImage1: url("https://cdn.shopify.com/s/files/1/1950/6433/files/crosshatch64.png?17626610360363650453");
+$dropShadow: 5px 5px 10px rgba($black, 0.5);
 
 // size
 $space: 8px;
@@ -25,6 +26,7 @@ $sizeBreadcrumb: 35px;
 $navHeight: 90px;
 $navThreshold: 32px;
 $sizeSidebar: 220px;
+$sizeFilterDropdown: 300px;
 
 // breakpoints
 $siteWidth: 1160px;
@@ -33,6 +35,7 @@ $tablet: 900px;
 
 // index
 $indexNav: 100;
+$indexFilterDropdown: 80;
 $indexNavDropdown: 90;
 $indexPromo: 101;
 $indexFooter: 10;
@@ -52,5 +55,6 @@ $transitionSlower: 0.75s;
 $border: 4px double $white;
 $borderBlack: 4px double $black;
 $borderSingle: 1px solid $black;
+$borderSingleGrey: 1px solid rgba($black, 0.4);
 $borderDouble: $borderBlack;
 $borderBlock: $space*2 solid $black;
