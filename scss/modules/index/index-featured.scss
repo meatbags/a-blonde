@@ -1,13 +1,13 @@
 .index-featured {
   width: 100%;
-  height: 85vh;
+  //height: 65vh;
   position: relative;
   margin-top: $navHeight - 1px;
 
   .index-featured__background-image {
     width: 100%;
     height: 100%;
-    padding: $space * 2;
+    @include padding(0, 2);
     position: relative;
 
     .gradient-overlay {
@@ -21,9 +21,9 @@
 
     img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
+      height: auto;
+      //object-fit: cover;
+      //object-position: center center;
     }
   }
 

@@ -35,13 +35,16 @@
       font-family: $fontStackCursive;
       font-weight: bold;
       display: inline-block;
+      width: 100%;
       text-transform: uppercase;
       padding-bottom: $space / 2;
+      text-align: center;
     }
 
     .subheading {
       padding-bottom: $space / 2;
       text-transform: uppercase;
+      text-align: center;
 
       a {
         text-decoration: underline;

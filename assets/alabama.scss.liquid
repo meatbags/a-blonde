@@ -29,7 +29,7 @@ $sizeSidebar: 220px;
 $sizeFilterDropdown: 300px;
 
 // breakpoints
-$siteWidth: 1160px;
+$siteWidth: 1200px;
 $mobile: 700px;
 $tablet: 900px;
 
@@ -71,7 +71,7 @@ $fontSize: 14px;
 $fontMobileMenu: 18px;
 $fontLarge: 28px;
 $fontLargeMobile: 22px;
-$fontHuge: 56px;
+$fontHuge: 52px;
 $fontHugeMobile: 36px;
 
 .noselect {
@@ -1588,7 +1588,8 @@ $bottom: #b20019;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	
+	user-select: none;
+
 	.loading-msg {
 		font-weight: bold;
 		color: white;
@@ -1608,14 +1609,14 @@ $bottom: #b20019;
 
 .index-featured {
   width: 100%;
-  height: 85vh;
+  //height: 65vh;
   position: relative;
   margin-top: $navHeight - 1px;
 
   .index-featured__background-image {
     width: 100%;
     height: 100%;
-    padding: $space * 2;
+    @include padding(0, 2);
     position: relative;
 
     .gradient-overlay {
@@ -1629,9 +1630,9 @@ $bottom: #b20019;
 
     img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
+      height: auto;
+      //object-fit: cover;
+      //object-position: center center;
     }
   }
 
@@ -1707,14 +1708,12 @@ $bottom: #b20019;
 .index-about {
   display: flex;
   width: 100%;
-  height: 80vh;
   margin-bottom: $space * 6;
 
   .index-about__left {
-    width: 55%;
-    height: 100%;
+    width: 66.66%;
     padding-left: $space * 2;
-    padding-right: $space * 2;
+    padding-right: $space * 0.33 * 2;
 
     .index-about__inner {
       height: 100%;
@@ -1733,7 +1732,7 @@ $bottom: #b20019;
         justify-content: flex-end;
         position: relative;
         padding-right: 0;//$space * 2;
-        padding-bottom: $space * 2;
+        //padding-bottom: $space * 2;
         text-align: right;
 
         .index-about__title {
@@ -1767,14 +1766,14 @@ $bottom: #b20019;
   }
 
   .index-about__right {
-    width: 45%;
+    width: 33.33%;
     height: 100%;
+    padding-left: $space * 0.66 * 2;
 
     .index-about__image {
       width: 100%;
-      height: 100%;
+      height: 300px;
       overflow: hidden;
-      padding-right: $space * 2;
 
       img {
         width: 100%;
@@ -1844,13 +1843,16 @@ $bottom: #b20019;
       font-family: $fontStackCursive;
       font-weight: bold;
       display: inline-block;
+      width: 100%;
       text-transform: uppercase;
       padding-bottom: $space / 2;
+      text-align: center;
     }
 
     .subheading {
       padding-bottom: $space / 2;
       text-transform: uppercase;
+      text-align: center;
 
       a {
         text-decoration: underline;
@@ -2046,12 +2048,32 @@ $bottom: #b20019;
   }
 }
 
-.index-instagram {
-  @include padding(0, 6);
-  width: 100%;
-  background: grey;
-  display: flex;
-  justify-content: center;
+//@import 'X:\xampp\htdocs\github\a-blonde\scss\modules\index\index-instagram';
+.custom-snappt-header {
+  font-size: $fontLarge;
+  font-family: $fontStackCursive;
+  font-weight: bold;
+  display: inline-block;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  text-align: center;
+  padding-top: $space * 2;
+
+  @media screen and (max-width: $mobile) {
+    font-size: $fontLargeMobile;
+  }
+}
+
+.custom-snappt-subheader {
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+  text-decoration: underline;
+  text-decoration: underline;
+  padding-bottom: $space * 2;
+  text-align: center;
 }
 
 

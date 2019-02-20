@@ -1,50 +1,56 @@
 {% comment %} FEATURED {% endcomment %}
-<div class='index-featured'>
-  <div class='index-featured__background-image'>
-    <a href='{{ settings.index_featured_url }}'>
-    <img src='{{ settings.index_featured_image | img_url: "master" }}' alt=''/>
-    </a>
-    <!-- <div class='gradient-overlay'></div> -->
-  </div>
-  {% comment %}
-  <div class='index-featured__wrapper'>
-    <div class='index-featured__inner'>
-      <div class='index-featured__content'>
-        <a href='{{ collections[settings.index_featured_collection].url }}'>
-          <div class='title'>{{ collections[settings.index_featured_collection].title }}</div>
-          <div class='link'>&#9769; View Collection &#9769;</div>
-        </a>
+<div class='content content--index'>
+  <div class='index-featured'>
+    <div class='index-featured__background-image'>
+      <a href='{{ settings.index_featured_url }}'>
+      <img src='{{ settings.index_featured_image | img_url: "master" }}' alt=''/>
+      </a>
+      <!-- <div class='gradient-overlay'></div> -->
+    </div>
+    {% comment %}
+    <div class='index-featured__wrapper'>
+      <div class='index-featured__inner'>
+        <div class='index-featured__content'>
+          <a href='{{ collections[settings.index_featured_collection].url }}'>
+            <div class='title'>{{ collections[settings.index_featured_collection].title }}</div>
+            <div class='link'>&#9769; View Collection &#9769;</div>
+          </a>
+        </div>
       </div>
     </div>
+    {% endcomment %}
   </div>
-  {% endcomment %}
 </div>
 
 {% comment %} ABOUT {% endcomment %}
-<div class='index-about'>
-  <div class='index-about__left'>
-    <div class='index-about__inner'>
-      <div class='index-about__content'>
-        <div class='index-about__title'>Al<span class='red'>a</span>bama &dagger; <span class='red'>B</span>londe</div>
-        <div class='index-about__text'>
-          {{ settings.index_about_text }}
-          <br /><br />
-          <a href='/pages/about/'>Read more</a>
+<div class='content content--index'>
+  <div class='index-about'>
+    <div class='index-about__left'>
+      <div class='index-about__inner'>
+        <div class='index-about__content'>
+          <div class='index-about__title'>Al<span class='red'>a</span>bama &dagger; <span class='red'>B</span>londe</div>
+          <div class='index-about__text'>
+            {{ settings.index_about_text }}
+            <br />
+            <a href='/pages/about/'>Read more</a>
+          </div>
         </div>
+        {% comment %}
+        <div class='index-about__banner'></div>
+        {% endcomment %}
       </div>
-      <div class='index-about__banner'></div>
     </div>
-  </div>
-  <div class='index-about__right'>
-    <div class='index-about__image'>
-      <img src='{{ settings.index_about_image | img_url: "master" }}' alt=''/>
+    <div class='index-about__right'>
+      <div class='index-about__image'>
+        <img src='{{ settings.index_about_image | img_url: "master" }}' alt=''/>
+      </div>
     </div>
-  </div>
-  <div class='index-about__mobile'>
-    &#10016;
-    Al<span class='red'>a</span>bama <span class='red'>B</span>londe
-    {{ settings.index_about_text }}
-    <a href='/pages/about/'>More</a>
+    <div class='index-about__mobile'>
+      &#10016;
+      Al<span class='red'>a</span>bama <span class='red'>B</span>londe
+      {{ settings.index_about_text }}
+      <a href='/pages/about/'>More</a>
+    </div>
   </div>
 </div>
 
@@ -72,9 +78,11 @@
                 <div class='index-row__title'>
                   {{ article.title }}
                 </div>
+                {% comment %}
                 <div class='index-row__excerpt'>
                   {{ article.excerpt }}
                 </div>
+                {% endcomment %}
               </div>
             </a>
           </div>
@@ -85,7 +93,7 @@
   </div>
 
   {% comment %} LATEST BLOG.VIDEO POSTS (2) {% endcomment %}
-  <div class='index-row index-row--alt'>
+  <div class='index-row'>
     <div class='index-row__heading'>
       <div class='heading'>
         Videos
@@ -112,9 +120,11 @@
                 <div class='index-row__title'>
                   {{ article.title }}
                 </div>
+                {% comment %}
                 <div class='index-row__excerpt'>
                   {{ article.excerpt }}
                 </div>
+                {% endcomment %}
               </div>
             </a>
           </div>
@@ -131,7 +141,7 @@
         Editorials
       </div>
       <div class='subheading'>
-        <a href='/blogs/editorials/'>&#9769; Read more &#9769;</a>
+        <a href='/blogs/editorials/'>&#9769; See more &#9769;</a>
       </div>
     </div>
     <div class='index-row__inner'>
@@ -147,9 +157,11 @@
                 <div class='index-row__title'>
                   {{ article.title }}
                 </div>
+                {% comment %}
                 <div class='index-row__excerpt'>
                   {{ article.excerpt }}
                 </div>
+                {% endcomment %}
               </div>
             </a>
           </div>
@@ -161,6 +173,12 @@
 
 	{% include 'widget_instagram' %}
   {% include 'widget_newsletter' %}
+
+  <!-- Snapppt embed code -->
+  <h1 class='custom-snappt-header'>Shop on Instagram</h1>
+  <h3 class='custom-snappt-subheader'>&#9769; Click an image to shop products &#9769;</h3>
+  <script src="https://snapppt.com/widgets/widget_loader/8385e16d-e0a3-4f4e-8304-5393c39379c0/grid.js" defer="defer" class="snapppt-widget"></script>
+  <!-- end Snapppt embed code -->
 </div>
 
 <!-- widgets -->
