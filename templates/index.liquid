@@ -22,52 +22,58 @@
   </div>
 </div>
 
-{% comment %} ABOUT {% endcomment %}
 <div class='content content--index'>
-  <div class='index-about'>
-    <div class='index-about__left'>
-      <div class='index-about__inner'>
-        <div class='index-about__content'>
-          <div class='index-about__title'>Al<span class='red'>a</span>bama &dagger; <span class='red'>B</span>londe</div>
-          <div class='index-about__text'>
-            {{ settings.index_about_text }}
-            <br />
-            <a href='/pages/about/'>Read more</a>
-          </div>
-        </div>
-        {% comment %}
-        <div class='index-about__banner'></div>
-        {% endcomment %}
-      </div>
-    </div>
-    <div class='index-about__right'>
-      <div class='index-about__image'>
-        <img src='{{ settings.index_about_image | img_url: "master" }}' alt=''/>
-      </div>
-    </div>
-    <div class='index-about__mobile'>
-      &#10016;
-      Al<span class='red'>a</span>bama <span class='red'>B</span>londe
-      {{ settings.index_about_text }}
-      <a href='/pages/about/'>More</a>
-    </div>
-  </div>
-</div>
-
-<div class='content content--index'>
-  {% comment %} LATEST BLOGS.BLOG POSTS (3) {% endcomment %}
+  {% comment %} LATEST BLOG.EDITORIALS POSTS (3) {% endcomment %}
   <div class='index-row'>
     <div class='index-row__heading'>
       <div class='heading'>
-        Blog
+        Collections
       </div>
       <div class='subheading'>
-        <a href='/blogs/blog/'>&#9769; Read more &#9769;</a>
+        <a href='/blogs/editorials/'>&#9769; Shop now &#9769;</a>
       </div>
     </div>
     <div class='index-row__inner'>
       {% assign index = 0 %}
-      {% for article in blogs.blog.articles %}
+      {% for link in linklists.all-collections.links %}
+        {% if index < 3 %}
+          {% assign article = link.object %}
+          <div class="index-row__item">
+            <a href="{{ article.url }}">
+              <div class='index-row__image'>
+                <img src="{{ article.image.src | img_url: 'grande' }}" alt="{{ article.title }}" />
+              </div>
+              <div class='index-row__content'>
+                <div class='index-row__title'>
+                  {{ article.title }}
+                </div>
+                {% comment %}
+                  <div class='index-row__excerpt'>
+                    {{ article.excerpt }}
+                  </div>
+                {% endcomment %}
+              </div>
+            </a>
+          </div>
+          {% assign index = index | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  {% comment %} LATEST BLOG.EDITORIALS POSTS (3) {% endcomment %}
+  <div class='index-row'>
+    <div class='index-row__heading'>
+      <div class='heading'>
+        Editorials
+      </div>
+      <div class='subheading'>
+        <a href='/blogs/editorials/'>&#9769; See more &#9769;</a>
+      </div>
+    </div>
+    <div class='index-row__inner'>
+      {% assign index = 0 %}
+      {% for article in blogs.editorials.articles %}
         {% if index < 3 %}
           <div class="index-row__item">
             <a href="{{ article.url }}">
@@ -134,19 +140,19 @@
     </div>
   </div>
 
-  {% comment %} LATEST BLOG.EDITORIALS POSTS (3) {% endcomment %}
+  {% comment %} LATEST BLOGS.BLOG POSTS (3) {% endcomment %}
   <div class='index-row'>
     <div class='index-row__heading'>
       <div class='heading'>
-        Editorials
+        Memoir
       </div>
       <div class='subheading'>
-        <a href='/blogs/editorials/'>&#9769; See more &#9769;</a>
+        <a href='/blogs/blog/'>&#9769; Read more &#9769;</a>
       </div>
     </div>
     <div class='index-row__inner'>
       {% assign index = 0 %}
-      {% for article in blogs.editorials.articles %}
+      {% for article in blogs.blog.articles %}
         {% if index < 3 %}
           <div class="index-row__item">
             <a href="{{ article.url }}">
@@ -171,7 +177,36 @@
     </div>
   </div>
 
-	{% include 'widget_instagram' %}
+  {% comment %} ABOUT {% endcomment %}
+  <div class='index-about'>
+    <div class='index-about__left'>
+      <div class='index-about__inner'>
+        <div class='index-about__content'>
+          <div class='index-about__title'>Al<span class='red'>a</span>bama &dagger; <span class='red'>B</span>londe</div>
+          <div class='index-about__text'>
+            {{ settings.index_about_text }}
+            <br />
+            <a href='/pages/about/'>Read more</a>
+          </div>
+        </div>
+        {% comment %}
+        <div class='index-about__banner'></div>
+        {% endcomment %}
+      </div>
+    </div>
+    <div class='index-about__right'>
+      <div class='index-about__image'>
+        <img src='{{ settings.index_about_image | img_url: "master" }}' alt=''/>
+      </div>
+    </div>
+    <div class='index-about__mobile'>
+      &#10016;
+      Al<span class='red'>a</span>bama <span class='red'>B</span>londe
+      {{ settings.index_about_text }}
+      <a href='/pages/about/'>More</a>
+    </div>
+  </div>
+
   {% include 'widget_newsletter' %}
 
   <!-- Snapppt embed code -->

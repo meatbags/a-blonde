@@ -69,8 +69,6 @@ snippets/ajax-cart-template.liquid:
   development: 2017-06-01T19:47:30+10:00   e6fa15367ab47a164d9dc8e47353c684
 snippets/article-grid.liquid:
   development: 2017-07-26T01:23:48+10:00   9b7d6cc9e809f1b3ebf4246f6f69e5ab
-snippets/audioplayer.liquid:
-  development: 2018-03-16T16:30:13+11:00   02a4ad86448c20e6f8ba705ca523321f
 snippets/blog-sidebar.liquid:
   development: 2017-06-01T19:47:30+10:00   ae3891e372509ded7074e50b2a97f438
 snippets/breadcrumb.liquid:
@@ -81,30 +79,6 @@ snippets/collection-sorting.liquid:
   development: 2017-06-01T19:47:30+10:00   d369d2d4697110800946220909e8ecf8
 snippets/comment.liquid:
   development: 2017-06-01T19:47:30+10:00   c766e42be8a74e05533d0e5a0e3a9ce3
-snippets/filters.liquid:
-  development: 2018-03-16T17:34:40+11:00   830853421e349c5c0fc58b42c3178ed0
-snippets/footer-cart.liquid:
-  development: 2018-03-16T17:50:44+11:00   cb07b28f777d9a93f42254d419ec5f3f
-snippets/footer-social-media.liquid:
-  development: 2018-03-15T21:56:59+11:00   62b0e1b44335e6c34126a7734f3ad588
-snippets/footer.liquid:
-  development: 2018-03-16T19:55:59+11:00   5a680a28e44513cd425014f4f272e5cb
-snippets/grid-item-collection.liquid:
-  development: 2018-03-14T22:19:40+11:00   4090e059d9c6609ac7712b5e4efb4c4a
-snippets/grid-item-product.liquid:
-  development: 2018-04-15T12:04:29+10:00   858c14ac4d9af4ba3dc64a75bed8ba92
-snippets/landing.liquid:
-  development: 2018-03-14T18:34:42+11:00   b312e81bdba6788444ba6288511e2768
-snippets/loading.liquid:
-  development: 2018-03-15T23:31:11+11:00   63455c13786a705aa5e7f44a500642f6
-snippets/menu.liquid:
-  development: 2018-03-17T13:46:06+11:00   ceaaa632ceb1e7259f7a76c5fd522e51
-snippets/nav-promo.liquid:
-  development: 2018-03-14T14:54:35+11:00   e5916469b2eee2c5a0703140caf5357d
-snippets/nav-subnav.liquid:
-  development: 2018-03-16T16:44:00+11:00   a32551b2891efa6b788772f7a7cd4008
-snippets/nav.liquid:
-  development: 2018-03-16T16:45:54+11:00   14e8960890f27c59fb35db5888531989
 snippets/newsletter.liquid:
   development: 2017-06-01T22:56:11+10:00   30eee7e28fff09e9f6e6bc045d61f09b
 snippets/oldIE-js.liquid:
@@ -121,8 +95,6 @@ snippets/product-grid-item.liquid:
   development: 2017-06-01T19:47:30+10:00   5c056a854988fba46c535845cd5aeba1
 snippets/respond.liquid:
   development: 2017-06-01T19:47:30+10:00   ca6abf0635dc2ad8c6bd377f83c79f6b
-snippets/scripts.liquid:
-  development: 2018-03-12T16:08:09+11:00   4e91772e7a1d2f660919b40ad3c321c4
 snippets/search-bar.liquid:
   development: 2017-06-01T20:36:14+10:00   783fe4a34fbacdc11bd9f9623d590f7d
 snippets/social-meta-tags.liquid:
@@ -161,8 +133,6 @@ templates/list-collections.liquid:
   development: 2018-03-15T20:01:38+11:00   3a3429b1264d542908c74cf8f7d20951
 templates/page.contact.liquid:
   development: 2018-03-14T21:40:12+11:00   da5b049a116d89005f6156ad8acd856b
-templates/page.editorials.liquid:
-  development: 2018-03-14T21:39:51+11:00   eb57106a5f31f8da45013b58fb842f2f
 templates/page.liquid:
   development: 2018-03-16T02:05:53+11:00   40613be5ee4132c5fd874149a60047c5
 templates/password.liquid:

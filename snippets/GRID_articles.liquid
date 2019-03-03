@@ -1,32 +1,37 @@
 <div class="columns">
+  {% assign blogs = blog.articles %}
+  {% if page_title == 'Memoir' %}
+    {% assign blogs = blog.articles | reverse %}
+  {% endif %}
+
 	{% for i in (0..2) %}
-	<div class="columns__column columns__column-third">
-		{% assign index = 0 %}
-		{% assign colNo = 1 %}
-		{% for article in blog.articles %}
-			{% assign test = index | minus:i | modulo:3 %}
-			{% if test == 0 %}
-				{% include 'GRID_SINGLE_article' %}
-			{% endif %}
-			{% assign index = index | plus: 1 %}
-			{% assign colNo = colNo | plus: 1 %}
-		{% endfor %}
-	</div>
+  	<div class="columns__column columns__column-third">
+  		{% assign index = 0 %}
+  		{% assign colNo = 1 %}
+  		{% for article in blogs %}
+  			{% assign test = index | minus:i | modulo:3 %}
+  			{% if test == 0 %}
+  				{% include 'GRID_SINGLE_article' %}
+  			{% endif %}
+  			{% assign index = index | plus: 1 %}
+  			{% assign colNo = colNo | plus: 1 %}
+  		{% endfor %}
+  	</div>
 	{% endfor %}
 
 	{% comment %} MEDIUM SCREEN {% endcomment %}
 	{% for i in (0..1) %}
-	<div class="columns__column columns__column-half">
-		{% assign index = 0 %}
-		{% assign colNo = 1 %}
-		{% for article in blog.articles %}
-			{% assign test = index | minus:i | modulo:2 %}
-			{% if test == 0 %}
-				{% include 'GRID_SINGLE_article' %}
-			{% endif %}
-			{% assign index = index | plus: 1 %}
-			{% assign colNo = colNo | plus: 1 %}
-		{% endfor %}
-	</div>
+  	<div class="columns__column columns__column-half">
+  		{% assign index = 0 %}
+  		{% assign colNo = 1 %}
+  		{% for article in blogs %}
+  			{% assign test = index | minus:i | modulo:2 %}
+  			{% if test == 0 %}
+  				{% include 'GRID_SINGLE_article' %}
+  			{% endif %}
+  			{% assign index = index | plus: 1 %}
+  			{% assign colNo = colNo | plus: 1 %}
+  		{% endfor %}
+  	</div>
 	{% endfor %}
 </div>
